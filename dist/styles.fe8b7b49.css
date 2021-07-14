@@ -16,8 +16,28 @@
   font-weight: normal;
   font-style: normal;
 }
-* {
+h1 {
+  font-family: Montserrat Semibold;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+h2 {
+  font-family: Montserrat Semibold;
+  font-size: 19px;
+  line-height: 23px;
+}
+
+h3 {
+  font-family: Montserrat Semibold;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+body {
   font-family: Montserrat Regular;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 /*# sourceMappingURL=/styles.fe8b7b49.css.map */

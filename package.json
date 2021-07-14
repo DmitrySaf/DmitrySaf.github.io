@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "gulp-imagemin": "^7.1.0"
+    "gulp-imagemin": "^7.1.0",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
