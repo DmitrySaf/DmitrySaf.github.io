@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Montserrat Semibold";
+  src: url("/Montserrat-SemiBold.86c751bf.eot");
+  src: url("/Montserrat-SemiBold.86c751bf.eot?#iefix") format("embedded-opentype");
+  src: url("/Montserrat-SemiBold.5275f802.woff") format("woff");
+  src: url("/Montserrat-SemiBold.907fc829.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url("/Montserrat-Regular.21b801b8.eot");
+  src: url("/Montserrat-Regular.21b801b8.eot?#iefix") format("embedded-opentype");
+  src: url("/Montserrat-Regular.1b35f2ae.woff") format("woff");
+  src: url("/Montserrat-Regular.44e710c1.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: Montserrat Regular;
+}
+
+/*# sourceMappingURL=/styles.fe8b7b49.css.map */
