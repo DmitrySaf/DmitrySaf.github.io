@@ -1,0 +1,32 @@
+@import '../../../assets/sass/base/_variables'
+    
+.input
+    &-container
+        display: flex
+        flex-direction: column
+    &-default
+        width: 320px
+        height: 44px
+        border: 1px solid $dark-shade-25
+        border-radius: 4px
+        font-size: 14px
+        line-height: 18px
+        font-family: Montserrat Regular
+        padding: 13px 15px
+        &::-webkit-input-placeholder
+            color: $dark-shade-25
+        &::-webkit-calendar-picker-indicator 
+            opacity: 0
+        &:focus, &:hover
+            outline: none
+            border: 1px solid $dark-shade-50
+        &[type="date"]
+            text-transform: uppercase
+            color: $dark-shade-25
+            
+    &-label
+        font-family: Montserrat Semibold
+        text-transform: uppercase
+        font-size: 12px
+        line-height: 15px
+        margin-bottom: 5px

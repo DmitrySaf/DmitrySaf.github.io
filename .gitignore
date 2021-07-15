@@ -1,5 +1,8 @@
 # ignore node_modules
-node_modules
+node_modules/
 
 #ignore .cache
-sass/base
+.cache
+
+#ignore dist
+dist/

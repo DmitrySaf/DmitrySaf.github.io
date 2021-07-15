@@ -1,0 +1,38 @@
+@import '../../../assets/sass/base/_variables'
+    
+@mixin like()
+    .like
+        &-circle
+            &_left
+                width: 3px
+                height: 3px
+                border-radius: 50%
+                background-color: #fff
+                border: .5px solid #000
+                transform: translate(-1px, 15px)
+            &_right
+                width: 3px
+                height: 3px
+                border-radius: 50%
+                background-color: #fff
+                border: .5px solid #000
+                transform: translate(1px, 7px)
+        &-square
+            width: 3px
+            height: 3px
+            background-color: #fff
+            border: .5px solid #000
+            transform: rotate(45deg)
+            border-left-color: #fff 
+            border-top-color: #fff 
+
+@mixin like-elem($background-color: $purple, $border: 0px)
+    width: 3px
+    height: 5px
+    border-top-left-radius: 50%
+    border-top-right-radius: 50%
+    background-color: $background-color
+    border: $border
+
+.like
+    @include like

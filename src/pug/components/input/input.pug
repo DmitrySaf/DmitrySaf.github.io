@@ -1,0 +1,17 @@
+link(rel="stylesheet", href="pages/form-elements/form-elements.sass")
+link(rel="stylesheet", href="components/input/input.sass")
+
+mixin input(options) 
+    if !options
+       - options = {}
+    .input-container 
+        - if (options.type === 'email' || options.type === 'text' || options.type === 'date' )
+            label.input-label(for="input-default")=options.label
+            input.input-default#input-default(
+                type = options.type
+                placeholder = options.placeholder
+                onfocus = "(this.type='date')"
+            )
+        
+
+        
