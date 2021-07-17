@@ -1,26 +1,21 @@
-@import '../../../assets/sass/base/_variables'
+@import '../../../assets/sass/_variables'
 
-// full arrow switched to the right    
-
-@mixin arrow ($background-color: $gradient-purple)
-    .arrow-line
-        &_main
-            @include arrow-elem($background-color, 12px)
-        &_top
-            @include arrow-elem($background-color)
-            transform: rotate(45deg) translate(3.4px, -4px)
-        &_bottom
-            @include arrow-elem($background-color)
-            transform: rotate(-45deg) translate(3.4px, 4px)
-
-@mixin arrow-elem ($background-color: $gradient-purple, $width: 9px)
+@mixin arrow-elem($width: 9px)
     width: $width
     height: 2px
-    background: $background-color
+    background: $gradient-primary
 
-.arrow-form
-    @include arrow
+.arrow-line
+    &_main
+        @include arrow-elem(12px)
+    &_top
+        @include arrow-elem
+        transform: rotate(45deg) translate(3.4px, -4px)
+    &_bottom
+        @include arrow-elem
+        transform: rotate(-45deg) translate(3.4px, 4px)
 
-// small arrow for dropdowns
 
-@mixin arrow
+.arrow-line_color
+    background: #fff
+

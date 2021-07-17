@@ -1,12 +1,20 @@
-// full arrow switched to the right
+//- full arrow switched to the right
 
-mixin arrow-form
+mixin arrow-form(options)
+    if !options
+        - var options = {}
     .arrow-form
-        .arrow-line_top 
-        .arrow-line_main
-        .arrow-line_bottom 
+        - if (options.color = "white")
+            .arrow-line_top.arrow-line_color 
+            .arrow-line_main.arrow-line_color
+            .arrow-line_bottom.arrow-line_color
+        else 
+            .arrow-line_top
+            .arrow-line_main
+            .arrow-line_bottom
 
-// small arrow for dropdowns
+
+//- small arrow for dropdowns
 
 mixin arrow-dropdown
     .arrow-dropdown
