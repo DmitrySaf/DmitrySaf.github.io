@@ -3,18 +3,26 @@ const path = require('path'),
       MiniCssExtractPlugin = require('mini-css-extract-plugin'),
       CopyWebpackPlugin = require('copy-webpack-plugin'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
-      FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+      FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
+      webpack = require('webpack');
+
+const test = 'form-elements.html';
 
 // Main const
 const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../dist'),
-  assets: 'assets/'
+  assets: 'assets/',
+  pageTest: path.join(__dirname, `../dist/${test}`)
 };
+
+const PAGES_DIR = `${PATHS.src}/pug/pages/`,
+      PAGES = fs.readdirSync(`${PATHS.src}/pug/pages/`);
 
 module.exports = {
     externals: {
-        paths: PATHS
+        paths: PATHS,
+        page: test
     },
     entry: {
         app: PATHS.src
@@ -24,12 +32,14 @@ module.exports = {
         path: PATHS.dist,
         publicPath: "/"
     },
-    devServer: {
-        overlay: true,
-        contentBase: "./src"
-    }, 
+    target: process.env.NODE_ENV === "development" ? "web" : "browserslist",
     module: {
         rules: [
+            {
+                //Pug
+            test: /\.pug$/,
+            loader: "pug-loader"
+            },
             {
                 //JavaScript
             test: /\.js$/,
@@ -108,13 +118,13 @@ module.exports = {
         }),
         new FaviconsWebpackPlugin({
             logo: './src/assets/icons/logo.svg',
-            outputPath: './assets/favicon'
+            outputPath: './assets/favicon/',
+            prefix: 'assets/favicon/',
         }),
-        new HtmlWebpackPlugin({
-            hash: false,
-            template: `${PATHS.src}/index.html`,
-            filename: './index.html'
-        })
+        ...PAGES.map(filename => new HtmlWebpackPlugin({
+            template: `${PAGES_DIR}/${filename}/${filename}.pug`,
+            filename: `${filename}.html`
+        })),
     ],
     performance: {
         maxEntrypointSize: 2048000,

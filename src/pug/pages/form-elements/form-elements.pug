@@ -1,13 +1,12 @@
-
+extends ../../templates/main
 
 block variables
     - title = "Forms and Elements"
 
-block main
-    include ../../components/input/input.pug
-    link(rel="stylesheet", href="form-elements.sass")
+block content
     .container
         img(src="../../../assets/icons/logo-grey.svg", alt="", class="form-elements_logo")
         +input({type: 'text', placeholder: 'Email', label: 'text field'})
         +input({type: 'date', placeholder: 'ДД.ММ.ГГГГ', label: 'masked text field'})
+        h2 sadas
     
