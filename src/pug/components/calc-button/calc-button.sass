@@ -1,0 +1,25 @@
+@import '../../../assets/sass/_variables'
+@import '../../../assets/sass/_mixins'
+
+.calc-button
+    cursor: pointer
+        
+    &_circle
+        height: 30px
+        width: 30px
+        border: 1px solid $dark-shade-25
+        border-radius: 50%
+        position: relative
+    &_operation
+        @include center()        
+    &_vert
+        height: 8px
+        width: 1px
+        background-color: $dark-shade-50
+        @include center()
+    &_horiz
+        height: 1px
+        width: 8px
+        background-color: $dark-shade-50
+        @include center()        
+        

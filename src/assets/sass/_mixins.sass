@@ -1,3 +1,6 @@
+@import './_variables'
+// adaptive-responsive
+    
 @mixin media-breakpoint-up($width)
     @media ( min-width: $width )
         @content
@@ -5,5 +8,38 @@
 @mixin media-breakpoint-down($width)
     @media ( max-width: $width )
         @content
+
+
+// input 
+
+@mixin input()
+    width: 320px
+    height: 44px
+    border: 1px solid $dark-shade-25
+    border-radius: 4px
+    font-size: 14px
+    line-height: 18px
+    font-family: $font-regular
+    padding: 12px 15px
+    &::-webkit-input-placeholder
+        color: $dark-shade-25
+    &:focus, &:hover
+        outline: none
+        border: 1px solid $dark-shade-50
+
+@mixin label()
+    font-family: $font-bold
+    text-transform: uppercase
+    font-size: 12px
+    line-height: 15px
+    margin-bottom: 5px
+
+// positioning
+
+@mixin center()
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%) 
 
         

@@ -1,5 +1,7 @@
 @import '../../../assets/sass/_variables'
 
+// arrow for forms
+
 @mixin arrow-elem($width: 9px)
     width: $width
     height: 2px
@@ -18,4 +20,24 @@
 
 .arrow-line_color
     background: #fff
+
+// arrow for dropdowns
+
+@mixin arrow-dropdown_elem($width: 8px, $background-color: $dark-shade-50)
+    width: $width
+    height: 2px
+    background: $background-color
+
+.arrow-dropdown
+    position: relative
+    left: -50%
+    transform: translateX(16px)
+    &_left
+        @include arrow-dropdown_elem()
+        transform: rotate(45deg)
+        position: absolute
+    &_right
+        @include arrow-dropdown_elem(6px)
+        transform: rotate(135deg) translate(-4.7px,-3.7px)
+        position: absolute
 

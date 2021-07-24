@@ -1,14 +1,30 @@
+include ../dropdown/dropdown
+
 
 mixin input(options) 
     if !options
-       - options = {}
+       - var options = {}
     .input-container 
-        - if (options.type === 'email' || options.type === 'text' || options.type === 'date' )
-            label.input-label(for="input-default")=options.label
-            input.input-default#input-default(
+        if (options.type === 'email' || options.type === 'text' || options.type === 'date' )
+            label.input-label(for=options.id)=options.label
+            input.input-default(
                 type = options.type
                 placeholder = options.placeholder
+                required = true
+                id = options.id
+                
             )
+        else if (options.type === 'dropdown')
+            +dropdown({name: 'guests', id: 'button-test', label: 'dropdown'})
+            
+
+
+
+//-label.input-label(for="dropdown") dropdown
+            select#dropdown.input-default
+                option(value="children") Дети
+                option(value="babies") Младенцы
+                option(value="adults") Взрослые
         
 
         

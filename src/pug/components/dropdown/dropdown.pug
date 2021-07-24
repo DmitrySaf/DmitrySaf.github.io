@@ -1,0 +1,32 @@
+include ../arrows/arrows
+include ../calc-button/calc-button
+
+mixin dropdown(options)
+    if !options
+        - var options = {}
+
+    label.dropdown-label(for=options.id)=options.label
+    if (options.name === 'guests')
+        .dropdown-default(id = options.id) 
+            .dropdown-placeholder Сколько гостей
+            .dropdown-arrow 
+                +arrow-dropdown
+        .dropdown-content_wrapper
+            .dropdown-content
+                +dropdown-item({text: 'взрослые', dataId: '1'})
+                +dropdown-item({text: 'дети', dataId: '2'})
+                +dropdown-item({text: 'младенцы', dataId: '3'})
+                .dropdown-content_action-wrapper
+                    .dropdown-content_action.dropdown-content_action-clear очистить
+                    .dropdown-content_action.dropdown-content_action-accept применить
+
+mixin dropdown-item(options)
+    if !options
+        - var options = {}
+
+    .dropdown-item
+        .dropdown-item_text #{options.text}
+        .dropdown-item_calc
+            +calc-button()
+            .item-calc_counter 0
+            +calc-button({operation: "plus"})

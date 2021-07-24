@@ -4,9 +4,10 @@ block variables
     - title = "Forms and Elements"
 
 block content
-    .container
-        img(src="../../../assets/icons/logo-grey.svg", alt="", class="form-elements_logo")
-        +input({type: 'text', placeholder: 'Email', label: 'text field'})
-        +input({type: 'date', placeholder: 'ДД.ММ.ГГГГ', label: 'masked text field'})
-        h2 sadas
+    section.form-elements 
+        .container
+            img(src="../../../assets/icons/logo-grey.svg", alt="", class="form-elements_logo")
+            +input({type: 'email', placeholder: 'Email', label: 'text field', id: 'input-email'})
+            +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'masked text field', id: 'input-date'})
+            +input({type: 'dropdown'})
     

@@ -4,10 +4,10 @@ mixin arrow-form(options)
     if !options
         - var options = {}
     .arrow-form
-        - if (options.color = "white")
+        if (options.color === "white")
             .arrow-line_top.arrow-line_color 
             .arrow-line_main.arrow-line_color
-            .arrow-line_bottom.arrow-line_color
+            .arrow-line_bottom.arrow-line_color 
         else 
             .arrow-line_top
             .arrow-line_main
@@ -16,9 +16,10 @@ mixin arrow-form(options)
 
 //- small arrow for dropdowns
 
-mixin arrow-dropdown
+mixin arrow-dropdown(options)
+    if !options
+        - var oprions = {}
     .arrow-dropdown
-
-        
-link(rel="stylesheet", href="/components/arrows/arrows.sass")
+        .arrow-dropdown_left 
+        .arrow-dropdown_right
 
