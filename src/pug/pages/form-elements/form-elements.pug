@@ -6,8 +6,14 @@ block variables
 block content
     section.form-elements 
         .container
-            img(src="../../../assets/icons/logo-grey.svg", alt="", class="form-elements_logo")
+            img(src="../assets/icons/logo-grey.svg", alt="", class="form-elements_logo")
             +input({type: 'email', placeholder: 'Email', label: 'text field', id: 'input-email'})
             +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'masked text field', id: 'input-date'})
-            +input({type: 'dropdown'})
+            +dropdown({type: 'guests', id: 'dropdown-guests', label: 'dropdown', placeholder: 'Сколько гостей'})
+            .input-container
+                +input({type: 'date',label: 'date dropdown',placeholder: 'ДД.ММ.ГГГГ', id: 'input-date_dropdown-arrival', arrowId: 'arrow-arrival'})
+                +input({type: 'date',label: 'date dropdown',placeholder: 'ДД.ММ.ГГГГ', id: 'input-date_dropdown-departure', arrowId: 'arrow-departure'})
+            +dropdown({type: 'checkbox', id: 'dropdown-checkbox', label: 'expandable checkbox list'})
+            +advantage-item({img: '../assets/icons/smile.svg', alt: 'happy', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
+            +advantage-item({img: '../assets/icons/building.svg', alt: 'city', header: 'Удобство', descr: 'Окно в каждой из спален'})
     

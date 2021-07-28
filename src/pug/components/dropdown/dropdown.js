@@ -42,14 +42,29 @@ function guestEndings(guests){
     }
 }
 
-$('.dropdown-arrow').on('click', () => {
+function calcButtonStyleChange(buttonLink, opacity, cursor){
+    buttonLink.style.opacity = opacity;
+    buttonLink.style.cursor = cursor;
+}
+
+$('#dropdown-guests').on('click', () => {
     dropdownContent.toggleClass('show');
     dropdown.toggleClass('border-radius_none');
+    counter.each((i, item) => {
+        if(item.textContent == 0){
+            calcButtonStyleChange(item.previousElementSibling, '.5', 'default');
+        }
+    });
 });
 
 clearButton.on('click', () => {
     placeholderText.text(`Сколько гостей`);
     counter.text(0);
+    counter.each((i, item) => {
+        if(item.textContent == 0){
+            calcButtonStyleChange(item.previousElementSibling, '.5', 'default');
+        }
+    });
     if(sumGuests() == 0) {
         clearButton.css('display', 'none');
     }
@@ -62,12 +77,19 @@ acceptButton.on('click', () => {
 });
 
 counter.next().on('click', (e) => {
-    e.currentTarget.previousElementSibling.textContent++;
+    let counter = e.currentTarget.previousElementSibling;
+    counter.textContent++;
+    calcButtonStyleChange(counter.previousElementSibling, '1', 'pointer');
     guestEndings(sumGuests);
 });
 
 counter.prev().on('click', (e) => {
-    if(e.currentTarget.nextElementSibling.textContent > 0)
-        e.currentTarget.nextElementSibling.textContent--;
+    let counter = e.currentTarget.nextElementSibling;
+    if(counter.textContent > 0)
+        counter.textContent--;
+        if(counter.textContent == 0){
+            calcButtonStyleChange(e.currentTarget, '.5', 'default');
+        }
     guestEndings(sumGuests);
 });
+

@@ -1,22 +1,25 @@
 //main styles
 *
     font-family: $font-regular
-    box-sizing: border-box
+    box-sizing: border-box !important
 
 h1 
     font-family: $font-bold
     font-size: 24px
     line-height: 29px
+    margin: 0
 
 h2 
     font-family: $font-bold
     font-size: 19px
     line-height: 23px
+    margin: 0
 
 h3
     font-family: $font-bold
     font-size: 12px
     line-height: 15px
+    margin: 0
 
 body
     font-family: $font-regular
@@ -27,15 +30,15 @@ body
 .container
     max-width: 1160px
     margin: 0 auto
-    @include media-breakpoint-up($desktop-large-up)
+    +media-breakpoint-up($desktop-large-up)
         max-width: 1700px
-    @include media-breakpoint-down($desktop-normal-down)
+    +media-breakpoint-down($desktop-normal-down)
         max-width: 970px
-    @include media-breakpoint-down($desktop-small-down)
+    +media-breakpoint-down($desktop-small-down)
         max-width: 750px
-    @include media-breakpoint-down($tablet-portrait-down)
+    +media-breakpoint-down($tablet-portrait-down)
         max-width: 520px
-    @include media-breakpoint-down($phone-normal-down)
+    +media-breakpoint-down($phone-normal-down)
         max-width: 300px
 
 //icons styles
@@ -58,6 +61,7 @@ body
 
 
 //arrow for buttons
+
 
 
 

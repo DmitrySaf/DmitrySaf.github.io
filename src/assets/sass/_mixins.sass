@@ -1,4 +1,6 @@
 @import './_variables'
+
+    
 // adaptive-responsive
     
 @mixin media-breakpoint-up($width)
@@ -12,8 +14,8 @@
 
 // input 
 
-@mixin input()
-    width: 320px
+@mixin input($width: 320px)
+    width: $width
     height: 44px
     border: 1px solid $dark-shade-25
     border-radius: 4px
@@ -21,6 +23,7 @@
     line-height: 18px
     font-family: $font-regular
     padding: 12px 15px
+    position: relative
     &::-webkit-input-placeholder
         color: $dark-shade-25
     &:focus, &:hover
@@ -28,18 +31,107 @@
         border: 1px solid $dark-shade-50
 
 @mixin label()
-    font-family: $font-bold
     text-transform: uppercase
-    font-size: 12px
-    line-height: 15px
     margin-bottom: 5px
 
 // positioning
 
-@mixin center()
+@mixin center($rotate: 0deg)
     position: absolute
     top: 50%
     left: 50%
-    transform: translate(-50%, -50%) 
+    transform: translate(-50%, -50%) rotate($rotate)
 
+
+// main arrow
+
+@mixin arrow-main_elem($color: $gradient-primary, $width: 8px)
+    width: $width
+    height: 2px
+    background: $color
+
+@mixin arrow-main($color: $gradient-primary)
+    cursor: pointer
+    +arrow-main_elem($color, 12px)
+    &::before
+        content: ''
+        position: absolute
+        +arrow-main_elem($color)
+        transform: rotate(45deg) translate(1.7px,-5.2px)
+    &::after
+        content: ''
+        position: absolute
+        +arrow-main_elem($color)
+        transform: rotate(-45deg) translate(2.2px,5px)
+
+// arrow for dropdowns
+
+@mixin arrow-dropdown()
+    position: absolute
+    top: 0
+    right: 0
+    cursor: pointer
+    height: 44px
+    width: 44px
+    &::before
+        content: ''
+        border: 2px solid $dark-shade-50
+        width: 6px
+        height: 6px
+        border-left: none
+        border-top: none
+        +center(45deg)
+        top: 45%
+        
+
+//circle
+
+@mixin circle($color: $gradient-primary)
+    width: 39.88px
+    height: 40px
+    background: $color !important
+    border-radius: 50%
+    border: none
+
+// operations
+
+@mixin operation()
+    position: relative
+    height: 30px
+    width: 30px
+    border: 1px solid $dark-shade-25
+    border-radius: 50%
+    cursor: pointer
+    &::before
+        content: ''
+        height: 1px
+        width: 8px
+        background-color: $dark-shade-50
+        +center()   
+
+@mixin operation-plus()
+    +operation
+    &::after
+        content: ''
+        height: 8px
+        width: 1px
+        background-color: $dark-shade-50
+        +center()
+
+
+// tick for checkbox
+
+@mixin tick()
+    position: relative
+    &::after
+        content: ''
+        width: 4px
+        height: 6px
+        border: $primary-color 2px solid
+        border-left: none
+        border-top: none
+        position: absolute
+        top: 5px
+        left: 8px
+        transform: rotate(45deg)
         

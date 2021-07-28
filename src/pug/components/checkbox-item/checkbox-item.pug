@@ -1,0 +1,10 @@
+
+mixin checkbox-item(options)
+    if !options 
+        - var options = {}
+    .checkbox-item 
+        input.checkbox-item_button(
+            type="checkbox"
+            name=options.name
+            id=options.id)
+        label.checkbox-item_label(for=options.id)=options.label

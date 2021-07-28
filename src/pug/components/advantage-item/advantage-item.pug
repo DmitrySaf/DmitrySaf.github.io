@@ -1,0 +1,11 @@
+
+mixin advantage-item(options)
+    if !options
+        - var options = {}
+    
+    .advantage-wrapper 
+        .advantage-img_wrapper
+            img.advantage-img(src=options.img, alt=options.alt)
+        .advantage-text_wrapper
+            .advantage-text_header=options.header
+            .advantage-text_descr=options.descr

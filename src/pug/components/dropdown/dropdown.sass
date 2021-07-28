@@ -3,8 +3,10 @@
 
 
 .dropdown
+    &-wrapper
+        width: max-content
     &-default
-        @include input()
+        +input()
         background-color: #fff
         position: relative
         cursor: default
@@ -13,19 +15,11 @@
         font-size: 14px
         color: $dark-shade-75
     &-label
-        @include label()
+        +label()
     &-arrow
-        cursor: pointer
-        position: absolute
-        top: 0
-        right: 0
-        height: 44px
-        width: 44px
-        display: flex
-        justify-content: center
-        align-items: center
+        +arrow-dropdown()
     &-content
-        width: 298px
+        width: 296px
         display: grid
         grid-row-gap: 7px
         &_wrapper
@@ -39,9 +33,6 @@
             border: 1px solid $dark-shade-25
             z-index: 999
         &_action
-            font-family: $font-bold
-            font-size: 12px
-            line-height: 15px
             color: $primary-color
             text-transform: uppercase
             cursor: pointer
@@ -62,20 +53,17 @@
         justify-content: space-between
         align-items: center
         &_text
-            font-family: $font-bold
-            font-size: 12px
-            line-height: 15px
             text-transform: uppercase
         &_calc
             display: flex
             justify-content: space-between
             align-items: center
             width: 92px
-        
-.item-calc_counter
-    font-family: $font-bold
-    font-size: 12px
-    line-height: 15px
+
+.calc-operation
+    +operation()
+    &_plus
+        +operation-plus()
     
 
 
