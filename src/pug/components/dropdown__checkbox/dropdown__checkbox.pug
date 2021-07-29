@@ -1,0 +1,10 @@
+
+
+mixin dropdown__checkbox(options)
+    if !options
+        - var options = {}
+
+    .dropdown__checkbox(id = options.id)
+        h3.dropdown__checkbox_label=options.label 
+        .dropdown__checkbox_arrow
+    .dropdown__checkbox_content

@@ -36,11 +36,21 @@
 
 // positioning
 
+    //center
+
 @mixin center($rotate: 0deg)
     position: absolute
     top: 50%
     left: 50%
     transform: translate(-50%, -50%) rotate($rotate)
+
+    //space-between
+@mixin space-between()
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+
 
 
 // main arrow
@@ -51,18 +61,27 @@
     background: $color
 
 @mixin arrow-main($color: $gradient-primary)
+    position: absolute
+    top: 0
+    right: 0
+    width: 44px
+    height: 44px
     cursor: pointer
-    +arrow-main_elem($color, 12px)
     &::before
         content: ''
-        position: absolute
-        +arrow-main_elem($color)
-        transform: rotate(45deg) translate(1.7px,-5.2px)
+        +center
+        width: 12px
+        height: 2px
+        background: $gradient-primary
     &::after
         content: ''
-        position: absolute
-        +arrow-main_elem($color)
-        transform: rotate(-45deg) translate(2.2px,5px)
+        +center(45deg)
+        width: 8px
+        height: 8px
+        border: 2px solid $primary-color
+        border-left: none
+        border-bottom: none
+
 
 // arrow for dropdowns
 
@@ -130,8 +149,6 @@
         border: $primary-color 2px solid
         border-left: none
         border-top: none
-        position: absolute
-        top: 5px
-        left: 8px
-        transform: rotate(45deg)
+        +center(45deg)
+        top: 8px
         

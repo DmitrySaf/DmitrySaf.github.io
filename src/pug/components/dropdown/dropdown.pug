@@ -1,39 +1,36 @@
-include ../dropdown-checkbox/dropdown-checkbox
+include ../dropdown__checkbox/dropdown__checkbox
 
 mixin dropdown(options)
     if !options
         - var options = {}
 
-    .dropdown-wrapper
+    .dropdown__wrapper
         if (options.type === 'guests')
-            h3.dropdown-label=options.label
-            .dropdown-default(id = options.id) 
-                .dropdown-placeholder=options.placeholder 
-                .dropdown-arrow 
-            .dropdown-content_wrapper
-                .dropdown-content
-                    +dropdown-item({text: 'взрослые'})
-                    +dropdown-item({text: 'дети'})
-                    +dropdown-item({text: 'младенцы'})
-                    .dropdown-content_action-wrapper
-                        h3.dropdown-content_action.dropdown-content_action-clear очистить
-                        h3.dropdown-content_action.dropdown-content_action-accept применить
+            h3.dropdown__label=options.label
+            .dropdown(id = options.id) 
+                .dropdown__placeholder=options.placeholder 
+                .dropdown__arrow 
+            .dropdown__content_wrapper
+                .dropdown__content
+                    +dropdown__item({text: 'взрослые'})
+                    +dropdown__item({text: 'дети'})
+                    +dropdown__item({text: 'младенцы'})
+                    .dropdown__button_wrapper
+                        h3.dropdown__button.dropdown__button_clear очистить
+                        h3.dropdown__button.dropdown__button_accept применить
         if (options.type === 'checkbox')
-            +dropdown-checkbox({id: options.id, label: 'expandable checkbox list', arrowId: 'arrow-checkbox'})
+            +dropdown__checkbox({id: options.id, label: 'expandable checkbox list', arrowId: 'arrow-checkbox'})
             
 
 
-        
 
-
-
-mixin dropdown-item(options)
+mixin dropdown__item(options)
     if !options
         - var options = {}
 
-    .dropdown-item
-        h3.dropdown-item_text #{options.text}
-        .dropdown-item_calc
-            .calc-operation
-            h3.item-calc_counter 0
-            .calc-operation.calc-operation_plus
+    .dropdown__item
+        h3.dropdown__item_text=options.text
+        .dropdown__item_calc
+            .dropdown__operation.dropdown__operation_minus
+            h3.dropdown__operation_counter 0
+            .dropdown__operation.dropdown__operation_plus

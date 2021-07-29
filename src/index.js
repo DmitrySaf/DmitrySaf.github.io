@@ -1,10 +1,10 @@
 import './assets/css/main.css';
-import './pug/components/input/input';
 import './pug/pages/form-elements/form-elements';
+import './pug/components/input/input';
 import './pug/components/dropdown/dropdown';
-import './pug/components/dropdown-checkbox/dropdown-checkbox';
-import './pug/components/checkbox-item/checkbox-item';
-import './pug/components/advantage-item/advantage-item';
+import './pug/components/dropdown__checkbox/dropdown__checkbox';
+import './pug/components/advantage__item/advantage__item';
+import './pug/components/buttons/buttons';
 
 import './assets/sass/styles.sass';
 

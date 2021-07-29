@@ -1,0 +1,23 @@
+@import '../../../../assets/sass/_variables'
+@import '../../../../assets/sass/_mixins'
+
+.radio
+    display: flex
+    align-items: center
+    &__button
+        all: unset
+        appearance: none
+        width: 18px
+        height: 18px
+        box-shadow: 0px 0px 0px 1px $dark-shade-25
+        border-radius: 50%
+        margin-right: 10px
+        &:checked
+            box-shadow: 0px 0px 0px 1px $primary-color
+            border: 3px #fff solid
+            background: $gradient-primary
+            &+label
+                color: $dark-shade-75
+    &__label
+        user-select: none
+        color: $dark-shade-50

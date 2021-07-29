@@ -1,27 +1,36 @@
-include ../dropdown/dropdown
+
 
 mixin input(options) 
     if !options
        - var options = {}
-    .input-wrapper
-        if (options.type === 'email' || options.type === 'text')
-            h3.input-label=options.label
-            input.input-default(
-                type = options.type
-                placeholder = options.placeholder
-                required = true
-                id = options.id)
-        else if (options.type === 'date')
-                h3.input-label=options.label
-                .input-container_date
-                    input.input-default.input-date(
+
+    - 
+        var classes = ''
+        classes += options.additClass || ''
+        classes += ' ' + (options.enabled ? 'tick-box_enable' : '')
+    
+    if (options.type === 'email' || options.type === 'text' || options.type === 'date')
+        .input__wrapper
+            h3.input__label=options.label
+            .input__wrapper
+                if (options.type === 'email' || options.type === 'text')
+                    input.input(
+                        class = options.additClass
+                        type = options.type
+                        placeholder = options.placeholder
+                        required = true
+                        id = options.id)           
+                    if ( options.type === 'email' && options.sub === 'true')
+                        .input__arrow_main(data-submit)
+                if (options.type === 'date')
+                    input.input(
+                        class = options.additClass
                         type = 'text'
                         placeholder = options.placeholder
                         required = true
                         id = options.id)
-                    .arrow-dropdown(
-                        id = options.arrowId
-                    )
+                    .input__arrow_dropdown(id=options.arrowId)
+
             
             
 

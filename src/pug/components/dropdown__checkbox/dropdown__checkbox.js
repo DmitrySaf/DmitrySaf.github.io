@@ -1,4 +1,4 @@
-import './dropdown-checkbox.sass';
+import './dropdown__checkbox.sass';
 
 $('#arrow-checkbox').on('click', () => {
     $('.dropdown-checkbox_content').toggleClass('show');

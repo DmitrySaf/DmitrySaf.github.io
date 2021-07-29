@@ -4,16 +4,46 @@ block variables
     - title = "Forms and Elements"
 
 block content
-    section.form-elements 
-        .container
-            img(src="../assets/icons/logo-grey.svg", alt="", class="form-elements_logo")
-            +input({type: 'email', placeholder: 'Email', label: 'text field', id: 'input-email'})
-            +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'masked text field', id: 'input-date'})
-            +dropdown({type: 'guests', id: 'dropdown-guests', label: 'dropdown', placeholder: 'Сколько гостей'})
-            .input-container
-                +input({type: 'date',label: 'date dropdown',placeholder: 'ДД.ММ.ГГГГ', id: 'input-date_dropdown-arrival', arrowId: 'arrow-arrival'})
-                +input({type: 'date',label: 'date dropdown',placeholder: 'ДД.ММ.ГГГГ', id: 'input-date_dropdown-departure', arrowId: 'arrow-departure'})
-            +dropdown({type: 'checkbox', id: 'dropdown-checkbox', label: 'expandable checkbox list'})
-            +advantage-item({img: '../assets/icons/smile.svg', alt: 'happy', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
-            +advantage-item({img: '../assets/icons/building.svg', alt: 'city', header: 'Удобство', descr: 'Окно в каждой из спален'})
+    .container
+        section.form-elements 
+            .grid-elem_1
+                img(src="../assets/icons/logo-grey.svg", alt="", class="form-elements_logo")
+                +input({type: 'email', placeholder: 'Email', label: 'text field', id: 'input__email'})
+                +dropdown({type: 'guests', id: 'dropdown-guests', label: 'dropdown', placeholder: 'Сколько гостей'})
+                +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'masked text field', id: 'input__date'})                
+                .input__date_container
+                    +input({additClass: 'input_size_s', type: 'date',label: 'date dropdown',placeholder: 'ДД.ММ.ГГГГ', id: 'input__date_arrival', arrowId: 'input__arrow_arrival'})
+                    +input({additClass: 'input_size_s', type: 'date',label: 'date dropdown',placeholder: 'ДД.ММ.ГГГГ', id: 'input__date_departure', arrowId: 'input__arrow_departure'})
+                +input({additClass: 'input_size_m', type: 'date',label: 'filter date dropdown',placeholder: 'ДД ммм - ДД ммм', id: 'input__date_filter', arrowId: 'input__arrow_filter'})
+                +input({type: 'email', placeholder: 'Email', label: 'subscription text field', id: 'input__email_sub', sub: 'true', additClass: 'input_size_m'})
+            .grid-elem_2 
+                .list-checkbox
+                    h3.list-checkbox__header Checkbox Buttons
+                    .list-checkbox__content
+                        +button({type: 'checkbox', name: 'smoke', id: 'smoke', label: 'Можно курить'})
+                        +button({type: 'checkbox', name: 'pets', id: 'pets', label: 'Можно с питомцами'})
+                        +button({type: 'checkbox', name: 'friends', id: 'friends', label: 'Можно пригласить гостей (до 10 человек)'})
+                .list-radio
+                    h3.list-radio__header Radio Buttons
+                    .list-radio__content
+                        +button({type: 'radio', name: 'sex', id: 'man', label: 'Мужчина'})
+                        +button({type: 'radio', name: 'sex', id: 'woman', label: 'Женщина'})
+                .list-toggle
+                    h3.list-toggle__header Toggle
+                    .list-toggle__content
+                        +button({type: 'toggle', name: 'exclusive', id: 'exclusive', label: 'Получать спецпредложения'})
+                        +button({type: 'toggle', name: 'axclusive', id: 'axclusive', label: 'Получать спецпредложения'})
+                .list-like
+                    h3.list-like__header Like button
+                    .list-like__content
+                        +button({type: 'like'})
+                .list-rate 
+                    h3.list-rate__header Rate button
+                    .list-rate__content
+                        +button({type: 'rating'})
+
+            .grid-elem_4
+                +dropdown({type: 'checkbox', id: 'dropdown__checkbox', label: 'expandable checkbox list'})
+                +advantage-item({img: '../assets/icons/smile.svg', alt: 'happy', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
+                +advantage-item({img: '../assets/icons/building.svg', alt: 'city', header: 'Удобство', descr: 'Окно в каждой из спален'})
     

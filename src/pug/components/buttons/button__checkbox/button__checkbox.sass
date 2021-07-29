@@ -1,0 +1,26 @@
+@import '../../../../assets/sass/_variables'
+@import '../../../../assets/sass/_mixins'
+    
+.checkbox
+    display: flex
+    justify-content: start
+    min-height: 20px
+    margin-bottom: 10px
+    &__button
+        all: unset
+        appearance: none
+        width: 20px
+        height: 20px
+        border: 1px solid $dark-shade-25
+        border-radius: 4px
+        margin-right: 10px
+        cursor: pointer
+        &:checked
+            +tick
+            border-color: $primary-color
+    &__label
+        font-size: 14px
+        line-height: 18px
+        color: $dark-shade-50
+        user-select: none
+        cursor: pointer

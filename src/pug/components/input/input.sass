@@ -2,21 +2,26 @@
 @import '../../../assets/sass/_mixins'
     
 .input
-    &-container
-        display: flex
-        width: 320px
-        justify-content: space-between
-        &_date
-            position: relative
-            width: 150px
-    &-default
-        +input()
-    &-date
-        +input(150px)
-    &-label
+    +input()
+    &_size
+        &_m
+            +input(266px)
+        &_s
+            +input(150px)
+    &__date
+        &_container
+            +space-between()
+            width: 320px
+    &__label
         +label()
-    &-wrapper
+    &__wrapper
+        position: relative
         width: max-content
+    &__arrow
+        &_main
+            +arrow-main()
+        &_dropdown
+            +arrow-dropdown()
 
 // calendar styles
 

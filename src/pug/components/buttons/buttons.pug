@@ -1,0 +1,22 @@
+include ./button__rating/button__rating
+
+mixin button(options)
+    if !options
+        - var options = {}
+
+    if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle')
+        div(class = options.type)
+            input(
+                class = `${options.type}__button`
+                type= ((options.type === 'toggle') ? 'checkbox': options.type)
+                name=options.name
+                id=options.id)
+            label(
+                class = `${options.type}__label`
+                for=options.id)=options.label
+    if (options.type === 'like')
+        .like
+            span.material-icons.material-icons_border favorite_border
+            .like__counter 0
+    if (options.type === 'rating')
+        +button__rating

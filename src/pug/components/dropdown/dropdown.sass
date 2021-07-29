@@ -3,22 +3,21 @@
 
 
 .dropdown
-    &-wrapper
+    +input()
+    background-color: #fff
+    position: relative
+    cursor: default
+    &__wrapper
         width: max-content
-    &-default
-        +input()
-        background-color: #fff
-        position: relative
-        cursor: default
-    &-placeholder
+    &__placeholder
         text-align-last: left
         font-size: 14px
         color: $dark-shade-75
-    &-label
+    &__label
         +label()
-    &-arrow
+    &__arrow
         +arrow-dropdown()
-    &-content
+    &__content
         width: 296px
         display: grid
         grid-row-gap: 7px
@@ -32,38 +31,36 @@
             border-bottom-right-radius: 4px
             border: 1px solid $dark-shade-25
             z-index: 999
-        &_action
-            color: $primary-color
-            text-transform: uppercase
-            cursor: pointer
-            &-clear
-                position: absolute
-                bottom: 0
-                left: 0
-                display: none
-            &-accept
-                position: absolute
-                bottom: 0
-                right: 0
-            &-wrapper
-                position: relative
-                height: 27px
-    &-item 
-        display: flex 
-        justify-content: space-between
-        align-items: center
+    &__button
+        color: $primary-color
+        text-transform: uppercase
+        cursor: pointer
+        &_clear
+            position: absolute
+            bottom: 0
+            left: 0
+            display: none
+        &_accept
+            position: absolute
+            bottom: 0
+            right: 0
+        &_wrapper
+            position: relative
+            height: 27px
+    &__item 
+        +space-between()
         &_text
             text-transform: uppercase
         &_calc
-            display: flex
-            justify-content: space-between
-            align-items: center
+            +space-between()
             width: 92px
+    &__operation
+        &_minus
+            +operation()
+        &_plus
+            +operation-plus()
 
-.calc-operation
-    +operation()
-    &_plus
-        +operation-plus()
+        
     
 
 

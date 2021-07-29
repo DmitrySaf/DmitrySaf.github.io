@@ -3,19 +3,19 @@ import 'inputmask/dist/jquery.inputmask.min';
 
 //maskedInput
 
-$('#input-date').inputmask({
+$('#input__date').inputmask({
     mask: "99.99.9999",
     placeholder: "ДД.ММ.ГГГГ",});
 
 
     // dropdown
 
-const clearButton = $('.dropdown-content_action-clear'),
-      placeholderText = $('.dropdown-placeholder'),
-      counter = $('.item-calc_counter'),
-      dropdown = $('.dropdown-default'),
-      acceptButton = $('.dropdown-content_action-accept'),
-      dropdownContent = $('.dropdown-content_wrapper');
+const clearButton = $('.dropdown__button_clear'),
+      placeholderText = $('.dropdown__placeholder'),
+      counter = $('.dropdown__operation_counter'),
+      dropdown = $('.dropdown'),
+      acceptButton = $('.dropdown__button_accept'),
+      dropdownContent = $('.dropdown__content_wrapper');
 
 function sumGuests(){
     let guests = 0;
