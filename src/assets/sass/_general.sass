@@ -1,31 +1,40 @@
+@import './_mixins'
+
 //main styles
 *
     font-family: $font-regular
     box-sizing: border-box !important
 
 h1 
+    all: unset
     font-family: $font-bold
-    font-size: 24px
-    line-height: 29px
-    margin: 0
+    font-size: $font-size-header-large
+    line-height: $line-height-header-large
+    color: $dark-shade-100
 
 h2 
+    all: unset
     font-family: $font-bold
-    font-size: 19px
-    line-height: 23px
-    margin: 0
+    font-size: $font-size-header-medium
+    line-height: $line-height-header-medium
+    color: $dark-shade-100
 
 h3
+    all: unset
     font-family: $font-bold
-    font-size: 12px
-    line-height: 15px
-    margin: 0
+    font-size: $font-size-header-small
+    line-height: $line-height-header-small
+    color: $dark-shade-100
     text-transform: uppercase
 
+html, body
+    font-size: $font-size-main
+    
 body
+    all: unset
     font-family: $font-regular
-    font-size: 14px
-    line-height: 24px
+    line-height: $line-height-main
+    color: $dark-shade-75
     margin: 0
 
 .container
@@ -51,7 +60,13 @@ body
 // hide & show
 
 .show
-    display: block
+    opacity: 1
+    z-index: 999
+
+.disabled
+    opacity: .5
+    cursor: default
+
 .border-radius_none
     border-bottom-left-radius: 0 
     border-bottom-right-radius: 0

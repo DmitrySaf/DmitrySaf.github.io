@@ -1,25 +1,45 @@
-include ../dropdown__checkbox/dropdown__checkbox
 
 mixin dropdown(options)
     if !options
         - var options = {}
 
     .dropdown__wrapper
-        if (options.type === 'guests')
+        if (options.type === 'guests' || options.type === 'rooms')
             h3.dropdown__label=options.label
-            .dropdown(id = options.id) 
-                .dropdown__placeholder=options.placeholder 
-                .dropdown__arrow 
-            .dropdown__content_wrapper
-                .dropdown__content
-                    +dropdown__item({text: 'взрослые'})
-                    +dropdown__item({text: 'дети'})
-                    +dropdown__item({text: 'младенцы'})
-                    .dropdown__button_wrapper
-                        h3.dropdown__button.dropdown__button_clear очистить
-                        h3.dropdown__button.dropdown__button_accept применить
+            .dropdown(
+                class = !options.additClass ? '' : options.additClass
+                id = `dropdown-${options.id}`)
+                .dropdown__placeholder=options.placeholder
+                .dropdown__content_wrapper
+                    .dropdown__content
+                        if (options.type === 'guests')
+                            +dropdown__item({text: 'взрослые', id: options.id})
+                            +dropdown__item({text: 'дети', id: options.id})
+                            +dropdown__item({text: 'младенцы', id: options.id})
+                        else 
+                            +dropdown__item({text: 'спальни', id: options.id})
+                            +dropdown__item({text: 'кровати', id: options.id})
+                            +dropdown__item({text: 'ванные комнаты', id: options.id})
+                        if (options.additClass !== 'dropdown_size_m')
+                            .dropdown__button_wrapper
+                                h3.dropdown__button.dropdown__button_clear очистить
+                                h3.dropdown__button.dropdown__button_accept применить
         if (options.type === 'checkbox')
-            +dropdown__checkbox({id: options.id, label: 'expandable checkbox list', arrowId: 'arrow-checkbox'})
+            .dropdown(
+                class = !options.additClass ? '' : options.additClass
+                id = `dropdown-${options.type}`)
+                h3.dropdown__label=options.label
+                .dropdown-checkbox__content_wrapper
+                    +button({type: 'checkbox', label: 'Завтрак'})
+                    +button({type: 'checkbox', label: 'Письменный стол'})
+                    +button({type: 'checkbox', label: 'Стул для кормления'})
+                    +button({type: 'checkbox', label: 'Кроватка'})
+                    +button({type: 'checkbox', label: 'Телевизор'})
+                    +button({type: 'checkbox', label: 'Шампунь'})
+                    +button({type: 'checkbox', label: 'Телевизор'})
+                    +button({type: 'checkbox', label: 'Шампунь'})
+
+
             
 
 
@@ -32,5 +52,5 @@ mixin dropdown__item(options)
         h3.dropdown__item_text=options.text
         .dropdown__item_calc
             .dropdown__operation.dropdown__operation_minus
-            h3.dropdown__operation_counter 0
+            h3.dropdown__operation_counter(class = `dropdown__counter_${options.id}`) 0
             .dropdown__operation.dropdown__operation_plus

@@ -1,5 +1,4 @@
 @import './_variables'
-
     
 // adaptive-responsive
     
@@ -19,9 +18,8 @@
     height: 44px
     border: 1px solid $dark-shade-25
     border-radius: 4px
-    font-size: 14px
+    font-size: $font-size-main
     line-height: 18px
-    font-family: $font-regular
     padding: 12px 15px
     position: relative
     &::-webkit-input-placeholder
@@ -29,10 +27,6 @@
     &:focus, &:hover
         outline: none
         border: 1px solid $dark-shade-50
-
-@mixin label()
-    text-transform: uppercase
-    margin-bottom: 5px
 
 // positioning
 
@@ -60,27 +54,32 @@
     height: 2px
     background: $color
 
-@mixin arrow-main($color: $gradient-primary)
+@mixin arrow-main($width: 44px, $height: 44px, $color: $gradient-primary)
     position: absolute
     top: 0
     right: 0
-    width: 44px
-    height: 44px
+    width: $width
+    height: $height
     cursor: pointer
     &::before
         content: ''
         +center
         width: 12px
         height: 2px
-        background: $gradient-primary
+        background: $color
     &::after
         content: ''
         +center(45deg)
         width: 8px
         height: 8px
-        border: 2px solid $primary-color
+        border: 2px solid transparent
+        border-image: $color
+        border-image-slice: 1
         border-left: none
         border-bottom: none
+        @if $color == #fff or $color == white
+            border-image: none
+            border-color: $color
 
 
 // arrow for dropdowns
@@ -105,12 +104,40 @@
 
 //circle
 
-@mixin circle($color: $gradient-primary)
-    width: 39.88px
+@mixin circle-large($color: $gradient-primary)
+    width: 40px
     height: 40px
     background: $color !important
     border-radius: 50%
     border: none
+
+@mixin circle-small($color: $gradient-primary)
+    width: 12px
+    height: 12px
+    background: $color
+    border-radius: 50%
+    border: none
+
+@mixin circle-info()
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        right: 80px
+        width: 20px
+        height: 20px
+        background: #fff
+        border: 1px solid $dark-shade-25
+        border-radius: 50%
+    &::after
+        content: 'i'
+        color: $dark-shade-25
+        position: absolute
+        top: 4px
+        right: 89px
+        text-transform: lowercase   
+        line-height: 14px
+        
 
 // operations
 
@@ -146,7 +173,9 @@
         content: ''
         width: 4px
         height: 6px
-        border: $primary-color 2px solid
+        border: 2px solid
+        border-image: $gradient-primary
+        border-image-slice: 1
         border-left: none
         border-top: none
         +center(45deg)

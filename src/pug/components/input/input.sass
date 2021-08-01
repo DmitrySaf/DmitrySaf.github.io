@@ -12,8 +12,6 @@
         &_container
             +space-between()
             width: 320px
-    &__label
-        +label()
     &__wrapper
         position: relative
         width: max-content
@@ -47,12 +45,14 @@
             line-height: 23px
             pointer-events: none
         &-action
+            position: relative
             &:hover
                 background-color: #fff
             &_prev, &_next
-                +arrow-main()
+                +arrow-main(32px, 24px)
             &_prev
                 transform: rotate(180deg)
+                left: 0
     &--day-name
         width: 40px
         height: 40px
@@ -76,11 +76,11 @@
             background: rgba(188, 156, 255, .25) !important
             color: $dark-shade-50
         &.-current-
-            +circle($gradient-secondary)
+            +circle-large($gradient-secondary)
             font-family: $font-bold 
             color: #fff !important
         &.-selected-, &.-focus-, &.-range-to-, &.-range-from-
-            +circle()
+            +circle-large()
             font-family: $font-bold
             color: #fff !important
         &-day

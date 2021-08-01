@@ -1,0 +1,58 @@
+include ../input/input
+include ../dropdown/dropdown
+include ../buttons/buttons
+
+mixin card(options)
+    if !options
+        -  var options = {}
+
+    .card
+        if (options.type === 'book')
+            div(class = `${options.type}__header_container`)
+                h1(class = `${options.type}__header_number`)=options.roomNumber
+                h3(class = `${options.type}__header_status`)=options.roomStatus
+                div(class = `${options.type}__header_price ${options.type}__header_align_right`)=options.roomPrice    
+        else 
+            h1(class = `${options.type}__header`)=options.header 
+        .card__content 
+            if (options.type === 'book' || options.type === 'search')
+                .card__input_wrapper 
+                    +input({additClass: 'input_size_s', type: 'date',label: 'прибытие',placeholder: 'ДД.ММ.ГГГГ', id: 'input__date_arrival', arrowId: 'input__arrow_arrival'})
+                    +input({additClass: 'input_size_s', type: 'date',label: 'выезд',placeholder: 'ДД.ММ.ГГГГ', id: 'input__date_departure', arrowId: 'input__arrow_departure'})
+                +dropdown({type: 'guests', label: 'гости', placeholder: 'Сколько гостей'})
+                if (options.type === 'book')
+                    div(class = `book__calc_container`)
+                        div(class = `book__calc_wrapper`)
+                            div(class = `book__calc_price_name`) 9 990₽ х 4 суток
+                            div(class = `book__calc_price`) 39 960₽
+                        div(class = `book__calc_wrapper`)
+                            div(class = `book__calc_price_name book__calc_price_info`) Сбор за услуги: скидка 2 179₽
+                            div(class = `book__calc_price`) 0₽
+                        div(class = `book__calc_wrapper`)
+                            div(class = `book__calc_price_name book__calc_price_info`) Сбор за дополнительные услуги
+                            div(class = `book__calc_price`) 300₽
+                        div(class = `book__calc_wrapper book__calc_wrapper_result`)
+                            h2(class = `book__calc_result_name`) Итого
+                            div(class = 'book__calc_dots')
+                            h2(class = `book__calc_result_price`) 38 081₽
+            if (options.type === 'login' || options.type === 'registration')
+                if (options.type === 'registration')
+                    +input({type: 'text', placeholder: 'Имя', additClass: 'registration__input_name'})
+                    +input({type: 'text', placeholder: 'Фамилия', additClass: 'registration__input_surname'})
+                    .registration__gender_container.radio__container
+                        +button({type: 'radio',id: 'man', name: 'gender', value: 'man', label: 'Мужчина'})
+                        +button({type: 'radio',id: 'woman', name: 'gender', value: 'woman', label: 'Женщина'})
+                    +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', additClass: 'input__date registration__input_date'}) 
+                    h3.registration__user-info_header данные для входа в сервис
+                +input({type: 'email', placeholder: 'Email', additClass: 'registration__input_email'})
+                +input({type: 'text', placeholder: 'Пароль', additClass: 'registration__input_password'})
+                if (options.type === 'registration')
+                    +button({type: 'toggle', label: 'Получать спецпредложения'})
+
+            +button({type: 'default', id: 'click7', additClass: 'button_color_primary button_size_l button_arrow button_mt20', text: options.buttonText})
+            if (options.type === 'registration' || options.type === 'login')
+                .card__footer_container 
+                    div(class = `${options.type}__footer_text`)=options.footerText 
+                    +button({type: 'default', text: options.footerButtonText, additClass: 'button_border'})
+                        
+

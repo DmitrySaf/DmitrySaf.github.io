@@ -4,19 +4,38 @@ mixin button(options)
     if !options
         - var options = {}
 
-    if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle')
+
+    if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle' || options.checkboxType === 'rich')
         div(class = options.type)
             input(
                 class = `${options.type}__button`
-                type= ((options.type === 'toggle') ? 'checkbox': options.type)
-                name=options.name
-                id=options.id)
-            label(
-                class = `${options.type}__label`
-                for=options.id)=options.label
+                type = ((options.type === 'toggle') ? 'checkbox': options.type)
+                name = options.name
+                value = options.value
+                id = options.id)
+            .buttons__label_wrapper
+                label(
+                class = (options.checkboxType !== 'rich') ? `${options.type}__label` : `${options.type}__label_rich`
+                for = options.id)=options.label
+                if (options.checkboxType === 'rich')
+                    div(
+                        class = `${options.type}__label_descr`
+                        for = options.id
+                    )=options.labelDescr
     if (options.type === 'like')
         .like
             span.material-icons.material-icons_border favorite_border
             .like__counter 0
     if (options.type === 'rating')
         +button__rating
+    if (options.type === 'range')
+        input.range(
+        id = options.id
+        type = "text")
+    if (options.type === 'default')
+        button.button(
+            class = !options.additClass ? '' : options.additClass
+            type = options.buttonType 
+            form = options.formId
+            id = options.id
+        )=options.text

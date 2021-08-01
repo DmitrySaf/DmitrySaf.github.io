@@ -1,0 +1,54 @@
+@import '../../../../assets/sass/_variables'
+@import '../../../../assets/sass/_mixins'
+    
+.book
+    &__header
+        &_container
+            display: grid
+            grid-template-columns: 84px 105px 111px
+            column-gap: 8px
+            max-height: 30px
+            align-items: end
+        &_status
+            position: relative
+            color: $primary-color
+        &_price
+            font-family: $font-bold
+            line-height: 18px
+            color: $dark-shade-50
+        &_align
+            &_right
+                right: 0
+    &__calc
+        &_container
+            max-width: 100%
+            max-height: 182px
+        &_price
+            max-width: 60px
+            &_name
+                max-width: 214px
+            &_info
+                +circle-info()
+        &_wrapper
+            display: flex
+            justify-content: space-between
+            position: relative
+            min-height: 24px
+            margin-bottom: 10px
+            &:nth-child(1)
+                margin-top: 20px
+            &_result
+                margin-top: 20px
+                max-height: 24px
+                display: flex
+                align-items: center
+                margin-bottom: 0
+        &_dots
+            width: 180px
+            height: 14px
+            border: none
+            border-bottom: 1px dotted $dark-shade-25
+
+        &_result
+            &_name
+            &_price

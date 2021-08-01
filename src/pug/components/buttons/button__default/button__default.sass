@@ -1,0 +1,50 @@
+@import '../../../../assets/sass/_variables'
+@import '../../../../assets/sass/_mixins'
+
+.button
+    width: 99px
+    height: 44px
+    border-radius: 22px
+    font-family: $font-bold
+    font-size: $font-size-header-small
+    line-height: $line-height-header-small
+    background: #fff
+    text-transform: uppercase
+    color: $dark-shade-50
+    border: none
+    cursor: pointer
+    &_arrow
+        +arrow-main($color: #fff)
+        position: relative
+        &::after, &::before
+            left: calc(100% - 20px)
+    &_disabled
+        opacity: .5
+        cursor: default
+    &_border
+        border: $primary-color 2px solid
+        color: $primary-color
+    &_no-border
+        color: $primary-color
+        &_disabled
+            color: $dark-shade-50
+            cursor: default
+    &_size
+        &_l
+            width: 320px
+        &_s
+            width: 40px
+            height: 40px
+    &_color
+        &_primary
+            color: #fff
+            background: $gradient-primary
+        &_secondary
+            color: #fff
+            background: $gradient-secondary
+    &_text
+        &_thin
+            font-family: $font-regular
+    &_mt20
+        margin-top: 20px
+    

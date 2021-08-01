@@ -1,0 +1,27 @@
+@import '../../../assets/sass/_variables'
+@import '../../../assets/sass/_mixins'
+
+.form-elements
+    padding-top: 143px
+    display: grid
+    grid-template-columns: repeat( 3, 320px )
+    row-gap: 100px
+    grid-template-rows: max-content
+    justify-content: space-between
+    max-height: 1800px
+    &_logo
+        position: absolute
+        left: 30px
+        top: 30px
+
+#grid-elem__connected
+    grid-column-start: 2
+    grid-column-end: 4
+    grid-row: 3 / 4
+
+.cards
+    display: grid
+    grid-template-columns: 380px 380px 320px
+    column-gap: 40px
+    height: 1060px
+    margin-top: 100px

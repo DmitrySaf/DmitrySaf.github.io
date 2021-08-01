@@ -1,1 +1,0 @@
-import './advantage__item.sass';

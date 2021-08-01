@@ -1,0 +1,15 @@
+mixin list(options)
+    if !options 
+        - var options = {}
+    
+    if (options.type === 'advantage')
+        .advantage 
+            .advantage__img
+                img(src=options.img, alt=options.alt)
+            .advantage__text_wrapper
+                .advantage__text_header=options.header
+                .advantage__text_descr=options.descr
+    if (options.type === 'bullet') 
+        .bullet
+            .bullet__mark 
+            .bullet__text=options.text
