@@ -8,18 +8,17 @@
             +input(266px)
         &_s
             +input(150px)
-    &__date
-        &_container
-            +space-between()
-            width: 320px
+            &::-webkit-input-placeholder
+                font-size: 14px
+                line-height: 18px
+                color: $dark-shade-75
+            &::-moz-placeholder
+                font-size: 14px
+                line-height: 18px
+                color: $dark-shade-75
     &__wrapper
         position: relative
         width: max-content
-    &__arrow
-        &_main
-            +arrow-main()
-        &_dropdown
-            +arrow-dropdown()
 
 // calendar styles
 

@@ -1,0 +1,41 @@
+@import '../../../assets/sass/_variables'
+@import '../../../assets/sass/_mixins'
+
+.footer
+    height: 432px
+    background: #FFFFFF
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05)
+    &__main-content
+        padding: 100px 0
+        display: grid
+        grid-template-columns: 260px repeat(3, 1fr) 260px
+        column-gap: 40px
+    &__logo
+        &_container
+            display: grid
+            grid-template: 40px max-content / 260px
+            row-gap: 20px
+    &__list
+        display: grid   
+        grid-auto-rows: 18px
+        row-gap: 20px
+        &_link
+            text-decoration: none
+            font-size: 14px
+            line-height: 17px
+            color: $dark-shade-50
+    &__support, &__about, &__nav, &__subscription
+        margin-top: 5px
+        &_title
+            margin-bottom: 20px
+    &__input
+        width: 260px
+        margin-top: 20px
+    &__additContent
+        display: flex
+        justify-content: space-between  
+        align-items: center
+        height: 70px    
+        border-top: 1px solid $dark-shade-10
+    &__copyright
+        line-height: 17px

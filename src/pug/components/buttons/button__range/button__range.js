@@ -9,18 +9,19 @@ $("#range").ionRangeSlider({
     type: 'double',
     min: dataMinFromServer,
     max: dataMaxFromServer,
-    step: 10,
+    step: 100,
     skin: 'round',
     from: 5000,
     to: 10000,
     hide_min_max: true,
     hide_from_to: true,
-    values_separator: ' - ',
-    onStart: (data) => {
-        $('.range-slider__label').text(`${data.from} - ${data.to}`);
-    },
-    onChange: (data) => {
-        $('.range-slider__label').text(`${data.from} - ${data.to}`);
-    }
+    onStart: priceSeparator,
+    onChange: priceSeparator
 });
 
+function priceSeparator(data){
+    let priceFrom = `${Math.floor(data.from / 1000)} ${data.from % 1000 == 0 ? '000' : data.from % 1000}`,
+        priceTo = `${Math.floor(data.to / 1000)} ${data.to % 1000 == 0 ? '000' : data.to % 1000}`;
+    $('.range-slider__label').text(`${priceFrom}₽ - ${priceTo}₽`);
+}
+    

@@ -5,16 +5,18 @@ include ../buttons/buttons
 mixin card(options)
     if !options
         -  var options = {}
+        
 
-    .card
+    .card(class = options.cardClasses)
         if (options.type === 'book' || options.type === 'search' || options.type === 'login' || options.type === 'registration')
             if (options.type === 'book')
                 .book__header_container 
-                    .book__header_number=options.roomNumber
-                    h3.book__header_status=options.roomStatus
-                    .book__header_price=options.roomPrice   
+                    .book__header_number <span>№ </span> #{options.roomNumber}
+                    .book__header_price_container
+                        h3.book__header_status=options.roomStatus
+                        .book__header_price #{options.roomPrice} <span>в сутки</span> 
             else 
-                h1(class = `${options.type}__header`)=options.header 
+                div(class = `${options.type}__header`)=options.header 
             .card__content 
                 if (options.type === 'book' || options.type === 'search')
                     .card__input_wrapper 
@@ -30,7 +32,7 @@ mixin card(options)
                                 div(class = `book__calc_price_name book__calc_price_info`) Сбор за услуги: скидка 2 179₽
                                 div(class = `book__calc_price`) 0₽
                             div(class = `book__calc_wrapper`)
-                                div(class = `book__calc_price_name book__calc_price_info`) Сбор за дополнительные услуги
+                                div(class = `book__calc_price_name book__calc_price_info book__calc_price_line-height`) Сбор за дополнительные услуги
                                 div(class = `book__calc_price`) 300₽
                             div(class = `book__calc_wrapper book__calc_wrapper_result`)
                                 h2(class = `book__calc_result_name`) Итого
@@ -50,25 +52,26 @@ mixin card(options)
                     if (options.type === 'registration')
                         +button({type: 'toggle', label: 'Получать спецпредложения'})
 
-                +button({type: 'default', id: 'click7', additClass: 'button_color_primary button_size_l button_arrow button_mt20', text: options.buttonText})
+                +button({type: 'default', id: 'click7', additClass: `button_color_primary button_size_l button_arrow ${options.type}__button`, text: options.buttonText})
                 if (options.type === 'registration' || options.type === 'login')
                     .card__footer_container 
                         div(class = `${options.type}__footer_text`)=options.footerText 
                         +button({type: 'default', text: options.footerButtonText, additClass: 'button_border'})
         if (options.type === 'preview')
-            .preveiw__slider 
-                img(src="", alt="")
-                img(src="", alt="")
-                img(src="", alt="")
-                img(src="", alt="")
-            .preview__content 
-                .preview__header_container 
-                    .preview__header_number=options.roomNumber
-                    h3.preview__header_status=options.roomStatus
-                    .preview__header_price=options.roomPrice
-                .preview__feedback_container 
+            .room-preview__slider
+                    img(src="../assets/img/card-preview-luxe.png", alt="")
+                    img(src="../assets/img/card-preview-standard.png", alt="")
+                    img(src="../assets/img/card-preview-luxe.png", alt="")
+                    img(src="../assets/img/card-preview-standard.png", alt="")
+            .room-preview__content 
+                .room-preview__header_container
+                    .room-preview__header_number <span>№ </span> #{options.roomNumber}
+                    .room-preview__header_wrapper
+                        h3.room-preview__header_status=options.roomStatus
+                        .room-preview__header_price #{options.roomPrice} <span>в сутки</span>
+                .room-preview__feedback_container 
                     +button({type: 'rating'})
-                    .preview__feedback=options.roomComments
+                    .room-preview__feedback <span>#{options.roomComments}</span> Отзывов
 
                         
 

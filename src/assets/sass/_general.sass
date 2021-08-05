@@ -6,26 +6,27 @@
     box-sizing: border-box !important
 
 h1 
-    all: unset
     font-family: $font-bold
     font-size: $font-size-header-large
     line-height: $line-height-header-large
     color: $dark-shade-100
+    margin: 0
 
 h2 
-    all: unset
     font-family: $font-bold
     font-size: $font-size-header-medium
     line-height: $line-height-header-medium
     color: $dark-shade-100
+    margin: 0
 
 h3
-    all: unset
     font-family: $font-bold
     font-size: $font-size-header-small
     line-height: $line-height-header-small
     color: $dark-shade-100
     text-transform: uppercase
+    margin: 0
+    margin-bottom: 5px
 
 html, body
     font-size: $font-size-main
@@ -36,6 +37,9 @@ body
     line-height: $line-height-main
     color: $dark-shade-75
     margin: 0
+
+ul, li
+    all: unset
 
 .container
     max-width: 1160px
@@ -51,12 +55,6 @@ body
     +media-breakpoint-down($phone-normal-down)
         max-width: 300px
 
-//icons styles
-
-
-
-
-
 // hide & show
 
 .show
@@ -71,9 +69,13 @@ body
     border-bottom-left-radius: 0 
     border-bottom-right-radius: 0
 
+// arrow
 
-//arrow for buttons
+.arrow__dropdown
+    +arrow-dropdown
 
+.arrow__main
+    +arrow-main
 
 
 

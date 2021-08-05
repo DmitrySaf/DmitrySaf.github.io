@@ -5,17 +5,35 @@
     &__header
         &_container
             display: grid
-            grid-template-columns: 84px 105px 111px
+            grid-template-columns: 69px 243px 
             column-gap: 8px
             max-height: 30px
             align-items: end
         &_status
             position: relative
             color: $primary-color
+            margin-bottom: 0
         &_price
             font-family: $font-bold
             line-height: 18px
             color: $dark-shade-50
+            text-align: end
+            &_container
+                display: flex
+                align-items: center
+                justify-content: space-between
+            span
+                font-family: $font-regular
+                font-size: 12px
+        &_number
+            font-family: $font-bold
+            color: $dark-shade-100
+            font-size: 24px
+            line-height: 29px
+            span
+                font-family: $font-bold
+                font-size: 14px
+                line-height: 17px
         &_align
             &_right
                 right: 0
@@ -27,18 +45,23 @@
             max-width: 60px
             &_name
                 max-width: 214px
+                line-height: 24px
             &_info
+                position: relative
                 +circle-info()
+            &_line-height
+                line-height: 18px
         &_wrapper
             display: flex
             justify-content: space-between
             position: relative
+            align-items: start
             min-height: 24px
             margin-bottom: 10px
             &:nth-child(1)
                 margin-top: 20px
             &_result
-                margin-top: 20px
+                margin-top: 32px
                 max-height: 24px
                 display: flex
                 align-items: center
@@ -48,7 +71,5 @@
             height: 14px
             border: none
             border-bottom: 1px dotted $dark-shade-25
-
-        &_result
-            &_name
-            &_price
+    &__button
+        margin-top: 20px

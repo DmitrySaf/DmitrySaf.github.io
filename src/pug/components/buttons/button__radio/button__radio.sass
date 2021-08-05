@@ -8,17 +8,15 @@
     &__button
         all: unset
         appearance: none
-        width: 20px
-        height: 20px
-        border: 1px solid $dark-shade-25
+        width: 18px
+        height: 18px
+        box-shadow: 0 0 0 1px $dark-shade-25
         border-radius: 50%
-        position: relative
+        transform: translateX(1px)
         &:checked
-            &::before
-                content: ''
-                +center()
-                +circle-small()
-            border-color: $primary-color
+            box-shadow: 0 0 0 1px $primary-color
+            background: $primary-color
+            border: 3px solid #fff
             &+label
                 color: $dark-shade-75
     &__label

@@ -1,0 +1,32 @@
+include ../buttons/buttons
+include ../logo/logo
+
+mixin header(options)
+    if !options 
+        - var options = {}
+
+    header.header
+        .container
+            .header__wrapper
+                +logo
+                .header__menu_container(class = (options.logged === 'true') ? 'header__menu_container_logged' : '')
+
+                    nav.menu__nav 
+                        ul.menu__nav_list
+                            li
+                                a(href="#" class = 'menu__nav_item menu__nav_item_bold') О нас
+                            li
+                                a(href="#" class = 'menu__nav_item') Услуги
+                                .menu__nav_item_dropdown
+                            li
+                                a(href="#" class = 'menu__nav_item ') Вакансии
+                            li
+                                a(href="#" class = 'menu__nav_item ') Новости
+                            li
+                                a(href="#" class = 'menu__nav_item') Соглашения
+                                .menu__nav_item_dropdown
+                    if (options.logged === 'true')
+                        .header__menu_user=options.username
+                    else
+                        +button({type: 'default', additClass: 'button_border button_header', text: 'войти'})
+                        +button({type: 'default', additClass: 'button_size_m button_color_primary', text: 'зарегистрироваться'})

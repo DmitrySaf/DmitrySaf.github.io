@@ -15,12 +15,13 @@
 
 @mixin input($width: 320px)
     width: $width
+    max-width: $width
     height: 44px
     border: 1px solid $dark-shade-25
     border-radius: 4px
     font-size: $font-size-main
     line-height: 18px
-    padding: 12px 15px
+    padding: 12px 14px
     position: relative
     &::-webkit-input-placeholder
         color: $dark-shade-25
@@ -35,8 +36,8 @@
 @mixin center($rotate: 0deg)
     position: absolute
     top: 50%
-    left: 50%
-    transform: translate(-50%, -50%) rotate($rotate)
+    right: 50%
+    transform: translate(50%, -50%) rotate($rotate)
 
     //space-between
 @mixin space-between()
@@ -56,20 +57,21 @@
 
 @mixin arrow-main($width: 44px, $height: 44px, $color: $gradient-primary)
     position: absolute
-    top: 0
-    right: 0
     width: $width
     height: $height
     cursor: pointer
+    top: 0
+    right: 0
     &::before
         content: ''
         +center
-        width: 12px
+        width: 15px
         height: 2px
         background: $color
     &::after
         content: ''
         +center(45deg)
+        transform: translate(65%, -50%) rotate(45deg)
         width: 8px
         height: 8px
         border: 2px solid transparent
@@ -84,22 +86,22 @@
 
 // arrow for dropdowns
 
-@mixin arrow-dropdown()
+@mixin arrow-dropdown($color: $dark-shade-50, $rotate: 45deg)
+    cursor: pointer
     position: absolute
+    width: 44px
+    height: 44px
     top: 0
     right: 0
-    cursor: pointer
-    height: 44px
-    width: 44px
     &::before
         content: ''
-        border: 2px solid $dark-shade-50
+        border: 2px solid $color
+        background: #fff
         width: 6px
         height: 6px
         border-left: none
         border-top: none
-        +center(45deg)
-        top: 45%
+        +center($rotate)
         
 
 //circle
@@ -123,20 +125,22 @@
         content: ''
         position: absolute
         top: 0
-        right: 80px
-        width: 20px
-        height: 20px
+        right: -26px
+        width: 18px
+        height: 18px
         background: #fff
         border: 1px solid $dark-shade-25
         border-radius: 50%
     &::after
         content: 'i'
         color: $dark-shade-25
+        font-family: $font-bold
         position: absolute
-        top: 4px
-        right: 89px
+        top: 0
+        right: -18px
         text-transform: lowercase   
-        line-height: 14px
+        font-size: 12px 
+        line-height: 19px
         
 
 // operations

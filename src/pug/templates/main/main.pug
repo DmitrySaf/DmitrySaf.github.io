@@ -6,6 +6,9 @@ include ../../components/buttons/buttons
 include ../../components/lists/lists
 include ../../components/comment/comment
 include ../../components/cards/cards
+include ../../components/header/header
+include ../../components/footer/footer
+include ../../components/copyright/copyright
 
 doctype html
 html(lang="en")
@@ -17,4 +20,6 @@ html(lang="en")
         block links
             link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet") 
     body 
+        block header
         block content
+        block footer

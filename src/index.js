@@ -6,6 +6,11 @@ import './pug/components/buttons/buttons';
 import './pug/components/lists/lists';
 import './pug/components/comment/comment';
 import './pug/components/cards/cards';
+import './pug/components/header/header';
+import './pug/components/footer/footer';
+import './pug/components/logo/logo';
+import './pug/components/copyright/copyright';
+import './pug/components/social/social';
 
 import './assets/sass/styles.sass';
 

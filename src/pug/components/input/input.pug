@@ -4,32 +4,27 @@ mixin input(options)
     if !options
        - var options = {}
 
-    - 
-        var classes = ''
-        classes += options.additClass || ''
-        classes += ' ' + (options.enabled ? 'tick-box_enable' : '')
-    
-    if (options.type === 'email' || options.type === 'text' || options.type === 'date')
-        .input__wrapper
+    .input__container
+        if (options.label)
             h3.input__label=options.label
-            .input__wrapper
-                if (options.type === 'email' || options.type === 'text')
-                    input.input(
-                        class = options.additClass
-                        type = options.type
-                        placeholder = options.placeholder
-                        required = true
-                        id = options.id)           
-                    if ( options.type === 'email' && options.sub === 'true')
-                        .input__arrow_main(data-submit)
-                if (options.type === 'date')
-                    input.input(
-                        class = options.additClass
-                        type = 'text'
-                        placeholder = options.placeholder
-                        required = true
-                        id = options.id)
-                    .input__arrow_dropdown(id=options.arrowId)
+        .input__wrapper
+            if (options.type === 'email' || options.type === 'text')
+                input.input(
+                    class = options.additClass
+                    type = options.type
+                    placeholder = (options.type === 'email') ? 'Email' : ((!options.placeholder) ? 'ДД.ММ.ГГГГ' : options.placeholder)
+                    required = true
+                    id = options.id)           
+                if ( options.type === 'email' && options.sub === 'true')
+                    .arrow__main
+            if (options.type === 'date')
+                input.input(
+                    class = options.additClass
+                    type = 'text'
+                    placeholder = 'ДД.ММ.ГГГГ'
+                    required = true
+                    id = options.id)
+                .arrow__dropdown
 
             
             
