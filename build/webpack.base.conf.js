@@ -6,7 +6,7 @@ const path = require('path'),
 	  FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
 	  webpack = require('webpack');
 
-const test = 'ui-kit.html';
+const test = 'index.html';
 
 // Main const
 const PATHS = {

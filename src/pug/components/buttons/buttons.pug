@@ -29,9 +29,13 @@ mixin button(options)
     if (options.type === 'rating')
         +button__rating
     if (options.type === 'range')
-        input.range(
-        id = options.id
-        type = "text")
+        .range-slider__container 
+            .range-slider__wrapper 
+                h3.range-slider__header=options.label
+                h3.range-slider__label(for="range")  
+            input.range(
+                id = 'range'
+                type = "text")
     if (options.type === 'default')
         button.button(
             class = !options.additClass ? '' : options.additClass

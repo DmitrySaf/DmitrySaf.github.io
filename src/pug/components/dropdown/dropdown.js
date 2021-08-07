@@ -23,15 +23,15 @@ function sumGuests(targetCounter){
     return guests;
 }
 
-function guestEndings(guests, a){
-    if ((guests(a) % 10 == 1) && (guests(a) != 11)) {
-        return `${guests(a)} гость`;
-    } else if (((guests(a) % 10 == 2) || (guests(a) % 10 == 3) || (guests(a) % 10 == 4)) && (guests(a) != 12) && (guests(a) != 13) && (guests(a) != 14)) {
-        return `${guests(a)} гостя`  ;
-    } else if (guests(a) == 0) {
+function guestEndings(guests, counter){
+    if ((guests(counter) % 10 == 1) && (guests(counter) != 11)) {
+        return `${guests(counter)} гость`;
+    } else if (((guests(counter) % 10 == 2) || (guests(counter) % 10 == 3) || (guests(counter) % 10 == 4)) && (guests(counter) != 12) && (guests(counter) != 13) && (guests(counter) != 14)) {
+        return `${guests(counter)} гостя`  ;
+    } else if (guests(counter) == 0) {
         return `Сколько гостей`;
     } else {
-        return `${guests(a)} гостей`;
+        return `${guests(counter)} гостей`;
     }
 }
 

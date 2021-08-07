@@ -1,0 +1,47 @@
+extends ../main/main
+
+block variables 
+    - var title = 'Toxin'
+
+block content 
+    section.collage
+        .collage__img_main
+        .collage__img_top
+        .collage__img_bottom
+    section.room-info 
+        .container 
+            .room-info__wrapper 
+                .room-info__info 
+                    .room-info__advantages 
+                        h2.room-info__advantages_header Сведения о номере   
+                        +list({type: 'advantage', img: '../assets/icons/smile.svg', alt: 'happy', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
+                        +list({type: 'advantage', img: '../assets/icons/building.svg', alt: 'city', header: 'Удобство', descr: 'Окно в каждой из спален'})
+                        +list({type: 'advantage', img: '../assets/icons/comfort.svg', alt: 'city', header: 'Уют', descr: 'Номер оснащён камином'})
+                    .room-info__evaluation 
+                        h2.room-info__evaluation_header Впечатления от номера
+                        .room-info__evaluation_container
+                            .room-info__evaluation_chart
+                                canvas#myChart
+                                .room-info__evaluation_chart_votes
+                            .room-info__evaluation_legend_container  
+                                .room-info__evaluation_legend_great Великолепно
+                                .room-info__evaluation_legend_good Хорошо
+                                .room-info__evaluation_legend_normal Удовлетворительно
+                                .room-info__evaluation_legend_upset Разочарован
+                    .room-info__feedback 
+                        .room-info__feedback_header_container
+                            h2.room-info__feedback_header Отзывы посетителей номера
+                            .room-info__feedback_subheader 2 отзыва
+                        .room-info__feedback_comment_container 
+                            +comment({img: '../assets/img/comment-murad.svg', alt: 'user-icon', name: 'Мурад Сарафанов', online: '5 дней назад', feedback: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})
+                            +comment({img: '../assets/img/comment-patricia.svg', alt: 'user-icon', name: 'Патрисия Стёклышкова', online: 'Неделю назад', feedback: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'})
+                    .room-info__rules 
+                        h2.room-info__rules_header Правила
+                        +list({type: 'bullet', text: 'Нельзя с питомцами'})
+                        +list({type: 'bullet', text: 'Без вечеринок и мероприятий'})
+                        +list({type: 'bullet', text: 'Время прибытия — после 13:00, а выезд до 12:00'})
+                    .room-info__cancel
+                        h2.room-info__cancel_header Отмена
+                        .room-info__cancel_descr Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за усtext
+                .room-info__price
+                    +card({type: 'book', roomNumber: '888', roomStatus: 'люкс', roomPrice: '9 990₽', buttonText: 'забронировать'})

@@ -1,4 +1,4 @@
-extends ../../templates/main/main
+extends ../main/main
 
 block variables
     - title = "UI-KIT"
@@ -100,8 +100,8 @@ block content
                     +card({type: 'login', header: 'Войти', buttonText: 'войти', footerText: 'Нет аккаунта на Toxin?', footerButtonText: 'создать'})
                 .grid-elem 
                     .cards__datepicker
-                    +card({type: 'preview',cardClasses: 'card_size_s', roomNumber: '888', roomStatus: 'люкс', roomPrice: '9 990₽', roomComments: '145'})
-                    +card({type: 'preview',cardClasses: 'card_size_s', roomNumber: '840', roomPrice: '9 900₽', roomComments: '65'})
+                    +card({type: 'preview', roomNumber: '888', roomStatus: 'люкс', roomPrice: '9 990', roomComments: '145'})
+                    +card({type: 'preview', roomNumber: '840', roomPrice: '9 900', roomComments: '65'})
     section.headers-footers
         +header
         +header({logged: 'true', username: 'Юлий Цезарь'})

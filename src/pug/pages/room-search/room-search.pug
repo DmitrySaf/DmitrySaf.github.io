@@ -1,0 +1,44 @@
+extends ../main/main
+
+block variables
+    - var title = "Toxin"
+
+block content
+    section.room-search
+        .container 
+            .room-search__grid
+                .room-search__filters 
+                    +input({type: 'date', additClass: 'input_size_m', label: 'даты пребывания в отеле', id: 'input__date_filter'})
+                    +dropdown({type: 'guests', id: 'guests_medium', additClass: 'dropdown_size_m', label: 'гости'})
+                    .room-search__range_container 
+                        +button({type: 'range', label: 'диапазон цены'})
+                        .room-search__range_descr Стоимость за сутки пребывания в номере
+                    .room-search__checkbox_list 
+                        h3.room-search__checkbox_header правила дома
+                        +button({type: 'checkbox', name: 'able-smoke', label: 'Можно курить'})
+                        +button({type: 'checkbox', name: 'able-pets', label: 'Можно с питомцами'})
+                        +button({type: 'checkbox', name: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
+                    .room-search__checkbox-rich_list 
+                        h3.room-search__checkbox-rich_header доступность
+                        +button({type: 'checkbox', checkboxType: 'rich', name: 'corridor', label: 'Широкий коридор', labelDescr: 'Ширина коридоров в номере не менее 91 см.'})
+                        +button({type: 'checkbox', checkboxType: 'rich', name: 'help', label: 'Помощник для инвалидов', labelDescr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+                    +dropdown({type: 'rooms', id: 'rooms_medium', additClass: 'dropdown_size_m', label: 'удобства номера'})
+                    +dropdown({type: 'checkbox', additClass: 'dropdown_size_m dropdown_no-border', label: 'дополнительные удобства'})
+                .room-search__content 
+                    h1.room-search__header Номера, которые мы для вас подобрали
+                    .room-search__content_grid
+                        +card({type: 'preview', roomNumber: '888', roomPrice: '9 990', roomComments: '145', roomStatus: 'люкс'})
+                        +card({type: 'preview', roomNumber: '840', roomPrice: '9 900', roomComments: '65'})
+                        +card({type: 'preview', roomNumber: '980', roomPrice: '8 500', roomComments: '35', roomStatus: 'люкс'})
+                        +card({type: 'preview', roomNumber: '856', roomPrice: '7 300', roomComments: '19'})
+                        +card({type: 'preview', roomNumber: '740', roomPrice: '6 000', roomComments: '44'})
+                        +card({type: 'preview', roomNumber: '982', roomPrice: '5 800', roomComments: '56'})
+                        +card({type: 'preview', roomNumber: '678', roomPrice: '5 500', roomComments: '45'})
+                        +card({type: 'preview', roomNumber: '450', roomPrice: '5 300', roomComments: '39'})
+                        +card({type: 'preview', roomNumber: '350', roomPrice: '5 000', roomComments: '77'})
+                        +card({type: 'preview', roomNumber: '666', roomPrice: '5 000', roomComments: '25'})
+                        +card({type: 'preview', roomNumber: '444', roomPrice: '5 000', roomComments: '15'})
+                        +card({type: 'preview', roomNumber: '352', roomPrice: '5 000', roomComments: '55'})
+                    .room-search__pagination 
+                        +pagination
+
