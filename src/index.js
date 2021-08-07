@@ -13,7 +13,7 @@ import './pug/components/copyright/copyright';
 import './pug/components/social/social';
 import './pug/components/pagination/pagination';
 import './pug/pages/room-search/room-search';
-import './pug/pages/room-info/room-info';
+// import './pug/pages/room-info/room-info';
 
 import './pug/pages/index/index.sass';
 import './assets/sass/styles.sass';

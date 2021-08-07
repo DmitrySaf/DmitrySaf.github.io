@@ -5,11 +5,17 @@ mixin pagination(options)
         - var options = {}
 
     .pagination 
-        .pagination__button_wrapper 
-            +button({type: 'default', id: 'click8', additClass: 'button_color_primary button_size_s', text: '1'}) 
-            +button({type: 'default', id: 'click9', additClass: 'button_size_s button_text_thin', text: '2'}) 
-            +button({type: 'default', id: 'click10', additClass: 'button_size_s button_text_thin', text: '3'}) 
-            +button({type: 'default', id: 'click11', additClass: 'button_size_s button_text_thin', text: '...'}) 
-            +button({type: 'default', id: 'click12', additClass: 'button_size_s button_text_thin', text: '15'}) 
-            +button({type: 'default', id: 'click13', additClass: 'button_color_secondary button_size_s button_arrow'})
+        ul.pagination__wrapper 
+            li.pagination__item.pagination__item_active 
+                a.pagination__link.pagination__link_active 
+            li.pagination__item
+                a.pagination__link
+            li.pagination__item
+                a.pagination__link
+            li.pagination__item
+                a.pagination__link ...
+            li.pagination__item
+                a.pagination__link
+            li.pagination__item.pagination__item_next
+                a.pagination__link.pagination__link_next
         .pagination__descr 1 – 12 из 100+ вариантов аренды

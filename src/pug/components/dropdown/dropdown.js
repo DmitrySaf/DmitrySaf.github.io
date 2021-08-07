@@ -23,16 +23,32 @@ function sumGuests(targetCounter){
     return guests;
 }
 
-function guestEndings(guests, counter){
-    if ((guests(counter) % 10 == 1) && (guests(counter) != 11)) {
-        return `${guests(counter)} гость`;
-    } else if (((guests(counter) % 10 == 2) || (guests(counter) % 10 == 3) || (guests(counter) % 10 == 4)) && (guests(counter) != 12) && (guests(counter) != 13) && (guests(counter) != 14)) {
-        return `${guests(counter)} гостя`  ;
-    } else if (guests(counter) == 0) {
-        return `Сколько гостей`;
+function guestEndings(counter){
+    let sumGuests = +counter[0].textContent + +counter[1].textContent;
+    let babies = +counter[2].textContent;
+    let outputText = [];
+
+    if ((sumGuests % 10 == 1) && (sumGuests != 11)) {
+        outputText.push(`${sumGuests} гость`);
+    } else if (((sumGuests % 10 == 2) || (sumGuests % 10 == 3) || (sumGuests % 10 == 4)) && (sumGuests != 12) && (sumGuests != 13) && (sumGuests != 14)) {
+        outputText.push(`${sumGuests} гостя`);
+    } else if (sumGuests == 0) {
+        outputText.push(`Сколько гостей`);
     } else {
-        return `${guests(counter)} гостей`;
+        outputText.push(`${sumGuests} гостей`);
     }
+
+    if ((babies % 10 == 1) && (babies != 11)) {
+        outputText.push(`${babies} младенец`);
+    } else if (((babies % 10 == 2) || (babies % 10 == 3) || (babies % 10 == 4)) && (babies != 12) && (babies != 13) && (babies != 14)) {
+        outputText.push(`${babies} младенца`);
+    } else if (babies == 0) {
+        outputText.push(``);
+        return outputText.join('');
+    } else {
+        outputText.push(`${babies} младенцев`);
+    }
+    return outputText.join(', ');
 }
 
 function roomsEndings(counter){
@@ -110,9 +126,9 @@ counter.next().on('click', (e) => {
     counter.previousElementSibling.classList.remove('disabled');
 
     if (counter.classList.contains('dropdown__counter_guests')) {
-        placeholder.textContent = guestEndings(sumGuests, counterGuestsDefault);
+        placeholder.textContent = guestEndings(counterGuestsDefault);
     } else if (counter.classList.contains('dropdown__counter_guests_medium')) {
-        placeholder.textContent = guestEndings(sumGuests, counterGuestsMedium);
+        placeholder.textContent = guestEndings(counterGuestsMedium);
     } if (counter.classList.contains('dropdown__counter_rooms_medium')) {
         placeholder.textContent = roomsEndings(counterRooms);
     }
@@ -133,9 +149,9 @@ counter.prev().on('click', (e) => {
         }
 
     if (counter.classList.contains('dropdown__counter_guests')) {
-        placeholder.textContent = guestEndings(sumGuests, counterGuestsDefault);
+        placeholder.textContent = guestEndings(counterGuestsDefault);
     } else if (counter.classList.contains('dropdown__counter_guests_medium')) {
-        placeholder.textContent = guestEndings(sumGuests, counterGuestsMedium);
+        placeholder.textContent = guestEndings(counterGuestsMedium);
     } if (counter.classList.contains('dropdown__counter_rooms_medium')) {
         placeholder.textContent = roomsEndings(counterRooms);
     }
