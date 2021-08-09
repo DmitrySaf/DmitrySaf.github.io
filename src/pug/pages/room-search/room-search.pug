@@ -1,15 +1,15 @@
 extends ../main/main
 
 block variables
-    - var title = "Toxin"
+    - var title = "Search rooms"
 
 block content
     section.room-search
         .container 
             .room-search__grid
-                .room-search__filters 
+                .room-search__filters  
                     +input({type: 'date', additClass: 'input_size_m', label: 'даты пребывания в отеле', id: 'input__date_filter'})
-                    +dropdown({type: 'guests', id: 'guests_medium', additClass: 'dropdown_size_m', label: 'гости'})
+                    +dropdown({type: 'guests', id: 'guests_medium', size: 'medium', label: 'гости'})
                     .room-search__range_container 
                         +button({type: 'range', label: 'диапазон цены'})
                         .room-search__range_descr Стоимость за сутки пребывания в номере
@@ -20,13 +20,13 @@ block content
                         +button({type: 'checkbox', name: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
                     .room-search__checkbox-rich_list 
                         h3.room-search__checkbox-rich_header доступность
-                        +button({type: 'checkbox', checkboxType: 'rich', name: 'corridor', label: 'Широкий коридор', labelDescr: 'Ширина коридоров в номере не менее 91 см.'})
-                        +button({type: 'checkbox', checkboxType: 'rich', name: 'help', label: 'Помощник для инвалидов', labelDescr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
-                    +dropdown({type: 'rooms', id: 'rooms_medium', additClass: 'dropdown_size_m', label: 'удобства номера'})
-                    +dropdown({type: 'checkbox', additClass: 'dropdown_size_m dropdown_no-border', label: 'дополнительные удобства'})
+                        +button({type: 'checkbox', checkboxType: 'rich', name: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
+                        +button({type: 'checkbox', checkboxType: 'rich', name: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+                    +dropdown({type: 'rooms', id: 'rooms', size: 'medium', label: 'удобства номера'})
+                    +dropdown({type: 'checkbox', label: 'дополнительные удобства'})
                 .room-search__content 
                     h1.room-search__header Номера, которые мы для вас подобрали
-                    .room-search__content_grid
+                    .room-search__content_grid 
                         +card({type: 'preview', roomNumber: '888', roomPrice: '9 990', roomComments: '145', roomStatus: 'люкс'})
                         +card({type: 'preview', roomNumber: '840', roomPrice: '9 900', roomComments: '65'})
                         +card({type: 'preview', roomNumber: '980', roomPrice: '8 500', roomComments: '35', roomStatus: 'люкс'})

@@ -59,8 +59,7 @@ ul, li, canvas
 // hide & show
 
 .show
-    opacity: 1
-    z-index: 999
+    display: block
 
 .disabled
     opacity: .5
@@ -74,7 +73,10 @@ ul, li, canvas
 // arrow
 
 .arrow__dropdown
+    all: unset
+    appearance: none
     +arrow-dropdown
+    transform: translateY(-2px)
 
 .arrow__main
     +arrow-main

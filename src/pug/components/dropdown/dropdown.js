@@ -5,26 +5,24 @@ import './dropdown.sass';
 const clearButton = $('.dropdown__button_clear'),
       acceptButton = $('.dropdown__button_accept'),
       placeholderText = $('.dropdown__placeholder'),
-      counter = $('.dropdown__operation_counter'),
+      counterAll = $('.dropdown__operation_counter'),
       counterGuestsDefault = $('.dropdown__counter_guests'),
       counterGuestsMedium = $('.dropdown__counter_guests_medium'),
-      counterRooms = $('.dropdown__counter_rooms_medium'),
-      dropdown = $('.dropdown'),
-      dropdownArrow = $('.dropdown').next(),
-      dropdownContent = $('.dropdown__content_wrapper');
+      counterRooms = $('.dropdown__counter_rooms'),
+      dropdown = $('.dropdown');
 
-
-
-function sumGuests(targetCounter){
-    let guests = 0;
-    targetCounter.each((i, item) => {
-        guests += +item.textContent;
+function sumGuests(counter){
+    let sum = 0;
+    counter.each((i, item) => {
+        sum += item.textContent;
     });
-    return guests;
+    return sum;
 }
 
+//function for rewriting endings in guests dropdown
+
 function guestEndings(counter){
-    let sumGuests = +counter[0].textContent + +counter[1].textContent;
+    let sumGuests = (+counter[0].textContent) + (+counter[1].textContent);
     let babies = +counter[2].textContent;
     let outputText = [];
 
@@ -50,6 +48,8 @@ function guestEndings(counter){
     }
     return outputText.join(', ');
 }
+
+//function for rewriting endings in rooms dropdown
 
 function roomsEndings(counter){
     let bedrooms = counter[0].textContent,
@@ -79,48 +79,52 @@ function roomsEndings(counter){
     return outputText.join(', ');
 }
 
-function toggleContent(e){
-    if (e.target == e.currentTarget || e.target == e.currentTarget.firstElementChild) {
-        e.currentTarget.lastChild.classList.toggle('show');
-        e.currentTarget.classList.toggle('border-radius_none');
+$('.dropdown > input').on('click', (e) => {
+    e.currentTarget.parentElement.classList.toggle('border-radius_none');
+    
+    if (e.currentTarget.parentElement.id == 'dropdown-rooms') {
+        counterRooms[0].textContent = '2';
+        counterRooms[1].textContent = '2';
+        counterRooms.each((i, item) => {
+            if (item.textContent > '0')
+                item.previousElementSibling.classList.remove('disabled');
+        });
     }
+
+    if (e.currentTarget.parentElement.id == 'dropdown-guests_medium') {
+        counterGuestsMedium.each((i, item) => {
+            if (item.textContent > '0')
+                item.previousElementSibling.classList.remove('disabled');
+        });
+    }
+});
+
+// changing dropdown with data from the previous page
+
+if ($(window)[0].document.title === 'Search rooms') {
+    counterGuestsMedium.each((i, item) => {
+        item.textContent = localStorage.getItem('guests')[i];
+    });
+    $('#dropdown-guests_medium > .dropdown__placeholder').text(guestEndings(counterGuestsMedium));
 }
 
-dropdown.on('click', (e) => {
-    toggleContent(e);
-    counter.each((i, item) => {
-        if(item.textContent == 0)
-            item.previousElementSibling.classList.add('disabled');
-    });
-});
-
-dropdownArrow.on('click', (e) => {
-    let dropdownLocal = e.currentTarget.previousElementSibling;
-    dropdownLocal.lastChild.classList.toggle('show');
-    dropdownLocal.classList.toggle('border-radius_none');
-    counter.each((i, item) => {
-        if(item.textContent == 0)
-            item.previousElementSibling.classList.add('disabled');
-    });
-});
 
 clearButton.on('click', (e) => {
-    placeholderText.text(`Сколько гостей`);
     counterGuestsDefault.text(0);
-    if(sumGuests(counterGuestsDefault) == 0) {
-        clearButton.toggleClass('show');
-    }
+    placeholderText[0].textContent = guestEndings(counterGuestsDefault);
+    clearButton.removeClass('show');
+    $('.dropdown__operation_minus').addClass('disabled');
 });
 
 acceptButton.on('click', (e) => {
-    dropdown.attr('value', `${sumGuests(counterGuestsDefault)}`);
-    dropdownContent.removeClass('show');
+    localStorage.setItem('guests', counterGuestsDefault.text().split());
+    $('.dropdown > input').prop('checked', false);
     dropdown.toggleClass('border-radius_none');
 });
 
-counter.next().on('click', (e) => {
+counterAll.next().on('click', (e) => {
     let counter = e.currentTarget.previousElementSibling,
-        placeholder = e.currentTarget.offsetParent.previousElementSibling;
+        placeholder = e.currentTarget.offsetParent.previousElementSibling.previousElementSibling;
 
     counter.textContent++;
     counter.previousElementSibling.classList.remove('disabled');
@@ -129,7 +133,7 @@ counter.next().on('click', (e) => {
         placeholder.textContent = guestEndings(counterGuestsDefault);
     } else if (counter.classList.contains('dropdown__counter_guests_medium')) {
         placeholder.textContent = guestEndings(counterGuestsMedium);
-    } if (counter.classList.contains('dropdown__counter_rooms_medium')) {
+    } if (counter.classList.contains('dropdown__counter_rooms')) {
         placeholder.textContent = roomsEndings(counterRooms);
     }
 
@@ -138,21 +142,21 @@ counter.next().on('click', (e) => {
     }
 });
 
-counter.prev().on('click', (e) => {
+counterAll.prev().on('click', (e) => {
     let counter = e.currentTarget.nextElementSibling,
-        placeholder = e.currentTarget.offsetParent.previousElementSibling;
+        placeholder = e.currentTarget.offsetParent.previousElementSibling.previousElementSibling;
 
     if(counter.textContent > 0)
         counter.textContent--;
         if(counter.textContent == 0){
-            e.currentTarget.classList.remove('disabled');
+            e.currentTarget.classList.add('disabled');
         }
 
     if (counter.classList.contains('dropdown__counter_guests')) {
         placeholder.textContent = guestEndings(counterGuestsDefault);
     } else if (counter.classList.contains('dropdown__counter_guests_medium')) {
         placeholder.textContent = guestEndings(counterGuestsMedium);
-    } if (counter.classList.contains('dropdown__counter_rooms_medium')) {
+    } if (counter.classList.contains('dropdown__counter_rooms')) {
         placeholder.textContent = roomsEndings(counterRooms);
     }
     if (sumGuests(counterGuestsDefault) == 0) {

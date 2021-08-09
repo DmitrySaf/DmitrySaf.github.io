@@ -6,32 +6,32 @@ mixin dropdown(options)
     .dropdown__wrapper
         if (options.type === 'guests' || options.type === 'rooms')
             h3.dropdown__label=options.label
-            .dropdown__wrapper
-                .dropdown(
-                    class = !options.additClass ? '' : options.additClass
-                    id = `dropdown-${options.id}`)
-                    .dropdown__placeholder=(options.type === 'guests') ? 'Сколько гостей' : '2 спальни, 2 кровати'
-                    .dropdown__content_wrapper
-                        .dropdown__content
-                            if (options.type === 'guests')
-                                +dropdown__item({text: 'взрослые', id: options.id})
-                                +dropdown__item({text: 'дети', id: options.id})
-                                +dropdown__item({text: 'младенцы', id: options.id})
-                            else 
-                                +dropdown__item({text: 'спальни', id: options.id})
-                                +dropdown__item({text: 'кровати', id: options.id})
-                                +dropdown__item({text: 'ванные комнаты', id: options.id})
-                            if (options.additClass !== 'dropdown_size_m')
-                                .dropdown__button_wrapper
-                                    h3.dropdown__button.dropdown__button_clear очистить
-                                    h3.dropdown__button.dropdown__button_accept применить
-                .arrow__dropdown
+            .dropdown(
+                class = (options.size === 'medium') ? 'dropdown_size_m' : ''
+                id = `dropdown-${options.id}`)
+                .dropdown__placeholder=(options.type === 'guests') ? 'Сколько гостей' : '2 спальни, 2 кровати'
+                input.arrow__dropdown(type = 'checkbox')
+                .dropdown__content_wrapper
+                    .dropdown__content
+                        if (options.type === 'guests')
+                            +dropdown__item({text: 'взрослые', id: options.id})
+                            +dropdown__item({text: 'дети', id: options.id})
+                            +dropdown__item({text: 'младенцы', id: options.id})
+                        else 
+                            +dropdown__item({text: 'спальни', id: options.id})
+                            +dropdown__item({text: 'кровати', id: options.id})
+                            +dropdown__item({text: 'ванные комнаты', id: options.id})
+                        if (options.size !== 'medium')
+                            .dropdown__button_wrapper
+                                h3.dropdown__button.dropdown__button_clear очистить
+                                h3.dropdown__button.dropdown__button_accept применить
         if (options.type === 'checkbox')
             .dropdown(
-                class = !options.additClass ? '' : options.additClass
-                id = `dropdown-${options.type}`)
+                class = 'dropdown__checkbox'
+                id = `dropdown-checkbox`)
                 h3.dropdown__label.dropdown__checkbox_label=options.label
-                .dropdown__checkbox_content
+                input.arrow__dropdown(type = 'checkbox')
+                ul.dropdown__checkbox_list
                     +button({type: 'checkbox', label: 'Завтрак'})
                     +button({type: 'checkbox', label: 'Письменный стол'})
                     +button({type: 'checkbox', label: 'Стул для кормления'})
@@ -40,7 +40,6 @@ mixin dropdown(options)
                     +button({type: 'checkbox', label: 'Шампунь'})
                     +button({type: 'checkbox', label: 'Телевизор'})
                     +button({type: 'checkbox', label: 'Шампунь'})
-            .arrow__dropdown
 
 
             
@@ -51,6 +50,6 @@ mixin dropdown__item(options)
     .dropdown__item
         h3.dropdown__item_text=options.text
         .dropdown__item_calc
-            .dropdown__operation.dropdown__operation_minus
+            .dropdown__operation.dropdown__operation_minus.disabled
             h3.dropdown__operation_counter(class = `dropdown__counter_${options.id}`) 0
             .dropdown__operation.dropdown__operation_plus

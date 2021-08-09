@@ -6,7 +6,7 @@ mixin button(options)
 
 
     if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle' || options.checkboxType === 'rich')
-        div(class = options.type)
+        li(class = options.type)
             input(
                 class = `${options.type}__button`
                 type = ((options.type === 'toggle') ? 'checkbox': options.type)
@@ -21,7 +21,7 @@ mixin button(options)
                     div(
                         class = `${options.type}__label_descr`
                         for = options.id
-                    )=options.labelDescr
+                    )=options.descr
     if (options.type === 'like')
         .like
             span.material-icons.material-icons_border favorite_border

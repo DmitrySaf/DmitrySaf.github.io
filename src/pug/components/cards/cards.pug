@@ -20,9 +20,9 @@ mixin card(options)
             form.card__content(action = (options.type === 'search') ? './room-search.html' : '')
                 if (options.type === 'book' || options.type === 'search')
                     .card__input_wrapper 
-                        +input({additClass: 'input_size_s', type: 'date',label: 'прибытие',placeholder: 'ДД.ММ.ГГГГ', id: 'input__date_arrival', arrowId: 'input__arrow_arrival'})
-                        +input({additClass: 'input_size_s', type: 'date',label: 'выезд',placeholder: 'ДД.ММ.ГГГГ', id: 'input__date_departure', arrowId: 'input__arrow_departure'})
-                    +dropdown({type: 'guests', id: 'guests', label: 'гости', placeholder: 'Сколько гостей'})
+                        +input({additClass: 'input_size_s', type: 'date', label: 'прибытие', id: 'input__date_arrival'})
+                        +input({additClass: 'input_size_s', type: 'date', label: 'выезд', id: 'input__date_departure'})
+                    +dropdown({type: 'guests', id: 'guests', label: 'гости'})
                     if (options.type === 'book')
                         .card-book__calc_container
                             .card-book__calc_wrapper
@@ -40,7 +40,7 @@ mixin card(options)
                                 h2.card-book__calc_result_price 38 081₽
                 if (options.type === 'login' || options.type === 'registration')
                     if (options.type === 'registration')
-                        +input({type: 'text', placeholder: 'Имя', additClass: 'card-card-registration__input_name'})
+                        +input({type: 'text', placeholder: 'Имя', additClass: 'card-registration__input_name'})
                         +input({type: 'text', placeholder: 'Фамилия', additClass: 'card-registration__input_surname'})
                         .card-registration__gender_container.radio__container
                             +button({type: 'radio',id: 'man', name: 'gender', value: 'man', label: 'Мужчина'})
@@ -58,6 +58,7 @@ mixin card(options)
                         div(class = `${options.type}__footer_text`)=options.footerText 
                         +button({type: 'default', text: options.footerButtonText, additClass: 'button_border'})
 
+    //- its actually useless because I have a JS template. But I'll leave it here for ui-kit and just in case
 
     if (options.type === 'preview')
         a.card-preview__link
