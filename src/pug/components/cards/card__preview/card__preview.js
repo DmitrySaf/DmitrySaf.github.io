@@ -1,14 +1,16 @@
 import 'slick-carousel/slick/slick.min';
 import 'slick-carousel/slick/slick.css';
+import './card__preview.sass';
 
 // card class
 
 class CardPreview {
-    constructor (img, roomNumber, roomStatus, roomPrice, roomComments) {
+    constructor (img, roomNumber, roomStatus, roomPrice, roomComments, link) {
         this.roomNumber = roomNumber;
         this.roomStatus = roomStatus;
         this.roomPrice = roomPrice;
         this.roomComments = roomComments;
+        this.link = link;
         
         //html for more than one img of a room
 
@@ -27,6 +29,7 @@ class CardPreview {
     htmlInner() {
         const elem = $('<a></a>', {
             'class': 'card-preveiw__link',
+            'href': `${this.link}`,
             html: `
                 <div class="card card_size_s">
                     <div class="card-preview__slider">

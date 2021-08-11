@@ -1,5 +1,6 @@
 include ../buttons/buttons
 include ../logo/logo
+include ../social/social
 
 mixin header(options)
     if !options 
@@ -10,7 +11,6 @@ mixin header(options)
             .header__wrapper
                 +logo
                 .header__menu_container(class = (options.logged === 'true') ? 'header__menu_container_logged' : '')
-
                     nav.menu__nav 
                         ul.menu__nav_list
                             li
@@ -28,5 +28,36 @@ mixin header(options)
                     if (options.logged === 'true')
                         .header__menu_user=options.username
                     else
-                        +button({type: 'default', additClass: 'button_border button_header', text: 'войти'})
-                        +button({type: 'default', additClass: 'button_size_m button_color_primary', text: 'зарегистрироваться'})
+                        a.button__login(href="./login.html")
+                            +button({type: 'default', additClass: 'button_border header__login-button', text: 'войти'})
+                        a.button__registration(href="./registration.html")
+                            +button({type: 'default', additClass: 'button_size_m button_color_primary header__register-button', text: 'зарегистрироваться'})
+                    .header__hamburger
+                        input#hamburger.header__hamburger_trigger(type = 'checkbox')
+                        label.header__hamburger_lines(for='hamburger')
+                            span.header__hamburger_line
+                            span.header__hamburger_line
+                            span.header__hamburger_line
+                        .header__hamburger_content
+                            nav.menu__nav.menu__nav_hamburger
+                                ul.menu__nav_list
+                                    li
+                                        a(href="#" class = 'menu__nav_item menu__nav_item_bold') О нас
+                                    li
+                                        a(href="#" class = 'menu__nav_item') Услуги
+                                        .menu__nav_item_dropdown
+                                    li
+                                        a(href="#" class = 'menu__nav_item ') Вакансии
+                                    li
+                                        a(href="#" class = 'menu__nav_item ') Новости
+                                    li
+                                        a(href="#" class = 'menu__nav_item') Соглашения
+                                        .menu__nav_item_dropdown
+                            if (options.logged === 'true')
+                                .header__menu_user=options.username
+                            else
+                                a.button__login(href="./login.html")
+                                    +button({type: 'default', additClass: 'button_border header__login-button header__login-button_hamburger', text: 'войти'})
+                                a.button__registration(href="./registration.html")
+                                    +button({type: 'default', additClass: 'button_size_m button_color_primary header__register-button header__register-button_hamburger', text: 'зарегистрироваться'})
+                            +social()

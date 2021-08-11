@@ -39,6 +39,7 @@ mixin card(options)
                                 .card-book__calc_dots
                                 h2.card-book__calc_result_price 38 081₽
                 if (options.type === 'login' || options.type === 'registration')
+
                     if (options.type === 'registration')
                         +input({type: 'text', placeholder: 'Имя', additClass: 'card-registration__input_name'})
                         +input({type: 'text', placeholder: 'Фамилия', additClass: 'card-registration__input_surname'})
@@ -47,21 +48,23 @@ mixin card(options)
                             +button({type: 'radio',id: 'woman', name: 'gender', value: 'woman', label: 'Женщина'})
                         +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', additClass: 'input__date card-registration__input_date'}) 
                         h3.card-registration__user-info_header данные для входа в сервис
+
                     +input({type: 'email', placeholder: 'Email', additClass: 'card-registration__input_email'})
                     +input({type: 'text', placeholder: 'Пароль', additClass: 'card-registration__input_password'})
                     if (options.type === 'registration')
                         +button({type: 'toggle', label: 'Получать спецпредложения'})
 
                 +button({type: 'default', buttonType: 'submit', id: 'click7', additClass: `button_color_primary button_size_l button_arrow card-${options.type}__button`, text: options.buttonText})
+
                 if (options.type === 'registration' || options.type === 'login')
                     .card__footer_container 
-                        div(class = `${options.type}__footer_text`)=options.footerText 
-                        +button({type: 'default', text: options.footerButtonText, additClass: 'button_border'})
+                        div(class = `${options.type}__footer_text`)= (options.type === 'registration') ? 'Уже есть аккаунт на Toxin' : 'Нет аккаунта на Toxin?'
+                        +button({type: 'default', text: (options.type === 'registration') ? 'войти' : 'создать', additClass: 'button_border'})
 
     //- its actually useless because I have a JS template. But I'll leave it here for ui-kit and just in case
 
     if (options.type === 'preview')
-        a.card-preview__link
+        a.card-preview__link(href='./room-info.html')
             .card.card_size_s
                 .card-preview__slider
                         img(src="../assets/img/card-preview-luxe.png", alt="")

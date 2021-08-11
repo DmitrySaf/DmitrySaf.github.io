@@ -48,12 +48,13 @@ module.exports = {
 				/node_modules/,
 			]
 			},
+				// fonts and images
 			{
-				test: /\.(ttf|eot|woff|woff2)$/,
-				type: 'asset/resource',
-				generator: {
-					filename: `${PATHS.assets}fonts/[hash][ext][query]`
-				}
+			test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+			type: 'asset/resource',
+			generator: {
+				filename: 'file-loader?name=[path][name].[ext]'
+			}
 			},
 			{
 				// Css
@@ -61,8 +62,7 @@ module.exports = {
 			use: [
 				MiniCssExtractPlugin.loader,
 				{
-					loader: "css-loader",
-					options: { sourceMap: true }
+					loader: "css-loader"
 				},
 				{
 					loader: "postcss-loader",
@@ -81,8 +81,7 @@ module.exports = {
 			use: [
 				MiniCssExtractPlugin.loader,
 				{
-					loader: "css-loader",
-					options: { sourceMap: true }
+					loader: "css-loader"
 				},
 				{
 					loader: "postcss-loader",
@@ -93,8 +92,7 @@ module.exports = {
 					}
 				}, 
 				{
-					loader: "sass-loader",
-					options: { sourceMap: true } 
+					loader: "sass-loader"
 				},
 			]
 				
@@ -102,7 +100,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CopyWebpackPlugin({
+/* 		new CopyWebpackPlugin({
 			patterns: [
 				{
 					from: `${PATHS.src}/${PATHS.assets}img`,
@@ -112,7 +110,7 @@ module.exports = {
 					from: `${PATHS.src}/${PATHS.assets}icons`,
 					to: `${PATHS.assets}icons`
 				}
-		]}),
+		]}), */
 		new MiniCssExtractPlugin({
 			filename: `${PATHS.assets}css/[name].css`
 		}),

@@ -1,0 +1,10 @@
+extends ../main/main
+
+block variables
+    - var title = "Registration"
+
+block content
+    section.registration
+        .container
+            .registration__grid
+                +card({type: 'registration', header: 'Регистрация аккаунта', buttonText: 'зарегистрироваться'})

@@ -38,12 +38,24 @@ body
     color: $dark-shade-75
     margin: 0
 
-ul, li, canvas
+ul, li, canvas 
     all: unset
+
+a
+    text-decoration: none
 
 .container
     height: 100%
+    width: 100%
     max-width: 1160px
+    margin: 0 auto
+    +media-breakpoint-down($desktop-normal-down)
+        padding: 0 30px
+    +media-breakpoint-down($tablet-portrait-down)
+        padding: 0 10px
+// testing responsive container. left previous code just in case
+
+/**     max-width: 1160px
     margin: 0 auto
     +media-breakpoint-up($desktop-large-up)
         max-width: 1700px
@@ -54,7 +66,7 @@ ul, li, canvas
     +media-breakpoint-down($tablet-portrait-down)
         max-width: 520px
     +media-breakpoint-down($phone-normal-down)
-        max-width: 300px
+        max-width: 300px **/
 
 // hide & show
 
@@ -64,6 +76,10 @@ ul, li, canvas
 .disabled
     opacity: .5
     cursor: default
+
+.sidebar__show
+    height: auto
+    overflow: auto
 
 
 .border-radius_none
@@ -80,6 +96,8 @@ ul, li, canvas
 
 .arrow__main
     +arrow-main
+
+
 
 
 

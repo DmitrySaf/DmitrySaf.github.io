@@ -5,7 +5,7 @@
     &__header
         &_container
             display: grid
-            grid-template-columns: 69px 243px 
+            grid-template-columns: 69px minmax(170px, 243px) 
             column-gap: 8px
             max-height: 30px
             align-items: end
@@ -39,7 +39,7 @@
                 right: 0
     &__calc
         &_container
-            max-width: 100%
+            width: 100%
             max-height: 182px
         &_price
             max-width: 60px
@@ -52,7 +52,8 @@
             &_line-height
                 line-height: 18px
         &_wrapper
-            display: flex
+            display: grid
+            grid-template-columns: minmax(max-content, 215px) max-content  
             justify-content: space-between
             position: relative
             align-items: start
@@ -61,6 +62,8 @@
             &:nth-child(1)
                 margin-top: 20px
             &_result
+                display: grid
+                grid-template-columns: max-content minmax(100px, 180px) max-content
                 margin-top: 32px
                 max-height: 24px
                 display: flex
@@ -71,5 +74,7 @@
             height: 14px
             border: none
             border-bottom: 1px dotted $dark-shade-25
+            +media-breakpoint-down($phone-normal-down)
+                width: 150px
     &__button
         margin-top: 20px

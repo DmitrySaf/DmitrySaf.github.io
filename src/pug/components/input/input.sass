@@ -18,7 +18,8 @@
                 color: $dark-shade-75
     &__wrapper
         position: relative
-        width: max-content
+    &__container
+        width: 100%
 
 // calendar styles
 
@@ -30,6 +31,10 @@
     box-shadow: 0px 10px 20px $dark-shade-5
     border-radius: 4px
     background-color: #fff
+    +media-breakpoint-down($phone-normal-down)
+        width: 300px
+        padding-right: 9px
+        padding-left: 9px
     &--content
         padding: 0
     &--nav
