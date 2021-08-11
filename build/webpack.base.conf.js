@@ -50,10 +50,17 @@ module.exports = {
 			},
 				// fonts and images
 			{
-			test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+			test: /\.(ttf|eot|woff|woff2)$/,
 			type: 'asset/resource',
 			generator: {
-				filename: 'file-loader?name=[path][name].[ext]'
+				filename: 'assets/fonts/[name].[ext]'
+			}
+			},
+			{
+			test: /\.(svg|png|jpg)$/,
+			type: 'asset/resource',
+			generator: {
+				filename: 'assets/img/[name].[ext]'
 			}
 			},
 			{
