@@ -101,12 +101,12 @@ $('.dropdown > input').on('click', (e) => {
 
 // changing dropdown with data from the previous page
 
-if ($(window)[0].document.title === 'Search rooms') {
+/* if ($(window)[0].document.title === 'Search rooms') {
     counterGuestsMedium.each((i, item) => {
         item.textContent = localStorage.getItem('guests')[i];
     });
     $('#dropdown-guests_medium > .dropdown__placeholder').text(guestEndings(counterGuestsMedium));
-}
+} */
 
 
 clearButton.on('click', (e) => {

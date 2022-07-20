@@ -6,23 +6,21 @@ const path = require('path'),
 	  FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
 	  webpack = require('webpack');
 
-const test = 'index.html';
-
 // Main const
 const PATHS = {
 	src: path.join(__dirname, '../src'),
 	dist: path.join(__dirname, '../dist'),
-	assets: 'assets/',
-	pageTest: path.join(__dirname, `../dist/${test}`)
+	assets: 'assets/'
 };
 
 const PAGES_DIR = `${PATHS.src}/pug/pages/`,
-	  PAGES = fs.readdirSync(`${PAGES_DIR}`);
+	  PAGES = fs.readdirSync(`${PAGES_DIR}`),
+	  PAGE_LIVE = 'index.html';
 
 module.exports = {
 	externals: {
 		paths: PATHS,
-		page: test
+		page: PAGE_LIVE
 	},
 	entry: {
 		app: PATHS.src
@@ -107,7 +105,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-/* 		new CopyWebpackPlugin({
+		new CopyWebpackPlugin({
 			patterns: [
 				{
 					from: `${PATHS.src}/${PATHS.assets}img`,
@@ -117,7 +115,7 @@ module.exports = {
 					from: `${PATHS.src}/${PATHS.assets}icons`,
 					to: `${PATHS.assets}icons`
 				}
-		]}), */
+		]}),
 		new MiniCssExtractPlugin({
 			filename: `${PATHS.assets}css/[name].css`
 		}),

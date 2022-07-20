@@ -9,7 +9,7 @@ $("#range").ionRangeSlider({
     type: 'double',
     min: dataMinFromServer,
     max: dataMaxFromServer,
-    step: 100,
+    step: 1,
     skin: 'round',
     from: 5000,
     to: 10000,
