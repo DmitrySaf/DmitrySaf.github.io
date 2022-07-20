@@ -117,7 +117,7 @@ module.exports = {
 				}
 		]}),
 		new MiniCssExtractPlugin({
-			filename: `MetaLampToxin/${PATHS.assets}css/[name].css`
+			filename: `blob/gh-pages/${PATHS.assets}css/[name].css`
 		}),
 		new FaviconsWebpackPlugin({
 			logo: './src/assets/icons/logo.svg',
