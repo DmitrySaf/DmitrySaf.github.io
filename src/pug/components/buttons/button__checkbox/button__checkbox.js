@@ -1,0 +1,1 @@
+import './button__checkbox.sass';

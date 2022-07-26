@@ -1,11 +1,12 @@
-import './button__checkbox/button__checkbox.sass';
+import './button__checkbox/button__checkbox';
+import './button__default/button__default';
+import './button__like/button__like';
 import './button__radio/button__radio.sass';
-import './button__like/button__like.sass';
 import './button__rating/button__rating.sass';
 import './button__toggle/button__toggle.sass';
 import './button__next/button__next.sass';
 import './button__range/button__range';
-import './button__default/button__default';
+
 
 
 
