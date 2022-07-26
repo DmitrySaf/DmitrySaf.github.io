@@ -1,1 +1,1 @@
-import './button__next';
+import './button__next.sass';

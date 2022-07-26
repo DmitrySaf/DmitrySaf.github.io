@@ -1,1 +1,1 @@
-import './button__radio';
+import './button__radio.sass';

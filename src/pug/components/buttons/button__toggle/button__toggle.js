@@ -1,1 +1,1 @@
-import './button__toggle';
+import './button__toggle.sass';

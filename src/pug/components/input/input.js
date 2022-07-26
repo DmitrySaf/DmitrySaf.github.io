@@ -1,6 +1,7 @@
 import 'air-datepicker/dist/js/datepicker.min';
 import 'air-datepicker/dist/css/datepicker.min.css';
 import 'inputmask/dist/jquery.inputmask.min';
+
 import './input.sass';
 
 //maskedInput
@@ -20,11 +21,10 @@ const inputArrival = $('#input__date_arrival'),
       inputFilter = $('#input__date_filter'),
       datepickerFilter = inputFilter.datepicker().data('datepicker');
 
-
 //event listener for all inputs and dropdowns
 
-let inputArrivalDepartureArray = [inputArrival, inputDeparture, inputDepartureArrow, inputArrivalArrow],
-    inputFilterArray = [inputFilter, inputFilterArrow];
+const inputArrivalDepartureArray = [inputArrival, inputDeparture, inputDepartureArrow, inputArrivalArrow],
+      inputFilterArray = [inputFilter, inputFilterArrow];
 
 inputArrivalDepartureArray.forEach((item) => {
     item.on('click', (e) => {

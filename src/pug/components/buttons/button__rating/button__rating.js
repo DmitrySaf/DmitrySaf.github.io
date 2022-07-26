@@ -1,1 +1,1 @@
-import './button__rating';
+import './button__rating.sass';

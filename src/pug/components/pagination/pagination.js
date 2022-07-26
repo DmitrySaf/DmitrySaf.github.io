@@ -1,4 +1,5 @@
 import 'twbs-pagination/jquery.twbsPagination.min';
+
 import './pagination.sass';
 
 window.onload = () => {

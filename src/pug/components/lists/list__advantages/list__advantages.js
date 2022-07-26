@@ -1,0 +1,1 @@
+import './list__advantages.sass';

@@ -1,7 +1,5 @@
 import './dropdown.sass';
 
-// dropdown
-
 const clearButton = $('.dropdown__button_clear'),
       acceptButton = $('.dropdown__button_accept'),
       placeholderText = $('.dropdown__placeholder'),
@@ -9,6 +7,7 @@ const clearButton = $('.dropdown__button_clear'),
       counterGuestsDefault = $('.dropdown__counter_guests'),
       counterGuestsMedium = $('.dropdown__counter_guests_medium'),
       counterRooms = $('.dropdown__counter_rooms'),
+      arrow = $('.arrow__dropdown'),
       dropdown = $('.dropdown');
 
 function sumGuests(counter){
@@ -79,7 +78,7 @@ function roomsEndings(counter){
     return outputText.join(', ');
 }
 
-$('.dropdown > input').on('click', (e) => {
+arrow.on('click', (e) => {
     e.currentTarget.parentElement.classList.toggle('border-radius_none');
     
     if (e.currentTarget.parentElement.id == 'dropdown-rooms') {
@@ -93,7 +92,7 @@ $('.dropdown > input').on('click', (e) => {
 
     if (e.currentTarget.parentElement.id == 'dropdown-guests_medium') {
         counterGuestsMedium.each((i, item) => {
-            if (item.textContent > '0')
+            if (+item.textContent > 0)
                 item.previousElementSibling.classList.remove('disabled');
         });
     }
@@ -101,13 +100,12 @@ $('.dropdown > input').on('click', (e) => {
 
 // changing dropdown with data from the previous page
 
-/* if ($(window)[0].document.title === 'Search rooms') {
+if ($(window)[0].document.title === 'Search rooms') {
     counterGuestsMedium.each((i, item) => {
         item.textContent = localStorage.getItem('guests')[i];
     });
     $('#dropdown-guests_medium > .dropdown__placeholder').text(guestEndings(counterGuestsMedium));
-} */
-
+}
 
 clearButton.on('click', (e) => {
     counterGuestsDefault.text(0);
@@ -118,7 +116,7 @@ clearButton.on('click', (e) => {
 
 acceptButton.on('click', (e) => {
     localStorage.setItem('guests', counterGuestsDefault.text().split());
-    $('.dropdown > input').prop('checked', false);
+    arrow.prop('checked', false);
     dropdown.toggleClass('border-radius_none');
 });
 

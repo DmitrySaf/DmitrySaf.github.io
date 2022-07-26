@@ -1,4 +1,5 @@
 import 'chart.js/dist/chart.min';
+
 import './room-info.sass';
 
 var chartElem = document.getElementById('myChart').getContext('2d');

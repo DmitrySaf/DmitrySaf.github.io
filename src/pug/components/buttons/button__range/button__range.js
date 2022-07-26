@@ -2,10 +2,11 @@ import 'ion-rangeslider/js/ion.rangeSlider.min';
 import 'ion-rangeslider/css/ion.rangeSlider.min.css';
 import './button__range.sass';
 
-let dataMinFromServer = 2000,
-    dataMaxFromServer = 18000;
+const dataMinFromServer = 2000,
+    dataMaxFromServer = 18000,
+    rangeSlider = $("#range");
 
-$("#range").ionRangeSlider({
+rangeSlider.ionRangeSlider({
     type: 'double',
     min: dataMinFromServer,
     max: dataMaxFromServer,
