@@ -1,1 +1,1 @@
-<h1 align="center"><a href="https://github.com/DmitrySaf/MetaLampToxin/">DEMO</a></h1>
+<h1 align="center"><a href="https://dmitrysaf.github.io/MetaLampToxin/">DEMO</a></h1>
