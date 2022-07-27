@@ -6,6 +6,8 @@ const path = require('path'),
 	  FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
 	  webpack = require('webpack');
 
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+
 // Main const
 const PATHS = {
 	src: path.join(__dirname, '../src'),
@@ -134,6 +136,40 @@ module.exports = {
 			'window.jQuery': 'jquery'
 		})
 	],
+	optimization: {
+		minimizer: [
+			"...",
+			new ImageMinimizerPlugin({
+				minimizer: {
+					implementation: ImageMinimizerPlugin.imageminMinify,
+					options: {
+						plugins: [
+							["gifsicle", { interlaced: true }],
+							["jpegtran", { progressive: true }],
+							["optipng", { optimizationLevel: 5 }],
+							[
+								"svgo",
+								{
+									plugins: [
+										{
+											name: 'preset-default',
+											params: {
+												overrides: {
+													removeViewBox: {
+														active: false
+													}
+												}
+											}
+										}
+									]
+								},
+							],
+						],
+					},
+				},
+			}),
+		],
+	},
 	performance: {
 		maxEntrypointSize: 2048000,
 		maxAssetSize: 2048000
