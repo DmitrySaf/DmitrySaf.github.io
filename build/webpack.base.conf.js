@@ -128,7 +128,8 @@ module.exports = {
 			favicons: {
 				appName: 'Toxin',
 				icons: {
-				  appleStartup: false
+				    appleStartup: false,
+					coast: false
 				}
 			}
 		}),
