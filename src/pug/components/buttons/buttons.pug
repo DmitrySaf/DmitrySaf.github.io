@@ -4,7 +4,6 @@ mixin button(options)
     if !options
         - var options = {}
 
-
     if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle' || options.checkboxType === 'rich')
         li(class = options.type)
             input(
@@ -32,14 +31,24 @@ mixin button(options)
         .range-slider__container 
             .range-slider__wrapper 
                 h3.range-slider__header=options.label
-                h3.range-slider__label(for="range")  
+                label.range-slider__label(for="range")
             input.range(
                 id = 'range'
                 type = "text")
     if (options.type === 'default')
-        button.button(
+        if (options.href) 
+            a.button(
             class = !options.additClass ? '' : options.additClass
             type = options.buttonType 
             form = options.formId
             id = options.id
-        )=options.text
+            href = options.href
+            )=options.text
+        else
+            button.button(
+            class = !options.additClass ? '' : options.additClass
+            type = options.buttonType 
+            form = options.formId
+            id = options.id
+            )=options.text
+        

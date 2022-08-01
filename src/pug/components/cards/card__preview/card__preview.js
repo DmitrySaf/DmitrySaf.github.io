@@ -27,14 +27,14 @@ class CardPreview {
     }
 
     htmlInner() {
-        const elem = $('<a></a>', {
-            'class': 'card-preveiw__link',
-            'href': `${this.link}`,
+        const elem = $('<div></div>', {
+            'class': 'card-preveiw',
             html: `
                 <div class="card card_size_s">
                     <div class="card-preview__slider">
                         ${this.img}
                     </div>
+                    <a class="card-preview__link" href=${this.link}></a>
                     <div class="card-preview__content">
                         <div class="card-preview__header_container">
                             <div class="card-preview__header_number"><span>№ </span> ${this.roomNumber}</div>
@@ -65,11 +65,6 @@ class CardPreview {
         $('.room-search__content_grid').append(elem);
     }
 }
-
-// new CardPreview(['card-preview-luxe.png', 'card-preview-standard.png', 'card-preview-luxe.png', 'card-preview-standard.png'], '888', 'люкс', '9 990', '145').htmlInner();
-
-//slider for all the cards
-
 $('.card-preview__slider').slick({
     dots: true,
     dotsClass: 'card-preview__dots',

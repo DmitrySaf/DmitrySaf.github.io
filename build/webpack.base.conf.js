@@ -125,6 +125,12 @@ module.exports = {
 			logo: './src/assets/icons/logo.svg',
 			outputPath: 'assets/favicon/',
 			prefix: 'assets/favicon/',
+			favicons: {
+				appName: 'Toxin',
+				icons: {
+				  appleStartup: false
+				}
+			}
 		}),
 		...PAGES.map(filename => new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/${filename}/${filename}.pug`,

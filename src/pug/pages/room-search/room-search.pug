@@ -19,15 +19,17 @@ block content
                         .room-search__range_container 
                             +button({type: 'range', label: 'диапазон цены'})
                             .room-search__range_descr Стоимость за сутки пребывания в номере
-                        .room-search__checkbox_list 
+                        .room-search__checkbox
                             h3.room-search__checkbox_header правила дома
-                            +button({type: 'checkbox', name: 'able-smoke', label: 'Можно курить'})
-                            +button({type: 'checkbox', name: 'able-pets', label: 'Можно с питомцами'})
-                            +button({type: 'checkbox', name: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
-                        .room-search__checkbox-rich_list 
+                            ul.room-search__checkbox_list
+                                +button({type: 'checkbox', name: 'able-smoke', label: 'Можно курить'})
+                                +button({type: 'checkbox', name: 'able-pets', label: 'Можно с питомцами'})
+                                +button({type: 'checkbox', name: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
+                        .room-search__checkbox-rich
                             h3.room-search__checkbox-rich_header доступность
-                            +button({type: 'checkbox', checkboxType: 'rich', name: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
-                            +button({type: 'checkbox', checkboxType: 'rich', name: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+                            ul.room-search__checkbox-rich_list
+                                +button({type: 'checkbox', checkboxType: 'rich', name: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
+                                +button({type: 'checkbox', checkboxType: 'rich', name: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
                         +dropdown({type: 'rooms', id: 'rooms', size: 'medium', label: 'удобства номера'})
                         +dropdown({type: 'checkbox', label: 'дополнительные удобства'})
                         +button({type: 'default', additClass: 'button_size_m button_color_primary room-search__button', text:'применить'})

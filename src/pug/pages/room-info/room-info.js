@@ -4,7 +4,7 @@ import './room-info.sass';
 
 if ($(location).attr('pathname') === '/room-info.html') {
     var chartElem = document.getElementById('myChart').getContext('2d');
-
+    console.log('done');
     //gradients
     
     let great_gradient = chartElem.createLinearGradient(0, 0, 0, 450);
@@ -37,7 +37,8 @@ if ($(location).attr('pathname') === '/room-info.html') {
                 ],
                 cutout: '90%',
                 spacing: 2
-            }]
+            }
+        ]
     };
     
     let chart = new Chart(chartElem, {

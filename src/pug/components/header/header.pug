@@ -28,10 +28,8 @@ mixin header(options)
                     if (options.logged === 'true')
                         .header__menu_user=options.username
                     else
-                        a.button__login(href="./login.html")
-                            +button({type: 'default', additClass: 'button_border header__login-button', text: 'войти'})
-                        a.button__registration(href="./registration.html")
-                            +button({type: 'default', additClass: 'button_size_m button_color_primary header__register-button', text: 'зарегистрироваться'})
+                        +button({type: 'default', href: './login.html', additClass: 'button_border header__login-button', text: 'войти'})
+                        +button({type: 'default', href: './registration.html', additClass: 'button_size_m button_color_primary header__register-button', text: 'зарегистрироваться'})
                     .header__hamburger
                         input#hamburger.header__hamburger_trigger(type = 'checkbox')
                         label.header__hamburger_lines(for='hamburger')
@@ -56,8 +54,6 @@ mixin header(options)
                             if (options.logged === 'true')
                                 .header__menu_user=options.username
                             else
-                                a.button__login(href="./login.html")
-                                    +button({type: 'default', additClass: 'button_border header__login-button header__login-button_hamburger', text: 'войти'})
-                                a.button__registration(href="./registration.html")
-                                    +button({type: 'default', additClass: 'button_size_m button_color_primary header__register-button header__register-button_hamburger', text: 'зарегистрироваться'})
+                                +button({type: 'default', href: './login.html', additClass: 'button_border header__login-button header__login-button_hamburger', text: 'войти'})
+                                +button({type: 'default', href: './registration.html', additClass: 'button_size_m button_color_primary header__register-button header__register-button_hamburger', text: 'зарегистрироваться'})
                             +social()
