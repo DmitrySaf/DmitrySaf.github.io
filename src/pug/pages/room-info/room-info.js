@@ -1,11 +1,9 @@
-import 'chart.js/dist/chart.min';
+import { Chart } from 'chart.js/dist/chart.min';
 
 import './room-info.sass';
 
 if ($(location).attr('pathname') === '/room-info.html') {
     var chartElem = document.getElementById('myChart').getContext('2d');
-    console.log('done');
-    //gradients
     
     let great_gradient = chartElem.createLinearGradient(0, 0, 0, 450);
     great_gradient.addColorStop(0, '#FFE39C');
@@ -22,9 +20,7 @@ if ($(location).attr('pathname') === '/room-info.html') {
     let upset_gradient = chartElem.createLinearGradient(0, 0, 0, 450);
     upset_gradient.addColorStop(0, '#919191');
     upset_gradient.addColorStop(1, '#3D4975');
-    
-    // chart
-    
+
     let data = {
         datasets: [
             {
@@ -41,7 +37,7 @@ if ($(location).attr('pathname') === '/room-info.html') {
         ]
     };
     
-    let chart = new Chart(chartElem, {
+    new Chart(chartElem, {
         type: 'doughnut',
         data: data,
         options: {
@@ -52,9 +48,6 @@ if ($(location).attr('pathname') === '/room-info.html') {
             }
         }
     });
-    
-    
-    //chart inner text
     
     let votesSum = data.datasets[0].data.reduce((accum, value) => accum + value);
     

@@ -4,30 +4,25 @@ import 'inputmask/dist/jquery.inputmask.min';
 
 import './input.sass';
 
-//maskedInput
-
 $('#input__date').inputmask({
     mask: "99.99.9999",
-    placeholder: "ДД.ММ.ГГГГ",});
+    placeholder: "ДД.ММ.ГГГГ"
+});
 
-//calendar
-
-const inputArrival = $('#input__date_arrival'),
-      inputDeparture = $('#input__date_departure'),
-      inputArrivalArrow = $('#input__date_arrival').next(),
-      inputDepartureArrow = $('#input__date_departure').next(),
-      inputFilterArrow = $('#input__date_filter').next(),
-      datepickerArrival = inputArrival.datepicker().data('datepicker'),
-      inputFilter = $('#input__date_filter'),
-      datepickerFilter = inputFilter.datepicker().data('datepicker');
-
-//event listener for all inputs and dropdowns
+const inputArrival = $('#input__date_arrival');
+const inputDeparture = $('#input__date_departure');
+const inputArrivalArrow = $('#input__date_arrival').next();
+const inputDepartureArrow = $('#input__date_departure').next();
+const inputFilterArrow = $('#input__date_filter').next();
+const datepickerArrival = inputArrival.datepicker().data('datepicker');
+const inputFilter = $('#input__date_filter');
+const datepickerFilter = inputFilter.datepicker().data('datepicker');
 
 const inputArrivalDepartureArray = [inputArrival, inputDeparture, inputDepartureArrow, inputArrivalArrow],
       inputFilterArray = [inputFilter, inputFilterArrow];
 
 inputArrivalDepartureArray.forEach((item) => {
-    item.on('click', (e) => {
+    item.on('click', () => {
         datepickerArrival.show();
         if ($('.datepicker--button').length === 1){
             $('.datepicker--buttons').append('<div class="datepicker--button datepicker-accept">Применить</div>');
@@ -39,7 +34,7 @@ inputArrivalDepartureArray.forEach((item) => {
 });
 
 inputFilterArray.forEach(item => {
-    item.on('click', (e) => {
+    item.on('click', () => {
         datepickerFilter.show();
         if ($('.datepicker--button').length === 1){
             $('.datepicker--buttons').append('<div class="datepicker--button datepicker-accept">Применить</div>');
@@ -49,8 +44,6 @@ inputFilterArray.forEach(item => {
         }
     });
 });
-
-//datepicker for ui
 
 $('.cards__datepicker').datepicker({
     prevHtml: '<div class="datepicker--nav-action_prev"></div>',
@@ -77,7 +70,7 @@ inputArrival.datepicker({
     },
     moveToOtherYearsOnSelect: false,
     minDate: new Date(),
-    onSelect: (formattedDate, date, inst) => {
+    onSelect: (formattedDate, date) => {
         inputArrival.val(formattedDate.split(',')[0]);
         inputDeparture.val(formattedDate.split(',')[1]);
         localStorage.setItem('firstDate', date[0]);
@@ -105,14 +98,9 @@ inputFilter.datepicker({
     }
 });
 
-//recieving date from another page
-
 if ($(window)[0].document.title === 'Search rooms') {
     datepickerFilter.selectedDates = [new Date(localStorage.getItem('firstDate')), new Date(localStorage.getItem('secondDate'))]; 
     datepickerFilter.update();
-
-    //styles for in range cells
-
     inputFilterArrow.on('click', () => {
         let param = $('.-selected-')[0].nextElementSibling;
         param.previousElementSibling.classList.add('-range-from-');

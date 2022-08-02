@@ -1,10 +1,10 @@
-const path = require('path'),
-	  fs = require('fs'),
-	  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-	  CopyWebpackPlugin = require('copy-webpack-plugin'),
-	  HtmlWebpackPlugin = require('html-webpack-plugin'),
-	  FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
-	  webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const webpack = require('webpack');
 
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
@@ -15,9 +15,9 @@ const PATHS = {
 	assets: 'assets/'
 };
 
-const PAGES_DIR = `${PATHS.src}/pug/pages/`,
-	  PAGES = fs.readdirSync(`${PAGES_DIR}`),
-	  PAGE_LIVE = 'index.html';
+const PAGES_DIR = `${PATHS.src}/pug/pages/`;
+const PAGES = fs.readdirSync(`${PAGES_DIR}`);
+const PAGE_LIVE = 'index.html';
 
 module.exports = {
 	externals: {
@@ -128,7 +128,7 @@ module.exports = {
 			favicons: {
 				appName: 'Toxin',
 				icons: {
-				    appleStartup: false,
+					appleStartup: false,
 					coast: false
 				}
 			}

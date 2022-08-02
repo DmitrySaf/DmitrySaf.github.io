@@ -14,6 +14,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.0.0",
     "cssnano": "^5.0.6",
+    "eslint": "^8.21.0",
     "favicons": "^6.2.2",
     "favicons-webpack-plugin": "^5.0.2",
     "file-loader": "^6.2.0",
@@ -55,7 +56,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=build webpack --config ./build/webpack.build.conf.js",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "eslint": "eslint --ext .js src"
   },
   "repository": {
     "type": "git",

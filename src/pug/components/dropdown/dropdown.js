@@ -18,8 +18,6 @@ function sumGuests(counter){
     return sum;
 }
 
-//function for rewriting endings in guests dropdown
-
 function guestEndings(counter){
     let sumGuests = (+counter[0].textContent) + (+counter[1].textContent);
     let babies = +counter[2].textContent;
@@ -47,8 +45,6 @@ function guestEndings(counter){
     }
     return outputText.join(', ');
 }
-
-//function for rewriting endings in rooms dropdown
 
 function roomsEndings(counter){
     let bedrooms = counter[0].textContent,
@@ -98,8 +94,6 @@ arrow.on('click', (e) => {
     }
 });
 
-// changing dropdown with data from the previous page
-
 if ($(window)[0].document.title === 'Search rooms') {
     counterGuestsMedium.each((i, item) => {
         item.textContent = localStorage.getItem('guests')[i];
@@ -107,14 +101,14 @@ if ($(window)[0].document.title === 'Search rooms') {
     $('#dropdown-guests_medium > .dropdown__placeholder').text(guestEndings(counterGuestsMedium));
 }
 
-clearButton.on('click', (e) => {
+clearButton.on('click', () => {
     counterGuestsDefault.text(0);
     placeholderText[0].textContent = guestEndings(counterGuestsDefault);
     clearButton.removeClass('show');
     $('.dropdown__operation_minus').addClass('disabled');
 });
 
-acceptButton.on('click', (e) => {
+acceptButton.on('click', () => {
     localStorage.setItem('guests', counterGuestsDefault.text().split());
     arrow.prop('checked', false);
     dropdown.toggleClass('border-radius_none');
