@@ -2,7 +2,7 @@ import { Chart } from 'chart.js/dist/chart.min';
 
 import './room-info.sass';
 
-if ($(location).attr('pathname') === '/room-info.html') {
+if ($(window)[0].document.title === 'Room') {
     var chartElem = document.getElementById('myChart').getContext('2d');
     
     let great_gradient = chartElem.createLinearGradient(0, 0, 0, 450);

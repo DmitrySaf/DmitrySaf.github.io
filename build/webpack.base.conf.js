@@ -5,16 +5,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const webpack = require('webpack');
-
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
-// Main const
 const PATHS = {
 	src: path.join(__dirname, '../src'),
 	dist: path.join(__dirname, '../dist'),
 	assets: 'assets/'
 };
-
 const PAGES_DIR = `${PATHS.src}/pug/pages/`;
 const PAGES = fs.readdirSync(`${PAGES_DIR}`);
 const PAGE_LIVE = 'index.html';
@@ -35,89 +32,70 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				//Pug
-			test: /\.pug$/,
-			loader: "pug-loader"
+				test: /\.pug$/,
+				loader: "pug-loader"
 			},
 			{
-				//JavaScript
-			test: /\.js$/,
-			loader: "babel-loader",
-			exclude: [
-				/node_modules/,
-			]
-			},
-				// fonts and images
-			{
-			test: /\.(ttf|eot|woff|woff2)$/,
-			type: 'asset/resource',
-			generator: {
-				filename: 'assets/fonts/[name][ext]'
-			}
+				test: /\.js$/,
+				loader: "babel-loader",
+				exclude: [
+					/node_modules/,
+				]
 			},
 			{
-			test: /\.(svg|png|jpg)$/,
-			type: 'asset/resource',
-			generator: {
-				filename: 'assets/img/[name][ext]'
-			}
-			},
-			{
-				// Css
-			test: /\.css$/,
-			use: [
-				MiniCssExtractPlugin.loader,
-				{
-					loader: "css-loader"
-				},
-				{
-					loader: "postcss-loader",
-					options: {
-						postcssOptions: {
-							path: './postcss.config.js'
-						}
-					}
+				test: /\.(ttf|eot|woff|woff2)$/,
+				type: 'asset/resource',
+				generator: {
+					filename: 'assets/fonts/[name][ext]'
 				}
-			]
-				
 			},
 			{
-				// Sass
-			test: /\.sass$/,
-			use: [
-				MiniCssExtractPlugin.loader,
-				{
-					loader: "css-loader"
-				},
-				{
-					loader: "postcss-loader",
-					options: {
-						postcssOptions: {
-							path: './postcss.config.js'
+				test: /\.(svg|png|jpg)$/,
+				type: 'asset/resource',
+				generator: {
+					filename: 'assets/img/[name][ext]'
+				}
+			},
+			{
+				test: /\.css$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: "css-loader"
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: {
+								path: './postcss.config.js'
+							}
 						}
 					}
-				}, 
-				{
-					loader: "sass-loader"
-				},
-			]
-				
+				]
+			},
+			{
+				test: /\.sass$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: "css-loader"
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: {
+								path: './postcss.config.js'
+							}
+						}
+					}, 
+					{
+						loader: "sass-loader"
+					},
+				]
 			}
 		]
 	},
 	plugins: [
-		new CopyWebpackPlugin({
-			patterns: [
-				{
-					from: `${PATHS.src}/${PATHS.assets}img`,
-					to: `${PATHS.assets}img`
-				},
-				{
-					from: `${PATHS.src}/${PATHS.assets}icons`,
-					to: `${PATHS.assets}icons`
-				}
-			]
-		}),
 		new MiniCssExtractPlugin({
 			filename: `assets/css/[name].css`
 		}),
@@ -129,9 +107,26 @@ module.exports = {
 				appName: 'Toxin',
 				icons: {
 					appleStartup: false,
-					coast: false
+					coast: false,
+					favicons: false
 				}
 			}
+		}),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: `${PATHS.src}/${PATHS.assets}img`,
+					to: `${PATHS.assets}img`
+				},
+				{
+					from: `${PATHS.src}/${PATHS.assets}icons`,
+					to: `${PATHS.assets}icons`
+				},
+				{
+					from: `${PATHS.src}/${PATHS.assets}favicon`,
+					to: `${PATHS.assets}favicon`
+				}
+			]
 		}),
 		...PAGES.map(filename => new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/${filename}/${filename}.pug`,
