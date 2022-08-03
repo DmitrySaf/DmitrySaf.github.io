@@ -1,0 +1,1 @@
+.social{-webkit-column-gap:20px;-moz-column-gap:20px;column-gap:20px;display:grid;grid-template-columns:repeat(3,24px)}.social_facebook,.social_instagram,.social_twitter{display:grid;height:24px;place-items:center;width:24px}
