@@ -1,9 +1,6 @@
 @import './_mixins'
 
-//main styles
-*
-    font-family: $font-regular
-    box-sizing: border-box !important
+
 
 h1 
     font-family: $font-bold
@@ -31,12 +28,7 @@ h3
 html, body
     font-size: $font-size-main
     
-body
-    all: unset
-    font-family: $font-regular
-    line-height: $line-height-main
-    color: $dark-shade-75
-    margin: 0
+
 
 ul, li, canvas 
     all: unset
@@ -53,22 +45,6 @@ a
         padding: 0 30px
     +media-breakpoint-down($tablet-portrait-down)
         padding: 0 10px
-// testing responsive container. left previous code just in case
-
-/**     max-width: 1160px
-    margin: 0 auto
-    +media-breakpoint-up($desktop-large-up)
-        max-width: 1700px
-    +media-breakpoint-down($desktop-normal-down)
-        max-width: 970px
-    +media-breakpoint-down($desktop-small-down)
-        max-width: 750px
-    +media-breakpoint-down($tablet-portrait-down)
-        max-width: 520px
-    +media-breakpoint-down($phone-normal-down)
-        max-width: 300px **/
-
-// hide & show
 
 .show
     display: block
@@ -81,12 +57,9 @@ a
     height: auto
     overflow: auto
 
-
 .border-radius_none
     border-bottom-left-radius: 0 
     border-bottom-right-radius: 0
-
-// arrow
 
 .arrow__dropdown
     all: unset
