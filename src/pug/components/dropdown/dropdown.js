@@ -14,7 +14,7 @@ const $operationMinus = $('.js-dropdown__operation_minus');
 const sumGuests = (counter) =>{
     let sum = 0;
     counter.each((i, item) => {
-        sum += item.textContent;
+        sum += +item.textContent;
     });
     return sum;
 }
@@ -141,14 +141,14 @@ $operationPlus.on('click', (e) => {
 
 $operationMinus.on('click', (e) => {
     const $minus = $(e.currentTarget);
-    const $counter = $plus.next();
-    const $placeholder = $plus.offsetParent().parent().find('.js-dropdown__placeholder');
-    const $plus = $plus.next().next();
+    const $counter = $minus.next();
+    const $placeholder = $minus.offsetParent().parent().find('.js-dropdown__placeholder');
     const $counterVal = +$counter.text();
 
-    if ($counterVal > 0) {
+    if (!$minus.hasClass('disabled')) {
         $counter.text($counterVal - 1);
-    } else {
+    }
+    if ($counterVal <= 1) {
         $minus.addClass('disabled');
     }
     if ($counter.hasClass('dropdown__counter_guests')) {
@@ -160,6 +160,7 @@ $operationMinus.on('click', (e) => {
     if ($counter.hasClass('dropdown__counter_rooms')) {
         $placeholder.text(roomsEndings($counterRooms));
     }
+    console.log(sumGuests($counterGuestsDefault));
     if (sumGuests($counterGuestsDefault) === 0) {
         $clearButton.removeClass('show');
     }

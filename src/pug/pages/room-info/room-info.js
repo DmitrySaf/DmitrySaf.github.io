@@ -1,10 +1,16 @@
 import { Chart } from "chart.js/dist/chart.min";
 
+import "./advantages/advantages";
+import "./cancel/cancel";
+import "./collage/collage";
+import "./evaluation/evaluation";
+import "./feedback/feedback";
+import "./rules/rules";
 import "./room-info.sass";
 
 if ($(window)[0].document.title === 'Room') {
     const chartElem = document.querySelector('.js-myChart').getContext('2d');
-    const $chartVotes = $('.js-room-info__evaluation_chart_votes');
+    const $chartVotes = $('.js-evaluation__chart-votes');
     
     let great_gradient = chartElem.createLinearGradient(0, 0, 0, 450);
     great_gradient.addColorStop(0, '#FFE39C');
