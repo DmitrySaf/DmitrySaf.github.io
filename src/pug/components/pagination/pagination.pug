@@ -5,17 +5,21 @@ mixin pagination(options)
         - var options = {}
 
     .pagination 
-        ul.pagination__wrapper 
-            li.pagination__item.pagination__item_active 
-                a.pagination__link.pagination__link_active 
+        ul.pagination__wrapper.js-pagination__wrapper 
             li.pagination__item
                 a.pagination__link
             li.pagination__item
                 a.pagination__link
             li.pagination__item
-                a.pagination__link ...
+                a.pagination__link
             li.pagination__item
                 a.pagination__link
-            li.pagination__item.pagination__item_next
-                a.pagination__link.pagination__link_next
-        .pagination__descr 1 – 12 из 100+ вариантов аренды
+            li.pagination__item
+                a.pagination__link
+            li.pagination__item
+                a.pagination__link
+        .pagination__descr 
+            span.pages__current.js-pages__current 1 - 12 
+            | из 
+            span.rooms__overall.js-rooms__overall 100+ 
+            | вариантов аренды

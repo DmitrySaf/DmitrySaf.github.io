@@ -1,5 +1,3 @@
-
-
 mixin input(options) 
     if !options
        - var options = {}
@@ -10,18 +8,18 @@ mixin input(options)
         .input__wrapper
             if (options.type === 'email' || options.type === 'text')
                 input.input(
-                    class = options.additClass
+                    class = `${options.additClass} ${options.size ? `input_size_${options.size}` : ''}`
                     type = options.type
-                    placeholder = (options.type === 'email') ? 'Email' : ((!options.placeholder) ? 'ДД.ММ.ГГГГ' : options.placeholder)
+                    placeholder = (options.type === 'email') ? "Email" : ((!options.placeholder) ? "ДД.ММ.ГГГГ" : options.placeholder)
                     required = true
-                    id = options.id)           
-                if ( options.type === 'email' && options.sub === 'true')
+                    id = options.id)
+                if ( options.type === 'email' && options.sub)
                     .arrow__main
             if (options.type === 'date')
                 input.input(
-                    class = options.additClass
-                    type = 'text'
-                    placeholder = 'ДД.ММ.ГГГГ'
+                    class = `input_size_${options.size} js-input_size_${options.size}`
+                    type = "text"
+                    placeholder = "ДД.ММ.ГГГГ"
                     required = true
                     id = options.id)
                 .arrow__dropdown

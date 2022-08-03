@@ -22,9 +22,9 @@ mixin button(options)
                         for = options.id
                     )=options.descr
     if (options.type === 'like')
-        .like
-            span.material-icons.material-icons_border favorite_border
-            .like__counter 0
+        .like.js-like
+            span.material-icons.material-icons_border.js-material-icons favorite_border
+            .like__counter.js-like__counter 0
     if (options.type === 'rating')
         +button__rating
     if (options.type === 'range')
@@ -33,7 +33,7 @@ mixin button(options)
                 h3.range-slider__header=options.label
                 label.range-slider__label(for="range")
             input.range(
-                id = 'range'
+                id = "range"
                 type = "text")
     if (options.type === 'default')
         if (options.href) 

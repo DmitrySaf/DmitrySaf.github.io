@@ -1,18 +1,18 @@
 import './button__like.sass';
 
-const likeButton = $('.like');
+const likeButton = $('.js-like');
 
 likeButton.on('click', (e) => {
-    const button = $(e.currentTarget),
-          buttonIcon = button.first(),
-          buttonText = button.last();
-    let counter = +buttonText.textContent;
+    const $button = $(e.currentTarget);
+    const $icon = $button.find('.js-material-icons');
+    const $counter = $button.find('.js-like__counter');
+    const counterValue = +$counter.text();
 
-    button.toggleClass('like_active');
-    buttonIcon
-        .text(buttonIcon.textContent == 'favorite_border' ? 'favorite': 'favorite_border')
+    $button.toggleClass('like_active');
+    $icon
+        .text($icon.text() == 'favorite_border' ? 'favorite': 'favorite_border')
         .toggleClass('material-icons_border');
-    buttonText
-        .text(!buttonText.classList.contains('like__counter_active') ? ++counter: --counter)
+    $counter
+        .text($counter.hasClass('like__counter_active') ? (counterValue - 1) : (counterValue + 1))
         .toggleClass('like__counter_active');
 });

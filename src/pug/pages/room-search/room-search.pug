@@ -7,15 +7,15 @@ block content
     section.room-search
         .container 
             .room-search__grid
-                .room-search__filters_trigger
+                .room-search__filters_trigger.js-room-search__filters_trigger
                     h3.room-search__filters_trigger_text Фильтры
                     span.material-icons-outlined filter_alt 
-                .room-search__filters 
+                .room-search__filters.js-room-search__filters 
                     .room-search__filters_content
                         +logo
-                        .arrow__main.room-search__arrow
-                        +input({type: 'date', additClass: 'input_size_m', label: 'даты пребывания в отеле', id: 'input__date_filter'})
-                        +dropdown({type: 'guests', id: 'guests_medium', size: 'medium', label: 'гости'})
+                        .arrow__main.room-search__arrow.js-room-search__arrow
+                        +input({type: 'date', size: 'm', label: 'даты пребывания в отеле', id: 'input__date_filter'})
+                        +dropdown({type: 'guests', id: 'guests_medium', size: 'm', label: 'гости'})
                         .room-search__range_container 
                             +button({type: 'range', label: 'диапазон цены'})
                             .room-search__range_descr Стоимость за сутки пребывания в номере

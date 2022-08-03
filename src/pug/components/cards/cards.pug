@@ -16,11 +16,11 @@ mixin card(options)
                         .card-book__header_price #{options.roomPrice} <span>в сутки</span> 
             else 
                 h1(class = `card-${options.type}__header`)=options.header 
-            form.card__content(action = (options.type === 'search') ? './room-search.html' : '#')
+            form.card__content(action = (options.type === 'search') ? "./room-search.html" : "#")
                 if (options.type === 'book' || options.type === 'search')
                     .card__input_wrapper 
-                        +input({additClass: 'input_size_s', type: 'date', label: 'прибытие', id: 'input__date_arrival'})
-                        +input({additClass: 'input_size_s', type: 'date', label: 'выезд', id: 'input__date_departure'})
+                        +input({size: 's', type: 'date', label: 'прибытие', id: 'input__date_arrival'})
+                        +input({size: 's', type: 'date', label: 'выезд', id: 'input__date_departure'})
                     +dropdown({type: 'guests', id: 'guests', label: 'гости'})
                     if (options.type === 'book')
                         .card-book__calc_container
@@ -45,7 +45,7 @@ mixin card(options)
                         ul.card-registration__gender_container.radio__container
                             +button({type: 'radio',id: 'man', name: 'gender', value: 'man', label: 'Мужчина'})
                             +button({type: 'radio',id: 'woman', name: 'gender', value: 'woman', label: 'Женщина'})
-                        +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', additClass: 'input__date card-registration__input_date'}) 
+                        +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', additClass: 'card-registration__input_date js-card-registration__input_date'})
                         h3.card-registration__user-info_header данные для входа в сервис
 
                     +input({type: 'email', placeholder: 'Email', additClass: 'card-registration__input_email'})
@@ -63,11 +63,11 @@ mixin card(options)
     if (options.type === 'preview')
         .card-preview
             .card.card_size_s
-                .card-preview__slider
-                        img(src="./assets/img/card-preview-luxe.png", alt="")
-                        img(src="./assets/img/card-preview-standard.png", alt="")
-                        img(src="./assets/img/card-preview-luxe.png", alt="")
-                        img(src="./assets/img/card-preview-standard.png", alt="")
+                .card-preview__slider.js-card-preview__slider
+                        img(src="./assets/img/card-preview-luxe.png", alt="luxe")
+                        img(src="./assets/img/card-preview-standard.png", alt="standard")
+                        img(src="./assets/img/card-preview-luxe.png", alt="luxe")
+                        img(src="./assets/img/card-preview-standard.png", alt="standard")
                 .card-preview__content 
                     .card-preview__header_container
                         .card-preview__header_number <span>№ </span> #{options.roomNumber}
@@ -78,7 +78,7 @@ mixin card(options)
                     .card-preview__feedback_container 
                         +button({type: 'rating'})
                         .card-preview__feedback <span>#{options.roomComments}</span> Отзывов
-                a.card-preview__link(href='./room-info.html')
+                a.card-preview__link(href="./room-info.html")
 
                         
 

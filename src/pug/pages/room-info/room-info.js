@@ -1,9 +1,10 @@
-import { Chart } from 'chart.js/dist/chart.min';
+import { Chart } from "chart.js/dist/chart.min";
 
-import './room-info.sass';
+import "./room-info.sass";
 
 if ($(window)[0].document.title === 'Room') {
-    var chartElem = document.getElementById('myChart').getContext('2d');
+    const chartElem = document.querySelector('.js-myChart').getContext('2d');
+    const $chartVotes = $('.js-room-info__evaluation_chart_votes');
     
     let great_gradient = chartElem.createLinearGradient(0, 0, 0, 450);
     great_gradient.addColorStop(0, '#FFE39C');
@@ -36,6 +37,8 @@ if ($(window)[0].document.title === 'Room') {
             }
         ]
     };
+
+    let votesSum = data.datasets[0].data.reduce((accum, value) => accum + value);
     
     new Chart(chartElem, {
         type: 'doughnut',
@@ -49,17 +52,18 @@ if ($(window)[0].document.title === 'Room') {
         }
     });
     
-    let votesSum = data.datasets[0].data.reduce((accum, value) => accum + value);
-    
     const votesEndings = (votes) => {
         if ((votes % 10 == 1) && (votes != 11)) {
-            return `голос`;
+            return 'голос';
         } else if (((votes % 10 == 2) || (votes % 10 == 3) || (votes % 10 == 4)) && (votes != 12) && (votes != 13) && (votes != 14)) {
-            return `голоса`  ;
+            return 'голоса';
         } else {
-            return `голосов`;
+            return 'голосов';
         }
     };
-    
-    $('.room-info__evaluation_chart_votes').html(`${votesSum} <span>${votesEndings(votesSum)}</span>`);
+    $chartVotes
+        .text(`${votesSum}`)
+        .append($('<span></span>', {
+            text: votesEndings(votesSum)
+        }))
 }

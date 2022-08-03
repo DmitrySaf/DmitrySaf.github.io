@@ -2,14 +2,22 @@ import 'ion-rangeslider/js/ion.rangeSlider.min';
 import 'ion-rangeslider/css/ion.rangeSlider.min.css';
 import './button__range.sass';
 
-const dataMinFromServer = 2000,
-    dataMaxFromServer = 18000,
-    rangeSlider = $("#range");
+const dataFromServer = {
+    min: 2000,
+    max: 18000,
+}
+const slider = $("#range");
+const sliderLabel = $('.range-slider__label');
+const priceSeparator = (data) => {
+    const priceFrom = `${Math.floor(data.from / 1000)} ${data.from % 1000 == 0 ? '000' : data.from % 1000}`;
+    const priceTo = `${Math.floor(data.to / 1000)} ${data.to % 1000 == 0 ? '000' : data.to % 1000}`;
+    sliderLabel.text(`${priceFrom}₽ - ${priceTo}₽`);
+}
 
-rangeSlider.ionRangeSlider({
+slider.ionRangeSlider({
     type: 'double',
-    min: dataMinFromServer,
-    max: dataMaxFromServer,
+    min: dataFromServer.min,
+    max: dataFromServer.max,
     step: 1,
     skin: 'round',
     from: 5000,
@@ -20,9 +28,5 @@ rangeSlider.ionRangeSlider({
     onChange: priceSeparator
 });
 
-function priceSeparator(data){
-    let priceFrom = `${Math.floor(data.from / 1000)} ${data.from % 1000 == 0 ? '000' : data.from % 1000}`,
-        priceTo = `${Math.floor(data.to / 1000)} ${data.to % 1000 == 0 ? '000' : data.to % 1000}`;
-    $('.range-slider__label').text(`${priceFrom}₽ - ${priceTo}₽`);
-}
+
     

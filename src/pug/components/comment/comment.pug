@@ -7,8 +7,8 @@ mixin comment(options)
     .comment 
         .comment__img 
             img(
-                src = options.img 
-                alt = options.alt)
+                src = `./assets/img/${options.imgName}.svg`
+                alt = options.imgName)
         .comment__header
             .comment__name=options.name
             .comment__online=options.online
