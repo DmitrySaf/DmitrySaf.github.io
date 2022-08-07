@@ -63,7 +63,7 @@
   },
   "homepage": "https://github.com/DmitrySaf/MetaLampToxin#readme",
   "dependencies": {
-    "air-datepicker": "^3.2.0",
+    "air-datepicker": "^2.2.3",
     "chart.js": "^3.9.1",
     "inputmask": "^5.0.7",
     "ion-rangeslider": "^2.3.1",

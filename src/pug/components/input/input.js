@@ -42,6 +42,7 @@ $inputArrival.datepicker({
         years: 'yyyy1 - yyyy2'
     },
     moveToOtherYearsOnSelect: false,
+    autoClose: true,
     minDate: new Date(),
     onSelect: (formattedDate, date) => {
         $inputArrival.val(formattedDate.split(',')[0]);
@@ -88,13 +89,13 @@ if ($(window)[0].document.title === 'Search rooms') {
     ]; 
     $datepickerFilter.update();
     $inputFilterArrow.on('click', () => {
-        const param = $('.-selected-')[0].nextElementSibling;
-        param.previousElementSibling.classList.add('-range-from-');
-        while (!param.classList.contains('-selected-')) {
-            param.classList.add('-in-range-');
-            param = param.nextElementSibling;
+        let param = $('.-selected-').first().next();
+        $('.-selected-').first().addClass('-range-from-');
+        while (!param.hasClass('-selected-')) {
+            param.addClass('-in-range-');
+            param = param.next();
         }
-        param.classList.add('-range-to-');
+        param.addClass('-range-to-');
     });
 }
 
