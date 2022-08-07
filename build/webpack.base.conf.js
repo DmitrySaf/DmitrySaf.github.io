@@ -7,17 +7,6 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const webpack = require('webpack');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
-const getFiles = (dir) => {
-	const entryObject = {};
-	dir.forEach(blockName => {
-		const folderFiles = fs.readdirSync(`${PATHS.src}/pug/${blockName}`);
-		folderFiles.forEach(item => {
-			entryObject[item] = `${PATHS.src}/pug/${blockName}/${item}/${item}.js`
-		})
-	});
-	return entryObject;
-}
-
 const PATHS = {
 	src: path.join(__dirname, '../src'),
 	dist: path.join(__dirname, '../dist'),
@@ -26,15 +15,15 @@ const PATHS = {
 const PAGES_DIR = `${PATHS.src}/pug/pages/`;
 const PAGES = fs.readdirSync(`${PAGES_DIR}`);
 const PAGE_LIVE = 'index.html';
-const FOLDERS = fs.readdirSync(`${PATHS.src}/pug/`);
-const ENTRY_FILES = getFiles(FOLDERS);
 
 module.exports = {
 	externals: {
 		paths: PATHS,
 		page: PAGE_LIVE
 	},
-	entry: ENTRY_FILES,
+	entry: {
+		app: PATHS.src
+	},
 	output: {
 		filename: 'assets/js/[name].js',
 		path: PATHS.dist
