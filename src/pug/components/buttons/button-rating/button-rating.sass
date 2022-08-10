@@ -1,0 +1,37 @@
+.rating 
+  width: 120px
+  height: 24px
+  position: relative
+  background-image: url('../../../../assets/icons/star-border.svg'), url('../../../../assets/icons/star-border.svg'), url('../../../../assets/icons/star-border.svg'), url('../../../../assets/icons/star-border.svg'), url('../../../../assets/icons/star-border.svg')
+  background-repeat: no-repeat
+  background-position: 2px center, 26px center, 50px center, 74px center, 98px center
+  & span ~ span
+    width: 40%
+    & ~ span
+      width: 60%
+      & ~ span
+        width: 80%
+        & ~ span
+          width: 100%
+  &__star
+    all: unset
+    appearance: none
+    opacity: 0
+    display: inline-block
+    width: 20%
+    height: 100%
+    z-index: 2
+    position: relative
+  &:checked+span, &:hover+span
+    opacity: 1
+  &_active
+    opacity: 0
+    position: absolute
+    left: 0
+    top: 0
+    height: 100%
+    width: 20%
+    z-index: 1
+    background-image: url('../../../../assets/icons/star.svg'), url('../../../../assets/icons/star.svg'), url('../../../../assets/icons/star.svg'), url('../../../../assets/icons/star.svg'), url('../../../../assets/icons/star.svg')
+    background-repeat: no-repeat
+    background-position: 2px center, 26px center, 50px center, 74px center, 98px center

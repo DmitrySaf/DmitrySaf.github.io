@@ -2,25 +2,25 @@
 @import '../../../../assets/sass/_variables'
 
 .feedback
+  grid-column: 1 / 3
+  +media-breakpoint-down($desktop-normal-down)
+    grid-column: auto
+  +media-breakpoint-down($tablet-portrait-down)
     grid-column: 1 / 3
-    +media-breakpoint-down($desktop-normal-down)
-        grid-column: auto
-    +media-breakpoint-down($tablet-portrait-down)
-        grid-column: 1 / 3
-    +media-breakpoint-down($phone-normal-down)
-        grid-column: auto
-    &__title
-        margin-bottom: 20px
-        +media-breakpoint-down($desktop-small-down)
-            max-width: 250px
-    &__subtitle
-        font-size: 14px
-        line-height: 27px
-        color: $dark-shade-50
-    &__comment
-        display: grid
-        grid-template-columns: repeat(auto-fill, 100%)
-        row-gap: 25px
-    &__header
-        display: flex
-        justify-content: space-between
+  +media-breakpoint-down($phone-normal-down)
+    grid-column: auto
+  &__title
+    margin-bottom: 20px
+    +media-breakpoint-down($desktop-small-down)
+      max-width: 250px
+  &__subtitle
+    font-size: 14px
+    line-height: 27px
+    color: $dark-shade-50
+  &__comment
+    display: grid
+    grid-template-columns: repeat(auto-fill, 100%)
+    row-gap: 25px
+  &__header
+    display: flex
+    justify-content: space-between

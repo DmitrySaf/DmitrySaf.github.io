@@ -1,0 +1,107 @@
+@import '../../../../assets/sass/_variables'
+@import '../../../../assets/sass/_mixins'
+
+.card-preview
+  display: block
+  cursor: pointer
+  transition: .3s all
+  text-decoration: none
+  position: relative
+  &:hover
+    transform: scale(1.05)
+  &__content
+    padding: 20px 17px 19px 20px
+  &__header
+    &_container
+      display: grid
+      grid-template-columns: 61px 164px
+      column-gap: 8px
+      max-height: 30px
+    &_wrapper
+      display: flex
+      justify-content: space-between
+      align-items: flex-end
+    &_number
+      font-family: $font-bold 
+      font-size: 19px
+      line-height: 24px
+      color: $dark-shade-100
+      span
+        font-family: $font-bold
+        font-size: 14px
+        line-height: 17px
+    &_status
+      color: $primary-color
+      margin-bottom: 0
+    &_price
+      font-family: $font-bold
+      line-height: 18px
+      color: $dark-shade-50
+      span
+        font-family: $font-regular
+        font-size: 12px
+  &__link
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+  &__feedback
+    color: $dark-shade-50
+    line-height: 27px
+    span
+      font-family: $font-bold
+    &_container
+      display: grid
+      grid-template-columns: max-content 100px
+      justify-content: space-between
+      border-top: solid 1px $dark-shade-10
+      text-align: end
+      align-items: center
+      padding-top: 8px
+      margin-top: 10px
+      width: 230px
+  &__dots
+    display: none !important
+  &__slider
+    width: 100%
+    height: 151px
+    img
+      border-top-left-radius: 4px
+      border-top-right-radius: 4px
+    &:hover
+      .card-preview
+        &__arrow
+          &_next
+            +arrow-dropdown(#fff, -45deg)
+            height: 100%
+            right: 0
+            border-top-right-radius: 4px
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%)
+          &_prev
+            +arrow-dropdown(#fff, 135deg)
+            height: 100%
+            z-index: 10
+            left: 0
+            border-top-left-radius: 4px
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%)
+        &__dots
+          all: unset
+          position: absolute
+          bottom: 15px
+          right: 15px
+          width: 40px
+          display: flex !important
+          justify-content: space-between
+          li  
+            list-style-type: none
+            width: 7.5px
+            height: 7.49px
+            border: 1px solid #fff
+            border-radius: 50%
+            button
+              display: none
+
+.slick
+  &-active
+    background: #FFFFFF

@@ -1,1 +1,1 @@
-import "./collage.sass";
+import './collage.sass';

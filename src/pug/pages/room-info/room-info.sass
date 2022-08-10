@@ -2,22 +2,22 @@
 @import '../../../assets/sass/_variables'
 
 .room-info
-    padding: 70px 0 62px 0
-    border-bottom: 1px solid $dark-shade-10
-    &__wrapper
-        display: grid
-        grid-template-columns: minmax(300px, 711px) max-content
-        justify-content: space-between
-        +media-breakpoint-down($tablet-portrait-down)
-            grid-template-columns: repeat(auto-fill, minmax(300px, 100%))
-            row-gap: 20px
-            justify-items: center
-    &__info
-        display: grid
-        grid-template-columns: 280px 350px
-        column-gap: 10px
-        row-gap: 35px
-        +media-breakpoint-down($desktop-normal-down)
-            grid-template-columns: repeat(auto-fill, minmax(300px, 711px))
-        +media-breakpoint-down($desktop-small-down)
-            grid-template-columns: repeat(auto-fill, 300px)
+  padding: 70px 0 62px 0
+  border-bottom: 1px solid $dark-shade-10
+  &__wrapper
+    display: grid
+    grid-template-columns: minmax(300px, 711px) max-content
+    justify-content: space-between
+    +media-breakpoint-down($tablet-portrait-down)
+      grid-template-columns: repeat(auto-fill, minmax(300px, 100%))
+      row-gap: 20px
+      justify-items: center
+  &__info
+    display: grid
+    grid-template-columns: 280px 350px
+    column-gap: 10px
+    row-gap: 35px
+    +media-breakpoint-down($desktop-normal-down)
+      grid-template-columns: repeat(auto-fill, minmax(300px, 711px))
+    +media-breakpoint-down($desktop-small-down)
+      grid-template-columns: repeat(auto-fill, 300px)

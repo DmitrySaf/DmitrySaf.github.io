@@ -13,6 +13,7 @@
     "css-loader": "^6.0.0",
     "cssnano": "^5.0.6",
     "eslint": "^8.21.0",
+    "eslint-config-airbnb": "^19.0.4",
     "favicons": "^6.2.2",
     "favicons-webpack-plugin": "^5.0.2",
     "file-loader": "^6.2.0",
@@ -50,7 +51,7 @@
     "dev": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=build webpack --config ./build/webpack.build.conf.js",
     "deploy": "gh-pages -d dist",
-    "eslint": "eslint --ext .js src"
+    "eslint": "eslint --ext .js src --fix"
   },
   "repository": {
     "type": "git",

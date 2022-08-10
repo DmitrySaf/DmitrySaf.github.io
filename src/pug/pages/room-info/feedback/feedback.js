@@ -1,1 +1,1 @@
-import "./feedback.sass";
+import './feedback.sass';

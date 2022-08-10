@@ -1,77 +1,56 @@
 @import './_mixins'
 
-
-
 h1 
-    font-family: $font-bold
-    font-size: $font-size-header-large
-    line-height: $line-height-header-large
-    color: $dark-shade-100
-    margin: 0
+  font-family: $font-bold
+  font-size: $font-size-header-large
+  line-height: $line-height-header-large
+  color: $dark-shade-100
+  margin: 0
 
 h2 
-    font-family: $font-bold
-    font-size: $font-size-header-medium
-    line-height: $line-height-header-medium
-    color: $dark-shade-100
-    margin: 0
+  font-family: $font-bold
+  font-size: $font-size-header-medium
+  line-height: $line-height-header-medium
+  color: $dark-shade-100
+  margin: 0
 
 h3
-    font-family: $font-bold
-    font-size: $font-size-header-small
-    line-height: $line-height-header-small
-    color: $dark-shade-100
-    text-transform: uppercase
-    margin: 0
-    margin-bottom: 5px
+  font-family: $font-bold
+  font-size: $font-size-header-small
+  line-height: $line-height-header-small
+  color: $dark-shade-100
+  text-transform: uppercase
+  margin: 0
+  margin-bottom: 5px
 
 html, body
-    font-size: $font-size-main
-    
-
+  font-size: $font-size-main
 
 ul, li, canvas 
-    all: unset
+  all: unset
 
 a
-    text-decoration: none
+  text-decoration: none
 
 .container
-    height: 100%
-    width: 100%
-    max-width: 1160px
-    margin: 0 auto
-    +media-breakpoint-down($desktop-normal-down)
-        padding: 0 30px
-    +media-breakpoint-down($tablet-portrait-down)
-        padding: 0 10px
-
-.show
-    display: block
-
-.disabled
-    opacity: .5
-    cursor: default
-
-.sidebar__show
-    height: auto
-    overflow: auto
+  height: 100%
+  width: 100%
+  max-width: 1160px
+  margin: 0 auto
+  +media-breakpoint-down($desktop-normal-down)
+    padding: 0 30px
+  +media-breakpoint-down($tablet-portrait-down)
+    padding: 0 10px
 
 .border-radius_none
-    border-bottom-left-radius: 0 
-    border-bottom-right-radius: 0
+  border-bottom-left-radius: 0 
+  border-bottom-right-radius: 0
 
 .arrow__dropdown
-    all: unset
-    appearance: none
-    +arrow-dropdown
-    transform: translateY(-2px)
+  all: unset
+  appearance: none
+  +arrow-dropdown
+  transform: translateY(-2px)
 
 .arrow__main
-    +arrow-main
-
-
-
-
-
-
+  +arrow-main

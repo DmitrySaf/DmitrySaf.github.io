@@ -1,25 +1,25 @@
 include ../buttons/buttons
 
 mixin pagination(options)
-    if !options
-        - var options = {}
+  if !options
+    - var options = {}
 
-    .pagination 
-        ul.pagination__wrapper.js-pagination__wrapper 
-            li.pagination__item
-                a.pagination__link
-            li.pagination__item
-                a.pagination__link
-            li.pagination__item
-                a.pagination__link
-            li.pagination__item
-                a.pagination__link
-            li.pagination__item
-                a.pagination__link
-            li.pagination__item
-                a.pagination__link
-        .pagination__descr 
-            span.pages__current.js-pages__current 1 - 12 
-            | из 
-            span.rooms__overall.js-rooms__overall 100+ 
-            | вариантов аренды
+  .pagination 
+    ul.pagination__wrapper.js-pagination__wrapper 
+      li.pagination__item
+        a.pagination__link
+      li.pagination__item
+        a.pagination__link
+      li.pagination__item
+        a.pagination__link
+      li.pagination__item
+        a.pagination__link
+      li.pagination__item
+        a.pagination__link
+      li.pagination__item
+        a.pagination__link
+    .pagination__descr 
+      span.pages__current.js-pages__current 1 - 12 
+      | из 
+      span.rooms__overall.js-rooms__overall 100+ 
+      | вариантов аренды

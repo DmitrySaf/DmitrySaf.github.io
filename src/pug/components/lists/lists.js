@@ -1,2 +1,2 @@
-import './list__advantages/list__advantages';
-import './list__bullet/list__bullet';
+import './list-advantages/list-advantages';
+import './list-bullet/list-bullet';

@@ -1,53 +1,52 @@
 extends ../main/main
 
 block variables
-    - var title = "Search rooms"
+  - var title = "Search rooms"
 
 block content
-    section.room-search
-        .container 
-            .room-search__grid
-                .room-search__filters_trigger.js-room-search__filters_trigger
-                    h3.room-search__filters_trigger_text Фильтры
-                    span.material-icons-outlined filter_alt 
-                .room-search__filters.js-room-search__filters 
-                    .room-search__filters_content
-                        +logo
-                        .arrow__main.room-search__arrow.js-room-search__arrow
-                        +input({type: 'date', size: 'm', label: 'даты пребывания в отеле', id: 'input__date_filter'})
-                        +dropdown({type: 'guests', id: 'guests_medium', size: 'm', label: 'гости'})
-                        .room-search__range_container 
-                            +button({type: 'range', label: 'диапазон цены'})
-                            .room-search__range_descr Стоимость за сутки пребывания в номере
-                        .room-search__checkbox
-                            h3.room-search__checkbox_header правила дома
-                            ul.room-search__checkbox_list
-                                +button({type: 'checkbox', name: 'able-smoke', label: 'Можно курить'})
-                                +button({type: 'checkbox', name: 'able-pets', label: 'Можно с питомцами'})
-                                +button({type: 'checkbox', name: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
-                        .room-search__checkbox-rich
-                            h3.room-search__checkbox-rich_header доступность
-                            ul.room-search__checkbox-rich_list
-                                +button({type: 'checkbox', checkboxType: 'rich', name: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
-                                +button({type: 'checkbox', checkboxType: 'rich', name: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
-                        +dropdown({type: 'rooms', id: 'rooms', size: 'medium', label: 'удобства номера'})
-                        +dropdown({type: 'checkbox', label: 'дополнительные удобства'})
-                        +button({type: 'default', additClass: 'button_size_m button_color_primary room-search__button', text:'применить'})
-                .room-search__content 
-                    h1.room-search__header Номера, которые мы для вас подобрали
-                    .room-search__content_grid 
-                        +card({type: 'preview', roomNumber: '888', roomPrice: '9 990', roomComments: '145', roomStatus: 'люкс'})
-                        +card({type: 'preview', roomNumber: '840', roomPrice: '9 900', roomComments: '65'})
-                        +card({type: 'preview', roomNumber: '980', roomPrice: '8 500', roomComments: '35', roomStatus: 'люкс'})
-                        +card({type: 'preview', roomNumber: '856', roomPrice: '7 300', roomComments: '19'})
-                        +card({type: 'preview', roomNumber: '740', roomPrice: '6 000', roomComments: '44'})
-                        +card({type: 'preview', roomNumber: '982', roomPrice: '5 800', roomComments: '56'})
-                        +card({type: 'preview', roomNumber: '678', roomPrice: '5 500', roomComments: '45'})
-                        +card({type: 'preview', roomNumber: '450', roomPrice: '5 300', roomComments: '39'})
-                        +card({type: 'preview', roomNumber: '350', roomPrice: '5 000', roomComments: '77'})
-                        +card({type: 'preview', roomNumber: '666', roomPrice: '5 000', roomComments: '25'})
-                        +card({type: 'preview', roomNumber: '444', roomPrice: '5 000', roomComments: '15'})
-                        +card({type: 'preview', roomNumber: '352', roomPrice: '5 000', roomComments: '55'})
-                    .room-search__pagination 
-                        +pagination
-
+  section.room-search
+    .container 
+      .room-search__grid
+        .room-search__filters_trigger.js-room-search__filters_trigger
+          h3.room-search__filters_trigger_text Фильтры
+          span.material-icons-outlined filter_alt 
+        .room-search__filters.js-room-search__filters 
+          .room-search__filters_content
+            +logo
+            .arrow__main.room-search__arrow.js-room-search__arrow
+            +input({type: 'date', size: 'm', label: 'даты пребывания в отеле', id: 'input__date_filter'})
+            +dropdown({type: 'guests', id: 'guests_medium', size: 'm', label: 'гости'})
+            .room-search__range_container 
+              +button({type: 'range', label: 'диапазон цены'})
+              .room-search__range_descr Стоимость за сутки пребывания в номере
+            .room-search__checkbox
+              h3.room-search__checkbox_header правила дома
+              ul.room-search__checkbox_list
+                +button({type: 'checkbox', id: 'able-smoke', label: 'Можно курить'})
+                +button({type: 'checkbox', id: 'able-pets', label: 'Можно с питомцами'})
+                +button({type: 'checkbox', id: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
+            .room-search__checkbox-rich
+              h3.room-search__checkbox-rich_header доступность
+              ul.room-search__checkbox-rich_list
+                +button({type: 'checkbox', checkboxType: 'rich', id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
+                +button({type: 'checkbox', checkboxType: 'rich', id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+            +dropdown({type: 'rooms', id: 'rooms', size: 'medium', label: 'удобства номера'})
+            +dropdown({type: 'checkbox', label: 'дополнительные удобства'})
+            +button({type: 'default', additClass: 'button_size_m button_color_primary room-search__button', text:'применить'})
+        .room-search__content 
+          h1.room-search__header Номера, которые мы для вас подобрали
+          .room-search__content_grid 
+            +card({type: 'preview', roomNumber: '888', roomPrice: '9 990', roomComments: '145', roomStatus: 'люкс'})
+            +card({type: 'preview', roomNumber: '840', roomPrice: '9 900', roomComments: '65'})
+            +card({type: 'preview', roomNumber: '980', roomPrice: '8 500', roomComments: '35', roomStatus: 'люкс'})
+            +card({type: 'preview', roomNumber: '856', roomPrice: '7 300', roomComments: '19'})
+            +card({type: 'preview', roomNumber: '740', roomPrice: '6 000', roomComments: '44'})
+            +card({type: 'preview', roomNumber: '982', roomPrice: '5 800', roomComments: '56'})
+            +card({type: 'preview', roomNumber: '678', roomPrice: '5 500', roomComments: '45'})
+            +card({type: 'preview', roomNumber: '450', roomPrice: '5 300', roomComments: '39'})
+            +card({type: 'preview', roomNumber: '350', roomPrice: '5 000', roomComments: '77'})
+            +card({type: 'preview', roomNumber: '666', roomPrice: '5 000', roomComments: '25'})
+            +card({type: 'preview', roomNumber: '444', roomPrice: '5 000', roomComments: '15'})
+            +card({type: 'preview', roomNumber: '352', roomPrice: '5 000', roomComments: '55'})
+          .room-search__pagination 
+            +pagination

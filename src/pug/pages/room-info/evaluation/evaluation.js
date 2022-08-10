@@ -1,1 +1,1 @@
-import "./evaluation.sass";
+import './evaluation.sass';

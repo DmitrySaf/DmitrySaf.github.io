@@ -1,1 +1,1 @@
-import "./cancel.sass";
+import './cancel.sass';

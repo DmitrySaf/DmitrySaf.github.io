@@ -1,0 +1,15 @@
+@import '../../../../assets/sass/_variables'
+@import '../../../../assets/sass/_mixins'
+
+.card-login
+  &__button
+    margin-top: 12px
+  &__input
+    &_email, &_password
+      +input(320px)
+        &::-webkit-input-placeholder
+          font-size: 14px
+          line-height: 18px
+          color: $dark-shade-25
+    &_password
+      margin: 9px 0

@@ -1,0 +1,1 @@
+import './button-rating.sass';

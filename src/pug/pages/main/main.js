@@ -1,1 +1,1 @@
-import "../../../assets/sass/styles.sass"
+import '../../../assets/sass/styles.sass';

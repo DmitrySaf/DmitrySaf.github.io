@@ -1,1 +1,1 @@
-import "./advantages.sass";
+import './advantages.sass';

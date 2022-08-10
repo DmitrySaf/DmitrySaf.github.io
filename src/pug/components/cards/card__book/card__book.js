@@ -1,1 +1,0 @@
-import './card__book.sass';

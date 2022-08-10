@@ -1,0 +1,11 @@
+mixin type(options)
+  if (!options)
+    - var options = {}
+
+  .type 
+    .type__tag(
+      class=`type__tag_${options.tag}`
+    )=options.tag
+    .type__text(
+      class=`type__text_${options.tag}`
+    )=options.text

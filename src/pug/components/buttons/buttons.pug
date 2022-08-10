@@ -1,54 +1,53 @@
-include ./button__rating/button__rating
+include ./button-rating/button-rating
 
 mixin button(options)
-    if !options
-        - var options = {}
+  if !options
+    - var options = {}
 
-    if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle' || options.checkboxType === 'rich')
-        li(class = options.type)
-            input(
-                class = `${options.type}__button`
-                type = ((options.type === 'toggle') ? 'checkbox': options.type)
-                name = options.name
-                value = options.value
-                id = options.id)
-            .buttons__label_wrapper
-                label(
-                class = (options.checkboxType !== 'rich') ? `${options.type}__label` : `${options.type}__label_rich`
-                for = options.id)=options.label
-                if (options.checkboxType === 'rich')
-                    div(
-                        class = `${options.type}__label_descr`
-                        for = options.id
-                    )=options.descr
-    if (options.type === 'like')
-        .like.js-like
-            span.material-icons.material-icons_border.js-material-icons favorite_border
-            .like__counter.js-like__counter 0
-    if (options.type === 'rating')
-        +button__rating
-    if (options.type === 'range')
-        .range-slider__container 
-            .range-slider__wrapper 
-                h3.range-slider__header=options.label
-                label.range-slider__label(for="range")
-            input.range(
-                id = "range"
-                type = "text")
-    if (options.type === 'default')
-        if (options.href) 
-            a.button(
-            class = !options.additClass ? '' : options.additClass
-            type = options.buttonType 
-            form = options.formId
-            id = options.id
-            href = options.href
-            )=options.text
-        else
-            button.button(
-            class = !options.additClass ? '' : options.additClass
-            type = options.buttonType 
-            form = options.formId
-            id = options.id
-            )=options.text
+  if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle' || options.checkboxType === 'rich')
+    li(class = options.type)
+      input(
+        class = `${options.type}__button`
+        type = ((options.type === 'toggle') ? 'checkbox': options.type)
+        value = options.value
+        id = options.id)
+      .buttons__label_wrapper
+        label(
+        class = (options.checkboxType !== 'rich') ? `${options.type}__label` : `${options.type}__label_rich`
+        for = options.id)=options.label
+        if (options.checkboxType === 'rich')
+          div(
+            class = `${options.type}__label_descr`
+            for = options.id
+          )=options.descr
+  if (options.type === 'like')
+    .like.js-like
+      span.material-icons.material-icons_border.js-material-icons favorite_border
+      .like__counter.js-like__counter 0
+  if (options.type === 'rating')
+    +button__rating
+  if (options.type === 'range')
+    .range-slider__container 
+      .range-slider__wrapper 
+        h3.range-slider__header=options.label
+        label.range-slider__label(for="range")
+      input.range(
+        id = "range"
+        type = "text")
+  if (options.type === 'default')
+    if (options.href) 
+      a.button(
+      class = !options.additClass ? '' : options.additClass
+      type = options.buttonType 
+      form = options.formId
+      id = options.id
+      href = options.href
+      )=options.text
+    else
+      button.button(
+      class = !options.additClass ? '' : options.additClass
+      type = options.buttonType 
+      form = options.formId
+      id = options.id
+      )=options.text
         

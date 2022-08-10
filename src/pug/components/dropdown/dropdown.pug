@@ -1,52 +1,52 @@
 mixin dropdown(options)
-    if !options
-        - var options = {}
+  if !options
+      - var options = {}
 
-    .dropdown__wrapper
-        if (options.type === 'guests' || options.type === 'rooms')
-            h3.dropdown__label=options.label
-            .dropdown.js-dropdown(
-                class = options.size ? `dropdown_size_${options.size}` : ''
-                id = `dropdown-${options.id}`)
-                .dropdown__placeholder.js-dropdown__placeholder=(options.type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати"
-                input.arrow__dropdown.js-arrow__dropdown(type = "checkbox")
-                .dropdown__content_wrapper
-                    .dropdown__content
-                        if (options.type === 'guests')
-                            +dropdown__item({text: 'взрослые', id: options.id})
-                            +dropdown__item({text: 'дети', id: options.id})
-                            +dropdown__item({text: 'младенцы', id: options.id})
-                        else 
-                            +dropdown__item({text: 'спальни', id: options.id})
-                            +dropdown__item({text: 'кровати', id: options.id})
-                            +dropdown__item({text: 'ванные комнаты', id: options.id})
-                        if (options.size !== 'm')
-                            .dropdown__button_wrapper
-                                h3.dropdown__button.dropdown__button_clear.js-dropdown__button_clear очистить
-                                h3.dropdown__button.dropdown__button_accept.js-dropdown__button_accept применить
-        if (options.type === 'checkbox')
-            .dropdown(
-                class = "dropdown__checkbox"
-                id = "dropdown-checkbox")
-                h3.dropdown__label.dropdown__checkbox_label=options.label
-                input.arrow__dropdown(type = "checkbox")
-                ul.dropdown__checkbox_list
-                    +button({type: 'checkbox', label: 'Завтрак'})
-                    +button({type: 'checkbox', label: 'Письменный стол'})
-                    +button({type: 'checkbox', label: 'Стул для кормления'})
-                    +button({type: 'checkbox', label: 'Кроватка'})
-                    +button({type: 'checkbox', label: 'Телевизор'})
-                    +button({type: 'checkbox', label: 'Шампунь'})
-                    +button({type: 'checkbox', label: 'Телевизор'})
-                    +button({type: 'checkbox', label: 'Шампунь'})
+  .dropdown__wrapper
+    if (options.type === 'guests' || options.type === 'rooms')
+      h3.dropdown__label=options.label
+      .dropdown.js-dropdown(
+        class = options.size ? `dropdown_size_${options.size}` : ''
+        id = `dropdown-${options.id}`)
+        .dropdown__placeholder.js-dropdown__placeholder=(options.type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати"
+        input.arrow__dropdown.js-arrow__dropdown(type = "checkbox")
+        .dropdown__content_wrapper
+          .dropdown__content
+            if (options.type === 'guests')
+              +dropdown__item({text: 'взрослые', id: options.id})
+              +dropdown__item({text: 'дети', id: options.id})
+              +dropdown__item({text: 'младенцы', id: options.id})
+            else 
+              +dropdown__item({text: 'спальни', id: options.id})
+              +dropdown__item({text: 'кровати', id: options.id})
+              +dropdown__item({text: 'ванные комнаты', id: options.id})
+            if (options.size !== 'm')
+              .dropdown__button_wrapper
+                h3.dropdown__button.dropdown__button_clear.js-dropdown__button_clear очистить
+                h3.dropdown__button.dropdown__button_accept.js-dropdown__button_accept применить
+    if (options.type === 'checkbox')
+      .dropdown(
+        class = "dropdown__checkbox"
+        id = "dropdown-checkbox")
+        h3.dropdown__label.dropdown__checkbox_label=options.label
+        input.arrow__dropdown(type = "checkbox")
+        ul.dropdown__checkbox_list
+          +button({type: 'checkbox', id: 'breakfast', label: 'Завтрак'})
+          +button({type: 'checkbox', id: 'table', label: 'Письменный стол'})
+          +button({type: 'checkbox', id: 'chair', label: 'Стул для кормления'})
+          +button({type: 'checkbox', id: 'bed', label: 'Кроватка'})
+          +button({type: 'checkbox', id: 'tv', label: 'Телевизор'})
+          +button({type: 'checkbox', id: 'shampoo', label: 'Шампунь'})
+          +button({type: 'checkbox', id: 'tv-copy', label: 'Телевизор'})
+          +button({type: 'checkbox', id: 'shampoo-copy', label: 'Шампунь'})
 
 mixin dropdown__item(options)
-    if !options
-        - var options = {}
+  if !options
+    - var options = {}
 
-    .dropdown__item
-        h3.dropdown__item_text=options.text
-        .dropdown__item_calc
-            .dropdown__operation.dropdown__operation_minus.js-dropdown__operation_minus.disabled
-            h3.dropdown__operation_counter.js-dropdown__operation_counter(class = `dropdown__counter_${options.id} js-dropdown__counter_${options.id}`) 0
-            .dropdown__operation.dropdown__operation_plus.js-dropdown__operation_plus
+  .dropdown__item
+    h3.dropdown__item_text=options.text
+    .dropdown__item_calc
+      .dropdown__operation.dropdown__operation_minus.js-dropdown__operation_minus.disabled
+      h3.dropdown__operation_counter.js-dropdown__operation_counter(class = `dropdown__counter_${options.id} js-dropdown__counter_${options.id}`) 0
+      .dropdown__operation.dropdown__operation_plus.js-dropdown__operation_plus

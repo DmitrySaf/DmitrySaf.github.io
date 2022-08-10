@@ -1,13 +1,21 @@
 extends ../main/main
 
 block variables
-    - var title = "Toxin"
+  - var title = "Navigation"
 
-block content
-    section.landing
-        .container
-            .landing__grid
-                +card({type: 'search', header: 'Найдём номера под ваши пожелания', buttonText: 'подобрать номер'})
-                .landing__descr Лучшие номера для вашей работы, отдыха и просто вдохновения
-                
-
+block content 
+  .container
+    nav.main__navigation Навигация
+      ul
+        li
+          a.main__link(href="./landing.html") Landing page
+        li
+          a.main__link(href="./login.html") Log in page
+        li
+          a.main__link(href="./registration.html") Registration page
+        li
+          a.main__link(href="./room-search.html") Room search page
+        li
+          a.main__link(href="./room-info.html") Room info page
+        li
+          a.main__link(href="./colors-type.html") UI-kit page

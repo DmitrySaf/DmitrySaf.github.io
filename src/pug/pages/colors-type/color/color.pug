@@ -1,0 +1,11 @@
+mixin color(options)
+  if (!options)
+    - var options = {}
+
+  .color
+    .color__box(
+      class=(options.color === 'dark-shade') ? `color_${options.color}_${options.opacity}` : `color_${options.color}`
+    )
+    .color__text 
+      .color__name=(options.color === 'dark-shade') ? `Dark Shade ${options.opacity}%` : (options.color === 'primary') ? 'Purple' : 'Green'
+      .color__code=(options.color === 'dark-shade') ? '#1F2041' : (options.color === 'primary') ? '#BC9CFF' : '#6FCF97'

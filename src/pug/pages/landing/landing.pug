@@ -1,0 +1,11 @@
+extends ../main/main
+
+block variables
+  - var title = "Toxin"
+
+block content
+  section.landing
+    .container
+      .landing__grid
+        +card({type: 'search', header: 'Найдём номера под ваши пожелания', buttonText: 'подобрать номер'})
+        .landing__descr Лучшие номера для вашей работы, отдыха и просто вдохновения
