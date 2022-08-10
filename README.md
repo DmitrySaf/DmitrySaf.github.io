@@ -6,7 +6,7 @@
 3. <a href="https://dmitrysaf.github.io/MetaLampToxin/registration.html">Registration page</a><br>
 4. <a href="https://dmitrysaf.github.io/MetaLampToxin/room-search.html">Room search page</a><br>
 5. <a href="https://dmitrysaf.github.io/MetaLampToxin/room-info.html">Room info page</a><br>
-5. <a href="https://dmitrysaf.github.io/MetaLampToxin/ui-kit.html">UI-kit page</a><br>
+6. <a href="https://dmitrysaf.github.io/MetaLampToxin/ui-kit.html">UI-kit page</a><br>
 <h2>Installation and launching:</h2>
 
 1. Install the project:
