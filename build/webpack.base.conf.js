@@ -14,7 +14,10 @@ const PATHS = {
 };
 const PAGES_DIR = `${PATHS.src}/pug/pages/`;
 const PAGES = fs.readdirSync(`${PAGES_DIR}`);
+const mainPageIndex = PAGES.indexOf('main');
 const PAGE_LIVE = 'index.html';
+
+PAGES.splice(mainPageIndex, 1);
 
 module.exports = {
   externals: {
