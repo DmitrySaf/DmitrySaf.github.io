@@ -1,0 +1,32 @@
+block variables
+
+include ../../components/input/input
+include ../../components/dropdown/dropdown
+include ../../components/buttons/buttons
+include ../../components/lists/lists
+include ../../components/comment/comment
+include ../../components/cards/cards
+include ../../components/header/header
+include ../../components/footer/footer
+include ../../components/copyright/copyright
+include ../../components/pagination/pagination
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title UI-KIT
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet") 
+    link(rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5")
+    link(rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png")
+  body(
+      style={background: backgroundColor}
+    )
+    .logo_grey
+      a(href="./index.html")
+       img(src="./assets/icons/logo-grey.svg" alt="" class="form-elements_logo")
+    block page
+    

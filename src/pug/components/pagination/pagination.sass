@@ -7,38 +7,38 @@
     display: flex
     align-items: center
     position: relative
-    &__descr
-      margin: 9px 0 0 5px
-    &__item
-      width: 40px
-      height: 40px
-      border: none
+  &__descr
+    margin: 9px 0 0 5px
+  &__item
+    width: 40px
+    height: 40px
+    border: none
+    border-radius: 50%
+    display: grid
+    place-items: center
+    &_active
+      background: $gradient-primary
+      a
+        color: #fff
+        font-family: $font-bold
+    &_next
+      background: $gradient-secondary
       border-radius: 50%
-      display: grid
-      place-items: center
-      &_active
-        background: $gradient-primary
-        a
-          color: #fff
-          font-family: $font-bold
-        &_next
-          background: $gradient-secondary
-          border-radius: 50%
-          +arrow-main(40px, 40px, #fff)
-            position: relative
-            order: 6
-        &_last
-          order: 5
-        &_disabled
-          a
-            display: none
-        &_etc
-          order: 4
-    &__link
-      font-size: 12px
-      color: $dark-shade-50
-      width: 100%
-      line-height: 40px
-      cursor: pointer
-      text-decoration: none
-      text-align: center
+      +arrow-main(40px, 40px, #fff)
+        position: relative
+        order: 6
+    &_last
+      order: 5
+    &_disabled
+      a
+        display: none
+    &_etc
+      order: 4
+  &__link
+    font-size: 12px
+    color: $dark-shade-50
+    width: 100%
+    line-height: 40px
+    cursor: pointer
+    text-decoration: none
+    text-align: center

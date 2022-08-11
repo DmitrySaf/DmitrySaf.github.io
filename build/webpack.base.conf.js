@@ -15,9 +15,12 @@ const PATHS = {
 const PAGES_DIR = `${PATHS.src}/pug/pages/`;
 const PAGES = fs.readdirSync(`${PAGES_DIR}`);
 const mainPageIndex = PAGES.indexOf('main');
+const uiKitPageIndex = PAGES.indexOf('ui-kit-template');
 const PAGE_LIVE = 'index.html';
 
-PAGES.splice(mainPageIndex, 1);
+PAGES
+  .splice(mainPageIndex, 1)
+  .splice(uiKitPageIndex, 1);
 
 module.exports = {
   externals: {
@@ -134,6 +137,7 @@ module.exports = {
     ...PAGES.map((filename) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${filename}/${filename}.pug`,
       filename: `${filename}.html`,
+      scriptLoading: 'blocking',
     })),
     new webpack.ProvidePlugin({
       $: 'jquery',

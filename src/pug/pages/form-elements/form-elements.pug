@@ -1,0 +1,81 @@
+extends ../ui-kit-template/ui-kit-template
+
+block page 
+   section.form-elements
+      .container
+        .form-elements__grid
+          .form-elements__elem
+            .form-elements__inputs
+              +input({type: 'email', label: 'text field', id: 'input__email'})
+              +dropdown({type: 'guests', label: 'dropdown', id: 'guests'})
+              +input({type: 'text', label: 'masked text field', id: 'input__date'})
+            .form-elements__date-inputs
+              +input({type: 'date', size: 's', label: 'date dropdown', id: 'input__date_arrival'})
+              +input({type: 'date', size: 's', label: 'date dropdown', id: 'input__date_departure'})
+              +input({type: 'date', size: 'm', label: 'filter date dropdown', id: 'input__date_filter'})
+              +input({type: 'email', label: 'subscription text field', id: 'input__email_sub', sub: 'true', size: 'm'})
+          .form-elements__elem
+            .form-elements__lists
+              .form-elements__list
+                h3.form-elements__header_h3 Checkbox Buttons
+                .form-elements__list-content
+                  +button({type: 'checkbox', name: 'smoke', id: 'smoke', label: 'Можно курить'})
+                  +button({type: 'checkbox', name: 'pets', id: 'pets', label: 'Можно с питомцами'})
+                  +button({type: 'checkbox', name: 'friends', id: 'friends', label: 'Можно пригласить гостей (до 10 человек)'})
+              .form-elements__list
+                h3.form-elements__header_h3 Radio Buttons
+                .form-elements__list-content.form-elements__list-grid
+                  +button({type: 'radio', name: 'sex', id: 'man', label: 'Мужчина'})
+                  +button({type: 'radio', name: 'sex', id: 'woman', label: 'Женщина'})
+              .form-elements__list
+                h3.form-elements__header_h3 Toggle
+                .form-elements__list-content
+                  +button({type: 'toggle', name: 'exclusive', id: 'exclusive', label: 'Получать спецпредложения'})
+                  +button({type: 'toggle', name: 'axclusive', id: 'axclusive', label: 'Получать спецпредложения'})
+              .form-elements__list
+                h3.form-elements__header_h3 Like button
+                .form-elements__list-content.form-elements__list-grid
+                  +button({type: 'like'})
+                  +button({type: 'like'})
+              .form-elements__list
+                h3.form-elements__header_h3 Rate button
+                .form-elements__list-content.form-elements__list-grid
+                  +button({type: 'rating'})
+                  +button({type: 'rating'})
+          .form-elements__elem
+            .form-elements__button-range
+              +button({type: 'range', id: 'range', label: 'range slider'})
+            h3.form-elements__header_h3 buttons
+            .form-elements__buttons
+              .form-elements__buttons-grid
+                +button({type: 'default', id: 'click1', additClass: 'button_color_primary', text: 'click me'})
+                +button({type: 'default', id: 'click2', additClass: 'button_color_primary button_disabled', text: 'click me'})
+              .form-elements__buttons-grid
+                +button({type: 'default', id: 'click3', additClass: 'button_border', text: 'click me'})
+                +button({type: 'default', id: 'click4', additClass: 'button_border button_disabled', text: 'click me'})
+              .form-elements__buttons-grid
+                +button({type: 'default', id: 'click5', additClass: 'button_no-border', text: 'click me'})
+                +button({type: 'default', id: 'click6', additClass: 'button_no-border button_no-border_disabled', text: 'click me'})
+              +button({type: 'default', id: 'click7', additClass: 'button_color_primary button_size_l button_arrow', text: 'перейти к оплате'})
+            .form-elements__pagination
+              h3.form-elements__header_h3 pagination
+              +pagination
+          .form-elements__elem
+            .form-elements__dropdowns
+              +dropdown({type: 'guests', id: 'guests_medium', additClass: 'dropdown_size_m', label: 'dropdown'})
+              +dropdown({type: 'rooms', id: 'rooms_medium', additClass: 'dropdown_size_m', label: 'dropdown'})
+              +dropdown({type: 'checkbox', additClass: 'dropdown_size_m dropdown_no-border', label: 'expandable checkbox list'})
+          .form-elements__elem
+            h3.form-elements__header_h3 rich checkbox buttons 
+            +button({type: 'checkbox', checkboxType: 'rich', name: 'corridor', id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
+            +button({type: 'checkbox', checkboxType: 'rich', name: 'help', id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+          .form-elements__elem
+            h3.form-elements__header_h3 bullet list
+            +list({type: 'bullet', text: 'Нельзя с питомцами'})
+            +list({type: 'bullet', text: 'Без вечеринок и мероприятий'})
+            +list({type: 'bullet', text: 'Время прибытия — после 13:00, а выезд до 12:00'})
+          .form-elements__elem
+            +list({type: 'advantage', imgName: 'smile', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
+            +list({type: 'advantage', imgName: 'building', header: 'Удобство', descr: 'Окно в каждой из спален'})
+          .form-elements__elem
+            +comment({imgName: 'comment-murad', name: 'Мурад Сарафанов', online: '5 дней назад', feedback: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})

@@ -1,0 +1,19 @@
+extends ../ui-kit-template/ui-kit-template
+
+block variables
+  - backgroundColor = '#E5E5E5'
+
+block page 
+  section.cards
+    .container
+      .cards__grid
+        .cards__column
+          +card({type: 'search', header: 'Найдём номера под ваши пожелания', buttonText: 'подобрать номер'})
+          +card({type: 'registration', header: 'Регистрация аккаунта', buttonText: 'перейти к оплате', footerText: 'Уже есть аккаунт на Toxin', footerButtonText: 'войти'})
+        .cards__column
+          +card({type: 'book', roomNumber: '888', roomStatus: 'люкс', roomPrice: '9 990₽', buttonText: 'забронировать'})
+          +card({type: 'login', header: 'Войти', buttonText: 'войти', footerText: 'Нет аккаунта на Toxin?', footerButtonText: 'создать'})
+        .cards__column
+          .cards__datepicker.datepicker
+          +card({type: 'preview', roomNumber: '888', roomStatus: 'люкс', roomPrice: '9 990', roomComments: '145'})
+          +card({type: 'preview', roomNumber: '840', roomPrice: '9 900', roomComments: '65'})
