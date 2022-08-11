@@ -1,47 +1,25 @@
 extends ../main/main
 
+include ../../components/collage/collage
+include ../../components/advantages/advantages
+include ../../components/evaluation/evaluation
+include ../../components/feedback/feedback
+include ../../components/rules/rules
+include ../../components/cancel/cancel
+
 block variables 
   - var title = "Room"
 
-block content 
-  section.collage
-    .collage__img_main
-    .collage__img_top
-    .collage__img_bottom
+block content
+  +collage
   section.room-info 
     .container 
       .room-info__wrapper 
-        .room-info__info 
-          .advantages 
-            h2.advantages__header Сведения о номере   
-            +list({type: 'advantage', imgName: 'smile', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
-            +list({type: 'advantage', imgName: 'building', header: 'Удобство', descr: 'Окно в каждой из спален'})
-            +list({type: 'advantage', imgName: 'comfort', header: 'Уют', descr: 'Номер оснащён камином'})
-          .evaluation 
-            h2.evaluation__header Впечатления от номера
-            .evaluation__container
-              .evaluation__chart
-                canvas.js-myChart
-                .evaluation__votes.js-evaluation__votes
-              .evaluatoin__legend
-                .evaluation__legend_great Великолепно
-                .evaluation__legend_good Хорошо
-                .evaluation__legend_normal Удовлетворительно
-                .evaluation__legend_upset Разочарован
-          .feedback
-            .feedback__header
-              h2.feedback__title Отзывы посетителей номера
-              .feedback__subtitle 2 отзыва
-            .feedback__comment
-              +comment({imgName: 'comment-murad', name: 'Мурад Сарафанов', online: '5 дней назад', feedback: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})
-              +comment({imgName: 'comment-patricia', name: 'Патрисия Стёклышкова', online: 'Неделю назад', feedback: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'})
-          .rules 
-            h2.rules__header Правила
-            +list({type: 'bullet', text: 'Нельзя с питомцами'})
-            +list({type: 'bullet', text: 'Без вечеринок и мероприятий'})
-            +list({type: 'bullet', text: 'Время прибытия — после 13:00, а выезд до 12:00'})
-          .cancel
-            h2.cancel__header Отмена
-            .cancel__descr Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+        .room-info__grid
+          +advantages
+          +evaluation
+          +feedback
+          +rules
+          +cancel
         .room-info__price
           +card({type: 'book', roomNumber: '888', roomStatus: 'люкс', roomPrice: '9 990₽', buttonText: 'забронировать'})

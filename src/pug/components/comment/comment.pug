@@ -7,7 +7,7 @@ mixin comment(options)
   .comment 
     .comment__img 
       img(
-        src = `./assets/img/${options.imgName}.svg`
+        src = require(`../../components/comment/img/${options.imgName}.svg`)
         alt = options.imgName)
     .comment__header
       .comment__name=options.name

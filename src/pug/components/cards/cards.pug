@@ -64,10 +64,10 @@ mixin card(options)
     .card-preview
       .card.card_size_s
         .card-preview__slider.js-card-preview__slider
-          img(src="./assets/img/card-preview-luxe.png" alt="luxe")
-          img(src="./assets/img/card-preview-standard.png" alt="standard")
-          img(src="./assets/img/card-preview-luxe.png" alt="luxe")
-          img(src="./assets/img/card-preview-standard.png" alt="standard")
+          img(src=require("../../components/cards/img/card-preview-luxe.png") alt="luxe")
+          img(src=require("../../components/cards/img/card-preview-standard.png") alt="standard")
+          img(src=require("../../components/cards/img/card-preview-luxe.png") alt="luxe")
+          img(src=require("../../components/cards/img/card-preview-standard.png") alt="standard")
         .card-preview__content 
           .card-preview__header_container
             .card-preview__header_number <span>№ </span> #{options.roomNumber}

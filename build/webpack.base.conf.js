@@ -15,12 +15,13 @@ const PATHS = {
 const PAGES_DIR = `${PATHS.src}/pug/pages/`;
 const PAGES = fs.readdirSync(`${PAGES_DIR}`);
 const mainPageIndex = PAGES.indexOf('main');
-const uiKitPageIndex = PAGES.indexOf('ui-kit-template');
+const uiKitPageIndex = (PAGES.indexOf('ui-kit-template') > mainPageIndex)
+  ? (PAGES.indexOf('ui-kit-template') - 1)
+  : PAGES.indexOf('ui-kit-template');
 const PAGE_LIVE = 'index.html';
 
-PAGES
-  .splice(mainPageIndex, 1)
-  .splice(uiKitPageIndex, 1);
+PAGES.splice(mainPageIndex, 1);
+PAGES.splice(uiKitPageIndex, 1);
 
 module.exports = {
   externals: {
@@ -106,7 +107,7 @@ module.exports = {
       filename: 'assets/css/[name].css',
     }),
     new FaviconsWebpackPlugin({
-      logo: './src/assets/icons/logo.svg',
+      logo: './src/pug/components/logo/img/logo.svg',
       outputPath: 'assets/favicon/',
       prefix: 'assets/favicon/',
       favicons: {
@@ -120,14 +121,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        {
-          from: `${PATHS.src}/${PATHS.assets}img`,
-          to: `${PATHS.assets}img`,
-        },
-        {
-          from: `${PATHS.src}/${PATHS.assets}icons`,
-          to: `${PATHS.assets}icons`,
-        },
         {
           from: `${PATHS.src}/${PATHS.assets}favicon`,
           to: `${PATHS.assets}favicon`,

@@ -1,11 +1,5 @@
 import { Chart } from 'chart.js/dist/chart.min';
 
-import './advantages/advantages';
-import './cancel/cancel';
-import './collage/collage';
-import './evaluation/evaluation';
-import './feedback/feedback';
-import './rules/rules';
 import './room-info.sass';
 
 if ($(window)[0].document.title === 'Room') {
