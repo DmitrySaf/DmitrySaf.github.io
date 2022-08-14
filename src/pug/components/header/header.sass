@@ -20,54 +20,54 @@
   &__title
     line-height: 100%
   &__menu
-    &_container
-      display: grid
-      grid-template-columns: repeat(3, max-content)
-      column-gap: 20px
-      align-items: center
-      +media-breakpoint-down($desktop-normal-down)
-        column-gap: 10px
-      +media-breakpoint-down($tablet-portrait-down)
-        grid-gap: 0
-        &_logged
-          grid-template-columns: repeat(2, max-content)
-      &_user
-        border-left: solid 1px $dark-shade-10
-        height: 28px
-        font-size: 14px
-        line-height: 28px
-        color: $dark-shade-50
-        padding-left: 20px
-  &__login-button
-    height: 34px
-  &__register-button
-    &:not(.button_border)
-      padding: 10px 20px
+    display: grid
+    grid-template-columns: repeat(3, max-content)
+    column-gap: 20px
+    align-items: center
+    +media-breakpoint-down($desktop-normal-down)
+      column-gap: 10px
+    +media-breakpoint-down($tablet-portrait-down)
+      grid-gap: 0
+      &_logged
+        grid-template-columns: repeat(2, max-content)
+    &-user
+      border-left: solid 1px $dark-shade-10
+      height: 28px
+      font-size: 14px
+      line-height: 28px
+      color: $dark-shade-50
+      padding-left: 20px
   &__register, &__login
     &-button
-      padding: 8px 18px
+      line-height: 34px
+      padding: 0 20px
+      height: 34px
       +media-breakpoint-down($tablet-portrait-down)
         display: none
       &_hamburger
         display: block
+  &__login-button
+    line-height: 30px
+    padding: 0 19px
+    width: 87px
   &__hamburger
     height: 20px
     width: 40px
     display: none
     +media-breakpoint-down($tablet-portrait-down)
       display: block
-    &_lines
+    &-lines
       position: relative
       height: 100%
       display: grid
       align-content: space-between
       z-index: 100
-    &_line
-      height: 3px
-      width: 100%
-      background: $gradient-primary
-      transition: .3s all
-    &_trigger
+      span
+        height: 3px
+        width: 100%
+        background: $gradient-primary
+        transition: .3s all
+    &-trigger
       all: unset
       appearance: none
       &:checked
@@ -85,7 +85,7 @@
           box-shadow: 0 0 5px 3px $dark-shade-75
           +media-breakpoint-down($phone-normal-down)
             width: 100vw
-    &_content
+    &-content
       transition: .3s all
       position: absolute
       top: 0px
@@ -100,43 +100,3 @@
       grid-template-rows: max-content max-content max-content
       row-gap: 20px
       justify-items: center
-
-.menu
-  &__nav
-    +media-breakpoint-down($tablet-portrait-down)
-      display: none
-    &_hamburger
-      display: block
-      & > ul
-        display: flex
-        flex-direction: column
-        text-align: center
-        & > li
-          margin-bottom: 20px
-    &_list
-      display: grid
-      grid-template-columns: repeat(5, max-content)
-      align-items: center
-      column-gap: 21px
-      +media-breakpoint-down($desktop-small-down)
-        grid-template-columns: repeat(3, max-content)
-        row-gap: 2px
-        justify-items: center
-        li:nth-child(5)
-          grid-column: 2 / 4
-    &_item
-      text-decoration: none
-      font-size: 14px
-      line-height: 17px
-      color: $dark-shade-50
-      &_bold
-        font-family: $font-bold
-        color: $dark-shade-75
-      &_dropdown
-        +arrow-dropdown
-        position: relative
-        width: 24px
-        height: 21px
-    li
-      display: inline-flex
-      align-items: center

@@ -2,22 +2,29 @@ mixin input(options)
   if !options
     - var options = {}
 
+  -
+    var classes = ''
+    classes += options.size ? `input_size_${options.size} ` : ''
+    classes += options.valueType ? `${options.page}__input-${options.valueType} ` : ''
+    classes += options.masked ? 'js-input_masked ' : ''
+    classes += options.additClass ? options.additClass : ''
+
   .input__container
     if (options.label)
       h3.input__label=options.label
     .input__wrapper
       if (options.type === 'email' || options.type === 'text')
         input.input(
-          class = `${options.additClass} ${options.size ? `input_size_${options.size}` : ''}`
+          class = classes
           type = options.type
-          placeholder = (options.type === 'email') ? "Email" : ((!options.placeholder) ? "ДД.ММ.ГГГГ" : options.placeholder)
+          placeholder = (options.type === 'email') ? "Email" : (!options.placeholder ? "ДД.ММ.ГГГГ" : options.placeholder)
           required = true
           id = options.id)
-        if ( options.type === 'email' && options.sub)
+        if (options.type === 'email' && options.sub)
           .arrow__main
       if (options.type === 'date')
         input.input(
-          class = `input_size_${options.size} js-input_size_${options.size}`
+          class = classes
           type = "text"
           placeholder = "ДД.ММ.ГГГГ"
           required = true

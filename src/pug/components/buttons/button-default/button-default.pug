@@ -1,0 +1,25 @@
+mixin button-default(options)
+  if !options
+    - var options = {}
+
+  -
+    var classes = ''
+    classes += options.size ? `button_size_${options.size} ` : ''
+    classes += options.hasBorder ? 'button_border ' : 'button_no-border '
+    classes += options.additClass ? options.additClass : ''
+
+  if (options.href) 
+    a.button(
+    class = classes
+    type = options.buttonType 
+    form = options.formId
+    id = options.id
+    href = options.href
+    )=options.text
+  else
+    button.button(
+    class = classes
+    type = options.buttonType 
+    form = options.formId
+    id = options.id
+    )=options.text

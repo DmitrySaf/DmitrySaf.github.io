@@ -1,0 +1,20 @@
+mixin menu(options)
+  if !options
+   - var options = {}
+
+  nav.menu__nav(
+    class = (options.isHamburger) ? 'menu__nav_hamburger' : ''
+  )
+    ul.menu__list
+      li
+        a.menu__link.menu__link_bold О нас
+      li
+        a.menu__link Услуги
+        .menu__link_dropdown
+      li
+        a.menu__link Вакансии
+      li
+        a.menu__link Новости
+      li
+        a.menu__link Соглашения
+        .menu__link_dropdown

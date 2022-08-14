@@ -1,12 +1,12 @@
 import './room-search.sass';
 
-const $filtersTrigger = $('.js-room-search__filters_trigger');
+const $filtersTrigger = $('.js-room-search__filters-trigger');
 const $filters = $('.js-room-search__filters');
 const $arrow = $('.js-room-search__arrow');
 
 $filtersTrigger.on('click', () => {
-  $filters.addClass('sidebar__show');
+  $filters.addClass('sidebar_show');
   $arrow.on('click', () => {
-    $filters.removeClass('sidebar__show');
+    $filters.removeClass('sidebar_show');
   });
 });

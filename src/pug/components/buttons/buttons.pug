@@ -1,53 +1,25 @@
 include ./button-rating/button-rating
+include ./button-default/button-default
+include ./button-like/button-like
 
 mixin button(options)
   if !options
-    - var options = {}
+    - var options = {};
 
-  if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle' || options.checkboxType === 'rich')
-    li(class = options.type)
+  if (options.type === 'radio' || options.type === 'toggle')
+    div(class = options.type)
       input(
         class = `${options.type}__button`
-        type = ((options.type === 'toggle') ? 'checkbox': options.type)
-        value = options.value
+        type = (options.type === 'toggle') ? 'checkbox': options.type
+        name = (options.type === 'radio') ? 'gender' : ''
         id = options.id)
-      .buttons__label_wrapper
-        label(
-        class = (options.checkboxType !== 'rich') ? `${options.type}__label` : `${options.type}__label_rich`
+      label(
+        class = `${options.type}__label`
         for = options.id)=options.label
-        if (options.checkboxType === 'rich')
-          div(
-            class = `${options.type}__label_descr`
-            for = options.id
-          )=options.descr
   if (options.type === 'like')
-    .like.js-like
-      span.material-icons.material-icons_border.js-material-icons favorite_border
-      .like__counter.js-like__counter 0
+    +button-like
   if (options.type === 'rating')
-    +button__rating
-  if (options.type === 'range')
-    .range-slider__container 
-      .range-slider__wrapper 
-        h3.range-slider__header=options.label
-        label.range-slider__label(for="range")
-      input.range(
-        id = "range"
-        type = "text")
+    +button-rating(options)
   if (options.type === 'default')
-    if (options.href) 
-      a.button(
-      class = !options.additClass ? '' : options.additClass
-      type = options.buttonType 
-      form = options.formId
-      id = options.id
-      href = options.href
-      )=options.text
-    else
-      button.button(
-      class = !options.additClass ? '' : options.additClass
-      type = options.buttonType 
-      form = options.formId
-      id = options.id
-      )=options.text
+    +button-default(options)
         

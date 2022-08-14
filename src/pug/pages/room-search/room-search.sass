@@ -16,7 +16,7 @@
       row-gap: 10px
   &__content
     width: 100%
-    &_grid
+    &-grid
       display: grid
       grid-template-columns: repeat(auto-fill, 270px)
       column-gap: 12px
@@ -35,12 +35,12 @@
       background: #fff
     +media-breakpoint-down($phone-normal-down)
       width: 100vw
-    &.sidebar__show
+    &.sidebar_show
       +media-breakpoint-down($phone-normal-down)
         padding: 10px
         padding: 20px
         box-shadow: 0 0 10px 3px $dark-shade-75
-    &_content
+    &-content
       display: grid
       grid-template-rows: repeat(7, max-content)
       grid-template-columns: 100%
@@ -52,7 +52,7 @@
           display: grid
       & > div:nth-last-child(2)
         transform: translateY(-4px)
-    &_trigger
+    &-trigger
       display: none
       justify-content: start
       align-items: center
@@ -62,13 +62,13 @@
       padding: 5px 10px
       +media-breakpoint-down($tablet-portrait-down)
         display: flex
-      &_text
-        margin-bottom: 0
-        color: $primary-color
       & > span
         font-family: 'Material Icons'
         font-size: 14px
         color: $primary-color
+    &-text
+      margin-bottom: 0
+      color: $primary-color
   &__header
     margin-bottom: 21px
   &__pagination
@@ -76,12 +76,11 @@
     justify-content: center
     padding-right: 10px
   &__checkbox
-    &_header, &-rich_header
+    &-header
       margin-bottom: 16px
   &__range
-    &_container
-      margin: 12px 0 10px 0
-    &_descr
+    margin: 12px 0 10px 0
+    &-descr
       font-size: 12px
       line-height: 14px
       color: $dark-shade-50
@@ -95,6 +94,6 @@
     +media-breakpoint-down($tablet-portrait-down)
       display: block
 
-.sidebar__show
+.sidebar_show
   height: auto
   overflow: auto

@@ -1,0 +1,11 @@
+mixin range-slider(options)
+  if !options
+    -  var options = {}
+
+  .range-slider__container 
+    .range-slider__wrapper 
+      h3.range-slider__header=options.label
+      label.range-slider__label(for="range")
+    input.range(
+      id = "range"
+      type = "text")

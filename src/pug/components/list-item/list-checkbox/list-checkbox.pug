@@ -1,0 +1,23 @@
+mixin list-checkbox(options)
+  if !options
+   - var options = {}
+
+  li.checkbox
+      input.checkbox__button(
+        type = "checkbox"
+        id = options.id)
+      if (options.isRich)
+        .checkbox-rich__wrapper
+          label(
+            class = "checkbox-rich__label"
+            for = options.id
+          )=options.label
+          label(
+            class = "checkbox-rich__descr"
+            for = options.id
+          )=options.descr
+      else 
+        label(
+          class = "checkbox__label"
+          for = options.id
+        )=options.label

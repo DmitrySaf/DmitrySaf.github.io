@@ -1,4 +1,6 @@
-mixin list(options)
+include ./list-checkbox/list-checkbox
+
+mixin list-item(options)
   if !options 
     - var options = {}
 
@@ -6,7 +8,7 @@ mixin list(options)
     when 'advantage'
       .advantage 
         .advantage__img
-          img(src=require(`../../components/lists/img/${options.imgName}.svg`), alt=options.imgName)
+          img(src=require(`../../components/list-item/img/${options.imgName}.svg`), alt=options.imgName)
         .advantage__text_wrapper
           .advantage__text_header=options.header
           .advantage__text_descr=options.descr
@@ -14,3 +16,5 @@ mixin list(options)
       .bullet
         .bullet__mark 
         .bullet__text=options.text
+    when 'checkbox'
+      +list-checkbox(options)

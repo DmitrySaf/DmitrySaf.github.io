@@ -1,4 +1,17 @@
 @import './_mixins'
+@import './_variables'
+
+*
+  font-family: $font-regular
+  box-sizing: border-box !important
+
+body
+  all: unset
+  font-family: $font-regular
+  line-height: $line-height-main
+  font-size: $font-size-main
+  color: $dark-shade-75
+  margin: 0
 
 h1 
   font-family: $font-bold
@@ -22,9 +35,6 @@ h3
   text-transform: uppercase
   margin: 0
   margin-bottom: 5px
-
-html, body
-  font-size: $font-size-main
 
 ul, li, canvas 
   all: unset

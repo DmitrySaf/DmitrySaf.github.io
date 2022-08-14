@@ -4,7 +4,7 @@ import './room-info.sass';
 
 if ($(window)[0].document.title === 'Room') {
   const chartElem = document.querySelector('.js-myChart').getContext('2d');
-  const $chartVotes = $('.js-evaluation__votes');
+  const $chartVotes = $('.js-room-info__evaluation-votes');
 
   const greatGradient = chartElem.createLinearGradient(0, 0, 0, 450);
   greatGradient.addColorStop(0, '#FFE39C');

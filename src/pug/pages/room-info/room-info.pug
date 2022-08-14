@@ -1,13 +1,6 @@
 extends ../main/main
 
-include ../../components/collage/collage
-include ../../components/advantages/advantages
-include ../../components/evaluation/evaluation
-include ../../components/feedback/feedback
-include ../../components/rules/rules
-include ../../components/cancel/cancel
-
-block variables 
+block variables
   - var title = "Room"
 
 block content
@@ -16,10 +9,36 @@ block content
     .container 
       .room-info__wrapper 
         .room-info__grid
-          +advantages
-          +evaluation
-          +feedback
-          +rules
-          +cancel
+          .room-info__advantages
+            h2.room-info__advantages-header.room-info__block-title Сведения о номере  
+            +list-item({type: 'advantage', imgName: 'smile', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
+            +list-item({type: 'advantage', imgName: 'building', header: 'Удобство', descr: 'Окно в каждой из спален'})
+            +list-item({type: 'advantage', imgName: 'comfort', header: 'Уют', descr: 'Номер оснащён камином'})
+          .room-info__evaluation 
+            h2.room-info__evaluation-header.room-info__block-title Впечатления от номера
+            .room-info__evaluation-container
+              .room-info__evaluation-chart
+                canvas.js-myChart
+                .room-info__evaluation-votes.js-room-info__evaluation-votes
+              .room-info__evaluation-legend
+                .room-info__evaluation-legend_great Великолепно
+                .room-info__evaluation-legend_good Хорошо
+                .room-info__evaluation-legend_normal Удовлетворительно
+                .room-info__evaluation-legend_upset Разочарован
+          .room-info__feedback
+            .room-info__feedback-header
+              h2.room-info__feedback-title.room-info__block-title Отзывы посетителей номера
+              .room-info__feedback-subtitle 2 отзыва
+            .room-info__feedback-comment
+              +comment({imgName: 'comment-murad', name: 'Мурад Сарафанов', online: '5 дней назад', feedback: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})
+              +comment({imgName: 'comment-patricia', name: 'Патрисия Стёклышкова', online: 'Неделю назад', feedback: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'})
+          .room-info__rules
+            h2.room-info__rules-header.room-info__block-title Правила
+            +list-item({type: 'bullet', text: 'Нельзя с питомцами'})
+            +list-item({type: 'bullet', text: 'Без вечеринок и мероприятий'})
+            +list-item({type: 'bullet', text: 'Время прибытия — после 13:00, а выезд до 12:00'})
+          .room-info__cancel
+            h2.room-info__cancel-header.room-info__block-title Отмена
+            .room-info__cancel-descr Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
         .room-info__price
           +card({type: 'book', roomNumber: '888', roomStatus: 'люкс', roomPrice: '9 990₽', buttonText: 'забронировать'})

@@ -1,6 +1,7 @@
 include ../buttons/buttons
 include ../logo/logo
 include ../social/social
+include ./menu/menu
 
 mixin header(options)
   if !options 
@@ -10,50 +11,24 @@ mixin header(options)
     .container
       .header__wrapper
         +logo
-        .header__menu_container(class = (options.logged === 'true') ? 'header__menu_container_logged' : '')
-          nav.menu__nav 
-            ul.menu__nav_list
-              li
-                a(href="#" class = 'menu__nav_item menu__nav_item_bold') О нас
-              li
-                a(href="#" class = 'menu__nav_item') Услуги
-                .menu__nav_item_dropdown
-              li
-                a(href="#" class = 'menu__nav_item ') Вакансии
-              li
-                a(href="#" class = 'menu__nav_item ') Новости
-              li
-                a(href="#" class = 'menu__nav_item') Соглашения
-                .menu__nav_item_dropdown
+        .header__menu(class = (options.logged === 'true') ? 'header__menu_logged' : '')
+          +menu
           if (options.logged === 'true')
-            .header__menu_user=options.username
+            .header__menu-user=options.username
           else
-            +button({type: 'default', href: './login.html', additClass: 'button_border header__login-button', text: 'войти'})
-            +button({type: 'default', href: './registration.html', additClass: 'button_size_m button_color_primary header__register-button', text: 'зарегистрироваться'})
+            +button({type: 'default', href: './login.html', hasBorder: true, size: 's', additClass: 'header__login-button', text: 'войти'})
+            +button({type: 'default', href: './registration.html', size: 'm', additClass: 'header__register-button', text: 'зарегистрироваться'})
           .header__hamburger
-            input#hamburger.header__hamburger_trigger(type = 'checkbox')
-            label.header__hamburger_lines(for='hamburger')
-              span.header__hamburger_line
-              span.header__hamburger_line
-              span.header__hamburger_line
-            .header__hamburger_content
-              nav.menu__nav.menu__nav_hamburger
-                ul.menu__nav_list
-                  li
-                    a(href="#" class = 'menu__nav_item menu__nav_item_bold') О нас
-                  li
-                    a(href="#" class = 'menu__nav_item') Услуги
-                    .menu__nav_item_dropdown
-                  li
-                    a(href="#" class = 'menu__nav_item ') Вакансии
-                  li
-                    a(href="#" class = 'menu__nav_item ') Новости
-                  li
-                    a(href="#" class = 'menu__nav_item') Соглашения
-                    .menu__nav_item_dropdown
+            input#hamburger.header__hamburger-trigger(type="checkbox")
+            label.header__hamburger-lines(for="hamburger")
+              span
+              span
+              span
+            .header__hamburger-content
+              +menu({isHamburger: true})
               if (options.logged === 'true')
-                .header__menu_user=options.username
+                .header__menu-user=options.username
               else
-                +button({type: 'default', href: './login.html', additClass: 'button_border header__login-button header__login-button_hamburger', text: 'войти'})
-                +button({type: 'default', href: './registration.html', additClass: 'button_size_m button_color_primary header__register-button header__register-button_hamburger', text: 'зарегистрироваться'})
+                +button({type: 'default', href: './login.html', size: 's', hasBorder: true,  additClass: 'header__login-button header__login-button_hamburger', text: 'войти'})
+                +button({type: 'default', href: './registration.html', size: 'm',  additClass: 'header__register-button header__register-button_hamburger', text: 'зарегистрироваться'})
               +social()

@@ -21,7 +21,7 @@
         grid-template-columns: minmax(200px, 210px) repeat(auto-fill, minmax(92px, 158px))
         column-gap: 8px
   &__logo
-    &_container
+    &-container
       display: grid
       grid-template: 40px max-content / minmax(200px, 260px)
       row-gap: 18px
@@ -31,17 +31,29 @@
     row-gap: 13px
     +media-breakpoint-down($tablet-portrait-down)
       row-gap: 10px
-    &_link
-      text-decoration: none
-      font-size: 14px
-      line-height: 17px
-      color: $dark-shade-50
-  &__support, &__about, &__nav, &__subscription
-    margin-top: 5px
-    &_title, &_descr
+    &-title
       margin-bottom: 20px
       +media-breakpoint-down($desktop-small-down)
         margin-bottom: 12px
+  &__link
+    text-decoration: none
+    font-size: 14px
+    line-height: 17px
+    color: $dark-shade-50
+  &__column
+    margin-top: 5px
+    &-descr
+      margin-bottom: 20px
+      +media-breakpoint-down($desktop-small-down)
+        margin-bottom: 12px
+    &:last-child
+      max-width: 260px
+      +media-breakpoint-down($desktop-small-down)
+        margin: 0 auto
+        text-align: center
+        grid-column: 1 / 5
+        +media-breakpoint-down($phone-normal-down)
+          grid-column: auto
   &__input
     width: 260px
   &__additContent
@@ -52,11 +64,3 @@
     border-top: 1px solid $dark-shade-10
   &__copyright
     line-height: 17px
-  &__subscription
-    max-width: 260px
-    +media-breakpoint-down($desktop-small-down)
-      margin: 0 auto
-      text-align: center
-      grid-column: 1 / 5
-      +media-breakpoint-down($phone-normal-down)
-        grid-column: auto

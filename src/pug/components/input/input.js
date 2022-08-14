@@ -4,7 +4,7 @@ import 'inputmask/dist/jquery.inputmask.min';
 
 import './input.sass';
 
-const $inputsToMask = $('.js-input_size_s, .card-registration__input_date');
+const $inputsToMask = $('.js-input_masked');
 const $inputArrival = $('#input__date_arrival');
 const $inputDeparture = $('#input__date_departure');
 const $inputArrivalArrow = $('#input__date_arrival').next();

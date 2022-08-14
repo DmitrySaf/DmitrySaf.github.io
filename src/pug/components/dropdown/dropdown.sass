@@ -1,7 +1,6 @@
 @import '../../../assets/sass/_variables'
 @import '../../../assets/sass/_mixins'
 
-
 .dropdown
   +input(320px)
   background-color: #fff
@@ -30,7 +29,7 @@
     max-width: 296px
     display: grid
     grid-row-gap: 7px
-    &_wrapper
+    &-wrapper
       position: absolute
       width: calc(100% + 2px)
       padding-left: 14px
@@ -55,26 +54,26 @@
       position: absolute
       bottom: 0
       right: 0
-    &_wrapper
+    &-wrapper
       position: relative
       height: 27px
   &__item 
     +space-between()
-    &_text
+    &-text
       text-transform: uppercase
       font-family: $font-bold
       font-size: $font-size-header-small
       line-height: $line-height-header-small
       margin-bottom: 0
-    &_calc
-      +space-between()
-      width: 92px
+  &__calc
+    +space-between()
+    width: 92px
   &__operation
     &_minus
       +operation()
     &_plus
       +operation-plus()
-    &_counter
+    &-counter
       margin-bottom: 0
       font-family: $font-bold
       font-size: $font-size-header-small
@@ -90,9 +89,9 @@
     padding-left: 0
     &:focus, &:hover
       border: none
-    &_label
+    &-label
       margin: 0
-    &_list
+    &-list
       transition: max-height 0.4s linear
       background: #fff
       max-height: 0
@@ -102,12 +101,6 @@
         transform: rotate(180deg)
       &:checked + ul
         max-height: 300px
-
-#dropdown-rooms
-  & > .dropdown__content_wrapper
-    & > .dropdown__content
-      & > .dropdown__button_wrapper
-        display: none
 
 .disabled
   opacity: .5
