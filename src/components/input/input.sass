@@ -1,0 +1,129 @@
+@import '../../assets/sass/variables'
+@import '../../assets/sass/mixins'
+
+.input
+  +input()
+    &_size
+      &_m
+        +input(266px)
+      &_s
+        +input(150px)
+          &::-webkit-input-placeholder
+            font-size: 14px
+            line-height: 18px
+            color: $dark-shade-75
+    &__wrapper
+      position: relative
+    &__container
+      width: 100%
+    &__arrow
+      all: unset
+      appearance: none
+      +arrow-dropdown
+      transform: translateY(-2px)
+      &-main
+        +arrow-main
+
+// calendar styles
+
+.datepicker
+  width: 320px
+  min-height: 369px
+  padding: 20px 19px
+  border: 1px solid $dark-shade-25
+  box-shadow: 0px 10px 20px $dark-shade-5
+  border-radius: 4px
+  background-color: #fff
+  +media-breakpoint-down($phone-normal-down)
+    width: 300px
+    padding-right: 9px
+    padding-left: 9px
+  &--content
+    padding: 0
+  &--nav
+    padding: 0
+    border: none
+    margin-bottom: 30px
+    min-height: 24px
+    &-title, &-title i
+      font-family: $font-bold
+      color: $dark-shade-100
+      font-size: 19px
+      line-height: 23px
+      pointer-events: none
+    &-action
+      position: relative
+      &:hover
+        background-color: #fff
+      &_prev, &_next
+        +arrow-main(32px, 24px)
+      &_prev
+        transform: rotate(180deg)
+          left: 0
+  &--day-name
+    width: 40px
+    height: 40px
+    font-family: $font-bold
+    color: $primary-color
+  &--cell
+    &.-range-to-, &.-range-from-
+      &::before
+        content: ''
+        width: 20px
+        height: 40px
+        position: absolute
+        top: 0
+        left: 0
+        background: rgba(188, 156, 255, .25)
+        z-index: -10
+    &.-range-from-
+      &::before
+        left: 20px
+    &.-in-range-
+      background: rgba(188, 156, 255, .25) !important
+      color: $dark-shade-50
+    &.-current-
+      +circle-large($gradient-secondary)
+        font-family: $font-bold
+        color: #fff !important
+    &.-selected-, &.-focus-, &.-range-to-, &.-range-from-
+      +circle-large()
+        font-family: $font-bold
+        color: #fff !important
+    &-day
+      color: $dark-shade-50
+      font-size: 12px
+      text-decoration: none
+      width: 40px
+      height: 40px
+      &.-in-range-.-focus-, &.-in-range-.-current-
+        &::before
+          content: ''
+          width: 40px
+          height: 40px
+          position: absolute
+          top: 0
+          left: 0
+          background: rgba(188, 156, 255, .25)
+          z-index: -10
+        &.-other-month-, &.-disabled-
+          color: $dark-shade-25
+  &--pointer
+    display: none
+  &--buttons
+    padding: 0
+    border: none
+    justify-content: space-between
+    margin-top: 20px
+  &--button
+    font-size: 12px
+    line-height: 15px
+    color: $primary-color
+    text-transform: uppercase
+    font-family: $font-bold
+    width: max-content
+    display: inline
+    flex: none
+    height: max-content
+    &:hover
+      background-color: #fff

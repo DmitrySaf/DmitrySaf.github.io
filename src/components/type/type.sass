@@ -1,0 +1,33 @@
+@import '../../assets/sass/variables'
+@import '../../assets/sass/mixins'
+
+.type
+  display: grid
+  grid-template-columns: 37px 369px
+  column-gap: 30px
+  &__tag
+    text-align: right
+    &_h1, &_h2, &_h3
+      text-transform: uppercase
+    &_body
+      text-transform: capitalize
+  &__text
+    &_h1, &_h2, &_h3
+      color: $dark-shade-100
+      font-weight: 700
+  &__text, &__tag
+    &_h1
+      font-size: $font-size-header-large
+      line-height: $line-height-header-large
+    &_h2
+      font-size: $font-size-header-medium
+      line-height: $line-height-header-medium
+    &_h3
+      text-transform: uppercase
+      font-size: $font-size-header-small
+      line-height: $line-height-header-large
+    &_body
+      font-weight: 400
+      font-size: $font-size-main
+      line-height: $line-height-main
+      color: $dark-shade-75

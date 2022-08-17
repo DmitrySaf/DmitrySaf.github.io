@@ -1,0 +1,160 @@
+@import './variables'
+    
+@mixin media-breakpoint-up($width)
+  @media ( min-width: $width )
+    @content
+
+@mixin media-breakpoint-down($width)
+  @media ( max-width: $width )
+    @content
+
+@mixin input($width: 320px)
+  width: 100%
+  max-width: $width
+  height: 44px
+  border: 1px solid $dark-shade-25
+  border-radius: 4px
+  font-size: $font-size-main
+  line-height: 18px
+  padding: 12px 14px
+  position: relative
+  @content
+  &:focus, &:hover
+    outline: none
+    border: 1px solid $dark-shade-50
+
+@mixin center($rotate: 0deg)
+  position: absolute
+  top: 50%
+  right: 50%
+  transform: translate(50%, -50%) rotate($rotate)
+
+@mixin space-between()
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+@mixin arrow-main_elem($color: $gradient-primary, $width: 8px)
+  width: $width
+  height: 2px
+  background: $color
+
+@mixin arrow-main($width: 44px, $height: 44px, $color: $gradient-primary)
+  position: absolute
+  width: $width
+  height: $height
+  cursor: pointer
+  top: 0
+  right: 0
+  @content
+  &::before
+    content: ''
+    +center
+    width: 15px
+    height: 2px
+    background: $color
+  &::after
+    content: ''
+    +center(45deg)
+    transform: translate(65%, -50%) rotate(45deg)
+    width: 8px
+    height: 8px
+    border: 2px solid transparent
+    border-image: $color
+    border-image-slice: 1
+    border-left: none
+    border-bottom: none
+    @if $color == #fff or $color == white
+      border-image: none
+      border-color: $color
+
+@mixin arrow-dropdown($color: $dark-shade-50, $rotate: 45deg)
+  cursor: pointer
+  position: absolute
+  width: 44px
+  height: 44px
+  top: 0
+  right: 0
+  @content
+  &::before
+    content: ''
+    border: 2px solid $color
+    width: 6px
+    height: 6px
+    border-left: none
+    border-top: none
+    +center($rotate)
+
+@mixin circle-large($color: $gradient-primary)
+  width: 40px
+  height: 40px
+  background: $color !important
+  border-radius: 50%
+  border: none
+  @content
+
+@mixin circle-small($color: $gradient-primary)
+  width: 12px
+  height: 12px
+  background: $color
+  border-radius: 50%
+  border: none
+
+@mixin circle-info()
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    right: -26px
+    width: 18px
+    height: 18px
+    background: #fff
+    border: 1px solid $dark-shade-25
+    border-radius: 50%
+  &::after
+    content: 'i'
+    color: $dark-shade-25
+    font-family: $font-bold
+    position: absolute
+    top: 0
+    right: -18px
+    text-transform: lowercase   
+    font-size: 12px 
+    line-height: 19px
+
+@mixin operation()
+  position: relative
+  height: 30px
+  width: 30px
+  border: 1px solid $dark-shade-25
+  border-radius: 50%
+  cursor: pointer
+  &::before
+    content: ''
+    height: 1px
+    width: 8px
+    background-color: $dark-shade-50
+    +center()
+
+@mixin operation-plus()
+  +operation
+  &::after
+    content: ''
+    height: 8px
+    width: 1px
+    background-color: $dark-shade-50
+    +center()
+
+@mixin tick()
+  position: relative
+  &::after
+    content: ''
+    width: 4px
+    height: 6px
+    border: 2px solid
+    border-image: $gradient-primary
+    border-image-slice: 1
+    border-left: none
+    border-top: none
+    +center(45deg)
+    top: 8px

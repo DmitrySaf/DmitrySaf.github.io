@@ -1,0 +1,45 @@
+@import '../../assets/sass/variables'
+@import '../../assets/sass/mixins'
+
+.checkbox
+  display: grid
+  grid-template-columns: 30px calc(100% - 30px)
+  min-height: 20px
+  margin-bottom: 10px
+  &__button
+    all: unset
+    appearance: none
+    width: 20px
+    height: 20px
+    border: 1px solid $dark-shade-25
+    border-radius: 4px
+    cursor: pointer
+    &:checked
+      +tick
+      border-color: $primary-color
+  &__label
+    font-size: 14px
+    line-height: 20px
+    color: $dark-shade-50
+    user-select: none
+    cursor: pointer
+    max-width: 216px
+  &-rich
+    &__wrapper
+      display: flex
+      align-items: start
+      flex-direction: column
+      max-width: 230px
+    &__label
+      font-size: 14px
+      cursor: pointer
+      max-width: 216px
+      font-family: $font-bold
+      line-height: 18px
+      color: $dark-shade-75
+    &__descr
+      cursor: pointer
+      color: $dark-shade-50
+      font-size: 12px
+      line-height: 14px
+      margin-top: 7px

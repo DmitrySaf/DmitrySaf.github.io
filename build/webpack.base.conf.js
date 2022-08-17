@@ -12,7 +12,7 @@ const PATHS = {
   dist: path.join(__dirname, '../dist'),
   assets: 'assets/',
 };
-const PAGES_DIR = `${PATHS.src}/pug/pages/`;
+const PAGES_DIR = `${PATHS.src}/pages/`;
 const PAGES = fs.readdirSync(`${PAGES_DIR}`);
 const mainPageIndex = PAGES.indexOf('main');
 const uiKitPageIndex = (PAGES.indexOf('ui-kit-template') > mainPageIndex)
@@ -107,7 +107,7 @@ module.exports = {
       filename: 'assets/css/[name].css',
     }),
     new FaviconsWebpackPlugin({
-      logo: './src/pug/components/logo/img/logo.svg',
+      logo: './src/components/logo/img/logo.svg',
       outputPath: 'assets/favicon/',
       prefix: 'assets/favicon/',
       favicons: {

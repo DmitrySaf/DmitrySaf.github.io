@@ -1,0 +1,118 @@
+@import '../../assets/sass/variables'
+@import '../../assets/sass/mixins'
+
+.dropdown
+  +input(320px)
+  background-color: #fff
+  position: relative
+  cursor: default
+  & > input
+    &:checked + div
+        max-height: 155px
+        padding: 6px 6px 9px 14px
+        border-top-left-radius: 0
+        border-top-right-radius: 0
+        border-bottom-left-radius: 4px
+        border-bottom-right-radius: 4px
+        border: 1px solid $dark-shade-25
+  &_size
+    &_m
+      max-width: 266px
+  &__wrapper
+    width: 100%
+  &__placeholder
+    text-align-last: left
+    font-size: 14px
+    color: $dark-shade-75
+    user-select: none
+  &__content
+    max-width: 296px
+    display: grid
+    grid-row-gap: 7px
+    &-wrapper
+      position: absolute
+      width: calc(100% + 2px)
+      padding-left: 14px
+      top: 100%
+      left: -1px
+      max-height: 0
+      transition: .3s all
+      background: #fff
+      overflow: hidden
+      z-index: 10
+  &__button
+    color: $primary-color
+    text-transform: uppercase
+    cursor: pointer
+    margin: 0
+    &_clear
+      position: absolute
+      bottom: 0
+      left: 0
+      display: none
+    &_accept
+      position: absolute
+      bottom: 0
+      right: 0
+    &-wrapper
+      position: relative
+      height: 27px
+  &__item 
+    +space-between()
+    &-text
+      text-transform: uppercase
+      font-family: $font-bold
+      font-size: $font-size-header-small
+      line-height: $line-height-header-small
+      margin-bottom: 0
+  &__calc
+    +space-between()
+    width: 92px
+  &__operation
+    &_minus
+      +operation()
+    &_plus
+      +operation-plus()
+    &-counter
+      margin-bottom: 0
+      font-family: $font-bold
+      font-size: $font-size-header-small
+      line-height: $line-height-header-small
+  &__checkbox
+    display: grid
+    grid-template-rows: 19px max-content
+    row-gap: 12px
+    align-items: center
+    max-width: 266px
+    width: 100%
+    border: none
+    padding-left: 0
+    &:focus, &:hover
+      border: none
+    &-label
+      margin: 0
+    &-list
+      transition: max-height 0.4s linear
+      background: #fff
+      max-height: 0
+      overflow: hidden
+    & > input
+      &:checked
+        transform: rotate(180deg)
+      &:checked + ul
+        max-height: 300px
+  &_border-radius_none
+    border-bottom-left-radius: 0 
+    border-bottom-right-radius: 0
+  &__arrow
+    all: unset
+    appearance: none
+    +arrow-dropdown
+    transform: translateY(-2px)
+
+.disabled
+  opacity: .5
+  cursor: default
+
+.show
+  display: block
