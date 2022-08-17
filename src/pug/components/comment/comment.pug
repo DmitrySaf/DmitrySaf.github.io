@@ -1,4 +1,4 @@
-include ../buttons/buttons
+include ../button-like/button-like
 
 mixin comment(options)
   if !options 
@@ -13,6 +13,6 @@ mixin comment(options)
       .comment__name=options.name
       .comment__online=options.online
     .comment__like
-      +button({type: 'like'})
+      +button-like
     .comment__text
       .comment__feedback=options.feedback

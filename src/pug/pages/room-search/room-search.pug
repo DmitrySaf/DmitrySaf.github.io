@@ -21,32 +21,32 @@ block content
               .room-search__range-descr Стоимость за сутки пребывания в номере
             .room-search__checkbox
               h3.room-search__checkbox-header правила дома
-              ul.room-search__checkbox-list
-                +list-item({type: 'checkbox', id: 'able-smoke', label: 'Можно курить'})
-                +list-item({type: 'checkbox', id: 'able-pets', label: 'Можно с питомцами'})
-                +list-item({type: 'checkbox', id: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
+              ul.rocheckboxea
+                +list-checkbox({id: 'able-smoke', label: 'Можно курить'})
+                +list-checkbox({id: 'able-pets', label: 'Можно с питомцами'})
+                +list-checkbox({id: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
             .room-search__checkbox
               h3.room-search__checkbox-header доступность
               ul.room-search__checkbox-list
-                +list-item({type: 'checkbox', isRich: true, id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
-                +list-item({type: 'checkbox', isRich: true, id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+                +list-checkbox({isRich: true, id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
+                +list-checkbox({isRich: true, id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
             +dropdown({type: 'rooms', id: 'rooms', size: 'm', label: 'удобства номера'})
             +dropdown({type: 'checkbox', label: 'дополнительные удобства'})
-            +button({type: 'default', size: 'm', additClass: 'room-search__button', text:'применить'})
+            +button-default({size: 'm', additClass: 'room-search__button', text:'применить'})
         .room-search__content
           h1.room-search__header Номера, которые мы для вас подобрали
-          .room-search__content-grid 
-            +card({type: 'preview', roomNumber: '888', roomPrice: '9 990', roomComments: '145', roomStatus: 'люкс', rating: 4})
-            +card({type: 'preview', roomNumber: '840', roomPrice: '9 900', roomComments: '65', rating: 3})
-            +card({type: 'preview', roomNumber: '980', roomPrice: '8 500', roomComments: '35', roomStatus: 'люкс', rating: 3})
-            +card({type: 'preview', roomNumber: '856', roomPrice: '7 300', roomComments: '19'})
-            +card({type: 'preview', roomNumber: '740', roomPrice: '6 000', roomComments: '44'})
-            +card({type: 'preview', roomNumber: '982', roomPrice: '5 800', roomComments: '56'})
-            +card({type: 'preview', roomNumber: '678', roomPrice: '5 500', roomComments: '45'})
-            +card({type: 'preview', roomNumber: '450', roomPrice: '5 300', roomComments: '39'})
-            +card({type: 'preview', roomNumber: '350', roomPrice: '5 000', roomComments: '77'})
-            +card({type: 'preview', roomNumber: '666', roomPrice: '5 000', roomComments: '25'})
-            +card({type: 'preview', roomNumber: '444', roomPrice: '5 000', roomComments: '15'})
-            +card({type: 'preview', roomNumber: '352', roomPrice: '5 000', roomComments: '55'})
+          .room-search__content-grid
+            +card-preview({roomNumber: '888', roomPrice: '9 990', roomComments: '145', roomStatus: 'люкс', rating: 4})
+            +card-preview({roomNumber: '840', roomPrice: '9 900', roomComments: '65', rating: 3})
+            +card-preview({roomNumber: '980', roomPrice: '8 500', roomComments: '35', roomStatus: 'люкс', rating: 3})
+            +card-preview({roomNumber: '856', roomPrice: '7 300', roomComments: '19'})
+            +card-preview({roomNumber: '740', roomPrice: '6 000', roomComments: '44'})
+            +card-preview({roomNumber: '982', roomPrice: '5 800', roomComments: '56'})
+            +card-preview({roomNumber: '678', roomPrice: '5 500', roomComments: '45'})
+            +card-preview({roomNumber: '450', roomPrice: '5 300', roomComments: '39'})
+            +card-preview({roomNumber: '350', roomPrice: '5 000', roomComments: '77'})
+            +card-preview({roomNumber: '666', roomPrice: '5 000', roomComments: '25'})
+            +card-preview({roomNumber: '444', roomPrice: '5 000', roomComments: '15'})
+            +card-preview({roomNumber: '352', roomPrice: '5 000', roomComments: '55'})
           .room-search__pagination 
             +pagination

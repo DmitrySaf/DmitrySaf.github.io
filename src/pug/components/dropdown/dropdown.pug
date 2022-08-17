@@ -1,4 +1,5 @@
-include ./dropdown-item/dropdown-item
+include ../dropdown-item/dropdown-item
+include ../list-checkbox/list-checkbox
 
 mixin dropdown(options)
   if !options
@@ -11,7 +12,7 @@ mixin dropdown(options)
         class = options.size ? `dropdown_size_${options.size}` : ''
         id = `dropdown-${options.id}`)
         .dropdown__placeholder.js-dropdown__placeholder=(options.type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати"
-        input.arrow__dropdown.js-arrow__dropdown(type = "checkbox")
+        input.dropdown__arrow.js-dropdown__arrow(type = "checkbox")
         .dropdown__content-wrapper
           .dropdown__content
             if (options.type === 'guests')
@@ -31,13 +32,13 @@ mixin dropdown(options)
         class = "dropdown__checkbox"
         id = "dropdown-checkbox")
         h3.dropdown__label.dropdown__checkbox-label=options.label
-        input.arrow__dropdown(type = "checkbox")
+        input.dropdown__arrow(type = "checkbox")
         ul.dropdown__checkbox-list
-          +list-item({type: 'checkbox', id: 'breakfast', label: 'Завтрак'})
-          +list-item({type: 'checkbox', id: 'table', label: 'Письменный стол'})
-          +list-item({type: 'checkbox', id: 'chair', label: 'Стул для кормления'})
-          +list-item({type: 'checkbox', id: 'bed', label: 'Кроватка'})
-          +list-item({type: 'checkbox', id: 'tv', label: 'Телевизор'})
-          +list-item({type: 'checkbox', id: 'shampoo', label: 'Шампунь'})
-          +list-item({type: 'checkbox', id: 'tv-copy', label: 'Телевизор'})
-          +list-item({type: 'checkbox', id: 'shampoo-copy', label: 'Шампунь'})
+          +list-checkbox({id: 'breakfast', label: 'Завтрак'})
+          +list-checkbox({id: 'table', label: 'Письменный стол'})
+          +list-checkbox({id: 'chair', label: 'Стул для кормления'})
+          +list-checkbox({id: 'bed', label: 'Кроватка'})
+          +list-checkbox({id: 'tv', label: 'Телевизор'})
+          +list-checkbox({id: 'shampoo', label: 'Шампунь'})
+          +list-checkbox({id: 'tv-copy', label: 'Телевизор'})
+          +list-checkbox({id: 'shampoo-copy', label: 'Шампунь'})

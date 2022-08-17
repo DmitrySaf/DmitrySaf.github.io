@@ -1,0 +1,29 @@
+@import '../../../assets/sass/_variables'
+@import '../../../assets/sass/_mixins'
+
+.radio
+  display: grid
+  grid-template-columns: 30px max-content
+  align-items: center
+  cursor: pointer
+  &__button
+    all: unset
+    appearance: none
+    width: 18px
+    height: 18px
+    box-shadow: 0 0 0 1px $dark-shade-25
+    border-radius: 50%
+    transform: translateX(1px)
+    &:checked
+      box-shadow: 0 0 0 1px $primary-color
+      background: $primary-color
+      border: 3px solid #fff
+      &+label
+        color: $dark-shade-75
+  &__label
+    cursor: pointer
+    color: $dark-shade-50
+  &__container
+    display: grid
+    grid-template-columns: max-content max-content
+    column-gap: 20px

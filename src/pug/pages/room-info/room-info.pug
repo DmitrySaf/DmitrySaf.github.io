@@ -10,10 +10,10 @@ block content
       .room-info__wrapper 
         .room-info__grid
           .room-info__advantages
-            h2.room-info__advantages-header.room-info__block-title Сведения о номере  
-            +list-item({type: 'advantage', imgName: 'smile', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
-            +list-item({type: 'advantage', imgName: 'building', header: 'Удобство', descr: 'Окно в каждой из спален'})
-            +list-item({type: 'advantage', imgName: 'comfort', header: 'Уют', descr: 'Номер оснащён камином'})
+            h2.room-info__advantages-header.room-info__block-title Сведения о номере
+            +list-advantage({imgName: 'smile', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
+            +list-advantage({imgName: 'building', header: 'Удобство', descr: 'Окно в каждой из спален'})
+            +list-advantage({imgName: 'comfort', header: 'Уют', descr: 'Номер оснащён камином'})
           .room-info__evaluation 
             h2.room-info__evaluation-header.room-info__block-title Впечатления от номера
             .room-info__evaluation-container
@@ -34,9 +34,9 @@ block content
               +comment({imgName: 'comment-patricia', name: 'Патрисия Стёклышкова', online: 'Неделю назад', feedback: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'})
           .room-info__rules
             h2.room-info__rules-header.room-info__block-title Правила
-            +list-item({type: 'bullet', text: 'Нельзя с питомцами'})
-            +list-item({type: 'bullet', text: 'Без вечеринок и мероприятий'})
-            +list-item({type: 'bullet', text: 'Время прибытия — после 13:00, а выезд до 12:00'})
+            +list-bullet({text: 'Нельзя с питомцами'})
+            +list-bullet({text: 'Без вечеринок и мероприятий'})
+            +list-bullet({text: 'Время прибытия — после 13:00, а выезд до 12:00'})
           .room-info__cancel
             h2.room-info__cancel-header.room-info__block-title Отмена
             .room-info__cancel-descr Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.

@@ -1,0 +1,10 @@
+mixin button-toggle(options)
+  if !options
+    - var options = {}
+
+  .toggle
+    input.toggle__button(
+      type = "checkbox"
+      id = options.id)
+    label.toggle__label(
+      for = options.id)=options.label

@@ -1,7 +1,7 @@
-include ../buttons/buttons
+include ../button-default/button-default
 include ../logo/logo
 include ../social/social
-include ./menu/menu
+include ../header-menu/header-menu
 
 mixin header(options)
   if !options 
@@ -12,12 +12,12 @@ mixin header(options)
       .header__wrapper
         +logo
         .header__menu(class = (options.logged === 'true') ? 'header__menu_logged' : '')
-          +menu
+          +header-menu
           if (options.logged === 'true')
             .header__menu-user=options.username
           else
-            +button({type: 'default', href: './login.html', hasBorder: true, size: 's', additClass: 'header__login-button', text: 'войти'})
-            +button({type: 'default', href: './registration.html', size: 'm', additClass: 'header__register-button', text: 'зарегистрироваться'})
+            +button-default({href: './login.html', hasBorder: true, size: 's', additClass: 'header__login-button', text: 'войти'})
+            +button-default({href: './registration.html', size: 'm', additClass: 'header__register-button', text: 'зарегистрироваться'})
           .header__hamburger
             input#hamburger.header__hamburger-trigger(type="checkbox")
             label.header__hamburger-lines(for="hamburger")
@@ -25,10 +25,10 @@ mixin header(options)
               span
               span
             .header__hamburger-content
-              +menu({isHamburger: true})
+              +header-menu({isHamburger: true})
               if (options.logged === 'true')
                 .header__menu-user=options.username
               else
-                +button({type: 'default', href: './login.html', size: 's', hasBorder: true,  additClass: 'header__login-button header__login-button_hamburger', text: 'войти'})
-                +button({type: 'default', href: './registration.html', size: 'm',  additClass: 'header__register-button header__register-button_hamburger', text: 'зарегистрироваться'})
+                +button-default({href: './login.html', size: 's', hasBorder: true,  additClass: 'header__login-button header__login-button_hamburger', text: 'войти'})
+                +button-default({href: './registration.html', size: 'm',  additClass: 'header__register-button header__register-button_hamburger', text: 'зарегистрироваться'})
               +social()

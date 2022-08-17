@@ -1,4 +1,3 @@
-import './dropdown-item/dropdown-item';
 import './dropdown.sass';
 
 const $clearButton = $('.js-dropdown__button_clear');
@@ -8,7 +7,7 @@ const $operationPlus = $('.js-dropdown__operation_plus');
 const $counterGuestsDefault = $('.js-dropdown__counter-guests');
 const $counterGuestsMedium = $('.js-dropdown__counter-guests_medium');
 const $counterRooms = $('.js-dropdown__counter-rooms');
-const $arrow = $('.js-arrow__dropdown');
+const $arrow = $('.js-dropdown__arrow');
 const $dropdown = $('.js-dropdown');
 const $operationMinus = $('.js-dropdown__operation_minus');
 
@@ -97,7 +96,7 @@ function roomsEndings(counter) {
 
 $arrow.on('click', (e) => {
   const $dropdownLocal = $(e.currentTarget.parentElement);
-  $dropdownLocal.toggleClass('border-radius_none');
+  $dropdownLocal.toggleClass('dropdown_border-radius_none');
 
   if ($dropdownLocal.attr('id') === 'dropdown-rooms') {
     $counterRooms[0].textContent = '2';

@@ -1,0 +1,24 @@
+include ../button-rating/button-rating
+
+mixin card-preview(options)
+  if !options
+    - var options = {}
+
+  .card-preview
+      .card.card_size_s
+        .card-preview__slider.js-card-preview__slider
+          img(src=require("../../components/cards/img/card-preview-luxe.png") alt="luxe")
+          img(src=require("../../components/cards/img/card-preview-standard.png") alt="standard")
+          img(src=require("../../components/cards/img/card-preview-luxe.png") alt="luxe")
+          img(src=require("../../components/cards/img/card-preview-standard.png") alt="standard")
+        .card-preview__content 
+          .card-preview__header_container
+            .card-preview__header_number <span>№ </span> #{options.roomNumber}
+            .card-preview__header_wrapper
+              if (options.roomStatus) 
+                h3.card-preview__header_status=options.roomStatus
+              .card-preview__header_price #{options.roomPrice}₽ <span>в сутки</span>
+          .card-preview__feedback_container
+            +button-rating({rating: options.rating, roomNumber: options.roomNumber})
+            .card-preview__feedback <span>#{options.roomComments}</span> Отзывов
+        a.card-preview__link(href="./room-info.html")

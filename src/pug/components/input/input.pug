@@ -21,7 +21,7 @@ mixin input(options)
           required = true
           id = options.id)
         if (options.type === 'email' && options.sub)
-          .arrow__main
+          .input__arrow-main
       if (options.type === 'date')
         input.input(
           class = classes
@@ -29,4 +29,4 @@ mixin input(options)
           placeholder = "ДД.ММ.ГГГГ"
           required = true
           id = options.id)
-        .arrow__dropdown
+        .input__arrow

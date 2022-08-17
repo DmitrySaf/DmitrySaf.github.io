@@ -101,6 +101,14 @@
         transform: rotate(180deg)
       &:checked + ul
         max-height: 300px
+  &_border-radius_none
+    border-bottom-left-radius: 0 
+    border-bottom-right-radius: 0
+  &__arrow
+    all: unset
+    appearance: none
+    +arrow-dropdown
+    transform: translateY(-2px)
 
 .disabled
   opacity: .5

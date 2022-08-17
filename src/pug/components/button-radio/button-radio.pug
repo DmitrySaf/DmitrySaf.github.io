@@ -1,0 +1,11 @@
+mixin button-radio(options)
+  if !options
+    - var options = {}
+
+  .radio
+    input.radio__button(
+      type = "radio"
+      name = "gender"
+      id = options.id)
+    label.radio__label(
+      for = options.id)=options.label

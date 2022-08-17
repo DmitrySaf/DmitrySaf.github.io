@@ -1,65 +1,63 @@
 include ../input/input
 include ../dropdown/dropdown
-include ../buttons/buttons
-include ./card-preview/card-preview
+include ../button-radio/button-radio
+include ../button-toggle/button-toggle
+include ../button-default/button-default
 
 mixin card(options)
   if !options
     -  var options = {}
 
-  if (options.type !== 'preview')
-    .card
-      if (options.type === 'book')
-        .card-book__header
-          .card-book__header-number <span>№ </span> #{options.roomNumber}
-          .card-book__header-wrapper
-            h3.card-book__header-status=options.roomStatus
-            .card-book__header-price #{options.roomPrice} <span>в сутки</span> 
-      else 
-        h1(class = `card-${options.type}__header`)=options.header 
-      form.card__content(action = (options.type === 'search') ? "./room-search.html" : "#")
-        if (options.type === 'book' || options.type === 'search')
-          .card__input-wrapper 
-            +input({size: 's', type: 'date', label: 'прибытие', masked: true, id: 'input__date_arrival'})
-            +input({size: 's', type: 'date', label: 'выезд', masked: true, id: 'input__date_departure'})
-          +dropdown({type: 'guests', id: 'guests', label: 'гости'})
-          if (options.type === 'book')
-            .card-book__calc
-              .card-book__calc-wrapper
-                .card-book__calc-name 9 990₽ х 4 суток
-                .card-book__calc-price 39 960₽
-              .card-book__calc-wrapper
-                .card-book__calc-name.card-book__info-mark Сбор за услуги: скидка 2 179₽
-                .card-book__calc-price 0₽
-              .card-book__calc-wrapper
-                .card-book__calc-name.card-book__info-mark Сбор за дополнительные услуги
-                .card-book__calc-price 300₽
-              .card-book__calc-wrapper
-                h2.card-book__cal-name_bold Итого
-                .card-book__calc-dots
-                h2.card-book__calc-price_bold 38 081₽
-        if (options.type === 'login' || options.type === 'registration')
+  .card
+    if (options.type === 'book')
+      .card-book__header
+        .card-book__header-number <span>№ </span> #{options.roomNumber}
+        .card-book__header-wrapper
+          h3.card-book__header-status=options.roomStatus
+          .card-book__header-price #{options.roomPrice} <span>в сутки</span> 
+    else 
+      h1(class = `card-${options.type}__header`)=options.header 
+    form.card__content(action = (options.type === 'search') ? "./room-search.html" : "#")
+      if (options.type === 'book' || options.type === 'search')
+        .card__input-wrapper 
+          +input({size: 's', type: 'date', label: 'прибытие', masked: true, id: 'input__date_arrival'})
+          +input({size: 's', type: 'date', label: 'выезд', masked: true, id: 'input__date_departure'})
+        +dropdown({type: 'guests', id: 'guests', label: 'гости'})
+        if (options.type === 'book')
+          .card-book__calc
+            .card-book__calc-wrapper
+              .card-book__calc-name 9 990₽ х 4 суток
+              .card-book__calc-price 39 960₽
+            .card-book__calc-wrapper
+              .card-book__calc-name.card-book__info-mark Сбор за услуги: скидка 2 179₽
+              .card-book__calc-price 0₽
+            .card-book__calc-wrapper
+              .card-book__calc-name.card-book__info-mark Сбор за дополнительные услуги
+              .card-book__calc-price 300₽
+            .card-book__calc-wrapper
+              h2.card-book__cal-name_bold Итого
+              .card-book__calc-dots
+              h2.card-book__calc-price_bold 38 081₽
+      if (options.type === 'login' || options.type === 'registration')
 
-          if (options.type === 'registration')
-            +input({type: 'text', placeholder: 'Имя', page: `card-${options.type}`, valueType: 'name'})
-            +input({type: 'text', placeholder: 'Фамилия', page: `card-${options.type}`, valueType: 'surname'})
-            .card-registration__gender-wrapper.radio__container
-              +button({type: 'radio', id: 'man', label: 'Мужчина'})
-              +button({type: 'radio', id: 'woman', label: 'Женщина'})
-            +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', page: `card-${options.type}`, valueType: 'date', masked: true})
-            h3.card-registration__data-header данные для входа в сервис
+        if (options.type === 'registration')
+          +input({type: 'text', placeholder: 'Имя', page: `card-${options.type}`, valueType: 'name'})
+          +input({type: 'text', placeholder: 'Фамилия', page: `card-${options.type}`, valueType: 'surname'})
+          .card-registration__gender-wrapper.radio__container
+            +button-radio({id: 'man', label: 'Мужчина'})
+            +button-radio({id: 'woman', label: 'Женщина'})
+          +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', page: `card-${options.type}`, valueType: 'date', masked: true})
+          h3.card-registration__data-header данные для входа в сервис
 
-          +input({type: 'email', placeholder: 'Email', page: `card-${options.type}`, valueType: 'email'})
-          +input({type: 'text', placeholder: 'Пароль', page: `card-${options.type}`, valueType: 'password'})
-          if (options.type === 'registration')
-            .card-registration__offers
-              +button({type: 'toggle', label: 'Получать спецпредложения', id: 'special'})
+        +input({type: 'email', placeholder: 'Email', page: `card-${options.type}`, valueType: 'email'})
+        +input({type: 'text', placeholder: 'Пароль', page: `card-${options.type}`, valueType: 'password'})
+        if (options.type === 'registration')
+          .card-registration__offers
+            +button-toggle({label: 'Получать спецпредложения', id: 'special'})
 
-        +button({type: 'default', buttonType: 'submit', id: 'click7', size: 'l', additClass: `card-${options.type}__button`, text: options.buttonText})
+      +button-default({buttonType: 'submit', id: 'click7', size: 'l', additClass: `card-${options.type}__button`, text: options.buttonText})
 
-        if (options.type === 'registration' || options.type === 'login')
-          .card__footer-container 
-            .card__footer-text= (options.type === 'registration') ? 'Уже есть аккаунт на Toxin' : 'Нет аккаунта на Toxin?' 
-            +button({type: 'default', text: (options.type === 'registration') ? 'войти' : 'создать', hasBorder: true, size: 's'})
-  else
-    +card-preview(options)
+      if (options.type === 'registration' || options.type === 'login')
+        .card__footer-container 
+          .card__footer-text= (options.type === 'registration') ? 'Уже есть аккаунт на Toxin' : 'Нет аккаунта на Toxin?' 
+          +button-default({text: (options.type === 'registration') ? 'войти' : 'создать', hasBorder: true, size: 's'})
