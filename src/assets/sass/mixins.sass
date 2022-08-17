@@ -8,6 +8,16 @@
   @media ( max-width: $width )
     @content
 
+@mixin container()
+  height: 100%
+  width: 100%
+  max-width: 1160px
+  margin: 0 auto
+  +media-breakpoint-down($desktop-normal-down)
+    padding: 0 30px
+  +media-breakpoint-down($tablet-portrait-down)
+    padding: 0 10px
+
 @mixin input($width: 320px)
   width: 100%
   max-width: $width

@@ -4,6 +4,8 @@
 .room-search
   border-bottom: 1px solid $dark-shade-25
   padding: 30px 0 70px 0
+  &__container
+    +container
   &__grid
     display: grid
     grid-template-columns: 266px auto
@@ -70,6 +72,11 @@
       margin-bottom: 0
       color: $primary-color
   &__header
+    font-family: $font-bold
+    font-size: $font-size-header-large
+    line-height: $line-height-header-large
+    color: $dark-shade-100
+    margin: 0
     margin-bottom: 21px
   &__pagination
     display: flex
@@ -77,7 +84,15 @@
     padding-right: 10px
   &__checkbox
     &-header
+      font-family: $font-bold
+      font-size: $font-size-header-small
+      line-height: $line-height-header-small
+      color: $dark-shade-100
+      text-transform: uppercase
+      margin: 0
       margin-bottom: 16px
+    &-list
+      all: unset
   &__range
     margin: 12px 0 10px 0
     &-descr

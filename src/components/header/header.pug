@@ -8,7 +8,7 @@ mixin header(options)
     - var options = {}
 
   header.header
-    .container
+    .header__container
       .header__wrapper
         +logo
         .header__menu(class = (options.logged === 'true') ? 'header__menu_logged' : '')

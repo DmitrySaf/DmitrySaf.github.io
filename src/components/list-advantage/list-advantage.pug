@@ -2,7 +2,7 @@ mixin list-advantage(options)
   if !options
     - var options 
   
-  .advantage 
+  li.advantage
     .advantage__img
       img(src=require(`../../components/list-advantage/img/${options.imgName}.svg`), alt=options.imgName)
     .advantage__text_wrapper

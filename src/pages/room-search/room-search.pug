@@ -5,7 +5,7 @@ block variables
 
 block content
   section.room-search
-    .container 
+    .room-search__container
       .room-search__grid
         .room-search__filters-trigger.js-room-search__filters-trigger
           h3.room-search__filters-text Фильтры
@@ -21,7 +21,7 @@ block content
               .room-search__range-descr Стоимость за сутки пребывания в номере
             .room-search__checkbox
               h3.room-search__checkbox-header правила дома
-              ul.rocheckboxea
+              ul.room-search__checkbox-list
                 +list-checkbox({id: 'able-smoke', label: 'Можно курить'})
                 +list-checkbox({id: 'able-pets', label: 'Можно с питомцами'})
                 +list-checkbox({id: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})

@@ -6,6 +6,8 @@
   background-color: #fff
   height: 70px
   box-shadow: 0px 10px 20px $dark-shade-5
+  &__container
+    +container
   &__wrapper
     display: flex
     justify-content: space-between
@@ -42,6 +44,7 @@
       line-height: 34px
       padding: 0 20px
       height: 34px
+      text-decoration: none
       +media-breakpoint-down($tablet-portrait-down)
         display: none
       &_hamburger

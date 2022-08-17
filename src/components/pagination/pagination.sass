@@ -4,12 +4,14 @@
 .pagination
   user-select: none
   &__wrapper
+    all: unset
     display: flex
     align-items: center
     position: relative
   &__descr
     margin: 9px 0 0 5px
   &__item
+    all: unset
     width: 40px
     height: 40px
     border: none
@@ -22,6 +24,7 @@
         color: #fff
         font-family: $font-bold
     &_next
+      all: unset
       background: $gradient-secondary
       border-radius: 50%
       +arrow-main(40px, 40px, #fff)

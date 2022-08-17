@@ -2,34 +2,11 @@ mixin button-rating(options)
   if !options
     - var options = {}
 
-  .rating 
-    input.rating__star(
-      name = options.roomNumber
-      value = "1"
-      type = "radio"
-      checked = (options.rating === 1) ? true : false)
-    span.rating__star_active
-    input.rating__star(
-      name = options.roomNumber
-      value = "2"
-      type = "radio"
-      checked = (options.rating === 2) ? true : false)
-    span.rating__star_active
-    input.rating__star(
-      name = options.roomNumber
-      value = "3"
-      type = "radio"
-      checked = (options.rating === 3) ? true : false)
-    span.rating__star_active
-    input.rating__star(
-      name = options.roomNumber
-      value = "4"
-      type = "radio"
-      checked = (options.rating === 4) ? true : false)
-    span.rating__star_active
-    input.rating__star(
-      name = options.roomNumber
-      value = "5"
-      type = "radio"
-      checked = (options.rating === 5) ? true : false)
-    span.rating__star_active
+  .rating
+    each val in [1, 2, 3, 4, 5]
+      input.rating__star(
+        name = options.roomNumber
+        value = val
+        type = "radio"
+        checked = (options.rating === val) ? true : false)
+      span.rating__star_active

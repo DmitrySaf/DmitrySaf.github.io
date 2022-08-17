@@ -12,16 +12,16 @@
   &__content
     padding: 20px 17px 19px 20px
   &__header
-    &_container
+    &-container
       display: grid
       grid-template-columns: 61px 164px
       column-gap: 8px
       max-height: 30px
-    &_wrapper
+    &-wrapper
       display: flex
       justify-content: space-between
       align-items: flex-end
-    &_number
+    &-number
       font-family: $font-bold 
       font-size: 19px
       line-height: 24px
@@ -30,10 +30,14 @@
         font-family: $font-bold
         font-size: 14px
         line-height: 17px
-    &_status
+    &-status
       color: $primary-color
+      font-family: Montserrat Bold
+      font-size: 12px
+      line-height: 15px
+      text-transform: uppercase
       margin-bottom: 0
-    &_price
+    &-price
       font-family: $font-bold
       line-height: 18px
       color: $dark-shade-50
@@ -51,7 +55,7 @@
     line-height: 27px
     span
       font-family: $font-bold
-    &_container
+    &-container
       display: grid
       grid-template-columns: max-content 100px
       justify-content: space-between

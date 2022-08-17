@@ -28,9 +28,7 @@ mixin dropdown(options)
                 h3.dropdown__button.dropdown__button_clear.js-dropdown__button_clear очистить
                 h3.dropdown__button.dropdown__button_accept.js-dropdown__button_accept применить
     if (options.type === 'checkbox')
-      .dropdown(
-        class = "dropdown__checkbox"
-        id = "dropdown-checkbox")
+      .dropdown.dropdown__checkbox#dropdown-checkbox
         h3.dropdown__label.dropdown__checkbox-label=options.label
         input.dropdown__arrow(type = "checkbox")
         ul.dropdown__checkbox-list

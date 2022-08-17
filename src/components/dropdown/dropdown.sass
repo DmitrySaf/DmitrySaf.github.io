@@ -65,6 +65,14 @@
       font-size: $font-size-header-small
       line-height: $line-height-header-small
       margin-bottom: 0
+  &__label
+    font-family: $font-bold
+    font-size: $font-size-header-small
+    line-height: $line-height-header-small
+    color: $dark-shade-100
+    text-transform: uppercase
+    margin: 0
+    margin-bottom: 5px
   &__calc
     +space-between()
     width: 92px
@@ -92,6 +100,7 @@
     &-label
       margin: 0
     &-list
+      all: unset
       transition: max-height 0.4s linear
       background: #fff
       max-height: 0
