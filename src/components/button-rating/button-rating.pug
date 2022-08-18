@@ -8,5 +8,6 @@ mixin button-rating(options)
         name = options.roomNumber
         value = val
         type = "radio"
+        disabled = "disabled"
         checked = (options.rating === val) ? true : false)
       span.rating__star_active
