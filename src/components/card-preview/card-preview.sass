@@ -10,6 +10,7 @@
   &:hover
     transform: scale(1.05)
   &__content
+    position: relative
     padding: 20px 17px 19px 20px
   &__header
     &-container
@@ -66,7 +67,25 @@
       margin-top: 10px
       width: 230px
   &__dots
-    display: none !important
+    all: unset
+    position: absolute
+    bottom: 15px
+    right: 15px
+    width: 40px
+    display: flex !important
+    justify-content: space-between
+    li  
+      list-style-type: none
+      width: 7.5px
+      height: 7.49px
+      border: 1px solid #fff
+      border-radius: 50%
+      button
+        display: none
+  &__arrow
+    &_next, &_prev
+      transition: .5s all
+      opacity: 0
   &__slider
     width: 100%
     height: 151px
@@ -82,6 +101,7 @@
             right: 0
             border-top-right-radius: 4px
             background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%)
+            opacity: 1
           &_prev
             +arrow-dropdown(#fff, 135deg)
             height: 100%
@@ -89,22 +109,7 @@
             left: 0
             border-top-left-radius: 4px
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%)
-        &__dots
-          all: unset
-          position: absolute
-          bottom: 15px
-          right: 15px
-          width: 40px
-          display: flex !important
-          justify-content: space-between
-          li  
-            list-style-type: none
-            width: 7.5px
-            height: 7.49px
-            border: 1px solid #fff
-            border-radius: 50%
-            button
-              display: none
+            opacity: 1
 
 .slick
   &-active

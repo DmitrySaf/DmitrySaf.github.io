@@ -32,11 +32,6 @@ mixin dropdown(options)
         h3.dropdown__label.dropdown__checkbox-label=options.label
         input.dropdown__arrow(type = "checkbox")
         ul.dropdown__checkbox-list
-          +list-checkbox({id: 'breakfast', label: 'Завтрак'})
-          +list-checkbox({id: 'table', label: 'Письменный стол'})
-          +list-checkbox({id: 'chair', label: 'Стул для кормления'})
-          +list-checkbox({id: 'bed', label: 'Кроватка'})
-          +list-checkbox({id: 'tv', label: 'Телевизор'})
-          +list-checkbox({id: 'shampoo', label: 'Шампунь'})
-          +list-checkbox({id: 'tv-copy', label: 'Телевизор'})
-          +list-checkbox({id: 'shampoo-copy', label: 'Шампунь'})
+          if (options.items)
+            each item in options.items
+              +list-checkbox(item)

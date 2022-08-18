@@ -2,6 +2,32 @@ extends ../main/main
 
 block variables
   - var title = "Search rooms"
+  -
+    var additionalComfort = [
+      {id: 'breakfast', label: 'Завтрак'},
+      {id: 'table', label: 'Письменный стол'},
+      {id: 'chair', label: 'Стул для кормления'},
+      {id: 'bed', label: 'Кроватка'},
+      {id: 'tv', label: 'Телевизор'},
+      {id: 'shampoo', label: 'Шампунь'},
+      {id: 'tv-copy', label: 'Телевизор'},
+      {id: 'shampoo-copy', label: 'Шампунь'}
+    ]
+  -
+    var rooms = [
+      {roomNumber: '888', roomPrice: '9 990', roomComments: '145', isLux: true, rating: 5},
+      {roomNumber: '840', roomPrice: '9 900', roomComments: '65', rating: 4},
+      {roomNumber: '980', roomPrice: '8 500', roomComments: '35', isLux: true, rating: 3},
+      {roomNumber: '856', roomPrice: '7 300', roomComments: '19', rating: 5},
+      {roomNumber: '740', roomPrice: '6 000', roomComments: '44', rating: 4},
+      {roomNumber: '982', roomPrice: '5 800', roomComments: '56', rating: 3},
+      {roomNumber: '678', roomPrice: '5 500', roomComments: '45', rating: 5},
+      {roomNumber: '450', roomPrice: '5 300', roomComments: '39', rating: 4},
+      {roomNumber: '350', roomPrice: '5 000', roomComments: '77', rating: 3},
+      {roomNumber: '666', roomPrice: '5 000', roomComments: '25', rating: 5},
+      {roomNumber: '444', roomPrice: '5 000', roomComments: '15', rating: 4},
+      {roomNumber: '352', roomPrice: '5 000', roomComments: '55', rating: 3}
+    ]
 
 block content
   section.room-search
@@ -31,22 +57,12 @@ block content
                 +list-checkbox({isRich: true, id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
                 +list-checkbox({isRich: true, id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
             +dropdown({type: 'rooms', id: 'rooms', size: 'm', label: 'удобства номера'})
-            +dropdown({type: 'checkbox', label: 'дополнительные удобства'})
+            +dropdown({type: 'checkbox', items: additionalComfort, label: 'дополнительные удобства'})
             +button-default({size: 'm', additClass: 'room-search__button', text:'применить'})
         .room-search__content
           h1.room-search__header Номера, которые мы для вас подобрали
           .room-search__content-grid
-            +card-preview({roomNumber: '888', roomPrice: '9 990', roomComments: '145', roomStatus: 'люкс', rating: 4})
-            +card-preview({roomNumber: '840', roomPrice: '9 900', roomComments: '65', rating: 3})
-            +card-preview({roomNumber: '980', roomPrice: '8 500', roomComments: '35', roomStatus: 'люкс', rating: 3})
-            +card-preview({roomNumber: '856', roomPrice: '7 300', roomComments: '19'})
-            +card-preview({roomNumber: '740', roomPrice: '6 000', roomComments: '44'})
-            +card-preview({roomNumber: '982', roomPrice: '5 800', roomComments: '56'})
-            +card-preview({roomNumber: '678', roomPrice: '5 500', roomComments: '45'})
-            +card-preview({roomNumber: '450', roomPrice: '5 300', roomComments: '39'})
-            +card-preview({roomNumber: '350', roomPrice: '5 000', roomComments: '77'})
-            +card-preview({roomNumber: '666', roomPrice: '5 000', roomComments: '25'})
-            +card-preview({roomNumber: '444', roomPrice: '5 000', roomComments: '15'})
-            +card-preview({roomNumber: '352', roomPrice: '5 000', roomComments: '55'})
+            each room in rooms
+              +card-preview(room)
           .room-search__pagination 
             +pagination
