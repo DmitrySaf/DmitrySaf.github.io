@@ -18,6 +18,40 @@
   +media-breakpoint-down($tablet-portrait-down)
     padding: 0 10px
 
+@mixin card()
+  max-width: 380px
+  width: 100%
+  max-height: 690px
+  background: #FFFFFF
+  border: 1px solid rgba(0, 0, 0, 0.12)
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2)
+  border-radius: 4px
+  padding: 40px 29px 29px 29px
+  +media-breakpoint-down($phone-normal-down)
+    padding: 30px 18px 18px
+
+@mixin card-content()
+  margin-top: 21px
+
+@mixin card-input-wrapper()
+  display: grid
+  grid-template-columns: repeat(auto-fill, 150px)
+  justify-content: space-between
+  margin-bottom: 21px
+  +media-breakpoint-down($phone-normal-down)
+    row-gap: 10px
+
+@mixin card-footer()
+  &-container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: 30px
+  &-text
+    font-size: 14px
+    line-height: 18px
+    color: $dark-shade-100
+
 @mixin input($width: 320px)
   width: 100%
   max-width: $width
@@ -43,11 +77,6 @@
   display: flex
   justify-content: space-between
   align-items: center
-
-@mixin arrow-main_elem($color: $gradient-primary, $width: 8px)
-  width: $width
-  height: 2px
-  background: $color
 
 @mixin arrow-main($width: 44px, $height: 44px, $color: $gradient-primary)
   position: absolute
