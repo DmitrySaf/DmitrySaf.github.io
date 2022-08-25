@@ -1,0 +1,11 @@
+mixin dropdown-date(options)
+  if !options
+    - var options = {}
+
+  .dropdown-date
+    input.dropdown-date__input(
+      class = "js-dropdown-date_masked"
+      type = "text"
+      placeholder = "ДД.ММ.ГГГГ"
+      required = true)
+    .dropdown-date__arrow

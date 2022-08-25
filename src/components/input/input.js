@@ -1,6 +1,5 @@
 import 'air-datepicker/dist/js/datepicker.min';
 import 'air-datepicker/dist/css/datepicker.min.css';
-import 'inputmask/dist/jquery.inputmask.min';
 
 import './input.sass';
 
@@ -20,11 +19,6 @@ const inputArrivalDepartureArray = [
   $inputArrivalArrow,
 ];
 const inputFilterArray = [$inputFilter, $inputFilterArrow];
-
-$inputsToMask.inputmask({
-  mask: '99.99.9999',
-  placeholder: 'ДД.ММ.ГГГГ',
-});
 
 inputArrivalDepartureArray.forEach((item) => {
   item.on('click', () => {

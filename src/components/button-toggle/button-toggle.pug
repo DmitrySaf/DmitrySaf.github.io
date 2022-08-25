@@ -2,9 +2,9 @@ mixin button-toggle(options)
   if !options
     - var options = {}
 
-  .toggle
-    input.toggle__button(
+  .button-toggle
+    input.button-toggle__button(
       type = "checkbox"
       id = options.id)
-    label.toggle__label(
+    label.button-toggle__label(
       for = options.id)=options.label

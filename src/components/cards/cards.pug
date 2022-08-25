@@ -8,7 +8,7 @@ mixin card(options)
   if !options
     -  var options = {}
 
-  .card
+  div(class= `card-${options.type}`)
     if (options.type === 'book')
       .card-book__header
         .card-book__header-number <span>№ </span> #{options.roomNumber}
@@ -17,11 +17,14 @@ mixin card(options)
           .card-book__header-price #{options.roomPrice} <span>в сутки</span> 
     else 
       h1(class = `card-${options.type}__header`)=options.header 
-    form.card__content(action = (options.type === 'search') ? "./room-search.html" : "#")
+    form(
+      action = (options.type === 'search') ? "./room-search.html" : "#"
+      class =  `card-${options.type}__content`
+    )
       if (options.type === 'book' || options.type === 'search')
-        .card__input-wrapper 
-          +input({size: 's', type: 'date', label: 'прибытие', masked: true, id: 'input__date_arrival'})
-          +input({size: 's', type: 'date', label: 'выезд', masked: true, id: 'input__date_departure'})
+        div(class =  `card-${options.type}__input-wrapper`)
+          +dropdown-date({size: 's', label: 'прибытие', masked: true})
+          +dropdown-date({size: 's', label: 'выезд', masked: true})
         +dropdown({type: 'guests', id: 'guests', label: 'гости'})
         if (options.type === 'book')
           .card-book__calc
@@ -41,16 +44,16 @@ mixin card(options)
       if (options.type === 'login' || options.type === 'registration')
 
         if (options.type === 'registration')
-          +input({type: 'text', placeholder: 'Имя', page: `card-${options.type}`, valueType: 'name'})
-          +input({type: 'text', placeholder: 'Фамилия', page: `card-${options.type}`, valueType: 'surname'})
-          .card-registration__gender-wrapper.radio__container
+          +input({type: 'text', size: 'l', placeholder: 'Имя', page: `card-${options.type}`, valueType: 'name'})
+          +input({type: 'text', size: 'l', placeholder: 'Фамилия', page: `card-${options.type}`, valueType: 'surname'})
+          .card-registration__gender-wrapper.button-radio__container
             +button-radio({id: 'man', label: 'Мужчина'})
             +button-radio({id: 'woman', label: 'Женщина'})
-          +input({type: 'text', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', page: `card-${options.type}`, valueType: 'date', masked: true})
+          +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', page: `card-${options.type}`, valueType: 'date', masked: true})
           h3.card-registration__data-header данные для входа в сервис
 
-        +input({type: 'email', placeholder: 'Email', page: `card-${options.type}`, valueType: 'email'})
-        +input({type: 'text', placeholder: 'Пароль', page: `card-${options.type}`, valueType: 'password'})
+        +input({type: 'email', size: 'l', placeholder: 'Email', page: `card-${options.type}`, valueType: 'email'})
+        +input({type: 'text', size: 'l', placeholder: 'Пароль', page: `card-${options.type}`, valueType: 'password'})
         if (options.type === 'registration')
           .card-registration__offers
             +button-toggle({label: 'Получать спецпредложения', id: 'special'})
@@ -58,6 +61,6 @@ mixin card(options)
       +button-default({buttonType: 'submit', id: 'click7', size: 'l', additClass: `card-${options.type}__button`, text: options.buttonText})
 
       if (options.type === 'registration' || options.type === 'login')
-        .card__footer-container 
-          .card__footer-text= (options.type === 'registration') ? 'Уже есть аккаунт на Toxin' : 'Нет аккаунта на Toxin?' 
+        div(class = `card-${options.type}__footer-container`)
+          div(class = `card-${options.type}__footer-text`)= (options.type === 'registration') ? 'Уже есть аккаунт на Toxin' : 'Нет аккаунта на Toxin?' 
           +button-default({text: (options.type === 'registration') ? 'войти' : 'создать', hasBorder: true, size: 's'})

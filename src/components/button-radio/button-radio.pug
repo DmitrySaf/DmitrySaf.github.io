@@ -2,10 +2,10 @@ mixin button-radio(options)
   if !options
     - var options = {}
 
-  .radio
-    input.radio__button(
+  .button-radio
+    input.button-radio__button(
       type = "radio"
       name = "gender"
       id = options.id)
-    label.radio__label(
+    label.button-radio__label(
       for = options.id)=options.label

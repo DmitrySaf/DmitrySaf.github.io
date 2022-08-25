@@ -1,0 +1,13 @@
+include ../list-checkbox/list-checkbox
+
+mixin dropdown-checkbox(options)
+  if !options
+    - var options = {}
+
+  .dropdown-checkbox.dropdown_size_m.dropdown_no-border
+    h3.dropdown-checkbox__label=options.label
+    input.dropdown__arrow(type = "checkbox")
+    ul.dropdown__checkbox-list
+      if (options.items)
+        each item in options.items
+          +list-checkbox(item)

@@ -1,14 +1,7 @@
 @import '../../assets/sass/variables'
 @import '../../assets/sass/mixins'
 
-.material-icons
-  user-select: none
-  color: $primary-color
-  font-size: 10px
-  &_border
-    color: $dark-shade-25
-
-.like
+.button-like
   user-select: none
   width: 40px
   height: 20px
@@ -25,3 +18,10 @@
       color: $primary-color
   &_active
     border: $primary-color 1px solid
+  &__icon
+    font-family: 'Material Icons'
+    user-select: none
+    color: $primary-color
+    font-size: 10px
+    &_hollow
+      color: $dark-shade-25

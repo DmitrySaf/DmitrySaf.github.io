@@ -2,44 +2,10 @@
 @import '../../assets/sass/mixins'
     
 .card
-  max-width: 380px
-  width: 100%
-  max-height: 690px
-  background: #FFFFFF
-  border: 1px solid rgba(0, 0, 0, 0.12)
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2)
-  border-radius: 4px
-  padding: 40px 29px 29px 29px
-  +media-breakpoint-down($phone-normal-down)
-    padding: 30px 18px 18px
-  &__content
-    margin-top: 21px
-  &__input
-    &-wrapper
-      display: grid
-      grid-template-columns: repeat(auto-fill, 150px)
-      justify-content: space-between
-      margin-bottom: 21px
-      +media-breakpoint-down($phone-normal-down)
-        row-gap: 10px
-  &__footer
-    &-container
-      display: flex
-      justify-content: space-between
-      align-items: center
-      margin-top: 30px
-    &-text
-      font-size: 14px
-      line-height: 18px
-      color: $dark-shade-100
-  &_size
-    &_s
-      padding: 0
-      max-width: 270px
-      max-height: 257px
-      box-shadow: 0px 10px 20px $dark-shade-5
-      border: none
   &-login
+    +card
+    &__content
+      +card-content
     &__button
       margin-top: 12px
     &__input
@@ -50,13 +16,20 @@
           color: $dark-shade-25
       &-password
         margin: 9px 0
+      &-wrapper
+        +card-input-wrapper
     &__header
       font-family: $font-bold
       font-size: $font-size-header-large
       line-height: $line-height-header-large
       color: $dark-shade-100
       margin: 0
+    &__footer
+      +card-footer
   &-registration
+    +card
+    &__content
+      +card-content
     &__input
       &-surname, &-password, &-email, &-name, &-date
         &::-webkit-input-placeholder
@@ -67,6 +40,8 @@
         margin: 9px 0
       &-date
         margin-bottom: 21px
+      &-wrapper
+        +card-input-wrapper
     &__gender
       &-wrapper
         margin-bottom: 22px
@@ -85,7 +60,15 @@
       line-height: $line-height-header-large
       color: $dark-shade-100
       margin: 0
+    &__footer
+      +card-footer
   &-book
+    +card
+    &__content
+      +card-content
+    &__input
+      &-wrapper
+        +card-input-wrapper
     &__header
       display: grid
       grid-template-columns: 69px minmax(170px, 243px) 
@@ -169,7 +152,15 @@
     &__info-mark
       position: relative
       +circle-info()
+    &__footer
+      +card-footer
   &-search
+    +card
+    &__content
+      +card-content
+    &__input
+      &-wrapper
+        +card-input-wrapper
     &__button
       margin-top: 31px
     &__header
@@ -179,3 +170,5 @@
       color: $dark-shade-100
       margin: 0
       margin-bottom: 22px
+    &__footer
+      +card-footer

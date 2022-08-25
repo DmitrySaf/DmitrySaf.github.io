@@ -9,20 +9,19 @@ mixin card-preview(options)
     var imageIndex = 1
 
   .card-preview
-      .card.card_size_s
-        .card-preview__slider.js-card-preview__slider
-          - for (imageIndex; imageIndex <= images; imageIndex++) {
-              a(href="./room-info.html")
-                img(src=require(`../../components/card-preview/img/room-${options.roomNumber}/room-${options.roomNumber}-1.png`) alt=`room-${options.roomNumber}`)
-          - }
-        .card-preview__content
-          .card-preview__header-container
-            .card-preview__header-number <span>№ </span> #{options.roomNumber}
-            .card-preview__header-wrapper
-              if (options.isLux)
-                .card-preview__header-status люкс
-              .card-preview__header-price #{options.roomPrice}₽ <span>в сутки</span>
-          .card-preview__feedback-container
-            +button-rating({rating: options.rating, roomNumber: options.roomNumber})
-            .card-preview__feedback <span>#{options.roomComments}</span> Отзывов
-          a.card-preview__link(href="./room-info.html")
+    .card-preview__slider.js-card-preview__slider
+      - for (imageIndex; imageIndex <= images; imageIndex++) {
+          a(href="./room-info.html")
+            img(src=require(`../../components/card-preview/img/room-${options.roomNumber}/room-${options.roomNumber}-1.png`) alt=`room-${options.roomNumber}`)
+      - }
+    .card-preview__content
+      .card-preview__header-container
+        .card-preview__header-number <span>№ </span> #{options.roomNumber}
+        .card-preview__header-wrapper
+          if (options.isLux)
+            .card-preview__header-status люкс
+          .card-preview__header-price #{options.roomPrice}₽ <span>в сутки</span>
+      .card-preview__feedback-container
+        +button-rating({rating: options.rating, roomNumber: options.roomNumber})
+        .card-preview__feedback <span>#{options.roomComments}</span> Отзывов
+      a.card-preview__link(href="./room-info.html")

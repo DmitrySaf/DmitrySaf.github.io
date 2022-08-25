@@ -6,7 +6,7 @@ mixin button-default(options)
     var classes = ''
     var attributes = {}
     classes += options.size ? `button_size_${options.size} ` : ''
-    classes += options.hasBorder ? 'button_border ' : 'button_no-border '
+    classes += options.hasBorder ? 'button_hollow ' : 'button_filled '
     classes += options.additClass ? options.additClass : ''
     attributes = {
       class: classes,

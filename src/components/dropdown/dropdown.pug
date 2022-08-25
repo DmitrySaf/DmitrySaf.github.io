@@ -6,32 +6,23 @@ mixin dropdown(options)
       - var options = {}
 
   .dropdown__wrapper
-    if (options.type === 'guests' || options.type === 'rooms')
-      h3.dropdown__label=options.label
-      .dropdown.js-dropdown(
-        class = options.size ? `dropdown_size_${options.size}` : ''
-        id = `dropdown-${options.id}`)
-        .dropdown__placeholder.js-dropdown__placeholder=(options.type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати"
-        input.dropdown__arrow.js-dropdown__arrow(type = "checkbox")
-        .dropdown__content-wrapper
-          .dropdown__content
-            if (options.type === 'guests')
-              +dropdown-item({text: 'взрослые', id: options.id})
-              +dropdown-item({text: 'дети', id: options.id})
-              +dropdown-item({text: 'младенцы', id: options.id})
-            else 
-              +dropdown-item({text: 'спальни', id: options.id})
-              +dropdown-item({text: 'кровати', id: options.id})
-              +dropdown-item({text: 'ванные комнаты', id: options.id})
-            if (options.size !== 'm')
-              .dropdown__button-wrapper
-                h3.dropdown__button.dropdown__button_clear.js-dropdown__button_clear очистить
-                h3.dropdown__button.dropdown__button_accept.js-dropdown__button_accept применить
-    if (options.type === 'checkbox')
-      .dropdown.dropdown__checkbox#dropdown-checkbox
-        h3.dropdown__label.dropdown__checkbox-label=options.label
-        input.dropdown__arrow(type = "checkbox")
-        ul.dropdown__checkbox-list
-          if (options.items)
-            each item in options.items
-              +list-checkbox(item)
+    h3.dropdown__label=options.label
+    .dropdown.js-dropdown(
+      class = options.size ? `dropdown_size_${options.size}` : ''
+      id = `dropdown-${options.id}`)
+      .dropdown__placeholder.js-dropdown__placeholder=(options.type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати"
+      input.dropdown__arrow.js-dropdown__arrow(type = "checkbox")
+      .dropdown__content-wrapper
+        .dropdown__content
+          if (options.type === 'guests')
+            +dropdown-item({text: 'взрослые', id: options.id})
+            +dropdown-item({text: 'дети', id: options.id})
+            +dropdown-item({text: 'младенцы', id: options.id})
+          else 
+            +dropdown-item({text: 'спальни', id: options.id})
+            +dropdown-item({text: 'кровати', id: options.id})
+            +dropdown-item({text: 'ванные комнаты', id: options.id})
+          if (options.size !== 'm')
+            .dropdown__button-wrapper
+              h3.dropdown__button.dropdown__button_clear.js-dropdown__button_clear очистить
+              h3.dropdown__button.dropdown__button_accept.js-dropdown__button_accept применить
