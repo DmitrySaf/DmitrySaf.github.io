@@ -1,1 +1,0 @@
-import './collage.sass';

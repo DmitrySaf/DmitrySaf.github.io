@@ -1,1 +1,0 @@
-import './button-default.sass';
