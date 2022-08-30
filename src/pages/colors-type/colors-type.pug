@@ -1,23 +1,31 @@
 extends ../ui-kit-template/ui-kit-template
 
-include ../../components/type/type
-include ../../components/color/color
+block variables
+  -
+    var colors = [
+      {color: 'dark-shade', opacity: '100'},
+      {color: 'dark-shade', opacity: '75'},
+      {color: 'dark-shade', opacity: '50'},
+      {color: 'dark-shade', opacity: '25'},
+      {color: 'dark-shade', opacity: '5'},
+      {color: 'primary'},
+      {color: 'secondary'}
+    ]
+    var types = [
+      {tag: 'h1', text: 'This one is the sub-section or widget title'},
+      {tag: 'h2', text: 'Next one is the item title inside widgets'},
+      {tag: 'h3', text: 'This is a label or CTA text'},
+      {tag: 'body', text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'}
+    ]
 
 block page 
   section.colors-type
       .colors-type__container
         .colors-type__grid 
           .colors-type__colors
-            +color({ color: 'dark-shade', opacity: '100'})
-            +color({ color: 'dark-shade', opacity: '75'})
-            +color({ color: 'dark-shade', opacity: '50'})
-            +color({ color: 'dark-shade', opacity: '25'})
-            +color({ color: 'dark-shade', opacity: '5'})
-            +color({ color: 'primary'})
-            +color({ color: 'secondary'})
+            each color in colors
+              +color(color)
           .colors-type__type
-            +type({tag: 'h1', text: 'This one is the sub-section or widget title'})
-            +type({tag: 'h2', text: 'Next one is the item title inside widgets'})
-            +type({tag: 'h3', text: 'This is a label or CTA text'})
-            +type({tag: 'body', text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'})
+            each typeitem in types
+              +type(typeitem)
 

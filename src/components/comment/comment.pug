@@ -2,15 +2,23 @@ mixin comment(options)
   if !options 
     - var options = {}
 
+  -
+    var {
+      imgName,
+      name,
+      online,
+      feedback
+    } = options
+
   .comment 
     .comment__img 
       img(
-        src = require(`../../components/comment/img/${options.imgName}.svg`)
-        alt = options.imgName)
+        src = require(`../../components/comment/img/${imgName}.svg`)
+        alt = imgName)
     .comment__header
-      .comment__name=options.name
-      .comment__online=options.online
+      .comment__name=name
+      .comment__online=online
     .comment__like
       +button-like
     .comment__text
-      .comment__feedback=options.feedback
+      .comment__feedback=feedback

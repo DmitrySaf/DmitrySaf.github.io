@@ -3,21 +3,34 @@ mixin button-default(options)
     - var options = {}
 
   -
+    var {
+      size,
+      hasBorder,
+      blockName,
+      specialClasses,
+      buttonType,
+      formId,
+      id,
+      href,
+      text
+    } = options
+
+  -
     var classes = ''
     var attributes = {}
-    classes += options.size ? `button_size_${options.size} ` : ''
-    classes += options.hasBorder ? 'button_hollow ' : 'button_filled '
-    classes += options.blockName ? `${options.blockName}__button ` : ''
-    classes += options.specialClasses ? options.specialClasses : ''
+    classes += size ? `button_size_${size} ` : ''
+    classes += hasBorder ? 'button_hollow ' : 'button_filled '
+    classes += blockName ? `${blockName}__button ` : ''
+    classes += specialClasses ? specialClasses : ''
     attributes = {
       class: classes,
-      type: options.buttonType,
-      form: options.formId,
-      id: options.id,
-      href: options.href ? options.href : '#'
+      type: buttonType,
+      form: formId,
+      id: id,
+      href: href ? href : '#'
     }
 
-  if (options.href) 
-    a.button&attributes(attributes)=options.text
+  if (href) 
+    a.button&attributes(attributes)=text
   else
-    button.button&attributes(attributes)=options.text
+    button.button&attributes(attributes)=text

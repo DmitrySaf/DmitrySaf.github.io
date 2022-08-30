@@ -3,6 +3,13 @@ mixin dropdown(options)
       - var options = {}
 
   -
+    var {
+      label,
+      size,
+      type
+    } = options
+
+  -
     var guestsOptions = [
       'взрослые',
       'дети',
@@ -15,15 +22,15 @@ mixin dropdown(options)
     ]
 
   .dropdown__wrapper
-    h3.dropdown__label=options.label
+    h3.dropdown__label=label
     .dropdown.js-dropdown(
-      class = options.size ? `dropdown_size_${options.size}` : ''
-      id = `dropdown-${options.type}`)
-      .dropdown__placeholder.js-dropdown__placeholder=(options.type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати..."
+      class = size ? `dropdown_size_${size}` : ''
+      id = `dropdown-${type}`)
+      .dropdown__placeholder.js-dropdown__placeholder=(type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати..."
       input.dropdown__arrow.js-dropdown__arrow(type = "checkbox")
       .dropdown__content-wrapper
         .dropdown__content
-          if (options.type === 'guests')
+          if (type === 'guests')
             each text in guestsOptions
               .dropdown__item
                 h3.dropdown__item-text=text
@@ -39,7 +46,7 @@ mixin dropdown(options)
                   .dropdown__operation.dropdown__operation_minus.js-dropdown__operation_minus
                   .dropdown__operation-counter 0
                   .dropdown__operation.dropdown__operation_plus.js-dropdown__operation_plus
-          if (options.size === 'l')
+          if (size === 'l')
             .dropdown__button-wrapper
               .dropdown__button.dropdown__button_clear.js-dropdown__button_clear очистить
               .dropdown__button.dropdown__button_accept.js-dropdown__button_accept применить

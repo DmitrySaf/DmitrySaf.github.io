@@ -2,9 +2,16 @@ mixin list-advantage(options)
   if !options
     - var options 
   
+  -
+    var {
+      header,
+      descr,
+      imgName
+    } = options
+
   li.advantage
     .advantage__img
-      img(src=require(`../../components/list-advantage/img/${options.imgName}.svg`), alt=options.imgName)
+      img(src=require(`../../components/list-advantage/img/${imgName}.svg`), alt=imgName)
     .advantage__text_wrapper
-      .advantage__text_header=options.header
-      .advantage__text_descr=options.descr
+      .advantage__text_header=header
+      .advantage__text_descr=descr

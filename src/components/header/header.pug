@@ -2,14 +2,20 @@ mixin header(options)
   if !options 
     - var options = {}
 
+  -
+    var {
+      username,
+      logged
+    } = options
+
   header.header
     .header__container
       .header__wrapper
         +logo
-        .header__menu(class = (options.logged) ? 'header__menu_logged' : '')
+        .header__menu(class = (logged) ? 'header__menu_logged' : '')
           +header-menu
-          if (options.logged)
-            .header__menu-user=options.username
+          if (logged)
+            .header__menu-user=username
           else
             +button-default({href: './login.html', hasBorder: true, size: 's', specialClasses: 'header__login-button', text: 'войти'})
             +button-default({href: './registration.html', size: 'm', specialClasses: 'header__register-button', text: 'зарегистрироваться'})
@@ -21,8 +27,8 @@ mixin header(options)
               span
             .header__hamburger-content
               +header-menu({isHamburger: true})
-              if (options.logged)
-                .header__menu-user=options.username
+              if (logged)
+                .header__menu-user=username
               else
                 +button-default({href: './login.html', size: 's', hasBorder: true,  specialClasses: 'header__login-button header__login-button_shown', text: 'войти'})
                 +button-default({href: './registration.html', size: 'm',  specialClasses: 'header__register-button header__register-button_shown', text: 'зарегистрироваться'})

@@ -3,25 +3,38 @@ mixin input(options)
     - var options = {}
 
   -
+    var {
+      size,
+      masked,
+      blockName,
+      valueType,
+      placeholder,
+      type,
+      label,
+      sub,
+      id
+    } = options;
+
+  -
     var classes = ''
-    classes += options.size ? `input_size_${options.size} ` : 'input_size_l'
-    classes += options.masked ? 'js-input_masked ' : ''
-    classes += options.blockName 
-      ? options.valueType 
-        ? `${options.blockName}__input-${options.valueType} ` 
-        : `${options.blockName}__input ` 
+    classes += size ? `input_size_${size} ` : 'input_size_l'
+    classes += masked ? 'js-input_masked ' : ''
+    classes += blockName 
+      ? valueType 
+        ? `${blockName}__input-${valueType} ` 
+        : `${blockName}__input ` 
       : ''
 
   .input__container
-    if (options.label)
-      h3.input__label=options.label
+    if (label)
+      h3.input__label=label
     .input__wrapper
       input.input(
         class = classes
-        type = options.type
-        placeholder = options.placeholder
+        type = type
+        placeholder = placeholder
         required = true
-        id = options.id)
-      if (options.type === 'email' && options.sub)
+        id = id)
+      if (type === 'email' && sub)
         .input__arrow-main
         

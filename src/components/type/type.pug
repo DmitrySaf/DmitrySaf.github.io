@@ -2,10 +2,16 @@ mixin type(options)
   if (!options)
     - var options = {}
 
+  -
+    var {
+      tag,
+      text
+    } = options
+
   .type 
     .type__tag(
-      class=`type__tag_${options.tag}`
-    )=options.tag
+      class=`type__tag_${tag}`
+    )=tag
     .type__text(
-      class=`type__text_${options.tag}`
-    )=options.text
+      class=`type__text_${tag}`
+    )=text

@@ -2,8 +2,11 @@ mixin header-menu(options)
   if !options
    - var options = {}
 
+  -
+    var { isHamburger } = options
+
   nav.menu__nav(
-    class = (options.isHamburger) ? 'menu__nav-hamburger' : ''
+    class = (isHamburger) ? 'menu__nav-hamburger' : ''
   )
     ul.menu__list
       li

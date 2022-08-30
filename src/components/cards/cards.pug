@@ -2,25 +2,34 @@ mixin card(options)
   if !options
     -  var options = {}
 
-  div(class= `card-${options.type}`)
-    if (options.type === 'book')
+  -
+    var {
+      type,
+      roomNumber,
+      roomStatus,
+      roomPrice,
+      header
+    } = options
+
+  div(class= `card-${type}`)
+    if (type === 'book')
       .card-book__header
-        .card-book__header-number <span>№ </span> #{options.roomNumber}
+        .card-book__header-number <span>№ </span> #{roomNumber}
         .card-book__header-wrapper
-          h3.card-book__header-status=options.roomStatus
-          .card-book__header-price #{options.roomPrice} <span>в сутки</span> 
+          h3.card-book__header-status=roomStatus
+          .card-book__header-price #{roomPrice} <span>в сутки</span> 
     else 
-      h1(class = `card-${options.type}__header`)=options.header 
+      h1(class = `card-${type}__header`)=header 
     form(
-      action = (options.type === 'search') ? "./room-search.html" : "#"
-      class =  `card-${options.type}__content`
+      action = (type === 'search') ? "./room-search.html" : "#"
+      class =  `card-${type}__content`
     )
-      if (options.type === 'book' || options.type === 'search')
-        div(class =  `card-${options.type}__input-wrapper`)
+      if (type === 'book' || type === 'search')
+        div(class =  `card-${type}__input-wrapper`)
           +dropdown-date({size: 's', label: 'прибытие', masked: true})
           +dropdown-date({size: 's', label: 'выезд', masked: true})
         +dropdown({type: 'guests', size: 'l', label: 'гости'})
-        if (options.type === 'book')
+        if (type === 'book')
           .card-book__calc
             .card-book__calc-wrapper
               .card-book__calc-name 9 990₽ х 4 суток
@@ -35,26 +44,26 @@ mixin card(options)
               h2.card-book__calc-name_bold Итого
               .card-book__calc-dots
               h2.card-book__calc-price_bold 38 081₽
-      if (options.type === 'login' || options.type === 'registration')
+      if (type === 'login' || type === 'registration')
 
-        if (options.type === 'registration')
-          +input({type: 'text', size: 'l', placeholder: 'Имя', blockName: `card-${options.type}`, valueType: 'name'})
-          +input({type: 'text', size: 'l', placeholder: 'Фамилия', blockName: `card-${options.type}`, valueType: 'surname'})
+        if (type === 'registration')
+          +input({type: 'text', size: 'l', placeholder: 'Имя', blockName: `card-${type}`, valueType: 'name'})
+          +input({type: 'text', size: 'l', placeholder: 'Фамилия', blockName: `card-${type}`, valueType: 'surname'})
           .card-registration__gender-wrapper.button-radio__container
             +button-radio({id: 'man', label: 'Мужчина'})
             +button-radio({id: 'woman', label: 'Женщина'})
-          +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', blockName: `card-${options.type}`, valueType: 'date', masked: true})
+          +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', blockName: `card-${type}`, valueType: 'date', masked: true})
           h3.card-registration__data-header данные для входа в сервис
 
-        +input({type: 'email', size: 'l', placeholder: 'Email', blockName: `card-${options.type}`, valueType: 'email'})
-        +input({type: 'text', size: 'l', placeholder: 'Пароль', blockName: `card-${options.type}`, valueType: 'password'})
-        if (options.type === 'registration')
+        +input({type: 'email', size: 'l', placeholder: 'Email', blockName: `card-${type}`, valueType: 'email'})
+        +input({type: 'text', size: 'l', placeholder: 'Пароль', blockName: `card-${type}`, valueType: 'password'})
+        if (type === 'registration')
           .card-registration__offers
             +button-toggle({label: 'Получать спецпредложения', id: 'special'})
 
-      +button-default({buttonType: 'submit', id: 'click7', size: 'l', blockName: `card-${options.type}`, text: options.buttonText})
+      +button-default({buttonType: 'submit', id: 'click7', size: 'l', blockName: `card-${type}`, text: buttonText})
 
-      if (options.type === 'registration' || options.type === 'login')
-        div(class = `card-${options.type}__footer-container`)
-          div(class = `card-${options.type}__footer-text`)= (options.type === 'registration') ? 'Уже есть аккаунт на Toxin' : 'Нет аккаунта на Toxin?' 
-          +button-default({text: (options.type === 'registration') ? 'войти' : 'создать', hasBorder: true, size: 's'})
+      if (type === 'registration' || type === 'login')
+        div(class = `card-${type}__footer-container`)
+          div(class = `card-${type}__footer-text`)= (type === 'registration') ? 'Уже есть аккаунт на Toxin' : 'Нет аккаунта на Toxin?' 
+          +button-default({text: (type === 'registration') ? 'войти' : 'создать', hasBorder: true, size: 's'})

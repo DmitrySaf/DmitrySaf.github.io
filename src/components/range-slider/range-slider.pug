@@ -2,9 +2,11 @@ mixin range-slider(options)
   if !options
     -  var options = {}
 
+  - var { label } = options
+
   .range-slider__container 
     .range-slider__wrapper 
-      h3.range-slider__header=options.label
+      h3.range-slider__header=label
       label.range-slider__label(for="range")
     input.range(
       id = "range"

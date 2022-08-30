@@ -2,10 +2,16 @@ mixin color(options)
   if (!options)
     - var options = {}
 
+  -
+    var {
+      color,
+      opacity
+    } = options
+
   .color
     .color__box(
-      class=(options.color === 'dark-shade') ? `color_${options.color}_${options.opacity}` : `color_${options.color}`
+      class=(color === 'dark-shade') ? `color_${color}_${opacity}` : `color_${color}`
     )
     .color__text 
-      .color__name=(options.color === 'dark-shade') ? `Dark Shade ${options.opacity}%` : (options.color === 'primary') ? 'Purple' : 'Green'
-      .color__code=(options.color === 'dark-shade') ? '#1F2041' : (options.color === 'primary') ? '#BC9CFF' : '#6FCF97'
+      .color__name=(color === 'dark-shade') ? `Dark Shade ${opacity}%` : (color === 'primary') ? 'Purple' : 'Green'
+      .color__code=(color === 'dark-shade') ? '#1F2041' : (color === 'primary') ? '#BC9CFF' : '#6FCF97'

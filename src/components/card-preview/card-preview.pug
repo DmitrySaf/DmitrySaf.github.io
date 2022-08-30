@@ -3,6 +3,15 @@ mixin card-preview(options)
     - var options = {}
 
   -
+    var {
+      roomNumber,
+      roomPrice,
+      isLux,
+      roomComments,
+      rating
+    } = options
+
+  -
     var images = 4
     var imageIndex = 1
 
@@ -10,16 +19,16 @@ mixin card-preview(options)
     .card-preview__slider.js-card-preview__slider
       - for (imageIndex; imageIndex <= images; imageIndex++) {
           a(href="./room-info.html")
-            img(src=require(`../../components/card-preview/img/room-${options.roomNumber}/room-${options.roomNumber}-1.png`) alt=`room-${options.roomNumber}`)
+            img(src=require(`../../components/card-preview/img/room-${roomNumber}/room-${roomNumber}-1.png`) alt=`room-${roomNumber}`)
       - }
     .card-preview__content
       .card-preview__header-container
-        .card-preview__header-number <span>№ </span> #{options.roomNumber}
+        .card-preview__header-number <span>№ </span> #{roomNumber}
         .card-preview__header-wrapper
-          if (options.isLux)
+          if (isLux)
             .card-preview__header-status люкс
-          .card-preview__header-price #{options.roomPrice}₽ <span>в сутки</span>
+          .card-preview__header-price #{roomPrice}₽ <span>в сутки</span>
       .card-preview__feedback-container
-        +button-rating({rating: options.rating, roomNumber: options.roomNumber})
-        .card-preview__feedback <span>#{options.roomComments}</span> Отзывов
+        +button-rating({rating, roomNumber})
+        .card-preview__feedback <span>#{roomComments}</span> Отзывов
       a.card-preview__link(href="./room-info.html")

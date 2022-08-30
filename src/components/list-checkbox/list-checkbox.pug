@@ -2,22 +2,30 @@ mixin list-checkbox(options)
   if !options
    - var options = {}
 
+  -
+    var {
+      id,
+      isRich,
+      label,
+      descr
+    } = options
+
   li.checkbox
       input.checkbox__button(
         type = "checkbox"
-        id = options.id)
-      if (options.isRich)
+        id = id)
+      if (isRich)
         .checkbox-rich__wrapper
           label(
             class = "checkbox-rich__label"
-            for = options.id
-          )=options.label
+            for = id
+          )=label
           label(
             class = "checkbox-rich__descr"
-            for = options.id
-          )=options.descr
+            for = id
+          )=descr
       else 
         label(
           class = "checkbox__label"
-          for = options.id
-        )=options.label
+          for = id
+        )=label

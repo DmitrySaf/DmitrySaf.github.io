@@ -2,6 +2,8 @@ mixin list-bullet(options)
   if !options
     - var options = {}
 
+  - var { text } = options
+
   li.bullet
     .bullet__mark 
-    .bullet__text=options.text
+    .bullet__text=text
