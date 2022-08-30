@@ -1,27 +1,15 @@
-import './dropdown.sass';
-
 const $clearButton = $('.js-dropdown__button_clear');
 const $acceptButton = $('.js-dropdown__button_accept');
-const $placeholderText = $('.js-dropdown__placeholder');
 const $operationPlus = $('.js-dropdown__operation_plus');
-const $counterGuestsDefault = $('.js-dropdown__counter-guests');
-const $counterGuestsMedium = $('.js-dropdown__counter-guests_medium');
-const $counterRooms = $('.js-dropdown__counter-rooms');
-const $arrow = $('.js-dropdown__arrow');
-const $dropdown = $('.js-dropdown');
 const $operationMinus = $('.js-dropdown__operation_minus');
+const $arrow = $('.js-dropdown__arrow');
 
-const sumGuests = (counter) => {
-  let sum = 0;
-  counter.each((i, item) => {
-    sum += +item.textContent;
-  });
-  return sum;
-};
+let guestsCounterValues = [0, 0, 0];
+let roomsCounterValues = [2, 2, 0];
 
-function guestEndings(counter) {
-  const guests = (+counter[0].textContent) + (+counter[1].textContent);
-  const babies = +counter[2].textContent;
+const guestEndings = () => {
+  const guests = guestsCounterValues[0] + guestsCounterValues[1];
+  const babies = guestsCounterValues[2];
   const outputText = [];
 
   if ((guests % 10 === 1) && (guests !== 11)) {
@@ -57,9 +45,9 @@ function guestEndings(counter) {
   return outputText.join(', ');
 }
 
-function roomsEndings(counter) {
-  const bedrooms = counter[0].textContent;
-  const beds = counter[1].textContent;
+const roomsEndings = () => {
+  const bedrooms = roomsCounterValues[0];
+  const beds = roomsCounterValues[1];
   const outputText = [];
 
   if ((bedrooms % 10 === 1) && (bedrooms !== 11)) {
@@ -94,91 +82,84 @@ function roomsEndings(counter) {
   return outputText.join(', ');
 }
 
-$arrow.on('click', (e) => {
-  const $dropdownLocal = $(e.currentTarget.parentElement);
-  $dropdownLocal.toggleClass('dropdown_border-radius_none');
+const renderCounter = (dropdown) => {
+  const $placeholder = dropdown.find('.js-dropdown__placeholder');
 
-  if ($dropdownLocal.attr('id') === 'dropdown-rooms') {
-    $counterRooms[0].textContent = '2';
-    $counterRooms[1].textContent = '2';
-    $counterRooms.each((i, item) => {
-      if (+item.textContent > 0) item.previousElementSibling.classList.remove('disabled');
-    });
+  if (dropdown.attr('id') === 'dropdown-rooms') {
+    dropdown.find('.dropdown__operation-counter').each((i, item) => {
+      if (roomsCounterValues[i] === 0) {
+        item.previousElementSibling.classList.add('operation_disabled')
+      }
+      item.textContent = roomsCounterValues[i];
+    })
+    $placeholder.text(roomsEndings())
+  } else {
+    dropdown.find('.dropdown__operation-counter').each((i, item) => {
+      if (guestsCounterValues[i] === 0) {
+        item.previousElementSibling.classList.add('operation_disabled')
+      }
+      item.textContent = guestsCounterValues[i]
+    })
+    console.log($placeholder);
+    $placeholder.text(guestEndings())
   }
-
-  if ($dropdownLocal.attr('id') === 'dropdown-guests_medium') {
-    $counterGuestsMedium.each((i, item) => {
-      if (+item.textContent > 0) item.previousElementSibling.classList.remove('disabled');
-    });
-  }
-});
-
-if ($(window)[0].document.title === 'Search rooms') {
-  $counterGuestsMedium.each((i) => {
-    $counterGuestsMedium[i].textContent = localStorage.getItem('guests')[i];
-  });
-  $('#dropdown-guests_medium > .dropdown__placeholder').text(guestEndings($counterGuestsMedium));
 }
 
-$clearButton.on('click', () => {
-  $counterGuestsDefault.text(0);
-  $placeholderText.text(guestEndings($counterGuestsDefault));
-  $clearButton.removeClass('show');
-  $operationMinus.addClass('disabled');
+const openDropdown = (e) => {
+  const $dropdown = $(e.currentTarget.parentElement);
+
+  $dropdown.toggleClass('dropdown_border-radius_none');
+  renderCounter($dropdown);
+}
+
+if ($(window)[0].document.title === 'Search rooms') {
+  const $dropdown = $('#dropdown-guests');
+
+  guestsCounterValues = JSON.parse(localStorage.getItem('guests'));
+  renderCounter($dropdown);
+}
+
+$arrow.on('click', openDropdown);
+
+$clearButton.on('click', (e) => {
+  const $dropdown = $(e.currentTarget).offsetParent().offsetParent().offsetParent();
+
+  guestsCounterValues.forEach((item, i) => guestsCounterValues[i] = 0);
+  renderCounter($dropdown);
+  $clearButton.removeClass('clear-button_shown');
 });
 
-$acceptButton.on('click', () => {
-  localStorage.setItem('guests', $counterGuestsDefault.text().split());
+$acceptButton.on('click', (e) => {
+  const $dropdown = $(e.currentTarget).offsetParent().offsetParent().offsetParent();
+
+  localStorage.setItem('guests', JSON.stringify(guestsCounterValues));
   $arrow.prop('checked', false);
   $dropdown.toggleClass('border-radius_none');
 });
 
 $operationPlus.on('click', (e) => {
   const $plus = $(e.currentTarget);
-  const $counter = $plus.prev();
-  const $placeholder = $plus.offsetParent().parent().find('.js-dropdown__placeholder');
-  const $minus = $plus.prev().prev();
-  const $counterVal = +$counter.text();
+  const $dropdown = $plus.offsetParent().parent();
+  const indexOfChange = $operationPlus.index(e.currentTarget);
 
-  $counter.text($counterVal + 1);
-  $minus.removeClass('disabled');
-
-  if ($counter.hasClass('dropdown__counter_guests')) {
-    $placeholder.text(guestEndings($counterGuestsDefault));
-  }
-  if ($counter.hasClass('dropdown__counter_guests_medium')) {
-    $placeholder.text(guestEndings($counterGuestsMedium));
-  }
-  if ($counter.hasClass('dropdown__counter_rooms')) {
-    $placeholder.text(roomsEndings($counterRooms));
-  }
-  if (sumGuests($counterGuestsDefault) > 0) {
-    $clearButton.addClass('show');
-  }
+  ($dropdown.attr('id') === 'dropdown-rooms') 
+    ? roomsCounterValues[indexOfChange] += 1 
+    : guestsCounterValues[indexOfChange] += 1;
+  renderCounter($dropdown);
+  $clearButton.addClass('clear-button_shown');
 });
 
 $operationMinus.on('click', (e) => {
   const $minus = $(e.currentTarget);
-  const $counter = $minus.next();
-  const $placeholder = $minus.offsetParent().parent().find('.js-dropdown__placeholder');
-  const $counterVal = +$counter.text();
+  const $dropdown = $minus.offsetParent().parent();
+  const indexOfChange = $operationMinus.index(e.currentTarget);
 
-  if (!$minus.hasClass('disabled')) {
-    $counter.text($counterVal - 1);
+  if ($dropdown.attr('id') === 'dropdown-rooms') {
+    roomsCounterValues[indexOfChange] -= 1;
+    if (roomsCounterValues.map(item => item += item) === 0) $clearButton.removeClass('clear-button_shown');
+  } else {
+    guestsCounterValues[indexOfChange] -= 1;
+    if (guestsCounterValues.map(item => item += item) === 0) $clearButton.removeClass('clear-button_shown');
   }
-  if ($counterVal <= 1) {
-    $minus.addClass('disabled');
-  }
-  if ($counter.hasClass('dropdown__counter_guests')) {
-    $placeholder.text(guestEndings($counterGuestsDefault));
-  }
-  if ($counter.hasClass('dropdown__counter_guests_medium')) {
-    $placeholder.text(guestEndings($counterGuestsMedium));
-  }
-  if ($counter.hasClass('dropdown__counter_rooms')) {
-    $placeholder.text(roomsEndings($counterRooms));
-  }
-  if (sumGuests($counterGuestsDefault) === 0) {
-    $clearButton.removeClass('show');
-  }
+  renderCounter($dropdown);
 });

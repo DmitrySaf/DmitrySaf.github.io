@@ -13,3 +13,16 @@
     color: $dark-shade-100
     text-transform: uppercase
     margin: 0
+  &:focus, &:hover
+    border: none
+  &__list
+    all: unset
+    transition: max-height 0.4s linear
+    background: #fff
+    max-height: 0
+    overflow: hidden
+  & > input
+    &:checked
+      transform: rotate(180deg)
+    &:checked + ul
+      max-height: 300px

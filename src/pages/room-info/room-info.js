@@ -1,7 +1,5 @@
 import { Chart } from 'chart.js/dist/chart.min';
 
-import './room-info.sass';
-
 if ($(window)[0].document.title === 'Room') {
   const chartElem = document.querySelector('.js-myChart').getContext('2d');
   const $chartVotes = $('.js-room-info__evaluation-votes');

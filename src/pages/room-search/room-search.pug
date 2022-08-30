@@ -40,8 +40,8 @@ block content
           .room-search__filters-content
             +logo
             .arrow__main.room-search__arrow.js-room-search__arrow
-            +input({type: 'date', size: 'm', label: 'даты пребывания в отеле', id: 'input__date_filter'})
-            +dropdown({type: 'guests', id: 'guests_medium', size: 'm', label: 'гости'})
+            +dropdown-date({size: 'm', label: 'даты пребывания в отеле'})
+            +dropdown({type: 'guests', size: 'm', label: 'гости'})
             .room-search__range
               +range-slider({label: 'диапазон цены'})
               .room-search__range-descr Стоимость за сутки пребывания в номере
@@ -56,8 +56,8 @@ block content
               ul.room-search__checkbox-list
                 +list-checkbox({isRich: true, id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
                 +list-checkbox({isRich: true, id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
-            +dropdown({type: 'rooms', id: 'rooms', size: 'm', label: 'удобства номера'})
-            +dropdown({type: 'checkbox', items: additionalComfort, label: 'дополнительные удобства'})
+            +dropdown({type: 'rooms', size: 'm', label: 'удобства номера'})
+            +dropdown-checkbox({items: additionalComfort, label: 'дополнительные удобства'})
             +button-default({size: 'm', additClass: 'room-search__button', text:'применить'})
         .room-search__content
           h1.room-search__header Номера, которые мы для вас подобрали

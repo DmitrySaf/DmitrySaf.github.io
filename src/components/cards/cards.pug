@@ -25,7 +25,7 @@ mixin card(options)
         div(class =  `card-${options.type}__input-wrapper`)
           +dropdown-date({size: 's', label: 'прибытие', masked: true})
           +dropdown-date({size: 's', label: 'выезд', masked: true})
-        +dropdown({type: 'guests', id: 'guests', label: 'гости'})
+        +dropdown({type: 'guests', size: 'l', label: 'гости'})
         if (options.type === 'book')
           .card-book__calc
             .card-book__calc-wrapper

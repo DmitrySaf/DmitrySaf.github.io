@@ -2,10 +2,14 @@ mixin dropdown-date(options)
   if !options
     - var options = {}
 
-  .dropdown-date
-    input.dropdown-date__input(
-      class = "js-dropdown-date_masked"
-      type = "text"
-      placeholder = "ДД.ММ.ГГГГ"
-      required = true)
-    .dropdown-date__arrow
+  .dropdown-date(
+    class = options.size ? `dropdown-date_size_${options.size} ` : 'dropdown-date_size_s'
+  )
+    h3.dropdown-date__label=options.label
+    .dropdown-date__container
+      input.dropdown-date__input(
+        class = options.masked ? 'js-dropdown-date_masked ' : ''
+        type = "text"
+        placeholder = "ДД.ММ.ГГГГ"
+        required = true)
+      .dropdown-date__arrow

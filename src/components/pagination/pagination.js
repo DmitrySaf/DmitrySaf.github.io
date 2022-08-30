@@ -1,7 +1,5 @@
 import 'twbs-pagination/jquery.twbsPagination.min';
 
-import './pagination.sass';
-
 window.onload = () => {
   const $pagination = $('.js-pagination__wrapper');
   const data = {

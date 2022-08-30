@@ -1,5 +1,18 @@
 extends ../ui-kit-template/ui-kit-template
 
+block variables
+  -
+    var additionalComfort = [
+      {id: 'breakfast', label: 'Завтрак'},
+      {id: 'table', label: 'Письменный стол'},
+      {id: 'chair', label: 'Стул для кормления'},
+      {id: 'bed', label: 'Кроватка'},
+      {id: 'tv', label: 'Телевизор'},
+      {id: 'shampoo', label: 'Шампунь'},
+      {id: 'tv-copy', label: 'Телевизор'},
+      {id: 'shampoo-copy', label: 'Шампунь'}
+    ]
+
 block page 
    section.form-elements
       .form-elements__container
@@ -7,12 +20,12 @@ block page
           .form-elements__elem
             .form-elements__inputs
               +input({type: 'email', label: 'text field', id: 'input__email'})
-              +dropdown({type: 'guests', label: 'dropdown', id: 'guests'})
+              +dropdown({type: 'guests', label: 'dropdown'})
               +input({type: 'text', label: 'masked text field', id: 'input__date'})
             .form-elements__date-inputs
-              +input({type: 'date', size: 's', label: 'date dropdown', id: 'input__date_arrival'})
-              +input({type: 'date', size: 's', label: 'date dropdown', id: 'input__date_departure'})
-              +input({type: 'date', size: 'm', label: 'filter date dropdown', id: 'input__date_filter'})
+              +dropdown-date({size: 's', label: 'date dropdown', masked: true})
+              +dropdown-date({size: 's', label: 'date dropdown', masked: true})
+              +dropdown-date({size: 'm', label: 'filter date dropdown'})
               +input({type: 'email', label: 'subscription text field', id: 'input__email_sub', sub: true, size: 'm'})
           .form-elements__elem
             .form-elements__lists
@@ -62,9 +75,9 @@ block page
               +pagination
           .form-elements__elem
             .form-elements__dropdowns
-              +dropdown({type: 'guests', id: 'guests_medium', size: 'm', label: 'dropdown'})
-              +dropdown({type: 'rooms', id: 'rooms_medium', size: 'm', label: 'dropdown'})
-              +dropdown({type: 'checkbox', size: 'm', label: 'expandable checkbox list'})
+              +dropdown({type: 'guests', size: 'm', label: 'dropdown'})
+              +dropdown({type: 'rooms', size: 'm', label: 'dropdown'})
+              +dropdown-checkbox({items: additionalComfort, label: 'expandable checkbox list'})
           .form-elements__elem
             h3.form-elements__header_h3 rich checkbox buttons
             +list-checkbox({isRich: true, name: 'corridor', id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})

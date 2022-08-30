@@ -1,8 +1,6 @@
 import 'slick-carousel/slick/slick.min';
 import 'slick-carousel/slick/slick.css';
 
-import './card-preview.sass';
-
 const $cardPreview = $('.js-card-preview__slider');
 
 $cardPreview.slick({

@@ -1,5 +1,3 @@
-import './button-like.sass';
-
 const likeButton = $('.js-button-like');
 
 likeButton.on('click', (e) => {
