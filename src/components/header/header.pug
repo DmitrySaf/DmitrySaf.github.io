@@ -11,13 +11,13 @@ mixin header(options)
     .header__container
       .header__wrapper
         +logo
-        .header__menu(class = (options.logged === 'true') ? 'header__menu_logged' : '')
+        .header__menu(class = (options.logged) ? 'header__menu_logged' : '')
           +header-menu
-          if (options.logged === 'true')
+          if (options.logged)
             .header__menu-user=options.username
           else
-            +button-default({href: './login.html', hasBorder: true, size: 's', additClass: 'header__login-button', text: 'войти'})
-            +button-default({href: './registration.html', size: 'm', additClass: 'header__register-button', text: 'зарегистрироваться'})
+            +button-default({href: './login.html', hasBorder: true, size: 's', specialClasses: 'header__login-button', text: 'войти'})
+            +button-default({href: './registration.html', size: 'm', specialClasses: 'header__register-button', text: 'зарегистрироваться'})
           .header__hamburger
             input#hamburger.header__hamburger-trigger(type="checkbox")
             label.header__hamburger-lines(for="hamburger")
@@ -26,9 +26,9 @@ mixin header(options)
               span
             .header__hamburger-content
               +header-menu({isHamburger: true})
-              if (options.logged === 'true')
+              if (options.logged)
                 .header__menu-user=options.username
               else
-                +button-default({href: './login.html', size: 's', hasBorder: true,  additClass: 'header__login-button header__login-button_hamburger', text: 'войти'})
-                +button-default({href: './registration.html', size: 'm',  additClass: 'header__register-button header__register-button_hamburger', text: 'зарегистрироваться'})
+                +button-default({href: './login.html', size: 's', hasBorder: true,  specialClasses: 'header__login-button header__login-button_shown', text: 'войти'})
+                +button-default({href: './registration.html', size: 'm',  specialClasses: 'header__register-button header__register-button_shown', text: 'зарегистрироваться'})
               +social()

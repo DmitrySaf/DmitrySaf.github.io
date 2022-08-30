@@ -12,13 +12,6 @@
     display: flex
     justify-content: space-between
     height: 70px
-  &__logo
-    margin-right: 12.5px
-    display: grid
-    place-items: center
-    &_container
-      display: flex
-      align-items: center
   &__title
     line-height: 100%
   &__menu
@@ -47,7 +40,7 @@
       text-decoration: none
       +media-breakpoint-down($tablet-portrait-down)
         display: none
-      &_hamburger
+      &_shown
         display: block
   &__login-button
     line-height: 30px

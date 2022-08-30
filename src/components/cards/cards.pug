@@ -1,8 +1,9 @@
-include ../input/input
-include ../dropdown/dropdown
-include ../button-radio/button-radio
-include ../button-toggle/button-toggle
-include ../button-default/button-default
+//- 
+  include ../input/input
+  include ../dropdown/dropdown
+  include ../button-radio/button-radio
+  include ../button-toggle/button-toggle
+  include ../button-default/button-default
 
 mixin card(options)
   if !options
@@ -44,21 +45,21 @@ mixin card(options)
       if (options.type === 'login' || options.type === 'registration')
 
         if (options.type === 'registration')
-          +input({type: 'text', size: 'l', placeholder: 'Имя', page: `card-${options.type}`, valueType: 'name'})
-          +input({type: 'text', size: 'l', placeholder: 'Фамилия', page: `card-${options.type}`, valueType: 'surname'})
+          +input({type: 'text', size: 'l', placeholder: 'Имя', blockName: `card-${options.type}`, valueType: 'name'})
+          +input({type: 'text', size: 'l', placeholder: 'Фамилия', blockName: `card-${options.type}`, valueType: 'surname'})
           .card-registration__gender-wrapper.button-radio__container
             +button-radio({id: 'man', label: 'Мужчина'})
             +button-radio({id: 'woman', label: 'Женщина'})
-          +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', page: `card-${options.type}`, valueType: 'date', masked: true})
+          +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', blockName: `card-${options.type}`, valueType: 'date', masked: true})
           h3.card-registration__data-header данные для входа в сервис
 
-        +input({type: 'email', size: 'l', placeholder: 'Email', page: `card-${options.type}`, valueType: 'email'})
-        +input({type: 'text', size: 'l', placeholder: 'Пароль', page: `card-${options.type}`, valueType: 'password'})
+        +input({type: 'email', size: 'l', placeholder: 'Email', blockName: `card-${options.type}`, valueType: 'email'})
+        +input({type: 'text', size: 'l', placeholder: 'Пароль', blockName: `card-${options.type}`, valueType: 'password'})
         if (options.type === 'registration')
           .card-registration__offers
             +button-toggle({label: 'Получать спецпредложения', id: 'special'})
 
-      +button-default({buttonType: 'submit', id: 'click7', size: 'l', additClass: `card-${options.type}__button`, text: options.buttonText})
+      +button-default({buttonType: 'submit', id: 'click7', size: 'l', blockName: `card-${options.type}`, text: options.buttonText})
 
       if (options.type === 'registration' || options.type === 'login')
         div(class = `card-${options.type}__footer-container`)

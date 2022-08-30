@@ -58,7 +58,7 @@ block content
                 +list-checkbox({isRich: true, id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
             +dropdown({type: 'rooms', size: 'm', label: 'удобства номера'})
             +dropdown-checkbox({items: additionalComfort, label: 'дополнительные удобства'})
-            +button-default({size: 'm', additClass: 'room-search__button', text:'применить'})
+            +button-default({size: 'm', blockName: 'room-search', text:'применить'})
         .room-search__content
           h1.room-search__header Номера, которые мы для вас подобрали
           .room-search__content-grid

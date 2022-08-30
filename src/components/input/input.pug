@@ -4,10 +4,13 @@ mixin input(options)
 
   -
     var classes = ''
-    classes += options.size ? `input_size_${options.size} ` : ''
-    classes += options.valueType ? `${options.page}__input-${options.valueType} ` : ''
+    classes += options.size ? `input_size_${options.size} ` : 'input_size_l'
     classes += options.masked ? 'js-input_masked ' : ''
-    classes += options.additClass ? options.additClass : ''
+    classes += options.blockName 
+      ? options.valueType 
+        ? `${options.blockName}__input-${options.valueType} ` 
+        : `${options.blockName}__input ` 
+      : ''
 
   .input__container
     if (options.label)
