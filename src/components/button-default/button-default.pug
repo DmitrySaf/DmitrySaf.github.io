@@ -1,9 +1,9 @@
 mixin button-default(options)
   if !options
-    - var options = {}
+    - const options = {}
 
   -
-    var {
+    const {
       size,
       hasBorder,
       blockName,
@@ -16,8 +16,8 @@ mixin button-default(options)
     } = options
 
   -
-    var classes = ''
-    var attributes = {}
+    const classes = ''
+    const attributes = {}
     classes += size ? `button_size_${size} ` : ''
     classes += hasBorder ? 'button_hollow ' : 'button_filled '
     classes += blockName ? `${blockName}__button ` : ''

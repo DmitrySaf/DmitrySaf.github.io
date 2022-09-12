@@ -1,9 +1,9 @@
 mixin header-menu(options)
   if !options
-   - var options = {}
+   - const options = {}
 
   -
-    var { isHamburger } = options
+    const { isHamburger } = options
 
   nav.menu__nav(
     class = (isHamburger) ? 'menu__nav-hamburger' : ''

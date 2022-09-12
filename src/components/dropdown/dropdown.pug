@@ -1,21 +1,21 @@
 mixin dropdown(options)
   if !options
-      - var options = {}
+      - const options = {}
 
   -
-    var {
+    const {
       label,
       size,
       type
     } = options
 
   -
-    var guestsOptions = [
+    const guestsOptions = [
       'взрослые',
       'дети',
       'младенцы'
     ]
-    var roomsOptions = [
+    const roomsOptions = [
       'спальни',
       'кровати',
       'ванные комнаты'

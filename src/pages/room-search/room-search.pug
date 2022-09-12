@@ -1,9 +1,9 @@
 extends ../main/main
 
 block variables
-  - var title = "Search rooms"
+  - const title = "Search rooms"
   -
-    var additionalComfort = [
+    const additionalComfort = [
       {id: 'breakfast', label: 'Завтрак'},
       {id: 'table', label: 'Письменный стол'},
       {id: 'chair', label: 'Стул для кормления'},
@@ -14,19 +14,19 @@ block variables
       {id: 'shampoo-copy', label: 'Шампунь'}
     ]
   -
-    var rooms = [
-      {roomNumber: '888', roomPrice: '9 990', roomComments: '145', isLux: true, rating: 5},
-      {roomNumber: '840', roomPrice: '9 900', roomComments: '65', rating: 4},
-      {roomNumber: '980', roomPrice: '8 500', roomComments: '35', isLux: true, rating: 3},
-      {roomNumber: '856', roomPrice: '7 300', roomComments: '19', rating: 5},
-      {roomNumber: '740', roomPrice: '6 000', roomComments: '44', rating: 4},
-      {roomNumber: '982', roomPrice: '5 800', roomComments: '56', rating: 3},
-      {roomNumber: '678', roomPrice: '5 500', roomComments: '45', rating: 5},
-      {roomNumber: '450', roomPrice: '5 300', roomComments: '39', rating: 4},
-      {roomNumber: '350', roomPrice: '5 000', roomComments: '77', rating: 3},
-      {roomNumber: '666', roomPrice: '5 000', roomComments: '25', rating: 5},
-      {roomNumber: '444', roomPrice: '5 000', roomComments: '15', rating: 4},
-      {roomNumber: '352', roomPrice: '5 000', roomComments: '55', rating: 3}
+    const rooms = [
+      {roomNumber: 888, roomPrice: '9 990', roomComments: 145, isLux: true, rating: 5},
+      {roomNumber: 840, roomPrice: '9 900', roomComments: 65, rating: 4},
+      {roomNumber: 980, roomPrice: '8 500', roomComments: 35, isLux: true, rating: 3},
+      {roomNumber: 856, roomPrice: '7 300', roomComments: 19, rating: 5},
+      {roomNumber: 740, roomPrice: '6 000', roomComments: 44, rating: 4},
+      {roomNumber: 982, roomPrice: '5 800', roomComments: 56, rating: 3},
+      {roomNumber: 678, roomPrice: '5 500', roomComments: 45, rating: 5},
+      {roomNumber: 450, roomPrice: '5 300', roomComments: 39, rating: 4},
+      {roomNumber: 350, roomPrice: '5 000', roomComments: 77, rating: 3},
+      {roomNumber: 666, roomPrice: '5 000', roomComments: 25, rating: 5},
+      {roomNumber: 444, roomPrice: '5 000', roomComments: 15, rating: 4},
+      {roomNumber: 352, roomPrice: '5 000', roomComments: 55, rating: 3}
     ]
 
 block content

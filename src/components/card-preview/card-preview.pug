@@ -1,9 +1,9 @@
 mixin card-preview(options)
   if !options
-    - var options = {}
+    - const options = {}
 
   -
-    var {
+    const {
       roomNumber,
       roomPrice,
       isLux,
@@ -12,8 +12,8 @@ mixin card-preview(options)
     } = options
 
   -
-    var images = 4
-    var imageIndex = 1
+    const images = 4
+    const imageIndex = 1
 
   .card-preview
     .card-preview__slider.js-card-preview__slider

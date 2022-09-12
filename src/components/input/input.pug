@@ -1,9 +1,9 @@
 mixin input(options) 
   if !options
-    - var options = {}
+    - const options = {}
 
   -
-    var {
+    const {
       size,
       masked,
       blockName,
@@ -16,7 +16,7 @@ mixin input(options)
     } = options;
 
   -
-    var classes = ''
+    const classes = ''
     classes += size ? `input_size_${size} ` : 'input_size_l'
     classes += masked ? 'js-input_masked ' : ''
     classes += blockName 
