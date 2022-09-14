@@ -1,6 +1,6 @@
 mixin button-default(options)
   if !options
-    - const options = {}
+    - var options = {}
 
   -
     const {
@@ -16,19 +16,18 @@ mixin button-default(options)
     } = options
 
   -
-    const classes = ''
-    const attributes = {}
-    classes += size ? `button_size_${size} ` : ''
-    classes += hasBorder ? 'button_hollow ' : 'button_filled '
-    classes += blockName ? `${blockName}__button ` : ''
-    classes += specialClasses ? specialClasses : ''
-    attributes = {
+    var classes = ''
+    var attributes = {
       class: classes,
       type: buttonType,
       form: formId,
       id: id,
       href: href ? href : '#'
     }
+    classes += size ? `button_size_${size} ` : ''
+    classes += hasBorder ? 'button_hollow ' : 'button_filled '
+    classes += blockName ? `${blockName}__button ` : ''
+    classes += specialClasses ? specialClasses : ''
 
   if (href) 
     a.button&attributes(attributes)=text

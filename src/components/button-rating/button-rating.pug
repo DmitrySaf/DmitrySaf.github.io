@@ -1,14 +1,14 @@
 mixin button-rating(options)
   if !options
-    - const options = {}
+    - var options = {}
 
   -
-    const {
+    var {
       roomNumber,
       rating,
       starsNumber
     } = options;
-  - const n = 1
+  - var n = 1
   if !starsNumber
     - starsNumber = 5
 
