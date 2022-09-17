@@ -20,6 +20,7 @@ mixin dropdown(options)
       'кровати',
       'ванные комнаты'
     ]
+    const dropdownOptions = (type === 'guests') ? guestsOptions : roomsOptions
 
   .dropdown__wrapper
     h3.dropdown__label=label
@@ -30,22 +31,13 @@ mixin dropdown(options)
       input.dropdown__arrow.js-dropdown__arrow(type = "checkbox")
       .dropdown__content-wrapper
         .dropdown__content
-          if (type === 'guests')
-            each text in guestsOptions
-              .dropdown__item
-                h3.dropdown__item-text=text
-                .dropdown__calc
-                  .dropdown__operation.dropdown__operation_minus.js-dropdown__operation_minus
-                  .dropdown__operation-counter 0
-                  .dropdown__operation.dropdown__operation_plus.js-dropdown__operation_plus
-          else
-            each text in roomsOptions
-              .dropdown__item
-                h3.dropdown__item-text=text
-                .dropdown__calc
-                  .dropdown__operation.dropdown__operation_minus.js-dropdown__operation_minus
-                  .dropdown__operation-counter 0
-                  .dropdown__operation.dropdown__operation_plus.js-dropdown__operation_plus
+          each text in dropdownOptions
+            .dropdown__item
+              h3.dropdown__item-text=text
+              .dropdown__calc
+                .dropdown__operation.dropdown__operation_minus.js-dropdown__operation_minus
+                .dropdown__operation-counter 0
+                .dropdown__operation.dropdown__operation_plus.js-dropdown__operation_plus
           if (size === 'l')
             .dropdown__button-wrapper
               .dropdown__button.dropdown__button_clear.js-dropdown__button_clear очистить

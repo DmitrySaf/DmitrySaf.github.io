@@ -8,8 +8,27 @@ mixin card(options)
       roomNumber,
       roomStatus,
       roomPrice,
-      header
+      header,
+      buttonText
     } = options
+
+  -
+    const priceSources = [
+      {
+        name: '9 990₽ х 4 суток',
+        price: '39 960'
+      },
+      {
+        name: 'Сбор за услуги: скидка 2 179₽',
+        price: 0,
+        mark: true
+      },
+      {
+        name: 'Сбор за дополнительные услуги',
+        price: 300,
+        mark: true
+      }
+    ]
 
   div(class= `card-${type}`)
     if (type === 'book')
@@ -31,15 +50,12 @@ mixin card(options)
         +dropdown({type: 'guests', size: 'l', label: 'гости'})
         if (type === 'book')
           .card-book__calc
-            .card-book__calc-wrapper
-              .card-book__calc-name 9 990₽ х 4 суток
-              .card-book__calc-price 39 960₽
-            .card-book__calc-wrapper
-              .card-book__calc-name.card-book__info-mark Сбор за услуги: скидка 2 179₽
-              .card-book__calc-price 0₽
-            .card-book__calc-wrapper
-              .card-book__calc-name.card-book__info-mark Сбор за дополнительные услуги
-              .card-book__calc-price 300₽
+            each source in priceSources
+              .card-book__calc-wrapper
+                .card-book__calc-name(
+                  class = [source.mark && 'card-book__info-mark']
+                )=source.name
+                .card-book__calc-price #{source.price}₽
             .card-book__calc-wrapper
               h2.card-book__calc-name_bold Итого
               .card-book__calc-dots

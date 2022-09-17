@@ -12,6 +12,47 @@ block variables
       {id: 'tv-copy', label: 'Телевизор'},
       {id: 'shampoo-copy', label: 'Шампунь'}
     ]
+    const checkboxes = [
+      {
+        header: 'правила дома',
+        list: [
+          {
+            id: 'able-smoke',
+            label: 'Можно курить'
+          },
+          {
+            id: 'able-pets',
+            label: 'Можно с питомцами'
+          },
+          {
+            id: 'able-friends',
+            label: 'Можно пригласить гостей (до 10 человек)'
+          }
+        ]
+      },
+      {
+        header: 'доступность',
+        list: [
+          {
+            isRich: true,
+            id: 'corridor',
+            label: 'Широкий коридор',
+            descr: 'Ширина коридоров в номере не менее 91 см.'
+          },
+          {
+            isRich: true,
+            id: 'help',
+            label: 'Помощник для инвалидов',
+            descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'
+          }
+        ]
+      }
+    ]
+    const rules = [
+      'Нельзя с питомцами',
+      'Без вечеринок и мероприятий',
+      'Время прибытия — после 13:00, а выезд до 12:00'
+    ]
 
 block page 
    section.form-elements
@@ -32,9 +73,8 @@ block page
               .form-elements__list
                 h3.form-elements__header_h3 Checkbox Buttons
                 .form-elements__list-content
-                  +list-checkbox({name: 'smoke', id: 'smoke', label: 'Можно курить'})
-                  +list-checkbox({name: 'pets', id: 'pets', label: 'Можно с питомцами'})
-                  +list-checkbox({name: 'friends', id: 'friends', label: 'Можно пригласить гостей (до 10 человек)'})
+                  each list in checkboxes[0].list
+                    +list-checkbox(list)
               .form-elements__list
                 h3.form-elements__header_h3 Radio Buttons
                 .form-elements__list-content.form-elements__list-grid
@@ -80,13 +120,12 @@ block page
               +dropdown-checkbox({items: additionalComfort, label: 'expandable checkbox list'})
           .form-elements__elem
             h3.form-elements__header_h3 rich checkbox buttons
-            +list-checkbox({isRich: true, name: 'corridor', id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
-            +list-checkbox({isRich: true, name: 'help', id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+            each list in checkboxes[1].list
+              +list-checkbox(list)
           .form-elements__elem
             h3.form-elements__header_h3 bullet list
-            +list-bullet({text: 'Нельзя с питомцами'})
-            +list-bullet({text: 'Без вечеринок и мероприятий'})
-            +list-bullet({text: 'Время прибытия — после 13:00, а выезд до 12:00'})
+            each rule in rules
+              +list-bullet({text: rule})
           .form-elements__elem
             +list-advantage({imgName: 'smile', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
             +list-advantage({imgName: 'building', header: 'Удобство', descr: 'Окно в каждой из спален'})

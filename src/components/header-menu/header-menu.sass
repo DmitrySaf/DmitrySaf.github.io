@@ -32,6 +32,7 @@
     font-size: 14px
     line-height: 17px
     color: $dark-shade-50
+    cursor: pointer
     &_bold
       font-family: $font-bold
       color: $dark-shade-75
@@ -40,4 +41,6 @@
       position: relative
       width: 24px
       height: 21px
+      &::before
+        transform: translate(50%,calc(-50% - 2px)) rotate(45deg)
     

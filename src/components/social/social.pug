@@ -1,8 +1,22 @@
 mixin social()
-  .social 
-    a.social__link(href="http://twitter.com/")
-      img(src=require("../../components/social/img/twitter.svg") alt="twitter")
-    a.social__link(href="http://www.facebook.com/")
-      img(src=require("../../components/social/img/facebook.svg") alt="facebook")
-    a.social__link(href="http://instagram.com/")
-      img(src=require("../../components/social/img/instagram.svg") alt="instagram")
+
+  -
+    const socialsList = [
+      {
+        name: 'twitter',
+        link: 'http://twitter.com/'
+      },
+      {
+        name: 'facebook',
+        link: 'http://www.facebook.com/'
+      },
+      {
+        name: 'instagram',
+        link: 'http://instagram.com/'
+      }
+    ]
+
+  .social
+    each social in socialsList
+      a.social__link(href=social.link)
+        img(src=require(`../../components/social/img/${social.name}.svg`) alt=social.name)

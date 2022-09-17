@@ -12,9 +12,7 @@ mixin comment(options)
 
   .comment 
     .comment__img 
-      img(
-        src = require(`../../components/comment/img/${imgName}.svg`)
-        alt = imgName)
+      img(src=require(`../../components/comment/img/${imgName}.svg`) alt=imgName)
     .comment__header
       .comment__name=name
       .comment__online=online

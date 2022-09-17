@@ -4,20 +4,41 @@ mixin header-menu(options)
 
   -
     const { isHamburger } = options
+    const links = [
+      {
+        name: 'О нас',
+        path: '#',
+        bold: true
+      },
+      {
+        name: 'Услуги',
+        path: '#',
+        hasDropdown: true
+      },
+      {
+        name: 'Вакансии',
+        path: '#',
+      },
+      {
+        name: 'Новости',
+        path: '#',
+      },
+      {
+        name: 'Соглашения',
+        path: '#',
+        hasDropdown: true
+      },
+    ]
 
   nav.menu__nav(
     class = (isHamburger) ? 'menu__nav-hamburger' : ''
   )
     ul.menu__list
-      li
-        a.menu__link.menu__link_bold О нас
-      li
-        a.menu__link Услуги
-        .menu__link-dropdown
-      li
-        a.menu__link Вакансии
-      li
-        a.menu__link Новости
-      li
-        a.menu__link Соглашения
-        .menu__link-dropdown
+      each link in links 
+        li
+          a.menu__link(
+            class = [link.bold && 'menu__link_bold']
+            href=link.path
+          )=link.name
+          if link.hasDropdown
+            .menu__link-dropdown

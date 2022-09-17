@@ -1,8 +1,8 @@
 extends ../main/main
 
 block variables
-  - const title = "Search rooms"
   -
+    const title = "Search rooms"
     const additionalComfort = [
       {id: 'breakfast', label: 'Завтрак'},
       {id: 'table', label: 'Письменный стол'},
@@ -13,7 +13,42 @@ block variables
       {id: 'tv-copy', label: 'Телевизор'},
       {id: 'shampoo-copy', label: 'Шампунь'}
     ]
-  -
+    const checkboxes = [
+      {
+        header: 'правила дома',
+        list: [
+          {
+            id: 'able-smoke',
+            label: 'Можно курить'
+          },
+          {
+            id: 'able-pets',
+            label: 'Можно с питомцами'
+          },
+          {
+            id: 'able-friends',
+            label: 'Можно пригласить гостей (до 10 человек)'
+          }
+        ]
+      },
+      {
+        header: 'доступность',
+        list: [
+          {
+            isRich: true,
+            id: 'corridor',
+            label: 'Широкий коридор',
+            descr: 'Ширина коридоров в номере не менее 91 см.'
+          },
+          {
+            isRich: true,
+            id: 'help',
+            label: 'Помощник для инвалидов',
+            descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'
+          }
+        ]
+      }
+    ]
     const rooms = [
       {roomNumber: 888, roomPrice: '9 990', roomComments: 145, isLux: true, rating: 5},
       {roomNumber: 840, roomPrice: '9 900', roomComments: 65, rating: 4},
@@ -45,17 +80,12 @@ block content
             .room-search__range
               +range-slider({label: 'диапазон цены'})
               .room-search__range-descr Стоимость за сутки пребывания в номере
-            .room-search__checkbox
-              h3.room-search__checkbox-header правила дома
-              ul.room-search__checkbox-list
-                +list-checkbox({id: 'able-smoke', label: 'Можно курить'})
-                +list-checkbox({id: 'able-pets', label: 'Можно с питомцами'})
-                +list-checkbox({id: 'able-friends', label: 'Можно пригласить гостей (до 10 человек)'})
-            .room-search__checkbox
-              h3.room-search__checkbox-header доступность
-              ul.room-search__checkbox-list
-                +list-checkbox({isRich: true, id: 'corridor', label: 'Широкий коридор', descr: 'Ширина коридоров в номере не менее 91 см.'})
-                +list-checkbox({isRich: true, id: 'help', label: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+            each checkbox in checkboxes
+              .room-search__checkbox
+                h3.room-search__checkbox-header #{checkbox.header}
+                ul.room-search__checkbox-list
+                  each list in checkbox.list
+                    +list-checkbox(list)
             +dropdown({type: 'rooms', size: 'm', label: 'удобства номера'})
             +dropdown-checkbox({items: additionalComfort, label: 'дополнительные удобства'})
             +button-default({size: 'm', blockName: 'room-search', text:'применить'})

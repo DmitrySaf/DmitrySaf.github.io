@@ -100,7 +100,6 @@ const renderCounter = (dropdown) => {
       }
       item.textContent = guestsCounterValues[i]
     })
-    console.log($placeholder);
     $placeholder.text(guestEndings())
   }
 }
