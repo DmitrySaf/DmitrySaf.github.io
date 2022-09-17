@@ -9,9 +9,9 @@ mixin list-advantage(options)
       imgName
     } = options
 
-  li.advantage
-    .advantage__img
+  li.list-advantage
+    .list-advantage__img
       img(src=require(`../../components/list-advantage/img/${imgName}.svg`), alt=imgName)
-    .advantage__text_wrapper
-      .advantage__text_header=header
-      .advantage__text_descr=descr
+    .list-advantage__text_wrapper
+      .list-advantage__text_header=header
+      .list-advantage__text_descr=descr
