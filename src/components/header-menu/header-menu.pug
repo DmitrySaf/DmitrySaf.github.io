@@ -13,7 +13,22 @@ mixin header-menu(options)
       {
         name: 'Услуги',
         path: '#',
-        hasDropdown: true
+        hasDropdown: true,
+        id: 'services',
+        items: [
+          {
+            path: '#',
+            name: 'Здесь'
+          },
+          {
+            path: '#',
+            name: 'Тестовые'
+          },
+          {
+            path: '#',
+            name: 'Значения'
+          }
+        ]
       },
       {
         name: 'Вакансии',
@@ -26,7 +41,22 @@ mixin header-menu(options)
       {
         name: 'Соглашения',
         path: '#',
-        hasDropdown: true
+        hasDropdown: true,
+        id: 'agreements',
+        items: [
+          {
+            path: '#',
+            name: 'Здесь'
+          },
+          {
+            path: '#',
+            name: 'Тестовые'
+          },
+          {
+            path: '#',
+            name: 'Значения'
+          }
+        ]
       },
     ]
 
@@ -36,9 +66,19 @@ mixin header-menu(options)
     ul.menu__list
       each link in links 
         li
-          a.menu__link(
-            class = [link.bold && 'menu__link_bold']
-            href=link.path
-          )=link.name
           if link.hasDropdown
-            .menu__link-dropdown
+            input(type="checkbox" class="menu__link-checkbox" id=link.id)
+            label(for=link.id)
+              a.menu__link(
+                class = [link.bold && 'menu__link_bold']
+                href=link.path
+              )=link.name
+              .menu__link-dropdown
+              .menu__link-content 
+                each item in link.items
+                  a.menu__link(href=item.path) #{item.name}
+          else
+            a.menu__link(
+              class = [link.bold && 'menu__link_bold']
+              href=link.path
+            )=link.name

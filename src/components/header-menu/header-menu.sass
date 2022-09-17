@@ -25,6 +25,7 @@
       li:nth-child(5)
         grid-column: 2 / 4
     li
+      position: relative
       display: inline-flex
       align-items: center
   &__link
@@ -43,4 +44,27 @@
       height: 21px
       &::before
         transform: translate(50%,calc(-50% - 2px)) rotate(45deg)
-    
+    &-checkbox
+      all: unset
+      appearance: none
+      & ~ label
+        display: flex
+        align-items: center
+      &:checked ~ label .menu__link-content
+        max-height: 100px
+        padding: 10px
+    &-content
+      position: absolute
+      top: 100%
+      left: -10px
+      display: flex
+      flex-direction: column
+      gap: 5px
+      max-height: 0
+      width: max-content
+      min-width: 100%
+      overflow: hidden
+      z-index: 100
+      transition: .3s all
+      background-color: #fff
+      border-radius: 8px
