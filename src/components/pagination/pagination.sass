@@ -18,25 +18,25 @@
     border-radius: 50%
     display: grid
     place-items: center
-    &_active
-      background: $gradient-primary
-      a
-        color: #fff
-        font-family: $font-bold
-    &_next
-      all: unset
-      background: $gradient-secondary
-      border-radius: 50%
-      +arrow-main(40px, 40px, #fff)
-        position: relative
-        order: 6
-    &_last
-      order: 5
-    &_disabled
-      a
-        display: none
-    &_etc
-      order: 4
+  &__item_active
+    background: $gradient-primary
+    a
+      color: #fff
+      font-family: $font-bold
+  &__item_next
+    all: unset
+    background: $gradient-secondary
+    border-radius: 50%
+    +arrow-main(40px, 40px, #fff)
+      position: relative
+      order: 6
+  &__item_last
+    order: 5
+  &__item_disabled
+    a
+      display: none
+  &__item_etc
+    order: 4
   &__link
     font-size: 12px
     color: $dark-shade-50

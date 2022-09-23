@@ -52,47 +52,47 @@
     display: none
     +media-breakpoint-down($tablet-portrait-down)
       display: block
-    &-lines
-      position: relative
-      height: 100%
-      display: grid
-      align-content: space-between
-      z-index: 100
-      span
-        height: 3px
-        width: 100%
-        background: $gradient-primary
-        transition: .3s all
-    &-trigger
-      all: unset
-      appearance: none
-      &:checked
-        & ~ label > span
-          position: absolute
-          top: 50%
-          &:nth-child(1)
-            transform: rotate(45deg)
-          &:nth-child(2)
-            transform: rotate(45deg)
-          &:nth-child(3)
-            transform: rotate(-45deg)
-        & ~ div
-          width: 50vw
-          box-shadow: 0 0 5px 3px $dark-shade-75
-          +media-breakpoint-down($phone-normal-down)
-            width: 100vw
-    &-content
+  &__hamburger-lines
+    position: relative
+    height: 100%
+    display: grid
+    align-content: space-between
+    z-index: 100
+    span
+      height: 3px
+      width: 100%
+      background: $gradient-primary
       transition: .3s all
-      position: absolute
-      top: 0px
-      right: 0
-      overflow: hidden
-      background: #fff
-      width: 0
-      height: 100vh
-      z-index: 1
-      padding-top: 70px
-      display: grid
-      grid-template-rows: max-content max-content max-content
-      row-gap: 20px
-      justify-items: center
+  &__hamburger-trigger
+    all: unset
+    appearance: none
+    &:checked
+      & ~ label > span
+        position: absolute
+        top: 50%
+        &:nth-child(1)
+          transform: rotate(45deg)
+        &:nth-child(2)
+          transform: rotate(45deg)
+        &:nth-child(3)
+          transform: rotate(-45deg)
+      & ~ div
+        width: 50vw
+        box-shadow: 0 0 5px 3px $dark-shade-75
+        +media-breakpoint-down($phone-normal-down)
+          width: 100vw
+  &__hamburger-content
+    transition: .3s all
+    position: absolute
+    top: 0px
+    right: 0
+    overflow: hidden
+    background: #fff
+    width: 0
+    height: 100vh
+    z-index: 1
+    padding-top: 70px
+    display: grid
+    grid-template-rows: max-content max-content max-content
+    row-gap: 20px
+    justify-items: center
