@@ -16,11 +16,11 @@ mixin button-default(options)
     } = options
 
   -
-    let classes = ''
-      classes += size ? `button_size_${size} ` : ''
-      classes += hasBorder ? 'button_hollow ' : 'button_filled '
-      classes += blockName ? `${blockName}__button ` : ''
-      classes += specialClasses ? specialClasses : ''
+    const classes = 
+      [size && `button_size_${size} `]
+      + [hasBorder && 'button_hollow ' || 'button_filled ']
+      + [blockName && `${blockName}__button `]
+      + [specialClasses || '']
     const buttonAttributes = {
       class: classes,
       type: buttonType,

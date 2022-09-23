@@ -16,14 +16,10 @@ mixin input(options)
     } = options;
 
   -
-    let classes = ''
-    classes += size ? `input_size_${size} ` : 'input_size_l'
-    classes += masked ? 'js-input_masked ' : ''
-    classes += blockName 
-      ? valueType 
-        ? `${blockName}__input-${valueType} ` 
-        : `${blockName}__input ` 
-      : ''
+    const classes = 
+    [size && `input_size_${size} ` || 'input_size_l']
+    + [masked && 'js-input_masked ']
+    + [blockName && valueType && `${blockName}__input-${valueType} ` || `${blockName}__input `]
 
   .input__container
     if (label)
