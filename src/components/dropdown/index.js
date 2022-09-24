@@ -1,4 +1,4 @@
-import Dropdown from "./dropdown";
+import Dropdown from "./Dropdown";
 
 const dropdownGuests = document.getElementById('dropdown-guests');
 const dropdownRooms = document.getElementById('dropdown-rooms');
