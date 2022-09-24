@@ -65,7 +65,7 @@ mixin card(options)
         if (type === 'registration')
           +input({type: 'text', size: 'l', placeholder: 'Имя', blockName: `card-${type}`, valueType: 'name'})
           +input({type: 'text', size: 'l', placeholder: 'Фамилия', blockName: `card-${type}`, valueType: 'surname'})
-          .card-registration__gender-wrapper.button-radio__container
+          .card-registration__gender-wrapper
             +button-radio({id: 'man', label: 'Мужчина'})
             +button-radio({id: 'woman', label: 'Женщина'})
           +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', blockName: `card-${type}`, valueType: 'date', masked: true})

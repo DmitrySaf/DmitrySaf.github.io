@@ -6,6 +6,7 @@ mixin button-default(options)
     const {
       size,
       hasBorder,
+      isDisabled,
       blockName,
       specialClasses,
       buttonType,
@@ -19,6 +20,7 @@ mixin button-default(options)
     const classes = 
       [size && `button_size_${size} `]
       + [hasBorder && 'button_hollow ' || 'button_filled ']
+      + [isDisabled && 'button_disabled']
       + [blockName && `${blockName}__button `]
       + [specialClasses || '']
     const buttonAttributes = {
