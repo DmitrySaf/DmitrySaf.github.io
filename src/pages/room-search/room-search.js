@@ -3,8 +3,8 @@ const $filters = $('.js-room-search__filters');
 const $arrow = $('.js-room-search__arrow');
 
 $filtersTrigger.on('click', () => {
-  $filters.addClass('sidebar_show');
+  $filters.addClass('room-search__filters_show');
   $arrow.on('click', () => {
-    $filters.removeClass('sidebar_show');
+    $filters.removeClass('room-search__filters_show');
   });
 });

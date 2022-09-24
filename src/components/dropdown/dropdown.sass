@@ -3,7 +3,7 @@
 
 .dropdown
   &__arrow
-    &:checked + div
+    &:focus + div
       max-height: 155px
       padding: 6px 6px 9px 14px
       border-top-left-radius: 0
@@ -96,7 +96,10 @@
     all: unset
     appearance: none
     +arrow-dropdown
+    width: 100%
     transform: translateY(-2px)
+    &::before
+      right: 20px
 
 .operation_disabled
   opacity: .5

@@ -12,7 +12,6 @@ mixin header-menu(options)
       },
       {
         name: 'Услуги',
-        path: '/mock-address',
         hasDropdown: true,
         id: 'services',
         items: [
@@ -40,7 +39,6 @@ mixin header-menu(options)
       },
       {
         name: 'Соглашения',
-        path: '/mock-address',
         hasDropdown: true,
         id: 'agreements',
         items: [
@@ -61,17 +59,16 @@ mixin header-menu(options)
     ]
 
   nav.menu__nav(
-    class = (isHamburger) ? 'menu__nav-hamburger' : ''
+    class = isHamburger && 'menu__nav-hamburger'
   )
     ul.menu__list
       each link in links 
         li
           if link.hasDropdown
-            input(type="checkbox" class="menu__link-checkbox" id=link.id)
-            label(for=link.id)
-              a.menu__link(
+            label
+              input(type="checkbox" class="menu__link-checkbox")
+              .menu__link(
                 class = [link.bold && 'menu__link_bold']
-                href=link.path
               )=link.name
               .menu__link-dropdown
               .menu__link-content 

@@ -5,7 +5,7 @@ import 'air-datepicker/dist/css/datepicker.min.css';
 const $dropdownDateMasked = $('.js-dropdown-date_masked');
 const $dropdownDate = $('.dropdown-date__input');
 const $dropdownDateArrow = $('.dropdown-date__arrow');
-const datepicker = $dropdownDate.datepicker().data('datepicker');
+const datepicker = $dropdownDate.first().datepicker().data('datepicker');
 
 $dropdownDateMasked.inputmask({
   mask: '99.99.9999',
@@ -48,6 +48,7 @@ $dropdownDate.first().datepicker({
 });
 
 if ($(window)[0].document.title === 'Search rooms') {
+  console.log(1);
   datepicker.selectedDates = [
     new Date(localStorage.getItem('firstDate')),
     new Date(localStorage.getItem('secondDate')),

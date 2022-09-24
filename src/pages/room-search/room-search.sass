@@ -35,9 +35,13 @@
       width: 50vw
       transition: .5s all
       background: #fff
+      box-shadow: 0 3px 5px $dark-shade-50
     +media-breakpoint-down($phone-normal-down)
       width: 100vw
-  &__filters.sidebar_show
+  &__filters_show
+    padding: 15px
+    height: auto
+    overflow: auto
     +media-breakpoint-down($phone-normal-down)
       padding: 10px
       padding: 20px
@@ -48,6 +52,8 @@
     grid-template-columns: 100%
     row-gap: 20px
     max-width: 266px
+    margin: 0 auto
+    justify-items: center
     & > .logo
       display: none
       +media-breakpoint-down($tablet-portrait-down)
@@ -69,7 +75,7 @@
       font-size: 14px
       color: $primary-color
   &__filters-text
-      margin-bottom: 0
+      margin: 0
       color: $primary-color
   &__header
     font-family: $font-bold
@@ -104,10 +110,7 @@
     +media-breakpoint-down($tablet-portrait-down)
       display: block
   &__arrow
+    +arrow-main
     display: none
     +media-breakpoint-down($tablet-portrait-down)
       display: block
-
-.sidebar_show
-  height: auto
-  overflow: auto

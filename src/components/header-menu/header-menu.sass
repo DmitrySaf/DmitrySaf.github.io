@@ -18,16 +18,20 @@
     grid-template-columns: repeat(5, max-content)
     align-items: center
     column-gap: 21px
+    padding: 0
     +media-breakpoint-down($desktop-small-down)
       grid-template-columns: repeat(3, max-content)
       row-gap: 2px
-      justify-items: center
+      justify-items: start
       li:nth-child(5)
         grid-column: 2 / 4
     li
       position: relative
       display: inline-flex
       align-items: center
+      & > label
+        display: flex
+        align-items: center
   &__link
     text-decoration: none
     font-size: 14px
@@ -47,10 +51,7 @@
   &__link-checkbox
     all: unset
     appearance: none
-    & ~ label
-      display: flex
-      align-items: center
-    &:checked ~ label .menu__link-content
+    &:checked ~ .menu__link-content
       max-height: 100px
       padding: 10px
   &__link-content
@@ -64,8 +65,9 @@
     width: max-content
     min-width: 100%
     overflow: hidden
-    z-index: 100
+    z-index: 1000000
     transition: .3s all
     background-color: #fff
     border-radius: 8px
     padding: 0 10px
+    box-shadow: 0px 3px 5px $dark-shade-50

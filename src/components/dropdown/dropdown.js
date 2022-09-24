@@ -23,9 +23,15 @@ class Dropdown {
     this.$operationPlus.on('click', this.onIncrease);
   }
 
-  onDropdownOpen = () => {
-    this.$dropdown.toggleClass('dropdown_border-radius_none');
+  onDropdownOpen = (e) => {
+    this.$dropdown.addClass('dropdown_border-radius_none');
     this.renderCounter();
+    e.currentTarget.addEventListener('blur', this.onDropdownClose);
+  }
+
+  onDropdownClose = (e) => {
+    this.$dropdown.removeClass('dropdown_border-radius_none');
+    e.currentTarget.removeEventListener('blur', this.onDropdownClose);
   }
 
   onClearButton = () => {

@@ -1,7 +1,6 @@
-import Dropdown from "./Dropdown";
+import Dropdown from "./Dropdown.js";
 
 const dropdownGuests = document.getElementById('dropdown-guests');
 const dropdownRooms = document.getElementById('dropdown-rooms');
-const dropdownRoomsInit = new Dropdown(dropdownRooms);
-const dropdownGuestsInit = new Dropdown(dropdownGuests);
-console.log(localStorage.getItem('guests'));
+new Dropdown(dropdownRooms);
+new Dropdown(dropdownGuests);
