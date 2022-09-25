@@ -28,7 +28,7 @@ mixin dropdown(options)
       class = size ? `dropdown_size_${size}` : ''
       id = `dropdown-${type}`)
       .dropdown__placeholder.js-dropdown__placeholder=(type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати..."
-      input.dropdown__arrow.js-dropdown__arrow(type = "checkbox")
+      .dropdown__arrow.js-dropdown__arrow(type = "checkbox")
       .dropdown__content-wrapper
         .dropdown__content
           each text in dropdownOptions

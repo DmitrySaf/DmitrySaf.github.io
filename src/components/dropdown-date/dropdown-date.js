@@ -48,7 +48,6 @@ $dropdownDate.first().datepicker({
 });
 
 if ($(window)[0].document.title === 'Search rooms') {
-  console.log(1);
   datepicker.selectedDates = [
     new Date(localStorage.getItem('firstDate')),
     new Date(localStorage.getItem('secondDate')),
