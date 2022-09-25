@@ -7,7 +7,7 @@ mixin list-checkbox(options)
       id,
       isRich,
       label,
-      descr
+      description
     } = options
 
   li.list-checkbox
@@ -21,9 +21,9 @@ mixin list-checkbox(options)
             for = id
           )=label
           label(
-            class = "list-checkbox-rich__descr"
+            class = "list-checkbox-rich__description"
             for = id
-          )=descr
+          )=description
       else
         label(
           class = "list-checkbox__label"

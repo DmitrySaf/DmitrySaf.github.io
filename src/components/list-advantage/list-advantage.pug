@@ -5,13 +5,13 @@ mixin list-advantage(options)
   -
     const {
       header,
-      descr,
+      description,
       imgName
     } = options
 
   li.list-advantage
     .list-advantage__img
       img(src=require(`../../components/list-advantage/img/${imgName}.svg`), alt=imgName)
-    .list-advantage__text_wrapper
-      .list-advantage__text_header=header
-      .list-advantage__text_descr=descr
+    .list-advantage__text-wrapper
+      .list-advantage__text-header=header
+      .list-advantage__text-description=description

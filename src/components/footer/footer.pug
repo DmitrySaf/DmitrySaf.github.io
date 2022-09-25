@@ -70,16 +70,16 @@ mixin footer(options)
       .footer__main-content
         .footer__logo-container 
           +logo
-          .footer__descr Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+          .footer__description Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
         each column in footerColumns
           .footer__column
             h3.footer__list-title навигация
             ul.footer__list
               each link in column.links
-                li:a.footer__link(href=link.path)=link.name
+                li: a.footer__link(href=link.path)=link.name
         .footer__column
           h3.footer__list-title подписка
-          .footer__column-descr Получайте специальные предложения и новости сервиса
+          .footer__column-description Получайте специальные предложения и новости сервиса
           +input({type: 'email', placeholder: 'Email', sub: true, size: 'm', blockName: 'footer'})
       .footer__additionalContent 
         .footer__copyright Copyright © 2018 Toxin отель. Все права защищены.

@@ -38,13 +38,13 @@ block variables
             isRich: true,
             id: 'corridor',
             label: 'Широкий коридор',
-            descr: 'Ширина коридоров в номере не менее 91 см.'
+            description: 'Ширина коридоров в номере не менее 91 см.'
           },
           {
             isRich: true,
             id: 'help',
             label: 'Помощник для инвалидов',
-            descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'
+            description: 'На 1 этаже вас встретит специалист  и проводит до номера.'
           }
         ]
       }
@@ -79,7 +79,7 @@ block content
             +dropdown({type: 'guests', size: 'm', label: 'гости'})
             .room-search__range
               +range-slider({label: 'диапазон цены'})
-              .room-search__range-descr Стоимость за сутки пребывания в номере
+              .room-search__range-description Стоимость за сутки пребывания в номере
             each checkbox in checkboxes
               .room-search__checkbox
                 h3.room-search__checkbox-header #{checkbox.header}

@@ -37,13 +37,13 @@ block variables
             isRich: true,
             id: 'corridor',
             label: 'Широкий коридор',
-            descr: 'Ширина коридоров в номере не менее 91 см.'
+            description: 'Ширина коридоров в номере не менее 91 см.'
           },
           {
             isRich: true,
             id: 'help',
             label: 'Помощник для инвалидов',
-            descr: 'На 1 этаже вас встретит специалист  и проводит до номера.'
+            description: 'На 1 этаже вас встретит специалист  и проводит до номера.'
           }
         ]
       }
@@ -127,7 +127,7 @@ block page
             each rule in rules
               +list-bullet({text: rule})
           .form-elements__elem
-            +list-advantage({imgName: 'smile', header: 'Комфорт', descr: 'Шумопоглощающие стены'})
-            +list-advantage({imgName: 'building', header: 'Удобство', descr: 'Окно в каждой из спален'})
+            +list-advantage({imgName: 'smile', header: 'Комфорт', description: 'Шумопоглощающие стены'})
+            +list-advantage({imgName: 'building', header: 'Удобство', description: 'Окно в каждой из спален'})
           .form-elements__elem
             +comment({imgName: 'comment-murad', name: 'Мурад Сарафанов', online: '5 дней назад', feedback: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})

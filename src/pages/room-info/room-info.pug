@@ -7,17 +7,17 @@ block variables
       {
         imgName: 'smile',
         header: 'Комфорт',
-        descr: 'Шумопоглощающие стены'
+        description: 'Шумопоглощающие стены'
       },
       {
         imgName: 'building',
          header: 'Удобство',
-         descr: 'Окно в каждой из спален'
+         description: 'Окно в каждой из спален'
       },
       {
         imgName: 'comfort',
         header: 'Уют',
-        descr: 'Номер оснащён камином'
+        description: 'Номер оснащён камином'
       }
     ]
     const rules = [
@@ -76,6 +76,6 @@ block content
                 +list-bullet({text: rule})
           .room-info__cancel
             h2.room-info__cancel-header.room-info__block-title Отмена
-            .room-info__cancel-descr Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+            .room-info__cancel-description Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
         .room-info__price
           +card({type: 'book', roomNumber: 888, roomStatus: 'люкс', roomPrice: '9 990₽', buttonText: 'забронировать'})
