@@ -17,12 +17,13 @@
   &_disabled
     opacity: .5
     cursor: default
-  &_hollow
-    border: $primary-color 2px solid
-    color: $primary-color
-  &_filled
-    color: #fff
-    background: $gradient-primary
+  &_form
+    &_outlined
+      border: $primary-color 2px solid
+      color: $primary-color
+    &_filled
+      color: #fff
+      background: $gradient-primary
   &_size
     &_l
       +arrow-main($color: #fff)
