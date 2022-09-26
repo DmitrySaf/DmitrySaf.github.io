@@ -1,0 +1,53 @@
+[
+  {
+    "name": "О нас",
+    "path": "/mock-address",
+    "bold": true
+  },
+  {
+    "name": "Услуги",
+    "hasDropdown": true,
+    "id": "services",
+    "items": [
+      {
+        "path": "/mock-address",
+        "name": "Здесь"
+      },
+      {
+        "path": "/mock-address",
+        "name": "Тестовые"
+      },
+      {
+        "path": "/mock-address",
+        "name": "Значения"
+      }
+    ]
+  },
+  {
+    "name": "Вакансии",
+    "path": "/mock-address"
+  },
+  {
+    "name": "Новости",
+    "path": "/mock-address"
+  },
+  {
+    "name": "Соглашения",
+    "hasDropdown": true,
+    "id": "agreements",
+    "items": [
+      {
+        "path": "/mock-address",
+        "name": "Здесь"
+      },
+      {
+        "path": "/mock-address",
+        "name": "Тестовые"
+      },
+      {
+        "path": "/mock-address",
+        "name": "Значения"
+      }
+    ]
+  }
+]

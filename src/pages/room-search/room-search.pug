@@ -3,66 +3,9 @@ extends ../main/main
 block variables
   -
     const title = "Search rooms"
-    const additionalComfort = [
-      {id: 'breakfast', label: 'Завтрак'},
-      {id: 'table', label: 'Письменный стол'},
-      {id: 'chair', label: 'Стул для кормления'},
-      {id: 'bed', label: 'Кроватка'},
-      {id: 'tv', label: 'Телевизор'},
-      {id: 'shampoo', label: 'Шампунь'},
-      {id: 'tv-copy', label: 'Телевизор'},
-      {id: 'shampoo-copy', label: 'Шампунь'}
-    ]
-    const checkboxes = [
-      {
-        header: 'правила дома',
-        list: [
-          {
-            id: 'able-smoke',
-            label: 'Можно курить'
-          },
-          {
-            id: 'able-pets',
-            label: 'Можно с питомцами'
-          },
-          {
-            id: 'able-friends',
-            label: 'Можно пригласить гостей (до 10 человек)'
-          }
-        ]
-      },
-      {
-        header: 'доступность',
-        list: [
-          {
-            isRich: true,
-            id: 'corridor',
-            label: 'Широкий коридор',
-            description: 'Ширина коридоров в номере не менее 91 см.'
-          },
-          {
-            isRich: true,
-            id: 'help',
-            label: 'Помощник для инвалидов',
-            description: 'На 1 этаже вас встретит специалист  и проводит до номера.'
-          }
-        ]
-      }
-    ]
-    const rooms = [
-      {roomNumber: 888, roomPrice: '9 990', roomComments: 145, isLux: true, rating: 5},
-      {roomNumber: 840, roomPrice: '9 900', roomComments: 65, rating: 4},
-      {roomNumber: 980, roomPrice: '8 500', roomComments: 35, isLux: true, rating: 3},
-      {roomNumber: 856, roomPrice: '7 300', roomComments: 19, rating: 5},
-      {roomNumber: 740, roomPrice: '6 000', roomComments: 44, rating: 4},
-      {roomNumber: 982, roomPrice: '5 800', roomComments: 56, rating: 3},
-      {roomNumber: 678, roomPrice: '5 500', roomComments: 45, rating: 5},
-      {roomNumber: 450, roomPrice: '5 300', roomComments: 39, rating: 4},
-      {roomNumber: 350, roomPrice: '5 000', roomComments: 77, rating: 3},
-      {roomNumber: 666, roomPrice: '5 000', roomComments: 25, rating: 5},
-      {roomNumber: 444, roomPrice: '5 000', roomComments: 15, rating: 4},
-      {roomNumber: 352, roomPrice: '5 000', roomComments: 55, rating: 3}
-    ]
+    const additionalComfort = require('./data/additionalComfortList.json')
+    const checkboxes = require('./data/checkboxesList.json')
+    const rooms = require('./data/roomsList.json')
 
 block content
   section.room-search

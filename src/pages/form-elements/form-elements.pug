@@ -2,52 +2,8 @@ extends ../ui-kit-template/ui-kit-template
 
 block variables
   -
-    const additionalComfort = [
-      {id: 'breakfast', label: 'Завтрак'},
-      {id: 'table', label: 'Письменный стол'},
-      {id: 'chair', label: 'Стул для кормления'},
-      {id: 'bed', label: 'Кроватка'},
-      {id: 'tv', label: 'Телевизор'},
-      {id: 'shampoo', label: 'Шампунь'},
-      {id: 'tv-copy', label: 'Телевизор'},
-      {id: 'shampoo-copy', label: 'Шампунь'}
-    ]
-    const checkboxes = [
-      {
-        header: 'правила дома',
-        list: [
-          {
-            id: 'able-smoke',
-            label: 'Можно курить'
-          },
-          {
-            id: 'able-pets',
-            label: 'Можно с питомцами'
-          },
-          {
-            id: 'able-friends',
-            label: 'Можно пригласить гостей (до 10 человек)'
-          }
-        ]
-      },
-      {
-        header: 'доступность',
-        list: [
-          {
-            isRich: true,
-            id: 'corridor',
-            label: 'Широкий коридор',
-            description: 'Ширина коридоров в номере не менее 91 см.'
-          },
-          {
-            isRich: true,
-            id: 'help',
-            label: 'Помощник для инвалидов',
-            description: 'На 1 этаже вас встретит специалист  и проводит до номера.'
-          }
-        ]
-      }
-    ]
+    const additionalComfort = require('../room-search/data/additionalComfortList.json')
+    const checkboxes = require('../room-search/data/checkboxesList.json')
     const rules = [
       'Нельзя с питомцами',
       'Без вечеринок и мероприятий',

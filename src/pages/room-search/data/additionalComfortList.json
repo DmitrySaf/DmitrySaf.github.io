@@ -1,0 +1,34 @@
+[
+  {
+    "id": "breakfast",
+    "label": "Завтрак"
+  },
+  {
+    "id": "table",
+    "label": "Письменный стол"
+  },
+  {
+    "id": "chair",
+    "label": "Стул для кормления"
+  },
+  {
+    "id": "bed",
+    "label": "Кроватка"
+  },
+  {
+    "id": "tv",
+    "label": "Телевизор"
+  },
+  {
+    "id": "shampoo",
+    "label": "Шампунь"
+  },
+  {
+    "id": "tv-copy",
+    "label": "Телевизор"
+  },
+  {
+    "id": "shampoo-copy",
+    "label": "Шампунь"
+  }
+]

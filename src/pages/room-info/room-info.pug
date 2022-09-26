@@ -3,41 +3,12 @@ extends ../main/main
 block variables
   -
     const title = "Room"
-    const advantages = [
-      {
-        imgName: 'smile',
-        header: 'Комфорт',
-        description: 'Шумопоглощающие стены'
-      },
-      {
-        imgName: 'building',
-         header: 'Удобство',
-         description: 'Окно в каждой из спален'
-      },
-      {
-        imgName: 'comfort',
-        header: 'Уют',
-        description: 'Номер оснащён камином'
-      }
-    ]
+    const advantages = require('./data/advantagesList.json')
+    const comments = require('./data/commentsList.json')
     const rules = [
       'Нельзя с питомцами',
       'Без вечеринок и мероприятий',
       'Время прибытия — после 13:00, а выезд до 12:00'
-    ]
-    const comments = [
-      {
-        imgName: 'comment-murad',
-        name: 'Мурад Сарафанов',
-        online: '5 дней назад',
-        feedback: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
-      },
-      {
-        imgName: 'comment-patricia',
-        name: 'Патрисия Стёклышкова',
-        online: 'Неделю назад',
-        feedback: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'
-      }
     ]
 
 block content

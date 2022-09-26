@@ -1,0 +1,17 @@
+[
+  {
+    "imgName": "smile",
+    "header": "Комфорт",
+    "description": "Шумопоглощающие стены"
+  },
+  {
+    "imgName": "building",
+    "header": "Удобство",
+    "description": "Окно в каждой из спален"
+  },
+  {
+    "imgName": "comfort",
+    "header": "Уют",
+    "description": "Номер оснащён камином"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Landing",
+    "filename": "landing"
+  },
+  {
+    "title": "Log in",
+    "filename": "login"
+  },
+  {
+    "title": "Registration",
+    "filename": "registration"
+  },
+  {
+    "title": "Room search",
+    "filename": "room-search"
+  },
+  {
+    "title": "Room info",
+    "filename": "room-info"
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "title": "навигация",
+    "links": [
+      {
+        "name": "О нас",
+        "path": "/mock-address"
+      },
+      {
+        "name": "Новости",
+        "path": "/mock-address"
+      },
+      {
+        "name": "Служба поддержки",
+        "path": "/mock-address"
+      },
+      {
+        "name": "Услуги",
+        "path": "/mock-address"
+      }
+    ]
+  },
+  {
+    "title": "о нас",
+    "links": [
+      {
+        "name": "О сервисе",
+        "path": "/mock-address"
+      },
+      {
+        "name": "Наша команда",
+        "path": "/mock-address"
+      },
+      {
+        "name": "Вакансии",
+        "path": "/mock-address"
+      },
+      {
+        "name": "Инвесторы",
+        "path": "/mock-address"
+      }
+    ]
+  },
+  {
+    "title": "Служба поддержки",
+    "links": [
+      {
+        "name": "Соглашения",
+        "path": "/mock-address"
+      },
+      {
+        "name": "Сообщества",
+        "path": "/mock-address"
+      },
+      {
+        "name": "Связь с нами",
+        "path": "/mock-address"
+      }
+    ]
+  }
+]
