@@ -2,21 +2,8 @@ extends ../ui-kit-template/ui-kit-template
 
 block variables
   -
-    const colors = [
-      {color: 'dark-shade', opacity: '100'},
-      {color: 'dark-shade', opacity: '75'},
-      {color: 'dark-shade', opacity: '50'},
-      {color: 'dark-shade', opacity: '25'},
-      {color: 'dark-shade', opacity: '5'},
-      {color: 'primary'},
-      {color: 'secondary'}
-    ]
-    const types = [
-      {tag: 'h1', text: 'This one is the sub-section or widget title'},
-      {tag: 'h2', text: 'Next one is the item title inside widgets'},
-      {tag: 'h3', text: 'This is a label or CTA text'},
-      {tag: 'body', text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'}
-    ]
+    const colors = require('./data/colorsList.json')
+    const types = require('./data/typesList.json')
 
 block page 
   section.colors-type

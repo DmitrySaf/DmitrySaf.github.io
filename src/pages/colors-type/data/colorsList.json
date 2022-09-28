@@ -1,0 +1,28 @@
+[
+  {
+    "color": "dark-shade",
+    "opacity": 100
+  },
+  {
+    "color": "dark-shade",
+    "opacity": 75
+  },
+  {
+    "color": "dark-shade",
+    "opacity": 50
+  },
+  {
+    "color": "dark-shade",
+    "opacity": 25
+  },
+  {
+    "color": "dark-shade",
+    "opacity": 5
+  },
+  {
+    "color": "primary"
+  },
+  {
+    "color": "secondary"
+  }
+]
