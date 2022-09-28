@@ -1,3 +1,3 @@
-import LikeButton from "./button-like";
+import LikeButton from "./LikeButton";
 
 const likeButton = new LikeButton($('.js-button-like'));
