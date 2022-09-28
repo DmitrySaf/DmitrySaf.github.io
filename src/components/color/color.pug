@@ -10,7 +10,7 @@ mixin color(options)
 
   .color
     .color__box(
-      class=(color === 'dark-shade') ? `color_${color}_opacity_${opacity}` : `color_${color}`
+      class=(color === 'dark-shade') ? `color_${color}-${opacity}` : `color_${color}`
     )
     .color__text 
       .color__name=(color === 'dark-shade') ? `Dark Shade ${opacity}%` : (color === 'primary') ? 'Purple' : 'Green'
