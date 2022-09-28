@@ -150,4 +150,3 @@ class Dropdown {
 }
 
 export default Dropdown;
-_action
