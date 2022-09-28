@@ -11,18 +11,18 @@ window.onload = () => {
     totalPages: data.pages,
     visiblePages: 4,
     pageClass: 'pagination__item',
-    lastClass: 'pagination__item pagination__item_last js-pagination__item_last',
+    lastClass: 'pagination__item pagination__item_place_last js-pagination__item_place_last',
     activeClass: 'pagination__item_active',
     anchorClass: 'pagination__link',
-    nextClass: 'pagination__item_next js-pagination__item_next',
+    nextClass: 'pagination__item_place_next js-pagination__item_place_next',
     disabledClass: 'pagination__item_disabled',
     next: ' ',
     first: '',
     prev: '',
     last: `${data.pages}`,
     onPageClick(event, page) {
-      const $lastLink = $('.js-pagination__item_next').prev().children();
-      const $lastPage = $('.js-pagination__item_last').children();
+      const $lastLink = $('.js-pagination__item_place_next').prev().children();
+      const $lastPage = $('.js-pagination__item_place_last').children();
       const $pagesCurrent = $('span.js-pages__current');
       const $roomsOverall = $('span.js-rooms__overall');
 

@@ -6,6 +6,6 @@ const $cardPreview = $('.js-card-preview__slider');
 $cardPreview.slick({
   dots: true,
   dotsClass: 'card-preview__dots',
-  nextArrow: '<div class="card-preview__arrow_next"></div>',
-  prevArrow: '<div class="card-preview__arrow_prev"></div>',
+  nextArrow: '<div class="card-preview__arrow_action_next"></div>',
+  prevArrow: '<div class="card-preview__arrow_action_prev"></div>',
 });

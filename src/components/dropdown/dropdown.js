@@ -3,8 +3,8 @@ class Dropdown {
     this.$dropdown = $(dropdown);
     this.$clearButton = $(dropdown).find('.js-dropdown__button_clear');
     this.$acceptButton = $(dropdown).find('.js-dropdown__button_accept');
-    this.$operationPlus = $(dropdown).find('.js-dropdown__operation_plus');
-    this.$operationMinus = $(dropdown).find('.js-dropdown__operation_minus');
+    this.$operationPlus = $(dropdown).find('.js-dropdown__operation_type_plus');
+    this.$operationMinus = $(dropdown).find('.js-dropdown__operation_type_minus');
     this.$placeholder = $(dropdown).find('.js-dropdown__placeholder');
     this.$arrow = $(dropdown).find('.js-dropdown__arrow');
     this.$counter = $(dropdown).find('.dropdown__operation-counter');
@@ -45,7 +45,7 @@ class Dropdown {
   }
 
   onAcceptButton = () => {
-    localStorage.setItem('guests', JSON.stringify(this.counterValues));
+    localStorage.setItem('guests', JSON.stringify(this.counterValues));_type
     this.$dropdown.removeClass('dropdown_shown');
   }
 

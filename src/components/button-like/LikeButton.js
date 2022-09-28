@@ -14,7 +14,7 @@ class LikeButton {
       button.toggleClass('button-like_active');
       $icon
         .text($icon.text() === 'favorite_border' ? 'favorite' : 'favorite_border')
-        .toggleClass('button-like__icon_hollow');
+        .toggleClass('button-like__icon_color_dark');
       $counter
         .text($counter.hasClass('button-like__counter_active') ? (counterValue - 1) : (counterValue + 1))
         .toggleClass('button-like__counter_active');

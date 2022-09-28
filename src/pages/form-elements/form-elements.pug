@@ -27,27 +27,27 @@ block page
           .form-elements__elem
             .form-elements__lists
               .form-elements__list
-                h3.form-elements__header_h3 Checkbox Buttons
+                h3.form-elements__header_tag_h3 Checkbox Buttons
                 .form-elements__list-content
                   each list in checkboxes[0].list
                     +list-checkbox(list)
               .form-elements__list
-                h3.form-elements__header_h3 Radio Buttons
+                h3.form-elements__header_tag_h3 Radio Buttons
                 .form-elements__list-content.form-elements__list-grid
                   +button-radio({id: 'man', label: 'Мужчина'})
                   +button-radio({id: 'woman', label: 'Женщина'})
               .form-elements__list
-                h3.form-elements__header_h3 Toggle
+                h3.form-elements__header_tag_h3 Toggle
                 .form-elements__list-content
                   +button-toggle({id: 'exclusive', label: 'Получать спецпредложения'})
                   +button-toggle({id: 'axclusive', label: 'Получать спецпредложения'})
               .form-elements__list
-                h3.form-elements__header_h3 Like button
+                h3.form-elements__header_tag_h3 Like button
                 .form-elements__list-content.form-elements__list-grid
                   +button-like
                   +button-like
               .form-elements__list
-                h3.form-elements__header_h3 Rate button
+                h3.form-elements__header_tag_h3 Rate button
                 .form-elements__list-content.form-elements__list-grid
                   +button-rating({rating: 5})
                   +button-rating({rating: 3})
@@ -67,7 +67,7 @@ block page
                 a.datepicker--button.datepicker-accept.disabled
               +button-default({id: 'click7', size: 'l', text: 'перейти к оплате'})
             .form-elements__pagination
-              h3.form-elements__header_h3 pagination
+              h3.form-elements__header_tag_h3 pagination
               +pagination
           .form-elements__elem
             .form-elements__dropdowns
@@ -79,7 +79,7 @@ block page
             each list in checkboxes[1].list
               +list-checkbox(list)
           .form-elements__elem
-            h3.form-elements__header_h3 bullet list
+            h3.form-elements__header_tag_h3 bullet list
             each rule in rules
               +list-bullet({text: rule})
           .form-elements__elem

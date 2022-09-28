@@ -19,7 +19,7 @@ mixin button-default(options)
   -
     const classes = 
       [size && `button_size_${size} `]
-      + [hasBorder && 'button_form_outlined ' || 'button_form_filled ']
+      + [hasBorder && 'button_theme_outlined ' || 'button_theme_filled ']
       + [isDisabled && 'button_disabled']
       + [blockName && `${blockName}__button `]
       + [specialClasses || '']

@@ -90,9 +90,10 @@
       button
         display: none
   &__arrow
-    &_next, &_prev
-      transition: .5s all
-      opacity: 0
+    &_action
+      &_next, &_prev
+        transition: .5s all
+        opacity: 0
   &__slider
     width: 100%
     height: 151px
@@ -101,21 +102,22 @@
       border-top-right-radius: 4px
     &:hover
       .card-preview__arrow
-        &_next
-          +arrow-dropdown(#fff, -45deg)
-          height: 100%
-          right: 0
-          border-top-right-radius: 4px
-          background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%)
-          opacity: 1
-        &_prev
-          +arrow-dropdown(#fff, 135deg)
-          height: 100%
-          z-index: 10
-          left: 0
-          border-top-left-radius: 4px
-          background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%)
-          opacity: 1
+        &_action
+          &_next
+            +arrow-dropdown(#fff, -45deg)
+            height: 100%
+            right: 0
+            border-top-right-radius: 4px
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%)
+            opacity: 1
+          &_prev
+            +arrow-dropdown(#fff, 135deg)
+            height: 100%
+            z-index: 10
+            left: 0
+            border-top-left-radius: 4px
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%)
+            opacity: 1
 
 .slick
   &-active
