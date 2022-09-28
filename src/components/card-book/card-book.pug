@@ -1,0 +1,52 @@
+mixin card-book(options)
+  if !options
+    - const options = {}
+
+  -
+    const {
+      roomNumber,
+      roomStatus,
+      roomPrice
+    } = options
+
+  -
+    const priceSources = [
+      {
+        name: '9 990₽ х 4 суток',
+        price: '39 960'
+      },
+      {
+        name: 'Сбор за услуги: скидка 2 179₽',
+        price: 0,
+        mark: true
+      },
+      {
+        name: 'Сбор за дополнительные услуги',
+        price: 300,
+        mark: true
+      }
+    ]
+  
+  .card-book
+    .card-book__header
+      .card-book__header-number <span>№ </span> #{roomNumber}
+      .card-book__header-wrapper
+        h3.card-book__header-status=roomStatus
+        .card-book__header-price #{roomPrice}₽ <span>в сутки</span>
+    form.card-book__content( action = "/mock-address")
+      .card-book__input-wrapper
+        +dropdown-date({size: 's', label: 'прибытие', masked: true})
+        +dropdown-date({size: 's', label: 'выезд', masked: true})
+      +dropdown({type: 'guests', size: 'l', label: 'гости'})
+      .card-book__calc
+        each source in priceSources
+          .card-book__calc-wrapper
+            .card-book__calc-name(
+              class = [source.mark && 'card-book__info-mark']
+            )=source.name
+            .card-book__calc-price #{source.price}₽
+        .card-book__calc-wrapper
+          h2.card-book__calc-name_bold Итого
+          .card-book__calc-dots
+          h2.card-book__calc-price_bold 38 081₽
+      +button-default({buttonType: 'submit', id: 'click7', size: 'l', blockName: 'card-book', text: 'Забронировать'})

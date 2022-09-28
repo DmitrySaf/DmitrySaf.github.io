@@ -19,13 +19,7 @@ html(lang="en")
         .main__grid
           ul Demos:
             each link in demoLinks
-              -
-                const { filename, title } = link;
-
-              li: a.main__link(href=`./${filename}.html`) #{title} page
+              li: a.main__link(href=`./${link.filename}.html`) #{link.title} page
           ul UI-kit:
             each link in uikitLinks
-              -
-                const { filename, title } = link;
-
               li: a.main__link(href=`./${link.filename}.html`) #{link.title} page

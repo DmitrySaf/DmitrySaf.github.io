@@ -1,0 +1,11 @@
+mixin card-login
+  .card-login 
+    h1.card-login__header Войти
+    form.card-login__content( action = "/mock-address")
+      +input({type: 'email', size: 'l', placeholder: 'Email', blockName: 'card-login', valueType: 'email'})
+      +input({type: 'text', size: 'l', placeholder: 'Пароль', blockName: 'card-login', valueType: 'password'})
+      +button-default({buttonType: 'submit', id: 'click7', size: 'l', blockName: 'card-login', text: 'ВОйти'})
+      .card-login__footer-container
+        .card-login__footer-text Нет аккаунта на Toxin?
+        +button-default({text: 'создать', hasBorder: true, size: 's', href: './registration.html'})
+

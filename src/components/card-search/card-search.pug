@@ -1,0 +1,9 @@
+mixin card-search
+  .card-search
+    h1.card-search__header Найдём номера под ваши пожелания
+    form.card-search__content(action = "/mock-address")
+      .card-search__input-wrapper
+        +dropdown-date({size: 's', label: 'прибытие', masked: true})
+        +dropdown-date({size: 's', label: 'выезд', masked: true})
+      +dropdown({type: 'guests', size: 'l', label: 'гости'})
+      +button-default({buttonType: 'submit', id: 'click7', size: 'l', blockName: 'card-search', text: 'Подобрать номер'})

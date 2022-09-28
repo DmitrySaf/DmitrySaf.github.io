@@ -1,0 +1,27 @@
+@import '../../assets/sass/variables'
+@import '../../assets/sass/mixins'
+
+.card-login
+  +card
+  &__content
+    +card-content
+  &__button
+    margin-top: 12px
+  &__input
+    &-email, &-password
+      &::-webkit-input-placeholder
+        font-size: 14px
+        line-height: 18px
+        color: $dark-shade-25
+    &-password
+      margin: 9px 0
+    &-wrapper
+      +card-input-wrapper
+  &__header
+    font-family: $font-bold
+    font-size: $font-size-header-large
+    line-height: $line-height-header-large
+    color: $dark-shade-100
+    margin: 0
+  &__footer
+    +card-footer

@@ -8,11 +8,11 @@ block page
     .cards__container
       .cards__grid
         .cards__column
-          +card({type: 'search', header: 'Найдём номера под ваши пожелания', buttonText: 'подобрать номер'})
-          +card({type: 'registration', header: 'Регистрация аккаунта', buttonText: 'перейти к оплате', footerText: 'Уже есть аккаунт на Toxin', footerButtonText: 'войти'})
+          +card-search
+          +card-registration
         .cards__column
-          +card({type: 'book', roomNumber: 888, roomStatus: 'люкс', roomPrice: '9 990₽', buttonText: 'забронировать'})
-          +card({type: 'login', header: 'Войти', buttonText: 'войти', footerText: 'Нет аккаунта на Toxin?', footerButtonText: 'создать'})
+          +card-book({roomNumber: 888, roomStatus: 'люкс', roomPrice: '9 990'})
+          +card-login
         .cards__column
           .cards__datepicker.datepicker
           +card-preview({roomNumber: 888, roomStatus: 'люкс', roomPrice: '9 990', roomComments: 145})
