@@ -49,9 +49,12 @@
       line-height: $line-height-header-medium
       color: $dark-shade-100
       margin: 0
+      white-space: nowrap
   &__calc-name
     max-width: 214px
     line-height: 24px
+    +media-breakpoint-down($phone-normal-down)
+      max-width: 186px
     &:last-of-type
       line-height: 18px
     &_bold

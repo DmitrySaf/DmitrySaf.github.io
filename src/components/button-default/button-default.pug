@@ -24,7 +24,7 @@ mixin button-default(options)
       + [isDisabled && 'button_disabled ']
       + [blockName && `${blockName}__button `]
       + [href && 'button_type_link ']
-      + [isHeader && isLogin && 'header__login-button ' || 'header__register-button ']
+      + [isHeader && (isLogin && 'header__login-button ' || 'header__register-button ')]
 
     const buttonAttributes = {
       class: classes,

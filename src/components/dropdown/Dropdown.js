@@ -79,6 +79,7 @@ class Dropdown {
       }
       item.textContent = this.counterValues[i];
     });
+    if (this.counterValues.reduce((acc, curr) => acc + curr) > 0) this.$clearButton.addClass('clear-button_shown');
     this.$placeholder.text(placeholderText);
   }
 
@@ -101,7 +102,9 @@ class Dropdown {
 
     if (this.counterValues[2] !== 0) outputText.push(this.endingsCheck(babiesEndings));
 
-    return outputText.join(', ');
+    return (this.counterValues.reduce((acc, curr) => acc + curr) === 0)
+      ? 'Сколько гостей'
+      : outputText.join(', ');
   }
 
   roomsEndings = () => {
