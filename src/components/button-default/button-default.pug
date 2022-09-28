@@ -8,21 +8,24 @@ mixin button-default(options)
       hasBorder,
       isDisabled,
       blockName,
-      specialClasses,
       buttonType,
       formId,
       id,
       href,
-      text
+      text,
+      isHeader, 
+      isLogin
     } = options
 
   -
     const classes = 
       [size && `button_size_${size} `]
       + [hasBorder && 'button_theme_outlined ' || 'button_theme_filled ']
-      + [isDisabled && 'button_disabled']
+      + [isDisabled && 'button_disabled ']
       + [blockName && `${blockName}__button `]
-      + [specialClasses || '']
+      + [href && 'button_type_link ']
+      + [isHeader && isLogin && 'header__login-button ' || 'header__register-button ']
+
     const buttonAttributes = {
       class: classes,
       type: buttonType,

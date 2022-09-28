@@ -17,8 +17,8 @@ mixin header(options)
           if (logged)
             .header__menu-user=username
           else
-            +button-default({href: './login.html', hasBorder: true, size: 's', specialClasses: 'header__login-button', text: 'войти'})
-            +button-default({href: './registration.html', size: 'm', specialClasses: 'header__register-button', text: 'зарегистрироваться'})
+            +button-default({href: './login.html', hasBorder: true, size: 's', isHeader: true, isLogin: true, text: 'войти'})
+            +button-default({href: './registration.html', size: 'm', isHeader: true, text: 'зарегистрироваться'})
           .header__hamburger
             input#hamburger.header__hamburger-trigger(type="checkbox")
             label.header__hamburger-lines(for="hamburger")
