@@ -53,10 +53,6 @@
     color: $dark-shade-50
   &__column
     margin-top: 5px
-    &-description
-      margin-bottom: 20px
-      +media-breakpoint-down($desktop-small-down)
-        margin-bottom: 12px
     &:last-child
       max-width: 260px
       +media-breakpoint-down($desktop-small-down)
@@ -65,9 +61,13 @@
         grid-column: 1 / 5
         +media-breakpoint-down($phone-normal-down)
           grid-column: auto
+  &__column-description
+    margin-bottom: 20px
+    +media-breakpoint-down($desktop-small-down)
+      margin-bottom: 12px
   &__input
     width: 260px
-  &__additionalContent
+  &__additional-content
     display: flex
     justify-content: space-between
     align-items: center
