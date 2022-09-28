@@ -1,8 +1,8 @@
 class Dropdown {
   constructor(dropdown) {
     this.$dropdown = $(dropdown);
-    this.$clearButton = $(dropdown).find('.js-dropdown__button_clear');
-    this.$acceptButton = $(dropdown).find('.js-dropdown__button_accept');
+    this.$clearButton = $(dropdown).find('.js-dropdown__button_action_clear');
+    this.$acceptButton = $(dropdown).find('.js-dropdown__button_action_accept');
     this.$operationPlus = $(dropdown).find('.js-dropdown__operation_type_plus');
     this.$operationMinus = $(dropdown).find('.js-dropdown__operation_type_minus');
     this.$placeholder = $(dropdown).find('.js-dropdown__placeholder');
@@ -150,3 +150,4 @@ class Dropdown {
 }
 
 export default Dropdown;
+_action

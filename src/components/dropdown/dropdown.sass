@@ -24,17 +24,17 @@
     max-width: 296px
     display: grid
     grid-row-gap: 7px
-    &-wrapper
-      position: absolute
-      width: calc(100% + 2px)
-      padding-left: 14px
-      top: 100%
-      left: -1px
-      max-height: 0
-      transition: .3s all
-      background: #fff
-      overflow: hidden
-      z-index: 10
+  &__content-wrapper
+    position: absolute
+    width: calc(100% + 2px)
+    padding-left: 14px
+    top: 100%
+    left: -1px
+    max-height: 0
+    transition: .3s all
+    background: #fff
+    overflow: hidden
+    z-index: 10
   &__button
     font-family: $font-bold
     font-size: $font-size-header-small
@@ -43,18 +43,18 @@
     text-transform: uppercase
     margin: 0
     cursor: pointer
-  &__button_clear
-      position: absolute
-      bottom: 0
-      left: 0
-      display: none
-  &__button_accept
-      position: absolute
-      bottom: 0
-      right: 0
+  &__button_action_clear
+    position: absolute
+    bottom: 0
+    left: 0
+    display: none
+  &__button_action_accept
+    position: absolute
+    bottom: 0
+    right: 0
   &__button-wrapper
-      position: relative
-      height: 27px
+    position: relative
+    height: 27px
   &__item 
     +space-between()
     &-text
