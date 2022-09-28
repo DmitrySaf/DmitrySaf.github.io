@@ -43,26 +43,27 @@
     text-transform: uppercase
     margin: 0
     cursor: pointer
-  &__button_action_clear
-    position: absolute
-    bottom: 0
-    left: 0
-    display: none
-  &__button_action_accept
-    position: absolute
-    bottom: 0
-    right: 0
+  &__button_action
+    &_clear
+      position: absolute
+      bottom: 0
+      left: 0
+      display: none
+    &_accept
+      position: absolute
+      bottom: 0
+      right: 0
   &__button-wrapper
     position: relative
     height: 27px
   &__item 
     +space-between()
-    &-text
-      text-transform: uppercase
-      font-family: $font-bold
-      font-size: $font-size-header-small
-      line-height: $line-height-header-small
-      margin: 0
+  &__item-text
+    text-transform: uppercase
+    font-family: $font-bold
+    font-size: $font-size-header-small
+    line-height: $line-height-header-small
+    margin: 0
   &__label
     font-family: $font-bold
     font-size: $font-size-header-small
@@ -74,17 +75,16 @@
   &__calc
     +space-between()
     width: 92px
-  &__operation
-    &_type
-      &_minus
-        +operation()
-      &_plus
-        +operation-plus()
-    &-counter
-      margin: 0
-      font-family: $font-bold
-      font-size: $font-size-header-small
-      line-height: $line-height-header-small
+  &__operation_type
+    &_minus
+      +operation()
+    &_plus
+      +operation-plus()
+  &__operation-counter
+    margin: 0
+    font-family: $font-bold
+    font-size: $font-size-header-small
+    line-height: $line-height-header-small
   &__arrow
     all: unset
     appearance: none
