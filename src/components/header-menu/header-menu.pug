@@ -10,20 +10,29 @@ mixin header-menu(options)
     class = isHamburger && 'menu__nav-hamburger'
   )
     ul.menu__list
-      each link in links 
+      each link in links
+        -
+          const {
+            hasDropdown,
+            bold,
+            name,
+            path,
+            items
+          } = link
+
         li
-          if link.hasDropdown
+          if hasDropdown
             label
               input(type="checkbox" class="menu__link-checkbox")
               .menu__link(
-                class = [link.bold && 'menu__link_bold']
-              )=link.name
+                class = [bold && 'menu__link_bold']
+              )=name
               .menu__link-dropdown
               .menu__link-content 
-                each item in link.items
+                each item in items
                   a.menu__link(href=item.path) #{item.name}
           else
             a.menu__link(
-              class = [link.bold && 'menu__link_bold']
-              href=link.path
-            )=link.name
+              class = [bold && 'menu__link_bold']
+              href=path
+            )=name

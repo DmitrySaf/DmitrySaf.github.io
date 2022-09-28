@@ -54,7 +54,7 @@ block page
           .form-elements__elem
             .form-elements__button-range
               +range-slider({type: 'range', id: 'range', label: 'range slider'})
-            h3.form-elements__header_h3 buttons
+            h3.form-elements__header_tag_h3 buttons
             .form-elements__buttons
               .form-elements__buttons-grid
                 +button-default({id: 'click1', size: 's', text: 'click me'})
@@ -75,13 +75,13 @@ block page
               +dropdown({type: 'rooms', size: 'm', label: 'dropdown'})
               +dropdown-checkbox({items: additionalComfort, label: 'expandable checkbox list'})
           .form-elements__elem
-            h3.form-elements__header_h3 rich checkbox buttons
+            h3.form-elements__header_tag_h3 rich checkbox buttons
             each list in checkboxes[1].list
               +list-checkbox(list)
           .form-elements__elem
             h3.form-elements__header_tag_h3 bullet list
-            each rule in rules
-              +list-bullet({text: rule})
+            each text in rules
+              +list-bullet({text})
           .form-elements__elem
             +list-advantage({imgName: 'smile', header: 'Комфорт', description: 'Шумопоглощающие стены'})
             +list-advantage({imgName: 'building', header: 'Удобство', description: 'Окно в каждой из спален'})

@@ -11,21 +11,21 @@ mixin list-checkbox(options)
     } = options
 
   li.list-checkbox
-      input.list-checkbox__button(
-        type = "checkbox"
-        id = id)
-      if (isRich)
-        .list-checkbox-rich__wrapper
-          label(
-            class = "list-checkbox-rich__label"
-            for = id
-          )=label
-          label(
-            class = "list-checkbox-rich__description"
-            for = id
-          )=description
-      else
+    input.list-checkbox__button(
+      type = "checkbox"
+      id = id)
+    if (isRich)
+      .list-checkbox-rich__wrapper
         label(
-          class = "list-checkbox__label"
+          class = "list-checkbox-rich__label"
           for = id
         )=label
+        label(
+          class = "list-checkbox-rich__description"
+          for = id
+        )=description
+    else
+      label(
+        class = "list-checkbox__label"
+        for = id
+      )=label

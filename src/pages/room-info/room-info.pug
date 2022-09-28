@@ -43,8 +43,8 @@ block content
           .room-info__rules
             h2.room-info__rules-header.room-info__block-title Правила
             ul.room-info__rules-list
-              each rule in rules
-                +list-bullet({text: rule})
+              each text in rules
+                +list-bullet({text})
           .room-info__cancel
             h2.room-info__cancel-header.room-info__block-title Отмена
             .room-info__cancel-description Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.

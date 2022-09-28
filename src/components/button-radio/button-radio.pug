@@ -2,10 +2,16 @@ mixin button-radio(options)
   if !options
     - const options = {}
 
+  -
+    const {
+      id,
+      label
+    } = options
+
   .button-radio
     input.button-radio__button(
       type = "radio"
       name = "gender"
-      id = options.id)
+      id = id)
     label.button-radio__label(
-      for = options.id)=options.label
+      for = id)=label
