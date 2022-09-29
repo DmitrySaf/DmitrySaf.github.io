@@ -1,7 +1,7 @@
 <h1 align="center">Toxin</h1>
 <h3 align="center">Cайт для поиска номеров в отеле</h3>
 <h2>See the demos:</h2>
-1. <a href="https://dmitrysaf.github.io/MetaLampToxin/index.html">Landing page</a><br>
+1. <a href="https://dmitrysaf.github.io/MetaLampToxin/landing.html">Landing page</a><br>
 2. <a href="https://dmitrysaf.github.io/MetaLampToxin/login.html">Log in page</a><br>
 3. <a href="https://dmitrysaf.github.io/MetaLampToxin/registration.html">Registration page</a><br>
 4. <a href="https://dmitrysaf.github.io/MetaLampToxin/room-search.html">Room search page</a><br>
