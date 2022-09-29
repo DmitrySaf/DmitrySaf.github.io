@@ -1,7 +1,7 @@
 mixin card-search
   .card-search
     h1.card-search__header Найдём номера под ваши пожелания
-    form.card-search__content(action = "/mock-address")
+    form.card-search__content(action = "./room-search.html")
       .card-search__input-wrapper
         +dropdown-date({size: 's', label: 'прибытие', masked: true})
         +dropdown-date({size: 's', label: 'выезд', masked: true})
