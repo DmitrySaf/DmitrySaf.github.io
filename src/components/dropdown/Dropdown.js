@@ -45,7 +45,7 @@ class Dropdown {
   }
 
   onAcceptButton = () => {
-    localStorage.setItem('guests', JSON.stringify(this.counterValues));_type
+    localStorage.setItem('guests', JSON.stringify(this.counterValues));
     this.$dropdown.removeClass('dropdown_shown');
   }
 
