@@ -3,9 +3,9 @@ extends ../main/main
 block variables
   -
     const title = "Search rooms"
-    const additionalComfort = require('./data/additionalComfortList.json')
-    const checkboxes = require('./data/checkboxesList.json')
-    const rooms = require('./data/roomsList.json')
+    const additionalComfort = require('./data/additional-comfort-list.json')
+    const checkboxes = require('./data/checkboxes-list.json')
+    const rooms = require('./data/rooms-list.json')
 
 block content
   section.room-search
@@ -22,7 +22,7 @@ block content
             +dropdown({type: 'guests', size: 'm', label: 'гости'})
             .room-search__range
               +range-slider({label: 'диапазон цены'})
-              .room-search__range-description Стоимость за сутки пребывания в номере
+              .room-search__range-description Стоимость за сутки пребывания в номер-l
             each checkbox in checkboxes
               .room-search__checkbox
                 h3.room-search__checkbox-header #{checkbox.header}
