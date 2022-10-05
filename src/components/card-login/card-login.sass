@@ -7,16 +7,15 @@
     +card-content
   &__button
     margin-top: 12px
-  &__input
-    &-email, &-password
-      &::-webkit-input-placeholder
-        font-size: 14px
-        line-height: 18px
-        color: $dark-shade-25
-    &-password
-      margin: 9px 0
-    &-wrapper
-      +card-input-wrapper
+  &__input-email, &__input-password
+    &::-webkit-input-placeholder
+      font-size: 14px
+      line-height: 18px
+      color: $dark-shade-25
+  &__input-password
+    margin: 9px 0
+  &__input-wrapper
+    +card-input-wrapper
   &__header
     font-family: $font-bold
     font-size: $font-size-header-large

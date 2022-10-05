@@ -22,11 +22,10 @@
       +media-breakpoint-down($phone-normal-down)
         grid-template-columns: minmax(200px, 210px) repeat(auto-fill, minmax(92px, 158px))
         column-gap: 8px
-  &__logo
-    &-container
-      display: grid
-      grid-template: 40px max-content / minmax(200px, 260px)
-      row-gap: 18px
+  &__logo-container
+    display: grid
+    grid-template: 40px max-content / minmax(200px, 260px)
+    row-gap: 18px
   &__list
     all: unset
     display: grid
@@ -34,18 +33,18 @@
     row-gap: 13px
     +media-breakpoint-down($tablet-portrait-down)
       row-gap: 10px
-    &-title
-      font-family: $font-bold
-      font-size: $font-size-header-small
-      line-height: $line-height-header-small
-      color: $dark-shade-100
-      text-transform: uppercase
-      margin: 0
-      margin-bottom: 20px
-      +media-breakpoint-down($desktop-small-down)
-        margin-bottom: 12px
     & li 
       all: unset
+  &__list-title
+    font-family: $font-bold
+    font-size: $font-size-header-small
+    line-height: $line-height-header-small
+    color: $dark-shade-100
+    text-transform: uppercase
+    margin: 0
+    margin-bottom: 20px
+    +media-breakpoint-down($desktop-small-down)
+      margin-bottom: 12px
   &__link
     text-decoration: none
     font-size: 14px

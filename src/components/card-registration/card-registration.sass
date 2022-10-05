@@ -5,24 +5,22 @@
   +card
   &__content
     +card-content
-  &__input
-    &-surname, &-password, &-email, &-name, &-date
-      &::-webkit-input-placeholder
-        font-size: 14px
-        line-height: 18px
-        color: $dark-shade-25
-    &-surname, &-password
-      margin: 9px 0
-    &-date
-      margin-bottom: 21px
-    &-wrapper
-      +card-input-wrapper
-  &__gender
-    &-wrapper
-      margin-bottom: 22px
-      display: grid
-      grid-template-columns: max-content max-content
-      column-gap: 20px
+  &__input-surname, &__input-password, &__input-email, &__input-name, &__input-date
+    &::-webkit-input-placeholder
+      font-size: 14px
+      line-height: 18px
+      color: $dark-shade-25
+  &__input-surname, &__input-password
+    margin: 9px 0
+  &__input-date
+    margin-bottom: 21px
+  &__input-wrapper
+    +card-input-wrapper
+  &__gender-wrapper
+    margin-bottom: 22px
+    display: grid
+    grid-template-columns: max-content max-content
+    column-gap: 20px
   &__button
     margin-top: 21px
   &__data-header
