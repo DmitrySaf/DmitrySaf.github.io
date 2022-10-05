@@ -1,3 +1,20 @@
+const endingsCheck = (endings) => {
+  const {
+    ones, twoToFour, others, value,
+  } = endings;
+  const endsWithTwoToFour = ((value % 10 === 2)
+    || (value % 10 === 3)
+    || (value % 10 === 4))
+    && (value !== 12)
+    && (value !== 13)
+    && (value !== 14);
+  const endsWithOne = (value % 10 === 1) && (value !== 11);
+
+  if (endsWithOne) return (`${value} ${ones}`);
+  if (endsWithTwoToFour) return (`${value} ${twoToFour}`);
+  return (`${value} ${others}`);
+};
+
 class Dropdown {
   constructor(dropdown) {
     this.$dropdown = $(dropdown);
@@ -21,14 +38,14 @@ class Dropdown {
     this.$acceptButton.on('click', this.onAcceptButton);
     this.$operationMinus.on('click', this.onDecrease);
     this.$operationPlus.on('click', this.onIncrease);
-  }
+  };
 
   onDropdownOpen = (e) => {
     e.stopPropagation();
     this.$dropdown.addClass('dropdown_shown');
     this.renderCounter();
     document.addEventListener('click', this.onDropdownClose);
-  }
+  };
 
   onDropdownClose = (e) => {
     const isCLosest = e.target.closest('.dropdown__content-wrapper');
@@ -36,37 +53,37 @@ class Dropdown {
     if (!isCLosest && this.$dropdown.hasClass('dropdown_shown')) {
       this.$dropdown.removeClass('dropdown_shown');
     }
-  }
+  };
 
   onClearButton = () => {
     this.counterValues = [0, 0, 0];
     this.renderCounter(this.$dropdown);
     this.$clearButton.removeClass('clear-button_shown');
-  }
+  };
 
   onAcceptButton = () => {
     localStorage.setItem('guests', JSON.stringify(this.counterValues));
     this.$dropdown.removeClass('dropdown_shown');
-  }
+  };
 
   onIncrease = (e) => {
     const indexOfChange = this.$operationPlus.index(e.currentTarget);
-  
+
     this.counterValues[indexOfChange] += 1;
     this.renderCounter();
     this.$clearButton.addClass('clear-button_shown');
-  }
+  };
 
   onDecrease = (e) => {
     const indexOfChange = this.$operationMinus.index(e.currentTarget);
     const currentCounter = this.counterValues[indexOfChange];
-    
+
     if (currentCounter > 0) {
       this.counterValues[indexOfChange] -= 1;
-      if (this.counterValues.reduce((acc, curr) => acc+curr) === 0) this.$clearButton.removeClass('clear-button_shown');
+      if (this.counterValues.reduce((acc, curr) => acc + curr) === 0) this.$clearButton.removeClass('clear-button_shown');
       this.renderCounter();
     }
-  }
+  };
 
   renderCounter = () => {
     const placeholderText = this.isGuests ? this.guestEndings() : this.roomsEndings();
@@ -77,79 +94,63 @@ class Dropdown {
       } else {
         item.previousElementSibling.classList.remove('operation_disabled');
       }
-      item.textContent = this.counterValues[i];
+      this.$counter[i].textContent = this.counterValues[i];
     });
     if (this.counterValues.reduce((acc, curr) => acc + curr) > 0) this.$clearButton.addClass('clear-button_shown');
     this.$placeholder.text(placeholderText);
-  }
+  };
 
   guestEndings = () => {
     const gusetsEndings = {
       value: this.counterValues[0] + this.counterValues[1],
       ones: 'гость',
       twoToFour: 'гостя',
-      others: 'гостей'
+      others: 'гостей',
     };
     const babiesEndings = {
       value: this.counterValues[2],
       ones: 'младенец',
       twoToFour: 'младенца',
-      others: 'младенцев'
+      others: 'младенцев',
     };
     const outputText = [
-      this.endingsCheck(gusetsEndings)
+      endingsCheck(gusetsEndings),
     ];
 
-    if (this.counterValues[2] !== 0) outputText.push(this.endingsCheck(babiesEndings));
+    if (this.counterValues[2] !== 0) outputText.push(endingsCheck(babiesEndings));
 
     return (this.counterValues.reduce((acc, curr) => acc + curr) === 0)
       ? 'Сколько гостей'
       : outputText.join(', ');
-  }
+  };
 
   roomsEndings = () => {
     const bedroomsEndings = {
       value: this.counterValues[0],
       ones: 'спалья',
       twoToFour: 'спальни',
-      others: 'спален'
+      others: 'спален',
     };
     const bedsEndings = {
       value: this.counterValues[1],
       ones: 'кровать',
       twoToFour: 'кровати',
-      others: 'кроватей'
+      others: 'кроватей',
     };
     const bathsEndings = {
-      value:  this.counterValues[2],
+      value: this.counterValues[2],
       ones: 'ванная',
       twoToFour: 'ванны',
-      others: 'ванн'
+      others: 'ванн',
     };
     const outputText = [
-      this.endingsCheck(bedroomsEndings),
-      this.endingsCheck(bedsEndings),
-      this.endingsCheck(bathsEndings)
+      endingsCheck(bedroomsEndings),
+      endingsCheck(bedsEndings),
+      endingsCheck(bathsEndings),
     ];
 
     return outputText.join(', ');
-  }
-
-  endingsCheck = (endings) => {
-    const { ones, twoToFour, others, value } = endings;
-    const endsWithTwoToFour = 
-      ((value % 10 === 2)
-      || (value % 10 === 3)
-      || (value % 10 === 4))
-      && (value !== 12)
-      && (value !== 13)
-      && (value !== 14);
-    const endsWithOne = (value % 10 === 1) && (value !== 11);
-
-    if (endsWithOne) return(`${value} ${ones}`);
-    if (endsWithTwoToFour) return(`${value} ${twoToFour}`);
-    return(`${value} ${others}`);
-  }
+  };
 }
 
 export default Dropdown;

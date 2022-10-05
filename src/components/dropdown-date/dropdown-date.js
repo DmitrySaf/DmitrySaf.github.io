@@ -20,7 +20,7 @@ const appendAcceptButton = () => {
       datepicker.hide();
     });
   }
-}
+};
 
 $dropdownDate.on('click', appendAcceptButton);
 $dropdownDateArrow.on('click', appendAcceptButton);
@@ -36,8 +36,8 @@ $dropdownDate.first().datepicker({
   moveToOtherYearsOnSelect: false,
   minDate: new Date(),
   onSelect: (formattedDate, date) => {
-    $dropdownDate.each((i, item) => {
-      item.value = formattedDate.split(',')[i] ? formattedDate.split(',')[i] : ''
+    $dropdownDate.each((i) => {
+      $dropdownDate[i].value = formattedDate.split(',')[i] ? formattedDate.split(',')[i] : '';
     });
     localStorage.setItem('firstDate', date[0]);
     localStorage.setItem('secondDate', date[1]);
@@ -72,9 +72,10 @@ if ($(window)[0].document.title === 'Search rooms') {
       const startDay = new Date(localStorage.getItem('firstDate'));
       const endDay = new Date(localStorage.getItem('secondDate'));
 
-      if (+date == +startDay) return { classes: '-range-from-' }
-      if (+date == +endDay) return { classes: '-range-to-' }
-      if ((date > startDay) && (date < endDay)) return { classes: '-in-range-' }
-    }
+      if (+date === +startDay) return { classes: '-range-from-' };
+      if (+date === +endDay) return { classes: '-range-to-' };
+      if ((date > startDay) && (date < endDay)) return { classes: '-in-range-' };
+      return { classes: 'datepicker--cell' };
+    },
   });
 }
