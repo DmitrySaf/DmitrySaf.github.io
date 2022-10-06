@@ -51,7 +51,8 @@
     "dev": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=build webpack --config ./build/webpack.build.conf.js",
     "deploy": "gh-pages -d dist",
-    "eslint": "eslint --ext .js src"
+    "eslint": "eslint --ext .js src",
+    "puglint": "pug-lint -r console"
   },
   "repository": {
     "type": "git",
@@ -68,6 +69,7 @@
     "chart.js": "^3.9.1",
     "inputmask": "^5.0.7",
     "ion-rangeslider": "^2.3.1",
+    "pug-lint": "^2.6.0",
     "slick-carousel": "^1.8.1",
     "twbs-pagination": "^1.4.2"
   }
