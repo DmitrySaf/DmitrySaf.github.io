@@ -1,4 +1,4 @@
-mixin input(options) 
+mixin input(options)
   if !options
     - const options = {}
 
@@ -16,21 +16,20 @@ mixin input(options)
     } = options;
 
   -
-    const classes = 
+    const classes =
     [size && `input_size_${size} ` || 'input_size_l ']
     + [masked && 'js-input_masked ']
     + [blockName && valueType && `${blockName}__input-${valueType} ` || `${blockName}__input `]
 
   .input__container
     if (label)
-      h3.input__label=label
+      h3.input__label= label
     .input__wrapper
       input.input(
-        class = classes
-        type = type
-        placeholder = placeholder
-        required = true
-        id = id)
+        class=classes
+        type=type
+        placeholder=placeholder
+        required=true
+        id=id)
       if (type === 'email' && sub)
         .input__arrow-main
-        

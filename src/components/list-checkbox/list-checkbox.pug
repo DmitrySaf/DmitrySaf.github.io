@@ -1,6 +1,6 @@
 mixin list-checkbox(options)
   if !options
-   - const options = {}
+    - const options = {}
 
   -
     const {
@@ -12,20 +12,11 @@ mixin list-checkbox(options)
 
   li.list-checkbox
     input.list-checkbox__button(
-      type = "checkbox"
-      id = id)
+      type="checkbox"
+      id=id)
     if (isRich)
       .list-checkbox-rich__wrapper
-        label(
-          class = "list-checkbox-rich__label"
-          for = id
-        )=label
-        label(
-          class = "list-checkbox-rich__description"
-          for = id
-        )=description
+        label.list-checkbox-rich__label(for=id)= label
+        label.list-checkbox-rich__description(for=id)= description
     else
-      label(
-        class = "list-checkbox__label"
-        for = id
-      )=label
+      label.list-checkbox__label(for=id)= label

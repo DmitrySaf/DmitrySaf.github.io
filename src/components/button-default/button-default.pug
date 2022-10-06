@@ -13,12 +13,12 @@ mixin button-default(options)
       id,
       href,
       text,
-      isHeader, 
+      isHeader,
       isLogin
     } = options
 
   -
-    const classes = 
+    const classes =
       [size && `button_size_${size} `]
       + [hasBorder && 'button_theme_outlined ' || 'button_theme_filled ']
       + [isDisabled && 'button_disabled ']
@@ -30,11 +30,10 @@ mixin button-default(options)
       class: classes,
       type: buttonType,
       form: formId,
-      id: id,
       href: href ? href : '/mock-address'
     }
 
   if (href)
-    a.button&attributes(buttonAttributes)=text
+    a.button&attributes(buttonAttributes)= text
   else
-    button.button&attributes(buttonAttributes)=text
+    button.button&attributes(buttonAttributes)= text

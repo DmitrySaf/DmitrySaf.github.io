@@ -1,7 +1,7 @@
 mixin list-advantage(options)
   if !options
     - const options = {}
-  
+
   -
     const {
       header,
@@ -11,7 +11,7 @@ mixin list-advantage(options)
 
   li.list-advantage
     .list-advantage__img
-      img(src=require(`../../components/list-advantage/img/${imgName}.svg`), alt=imgName)
+      img(src=require(`../../components/list-advantage/img/${imgName}.svg`) alt=imgName)
     .list-advantage__text-wrapper
-      .list-advantage__text-header=header
-      .list-advantage__text-description=description
+      .list-advantage__text-header= header
+      .list-advantage__text-description= description

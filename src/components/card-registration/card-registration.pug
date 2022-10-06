@@ -1,7 +1,7 @@
 mixin card-registration
   .card-registration
     h1.card-registration__header Регистрация аккаунта
-    form.card-registration__content( action = "/mock-address")
+    form.card-registration__content(action = "/mock-address")
       +input({type: 'text', size: 'l', placeholder: 'Имя', blockName: 'card-registration', valueType: 'name'})
       +input({type: 'text', size: 'l', placeholder: 'Фамилия', blockName: 'card-registration', valueType: 'surname'})
       .card-registration__gender-wrapper

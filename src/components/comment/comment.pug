@@ -1,5 +1,5 @@
 mixin comment(options)
-  if !options 
+  if !options
     - const options = {}
 
   -
@@ -10,13 +10,13 @@ mixin comment(options)
       feedback
     } = options
 
-  .comment 
-    .comment__img 
+  .comment
+    .comment__img
       img(src=require(`../../components/comment/img/${imgName}.svg`) alt=imgName)
     .comment__header
-      .comment__name=name
-      .comment__online=online
+      .comment__name= name
+      .comment__online= online
     .comment__like
       +button-like
     .comment__text
-      .comment__feedback=feedback
+      .comment__feedback= feedback

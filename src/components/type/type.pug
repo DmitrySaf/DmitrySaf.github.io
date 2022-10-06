@@ -8,10 +8,6 @@ mixin type(options)
       text
     } = options
 
-  .type 
-    .type__tag(
-      class=`type__tag_name_${tag}`
-    )=tag
-    .type__text(
-      class=`type__text_name_${tag}`
-    )=text
+  .type
+    .type__tag(class=`type__tag_name_${tag}`)= tag
+    .type__text(class=`type__text_name_${tag}`)= text

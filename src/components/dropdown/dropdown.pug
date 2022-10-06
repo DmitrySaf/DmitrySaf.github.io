@@ -23,17 +23,17 @@ mixin dropdown(options)
     const dropdownOptions = (type === 'guests') ? guestsOptions : roomsOptions
 
   .dropdown__wrapper
-    h3.dropdown__label=label
+    h3.dropdown__label= label
     .dropdown.js-dropdown(
-      class = size ? `dropdown_size_${size}` : ''
-      id = `dropdown-${type}`)
-      .dropdown__placeholder.js-dropdown__placeholder=(type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати..."
+      class=size ? `dropdown_size_${size}` : ''
+      id=`dropdown-${type}`)
+      .dropdown__placeholder.js-dropdown__placeholder= (type === 'guests') ? "Сколько гостей" : "2 спальни, 2 кровати..."
       .dropdown__arrow.js-dropdown__arrow(type = "checkbox")
       .dropdown__content-wrapper
         .dropdown__content
           each text in dropdownOptions
             .dropdown__item
-              h3.dropdown__item-text=text
+              h3.dropdown__item-text= text
               .dropdown__calc
                 .dropdown__operation.dropdown__operation_type_minus.js-dropdown__operation_type_minus
                 .dropdown__operation-counter 0

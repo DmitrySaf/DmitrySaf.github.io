@@ -14,15 +14,15 @@ block variables
 block content
   +collage
   section.room-info
-    .room-info__container 
-      .room-info__wrapper 
+    .room-info__container
+      .room-info__wrapper
         .room-info__grid
           .room-info__advantages
             h2.room-info__advantages-header.room-info__block-title Сведения о номере
             ul.room-info__advantages-list
               each advantage in advantages
                 +list-advantage(advantage)
-          .room-info__evaluation 
+          .room-info__evaluation
             h2.room-info__evaluation-header.room-info__block-title Впечатления от номера
             .room-info__evaluation-container
               .room-info__evaluation-chart
@@ -38,7 +38,7 @@ block content
               h2.room-info__feedback-title.room-info__block-title Отзывы посетителей номера
               .room-info__feedback-subtitle 2 отзыва
             .room-info__feedback-comment
-              each comment in comments 
+              each comment in comments
                 +comment(comment)
           .room-info__rules
             h2.room-info__rules-header.room-info__block-title Правила

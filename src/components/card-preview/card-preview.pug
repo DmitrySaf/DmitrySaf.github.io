@@ -18,8 +18,8 @@ mixin card-preview(options)
   .card-preview
     .card-preview__slider.js-card-preview__slider
       - for (imageIndex; imageIndex <= images; imageIndex++) {
-          a(href="./room-info.html")
-            img(src=require(`../../components/card-preview/img/room-${roomNumber}/room-${roomNumber}-1.png`) alt=`room-${roomNumber}`)
+        a(href="./room-info.html")
+          img(src=require(`../../components/card-preview/img/room-${roomNumber}/room-${roomNumber}-1.png`) alt=`room-${roomNumber}`)
       - }
     .card-preview__content
       .card-preview__header-container

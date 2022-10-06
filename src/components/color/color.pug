@@ -9,9 +9,7 @@ mixin color(options)
     } = options
 
   .color
-    .color__box(
-      class=(color === 'dark-shade') ? `color_${color}-${opacity}` : `color_${color}`
-    )
-    .color__text 
-      .color__name=(color === 'dark-shade') ? `Dark Shade ${opacity}%` : (color === 'primary') ? 'Purple' : 'Green'
-      .color__code=(color === 'dark-shade') ? '#1F2041' : (color === 'primary') ? '#BC9CFF' : '#6FCF97'
+    .color__box(class=(color === 'dark-shade') ? `color_${color}-${opacity}` : `color_${color}`)
+    .color__text
+      .color__name= (color === 'dark-shade') ? `Dark Shade ${opacity}%` : (color === 'primary') ? 'Purple' : 'Green'
+      .color__code= (color === 'dark-shade') ? '#1F2041' : (color === 'primary') ? '#BC9CFF' : '#6FCF97'

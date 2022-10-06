@@ -16,10 +16,9 @@ mixin button-rating(options)
   .button-rating
     while n <= starsNumber
       input.button-rating__star(
-        name = roomNumber
-        checked = (rating === n)
-        value = n++
-        type = "radio"
-        disabled = "disabled"
-      )
+        name=roomNumber
+        checked=(rating === n)
+        value=n++
+        type="radio"
+        disabled="disabled")
       span.button-rating__star_active

@@ -26,14 +26,14 @@ mixin card-book(options)
         mark: true
       }
     ]
-  
+
   .card-book
     .card-book__header
       .card-book__header-number <span>№ </span> #{roomNumber}
       .card-book__header-wrapper
-        h3.card-book__header-status=roomStatus
+        h3.card-book__header-status= roomStatus
         .card-book__header-price #{roomPrice}₽ <span>в сутки</span>
-    form.card-book__content( action = "/mock-address")
+    form.card-book__content(action = "/mock-address")
       .card-book__input-wrapper
         +dropdown-date({size: 's', label: 'прибытие', masked: true})
         +dropdown-date({size: 's', label: 'выезд', masked: true})
@@ -41,9 +41,7 @@ mixin card-book(options)
       .card-book__calc
         each source in priceSources
           .card-book__calc-wrapper
-            .card-book__calc-name(
-              class = [source.mark && 'card-book__info-mark']
-            )=source.name
+            .card-book__calc-name(class=[source.mark && "card-book__info-mark"])= source.name
             .card-book__calc-price #{source.price}₽
         .card-book__calc-wrapper
           h2.card-book__calc-name_bold Итого

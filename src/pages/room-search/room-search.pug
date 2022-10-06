@@ -13,8 +13,8 @@ block content
       .room-search__grid
         .room-search__filters-trigger.js-room-search__filters-trigger
           h3.room-search__filters-text Фильтры
-          span.material-icons-outlined filter_alt 
-        .room-search__filters.js-room-search__filters 
+          span.material-icons-outlined filter_alt
+        .room-search__filters.js-room-search__filters
           .room-search__filters-content
             +logo
             .room-search__arrow.js-room-search__arrow
@@ -37,5 +37,5 @@ block content
           .room-search__content-grid
             each room in rooms
               +card-preview(room)
-          .room-search__pagination 
+          .room-search__pagination
             +pagination

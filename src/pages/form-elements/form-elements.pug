@@ -10,80 +10,80 @@ block variables
       'Время прибытия — после 13:00, а выезд до 12:00'
     ]
 
-block page 
-   section.form-elements
-      .form-elements__container
-        .form-elements__grid
-          .form-elements__elem
-            .form-elements__inputs
-              +input({type: 'email', label: 'text field', placeholder: 'Email'})
-              +dropdown({type: 'guests', size: 'l', label: 'dropdown'})
-              +input({type: 'text', label: 'masked text field', placeholder: 'ДД.ММ.ГГГГ', masked: true})
-            .form-elements__date-inputs
-              +dropdown-date({size: 's', label: 'date dropdown', masked: true})
-              +dropdown-date({size: 's', label: 'date dropdown', masked: true})
-              +dropdown-date({size: 'm', label: 'filter date dropdown'})
-              +input({type: 'email', label: 'subscription text field', sub: true, size: 'm', placeholder: 'Email'})
-          .form-elements__elem
-            .form-elements__lists
-              .form-elements__list
-                h3.form-elements__header_tag_h3 Checkbox Buttons
-                .form-elements__list-content
-                  each list in checkboxes[0].list
-                    +list-checkbox(list)
-              .form-elements__list
-                h3.form-elements__header_tag_h3 Radio Buttons
-                .form-elements__list-content.form-elements__list-grid
-                  +button-radio({id: 'man', label: 'Мужчина'})
-                  +button-radio({id: 'woman', label: 'Женщина'})
-              .form-elements__list
-                h3.form-elements__header_tag_h3 Toggle
-                .form-elements__list-content
-                  +button-toggle({id: 'exclusive', label: 'Получать спецпредложения'})
-                  +button-toggle({id: 'axclusive', label: 'Получать спецпредложения'})
-              .form-elements__list
-                h3.form-elements__header_tag_h3 Like button
-                .form-elements__list-content.form-elements__list-grid
-                  +button-like
-                  +button-like
-              .form-elements__list
-                h3.form-elements__header_tag_h3 Rate button
-                .form-elements__list-content.form-elements__list-grid
-                  +button-rating({rating: 5})
-                  +button-rating({rating: 3})
-          .form-elements__elem
-            .form-elements__button-range
-              +range-slider({type: 'range', id: 'range', label: 'range slider'})
-            h3.form-elements__header_tag_h3 buttons
-            .form-elements__buttons
-              .form-elements__buttons-grid
-                +button-default({id: 'click1', size: 's', text: 'click me'})
-                +button-default({id: 'click2', size: 's', isDisabled: true, text: 'click me'})
-              .form-elements__buttons-grid
-                +button-default({id: 'click3', size: 's', hasBorder: true, text: 'click me'})
-                +button-default({id: 'click4', size: 's', isDisabled: true, hasBorder: true, text: 'click me'})
-              .form-elements__buttons-grid
-                a.datepicker--button.datepicker-accept
-                a.datepicker--button.datepicker-accept.disabled
-              +button-default({id: 'click7', size: 'l', text: 'перейти к оплате'})
-            .form-elements__pagination
-              h3.form-elements__header_tag_h3 pagination
-              +pagination
-          .form-elements__elem
-            .form-elements__dropdowns
-              +dropdown({type: 'guests', size: 'm', label: 'dropdown'})
-              +dropdown({type: 'rooms', size: 'm', label: 'dropdown'})
-              +dropdown-checkbox({items: additionalComfort, label: 'expandable checkbox list'})
-          .form-elements__elem
-            h3.form-elements__header_tag_h3 rich checkbox buttons
-            each list in checkboxes[1].list
-              +list-checkbox(list)
-          .form-elements__elem
-            h3.form-elements__header_tag_h3 bullet list
-            each text in rules
-              +list-bullet({text})
-          .form-elements__elem
-            +list-advantage({imgName: 'smile', header: 'Комфорт', description: 'Шумопоглощающие стены'})
-            +list-advantage({imgName: 'building', header: 'Удобство', description: 'Окно в каждой из спален'})
-          .form-elements__elem
-            +comment({imgName: 'comment-murad', name: 'Мурад Сарафанов', online: '5 дней назад', feedback: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})
+block page
+  section.form-elements
+    .form-elements__container
+      .form-elements__grid
+        .form-elements__elem
+          .form-elements__inputs
+            +input({type: 'email', label: 'text field', placeholder: 'Email'})
+            +dropdown({type: 'guests', size: 'l', label: 'dropdown'})
+            +input({type: 'text', label: 'masked text field', placeholder: 'ДД.ММ.ГГГГ', masked: true})
+          .form-elements__date-inputs
+            +dropdown-date({size: 's', label: 'date dropdown', masked: true})
+            +dropdown-date({size: 's', label: 'date dropdown', masked: true})
+            +dropdown-date({size: 'm', label: 'filter date dropdown'})
+            +input({type: 'email', label: 'subscription text field', sub: true, size: 'm', placeholder: 'Email'})
+        .form-elements__elem
+          .form-elements__lists
+            .form-elements__list
+              h3.form-elements__header_tag_h3 Checkbox Buttons
+              .form-elements__list-content
+                each list in checkboxes[0].list
+                  +list-checkbox(list)
+            .form-elements__list
+              h3.form-elements__header_tag_h3 Radio Buttons
+              .form-elements__list-content.form-elements__list-grid
+                +button-radio({id: 'man', label: 'Мужчина'})
+                +button-radio({id: 'woman', label: 'Женщина'})
+            .form-elements__list
+              h3.form-elements__header_tag_h3 Toggle
+              .form-elements__list-content
+                +button-toggle({id: 'exclusive', label: 'Получать спецпредложения'})
+                +button-toggle({id: 'axclusive', label: 'Получать спецпредложения'})
+            .form-elements__list
+              h3.form-elements__header_tag_h3 Like button
+              .form-elements__list-content.form-elements__list-grid
+                +button-like
+                +button-like
+            .form-elements__list
+              h3.form-elements__header_tag_h3 Rate button
+              .form-elements__list-content.form-elements__list-grid
+                +button-rating({rating: 5})
+                +button-rating({rating: 3})
+        .form-elements__elem
+          .form-elements__button-range
+            +range-slider({type: 'range', id: 'range', label: 'range slider'})
+          h3.form-elements__header_tag_h3 buttons
+          .form-elements__buttons
+            .form-elements__buttons-grid
+              +button-default({id: 'click1', size: 's', text: 'click me'})
+              +button-default({id: 'click2', size: 's', isDisabled: true, text: 'click me'})
+            .form-elements__buttons-grid
+              +button-default({id: 'click3', size: 's', hasBorder: true, text: 'click me'})
+              +button-default({id: 'click4', size: 's', isDisabled: true, hasBorder: true, text: 'click me'})
+            .form-elements__buttons-grid
+              a.datepicker--button.datepicker-accept
+              a.datepicker--button.datepicker-accept.disabled
+            +button-default({id: 'click7', size: 'l', text: 'перейти к оплате'})
+          .form-elements__pagination
+            h3.form-elements__header_tag_h3 pagination
+            +pagination
+        .form-elements__elem
+          .form-elements__dropdowns
+            +dropdown({type: 'guests', size: 'm', label: 'dropdown'})
+            +dropdown({type: 'rooms', size: 'm', label: 'dropdown'})
+            +dropdown-checkbox({items: additionalComfort, label: 'expandable checkbox list'})
+        .form-elements__elem
+          h3.form-elements__header_tag_h3 rich checkbox buttons
+          each list in checkboxes[1].list
+            +list-checkbox(list)
+        .form-elements__elem
+          h3.form-elements__header_tag_h3 bullet list
+          each text in rules
+            +list-bullet({text})
+        .form-elements__elem
+          +list-advantage({imgName: 'smile', header: 'Комфорт', description: 'Шумопоглощающие стены'})
+          +list-advantage({imgName: 'building', header: 'Удобство', description: 'Окно в каждой из спален'})
+        .form-elements__elem
+          +comment({imgName: 'comment-murad', name: 'Мурад Сарафанов', online: '5 дней назад', feedback: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})

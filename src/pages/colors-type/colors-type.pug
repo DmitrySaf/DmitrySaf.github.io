@@ -5,14 +5,13 @@ block variables
     const colors = require('./data/colors-list.json')
     const types = require('./data/types-list.json')
 
-block page 
+block page
   section.colors-type
-      .colors-type__container
-        .colors-type__grid 
-          .colors-type__colors
-            each color in colors
-              +color(color)
-          .colors-type__type
-            each typeitem in types
-              +type(typeitem)
-
+    .colors-type__container
+      .colors-type__grid
+        .colors-type__colors
+          each color in colors
+            +color(color)
+        .colors-type__type
+          each typeitem in types
+            +type(typeitem)
