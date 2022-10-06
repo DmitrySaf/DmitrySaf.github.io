@@ -38,7 +38,6 @@ if ($(window)[0].document.title === 'Room') {
 
   const votesSum = data.datasets[0].data.reduce((accum, value) => accum + value);
 
-  // eslint-disable-next-line no-new
   new Chart(chartElem, {
     type: 'doughnut',
     data,

@@ -1,4 +1,4 @@
-const endingsCheck = (endings) => {
+const createEndings = (endings) => {
   const {
     ones, twoToFour, others, value,
   } = endings;
@@ -86,7 +86,7 @@ class Dropdown {
   };
 
   renderCounter = () => {
-    const placeholderText = this.isGuests ? this.guestEndings() : this.roomsEndings();
+    const placeholderText = this.isGuests ? this.createGuestEndings() : this.createRoomsEndings();
 
     this.$counter.each((i, item) => {
       if (this.counterValues[i] <= 0) {
@@ -100,7 +100,7 @@ class Dropdown {
     this.$placeholder.text(placeholderText);
   };
 
-  guestEndings = () => {
+  createGuestEndings = () => {
     const gusetsEndings = {
       value: this.counterValues[0] + this.counterValues[1],
       ones: 'гость',
@@ -114,17 +114,17 @@ class Dropdown {
       others: 'младенцев',
     };
     const outputText = [
-      endingsCheck(gusetsEndings),
+      createEndings(gusetsEndings),
     ];
 
-    if (this.counterValues[2] !== 0) outputText.push(endingsCheck(babiesEndings));
+    if (this.counterValues[2] !== 0) outputText.push(createEndings(babiesEndings));
 
     return (this.counterValues.reduce((acc, curr) => acc + curr) === 0)
       ? 'Сколько гостей'
       : outputText.join(', ');
   };
 
-  roomsEndings = () => {
+  createRoomsEndings = () => {
     const bedroomsEndings = {
       value: this.counterValues[0],
       ones: 'спалья',
@@ -144,9 +144,9 @@ class Dropdown {
       others: 'ванн',
     };
     const outputText = [
-      endingsCheck(bedroomsEndings),
-      endingsCheck(bedsEndings),
-      endingsCheck(bathsEndings),
+      createEndings(bedroomsEndings),
+      createEndings(bedsEndings),
+      createEndings(bathsEndings),
     ];
 
     return outputText.join(', ');
