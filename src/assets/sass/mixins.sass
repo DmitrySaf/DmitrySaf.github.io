@@ -26,7 +26,9 @@
   border: 1px solid rgba(0, 0, 0, 0.12)
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2)
   border-radius: 4px
-  padding: 40px 29px 29px 29px
+  padding: 40px 29px 29px
+  +media-breakpoint-down($phone-normal-down)
+    padding: 25px 15px
 
 @mixin card-footer()
   &-container

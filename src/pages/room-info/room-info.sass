@@ -10,6 +10,8 @@
     display: grid
     grid-template-columns: minmax(300px, 711px) max-content
     justify-content: space-between
+    +media-breakpoint-down($desktop-normal-down)
+      column-gap: 15px
     +media-breakpoint-down($tablet-portrait-down)
       grid-template-columns: repeat(auto-fill, minmax(300px, 100%))
       row-gap: 20px
@@ -20,9 +22,14 @@
     column-gap: 10px
     row-gap: 35px
     +media-breakpoint-down($desktop-normal-down)
-      grid-template-columns: repeat(auto-fill, minmax(300px, 711px))
+      grid-template-columns: 1fr 1fr
     +media-breakpoint-down($desktop-small-down)
-      grid-template-columns: repeat(auto-fill, 300px)
+      grid-template-columns: 100%
+    +media-breakpoint-down($tablet-portrait-down)
+      grid-template-columns: 1fr 1fr
+      grid-row: 2 / 3
+    +media-breakpoint-down($phone-normal-down)
+      grid-template-columns: 100%
   &__block-title
     font-family: $font-bold
     font-size: $font-size-header-medium
@@ -33,13 +40,16 @@
     line-height: 18px
     +media-breakpoint-down($desktop-small-down)
       max-width: 250px
+    +media-breakpoint-down($phone-normal-down)
+      max-width: 100%
+      text-align: center
   &__rules-header
     margin-left: 20px
   &__rules-list, &__advantages-list
     all: unset
   &__feedback
     grid-column: 1 / 3
-    +media-breakpoint-down($desktop-normal-down)
+    +media-breakpoint-down($desktop-small-down)
       grid-column: auto
     +media-breakpoint-down($tablet-portrait-down)
       grid-column: 1 / 3
@@ -56,16 +66,25 @@
   &__feedback-header
     display: flex
     justify-content: space-between
+  &__advantages
+    +media-breakpoint-down($phone-normal-down)
+      display: grid
+      place-items: center
+  &__evaluation
+    +media-breakpoint-down($phone-normal-down)
+      display: grid
+      place-items: center
   &__evaluation-container
-    display: grid
-    grid-template-columns: max-content max-content
-    column-gap: 45px
+    display: flex
+    gap: 45px
     align-items: end
+    +media-breakpoint-down($desktop-normal-down)
+      flex-direction: column
+      gap: 20px
+      align-items: flex-start
     +media-breakpoint-down($tablet-portrait-down)
-      grid-template-columns: max-content
-      grid-template-rows: max-content max-content
-      justify-content: center
-      row-gap: 20px
+      flex-direction: row
+      align-items: center
   &__evaluation-chart
     position: relative
     width: 120px
@@ -87,6 +106,9 @@
       text-transform: uppercase
       font-size: 12px
       line-height: 15px
+  &__evaluation-legend
+    +media-breakpoint-down($desktop-normal-down)
+      padding-left: 15px
   &__evaluation-legend_rank
     &_great, &_good, &_normal, &_upset
       position: relative
