@@ -11,7 +11,7 @@
   &__wrapper
     display: flex
     justify-content: space-between
-    height: 70px
+    height: 100%
   &__title
     line-height: 100%
   &__menu
@@ -22,26 +22,30 @@
     +media-breakpoint-down($desktop-normal-down)
       column-gap: 10px
     +media-breakpoint-down($tablet-portrait-down)
-      grid-gap: 0
+      gap: 0
       &_logged
         grid-template-columns: repeat(2, max-content)
-  &__menu-user
-    border-left: solid 1px $dark-shade-10
-    height: 28px
+  &__user
     font-size: 14px
     line-height: 28px
     color: $dark-shade-50
+  &__user-wrapper
     padding-left: 20px
-  &__register-button, &__login-button
+    border-left: solid 1px $dark-shade-10
+    height: 28px
+    +media-breakpoint-down($tablet-portrait-down)
+      display: none
+  &__button-login
+    height: 34px
+    width: 87px
+    +media-breakpoint-down($tablet-portrait-down)
+      display: none
+  &__button-registration
     height: 34px
     +media-breakpoint-down($tablet-portrait-down)
       display: none
-    &_shown
-      display: block
-  &__login-button
-    line-height: 30px
-    padding: 0 19px
-    width: 87px
+  &__button_shown
+    display: block
   &__hamburger
     height: 20px
     width: 40px

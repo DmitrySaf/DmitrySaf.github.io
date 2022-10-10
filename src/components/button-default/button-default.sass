@@ -11,7 +11,9 @@
   color: $primary-color
   border: none
   cursor: pointer
-  height: 44px
+  height: 100%
+  width: 100%
+  max-height: 44px
   &__wrapper
     width: max-content
   &_disabled
@@ -31,14 +33,13 @@
     text-decoration: none
   &_size
     &_l
-      +arrow-main($color: #fff)
       position: relative
-      width: 100%
       max-width: 320px
+      +arrow-main($color: #fff)
       &::before, &::after
         right: 23px
     &_m
       width: 196px
     &_s
-      width: 99px
+      max-width: 99px
     

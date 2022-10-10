@@ -20,7 +20,11 @@ mixin footer(options)
         .footer__column
           h3.footer__list-title подписка
           .footer__column-description Получайте специальные предложения и новости сервиса
-          +input({type: 'email', placeholder: 'Email', sub: true, size: 'm', blockName: 'footer'})
+          +input({type: 'email', placeholder: 'Email', sub: true, size: 'm'})
       .footer__additional-content
         .footer__copyright Copyright © 2018 Toxin отель. Все права защищены.
         +social
+    .footer__mobile-version
+      +logo
+      .footer__copyright Copyright © 2018 Toxin отель. Все права защищены.
+      +social

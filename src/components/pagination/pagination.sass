@@ -27,9 +27,12 @@
     all: unset
     background: $gradient-secondary
     border-radius: 50%
-    +arrow-main(40px, 40px, #fff)
-      position: relative
-      order: 6
+    order: 6
+    width: 40px
+    height: 40px
+    position: relative
+    cursor: pointer
+    +arrow-main(#fff)
   &__item_place_last
     order: 5
   &__item_disabled

@@ -5,8 +5,12 @@
   min-height: 432px
   background: #FFFFFF
   width: 100%
+  +media-breakpoint-down($tablet-portrait-down)
+    min-height: max-content
   &__container
     +container
+    +media-breakpoint-down($tablet-portrait-down)
+      display: none
   &__main-content
     padding: 100px 0
     display: grid
@@ -74,3 +78,19 @@
     border-top: 1px solid $dark-shade-10
   &__copyright
     line-height: 17px
+    +media-breakpoint-down($tablet-portrait-down)
+      margin-top: 20px
+      margin-bottom: 25px
+      text-align: center
+  &__mobile-version
+    display: none
+    padding: 120px 0
+    grid-template-columns: max-content
+    justify-content: center
+    justify-items: center
+    width: 100%
+    +media-breakpoint-down($tablet-portrait-down)
+      display: grid
+    +media-breakpoint-down($phone-normal-down)
+      padding: 80px 10px
+      grid-template-columns: 100%

@@ -15,10 +15,13 @@ mixin header(options)
         .header__menu(class = (logged) ? 'header__menu_logged' : '')
           +header-menu
           if (logged)
-            .header__menu-user= username
+            .header__user-wrapper
+              .header__user= username
           else
-            +button-default({href: './login.html', hasBorder: true, size: 's', isHeader: true, isLogin: true, text: 'войти'})
-            +button-default({href: './registration.html', size: 'm', isHeader: true, text: 'зарегистрироваться'})
+            .header__button-login
+              +button-default({href: './login.html', hasBorder: true, size: 's', text: 'войти'})
+            .header__button-registration
+              +button-default({href: './registration.html', size: 'm', text: 'зарегистрироваться'})
           .header__hamburger
             input.header__hamburger-trigger#hamburger(type="checkbox")
             label.header__hamburger-lines(for="hamburger")
@@ -28,8 +31,10 @@ mixin header(options)
             .header__hamburger-content
               +header-menu({isHamburger: true})
               if (logged)
-                .header__menu-user= username
+                .header__user= username
               else
-                +button-default({href: './login.html', size: 's', hasBorder: true,  specialClasses: 'header__login-button header__login-button_shown', text: 'войти'})
-                +button-default({href: './registration.html', size: 'm',  specialClasses: 'header__register-button header__register-button_shown', text: 'зарегистрироваться'})
+                .header__button-login.header__button_shown
+                  +button-default({href: './login.html', size: 's', hasBorder: true, text: 'войти'})
+                .header__button-registration.header__button_shown
+                  +button-default({href: './registration.html', size: 'm', text: 'зарегистрироваться'})
               +social()
