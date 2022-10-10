@@ -46,11 +46,12 @@ if ($(window)[0].document.title === 'Room') {
         legend: {
           display: false,
         },
+        tooltip: false,
       },
     },
   });
 
-  const votesEndings = (votes) => {
+  const createVotesEndings = (votes) => {
     if ((votes % 10 === 1) && (votes !== 11)) {
       return 'голос';
     } if (((votes % 10 === 2)
@@ -66,6 +67,6 @@ if ($(window)[0].document.title === 'Room') {
   $chartVotes
     .text(`${votesSum}`)
     .append($('<span></span>', {
-      text: votesEndings(votesSum),
+      text: createVotesEndings(votesSum),
     }));
 }
