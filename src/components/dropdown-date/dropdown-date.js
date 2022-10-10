@@ -48,10 +48,14 @@ $dropdownDate.first().datepicker({
 });
 
 if ($(window)[0].document.title === 'Search rooms') {
-  datepicker.selectedDates = [
-    new Date(localStorage.getItem('firstDate')),
-    new Date(localStorage.getItem('secondDate')),
-  ];
+  if (localStorage.getItem('firstDate') && localStorage.getItem('secondDate')) {
+    datepicker.selectedDates = [
+      new Date(localStorage.getItem('firstDate')),
+      new Date(localStorage.getItem('secondDate')),
+    ];
+  } else {
+    datepicker.selectedDates = [new Date(), new Date()];
+  }
   datepicker.update();
   $dropdownDate.datepicker({
     dateFormat: 'dd M',
