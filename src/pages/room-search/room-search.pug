@@ -31,7 +31,8 @@ block content
                     +list-checkbox(list)
             +dropdown({type: 'rooms', size: 'm', label: 'удобства номера'})
             +dropdown-checkbox({items: additionalComfort, label: 'дополнительные удобства'})
-            +button-default({size: 'm', blockName: 'room-search', text:'применить'})
+            .room-search__button
+              +button-default({size: 'm', text:'применить'})
         .room-search__content
           h1.room-search__header Номера, которые мы для вас подобрали
           .room-search__content-grid

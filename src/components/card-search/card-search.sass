@@ -3,10 +3,14 @@
 
 .card-search
   +card
-  &__content
-    +card-content
   &__input-wrapper
-    +card-input-wrapper
+    display: grid
+    grid-template-columns: repeat(auto-fill, 150px)
+    justify-content: space-between
+    margin-bottom: 21px
+    +media-breakpoint-down($phone-normal-down)
+      row-gap: 10px
+      column-gap: 10px
   &__button
     margin-top: 31px
   &__header

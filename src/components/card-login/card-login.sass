@@ -3,24 +3,17 @@
 
 .card-login
   +card
-  &__content
-    +card-content
-  &__button
-    margin-top: 12px
-  &__input-email, &__input-password
-    &::-webkit-input-placeholder
-      font-size: 14px
-      line-height: 18px
-      color: $dark-shade-25
-  &__input-password
-    margin: 9px 0
-  &__input-wrapper
-    +card-input-wrapper
+  &__block
+    display: flex
+    flex-direction: column
+    gap: 10px
+    margin-bottom: 20px
   &__header
     font-family: $font-bold
     font-size: $font-size-header-large
     line-height: $line-height-header-large
     color: $dark-shade-100
     margin: 0
+    margin-bottom: 20px
   &__footer
     +card-footer

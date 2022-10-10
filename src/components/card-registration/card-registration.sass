@@ -3,38 +3,20 @@
 
 .card-registration
   +card
-  &__content
-    +card-content
-  &__input-surname, &__input-password, &__input-email, &__input-name, &__input-date
-    &::-webkit-input-placeholder
-      font-size: 14px
-      line-height: 18px
-      color: $dark-shade-25
-  &__input-surname, &__input-password
-    margin: 9px 0
-  &__input-date
-    margin-bottom: 21px
-  &__input-wrapper
-    +card-input-wrapper
+  &__block
+    margin-bottom: 20px
+    display: flex
+    flex-direction: column
+    gap: 10px
   &__gender-wrapper
-    margin-bottom: 22px
-    display: grid
-    grid-template-columns: max-content max-content
-    column-gap: 20px
-  &__button
-    margin-top: 21px
-  &__data-header
-    color: #1f2041
-    font-family: Montserrat Bold
-    font-size: 12px
-    line-height: 15px
-    margin: 0 0 5px
-    text-transform: uppercase
+    display: flex
+    gap: 20px
   &__header
     font-family: $font-bold
     font-size: $font-size-header-large
     line-height: $line-height-header-large
     color: $dark-shade-100
     margin: 0
+    margin-bottom: 20px
   &__footer
     +card-footer

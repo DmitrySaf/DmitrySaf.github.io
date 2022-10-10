@@ -28,18 +28,6 @@
   border-radius: 4px
   padding: 40px 29px 29px 29px
 
-@mixin card-content()
-  margin-top: 21px
-
-@mixin card-input-wrapper()
-  display: grid
-  grid-template-columns: repeat(auto-fill, 150px)
-  justify-content: space-between
-  margin-bottom: 21px
-  +media-breakpoint-down($phone-normal-down)
-    row-gap: 10px
-    column-gap: 10px
-
 @mixin card-footer()
   &-container
     display: flex

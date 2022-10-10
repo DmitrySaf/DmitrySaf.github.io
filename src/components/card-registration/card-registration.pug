@@ -1,19 +1,21 @@
 mixin card-registration
   .card-registration
     h1.card-registration__header Регистрация аккаунта
-    form.card-registration__content(action = "/mock-address")
-      +input({type: 'text', size: 'l', placeholder: 'Имя', blockName: 'card-registration', valueType: 'name'})
-      +input({type: 'text', size: 'l', placeholder: 'Фамилия', blockName: 'card-registration', valueType: 'surname'})
-      .card-registration__gender-wrapper
-        +button-radio({id: 'man', label: 'Мужчина'})
-        +button-radio({id: 'woman', label: 'Женщина'})
-      +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', blockName: 'card-registration', valueType: 'date', masked: true})
-      h3.card-registration__data-header данные для входа в сервис
-      +input({type: 'email', size: 'l', placeholder: 'Email', blockName: 'card-registration', valueType: 'email'})
-      +input({type: 'password', size: 'l', placeholder: 'Пароль', blockName: 'card-registration', valueType: 'password'})
-      .card-registration__offers
+    form.card-registration__content(action="/mock-address")
+      .card-registration__block
+        +input({type: 'text', size: 'l', placeholder: 'Имя'})
+        +input({type: 'text', size: 'l', placeholder: 'Фамилия'})
+        .card-registration__gender-wrapper
+          +button-radio({id: 'man', label: 'Мужчина'})
+          +button-radio({id: 'woman', label: 'Женщина'})
+      .card-registration__block
+        +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', masked: true})
+      .card-registration__block
+        +input({type: 'email', size: 'l', placeholder: 'Email', label: 'данные для входа в сервис'})
+        +input({type: 'password', size: 'l', placeholder: 'Пароль'})
         +button-toggle({label: 'Получать спецпредложения', id: 'special'})
-      +button-default({buttonType: 'submit', id: 'click7', size: 'l', blockName: 'card-registration', text: 'Зарегистрироваться'})
+      .card-registration__button
+        +button-default({buttonType: 'submit', size: 'l', text: 'Зарегистрироваться'})
       .card-registration__footer-container
         .card-registration__footer-text Уже есть аккаунт на Toxin
         +button-default({text: 'создать', hasBorder: true, size: 's', href: './login.html'})

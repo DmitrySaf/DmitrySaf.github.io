@@ -3,16 +3,21 @@
 
 .card-book
   +card
-  &__content
-    +card-content
   &__input-wrapper
-    +card-input-wrapper
+    display: grid
+    grid-template-columns: repeat(auto-fill, 150px)
+    justify-content: space-between
+    margin-bottom: 21px
+    +media-breakpoint-down($phone-normal-down)
+      row-gap: 10px
+      column-gap: 10px
   &__header
     display: grid
     grid-template-columns: 69px minmax(170px, 243px) 
     column-gap: 8px
     max-height: 30px
     align-items: end
+    margin-bottom: 20px
   &__header-status
     position: relative
     color: $primary-color

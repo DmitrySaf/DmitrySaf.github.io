@@ -47,4 +47,5 @@ mixin card-book(options)
           h2.card-book__calc-name_bold Итого
           .card-book__calc-dots
           h2.card-book__calc-price_bold 38 081₽
-      +button-default({buttonType: 'submit', id: 'click7', size: 'l', blockName: 'card-book', text: 'Забронировать'})
+      .card-book__button
+        +button-default({buttonType: 'submit', size: 'l', text: 'Забронировать'})
