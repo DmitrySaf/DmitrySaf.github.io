@@ -6,7 +6,7 @@
   align-items: center
   cursor: pointer
   &__button
-    all: unset
+    display: block
     appearance: none
     width: 40px
     height: 20px
@@ -14,7 +14,8 @@
     border: $dark-shade-25 1px solid
     position: relative 
     transition: 0.3s all cubic-bezier(0.2, 0.85, 0.32, 1.2)
-    margin-right: 10px
+    margin: 0
+    cursor: pointer
     &::before
       transition: 0.3s all cubic-bezier(0.2, 0.85, 0.32, 1.2)
       content: ''
@@ -30,3 +31,6 @@
         background: $gradient-primary  
   &__label
     cursor: pointer
+    display: flex
+    align-items: center
+    gap: 10px

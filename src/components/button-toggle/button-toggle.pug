@@ -9,8 +9,7 @@ mixin button-toggle(options)
     } = options
 
   .button-toggle
-    input.button-toggle__button(
-      type="checkbox"
-      id=id)
-    label.button-toggle__label(
-      for=id)= label
+    label.button-toggle__label
+      input.button-toggle__button(
+        type="checkbox")
+      | #{label}
