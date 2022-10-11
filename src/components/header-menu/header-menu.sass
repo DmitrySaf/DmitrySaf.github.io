@@ -38,9 +38,10 @@
     line-height: 17px
     color: $dark-shade-50
     cursor: pointer
-  &__link_bold
-    font-family: $font-bold
-    color: $dark-shade-75
+    transition: .2s all
+    &:hover
+      font-family: $font-bold
+      color: $dark-shade-75
   &__link-dropdown
     +arrow-dropdown
     position: relative
