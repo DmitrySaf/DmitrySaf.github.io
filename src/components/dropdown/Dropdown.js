@@ -18,16 +18,10 @@ const createEndings = (endings) => {
 class Dropdown {
   constructor(dropdown) {
     this.$dropdown = $(dropdown);
-    this.$clearButton = $(dropdown).find('.js-dropdown__button_action_clear');
-    this.$acceptButton = $(dropdown).find('.js-dropdown__button_action_accept');
-    this.$operationPlus = $(dropdown).find('.js-dropdown__operation_type_plus');
-    this.$operationMinus = $(dropdown).find('.js-dropdown__operation_type_minus');
-    this.$placeholder = $(dropdown).find('.js-dropdown__placeholder');
-    this.$arrow = $(dropdown).find('.js-dropdown__arrow');
-    this.$counter = $(dropdown).find('.dropdown__operation-counter');
     this.isGuests = this.$dropdown.attr('id') === 'dropdown-guests';
     this.dataInStorage = localStorage.getItem('guests') ? JSON.parse(localStorage.getItem('guests')) : [0, 0, 0];
     this.counterValues = this.isGuests ? this.dataInStorage : [2, 2, 0];
+    this.findAllElements();
     this.renderCounter();
     this.addEventListeners();
   }
@@ -39,6 +33,16 @@ class Dropdown {
     this.$operationMinus.on('click', this.onDecrease);
     this.$operationPlus.on('click', this.onIncrease);
   };
+
+  findAllElements = () => {
+    this.$arrow = this.$dropdown.find('.js-dropdown__arrow');
+    this.$counter = this.$dropdown.find('.dropdown__operation-counter');
+    this.$placeholder = this.$dropdown.find('.js-dropdown__placeholder');
+    this.$clearButton = this.$dropdown.find('.js-dropdown__button_action_clear');
+    this.$acceptButton = this.$dropdown.find('.js-dropdown__button_action_accept');
+    this.$operationPlus = this.$dropdown.find('.js-dropdown__operation_type_plus');
+    this.$operationMinus = this.$dropdown.find('.js-dropdown__operation_type_minus');
+  }
 
   onDropdownOpen = (e) => {
     e.stopPropagation();
