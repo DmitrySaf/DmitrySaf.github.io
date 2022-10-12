@@ -14,8 +14,8 @@ $dropdownDateMasked.inputmask({
 
 const appendAcceptButton = () => {
   datepicker.show();
-  if ($('.datepicker--button').length === 1) {
-    $('.datepicker--buttons').append('<div class="datepicker--button datepicker-accept">Применить</div>');
+  if ($('.datepicker--buttons').children().length === 1) {
+    $('.datepicker--buttons').append('<div class="datepicker-accept">Применить</div>');
     $('.datepicker-accept').on('click', () => {
       datepicker.hide();
     });
@@ -48,6 +48,12 @@ $dropdownDate.first().datepicker({
 });
 
 if ($(window)[0].document.title === 'Search rooms') {
+  const $clearButton = $('.datepicker--button[data-action="clear"]');
+  $clearButton.on('click', () => {
+    localStorage.setItem('firstDate', new Date());
+    localStorage.setItem('secondDate', new Date());
+    datepicker.update();
+  });
   if (localStorage.getItem('firstDate') && localStorage.getItem('secondDate')) {
     datepicker.selectedDates = [
       new Date(localStorage.getItem('firstDate')),
