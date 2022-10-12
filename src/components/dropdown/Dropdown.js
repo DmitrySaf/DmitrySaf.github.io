@@ -40,6 +40,7 @@ class Dropdown {
     if (!isCLosest && this.$dropdown.hasClass('dropdown_shown')) {
       this.$dropdown.removeClass('dropdown_shown');
     }
+    document.removeEventListener('click', this.onDropdownClose);
   };
 
   onClearButton = () => {
