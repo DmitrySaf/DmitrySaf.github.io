@@ -1,20 +1,3 @@
-const createEndings = (endings) => {
-  const {
-    ones, twoToFour, others, value,
-  } = endings;
-  const endsWithTwoToFour = ((value % 10 === 2)
-    || (value % 10 === 3)
-    || (value % 10 === 4))
-    && (value !== 12)
-    && (value !== 13)
-    && (value !== 14);
-  const endsWithOne = (value % 10 === 1) && (value !== 11);
-
-  if (endsWithOne) return (`${value} ${ones}`);
-  if (endsWithTwoToFour) return (`${value} ${twoToFour}`);
-  return (`${value} ${others}`);
-};
-
 class Dropdown {
   constructor(dropdown) {
     this.$dropdown = $(dropdown);
@@ -42,7 +25,7 @@ class Dropdown {
     this.$acceptButton = this.$dropdown.find('.js-dropdown__button_action_accept');
     this.$operationPlus = this.$dropdown.find('.js-dropdown__operation_type_plus');
     this.$operationMinus = this.$dropdown.find('.js-dropdown__operation_type_minus');
-  }
+  };
 
   onDropdownOpen = (e) => {
     e.stopPropagation();
@@ -118,10 +101,10 @@ class Dropdown {
       others: 'младенцев',
     };
     const outputText = [
-      createEndings(gusetsEndings),
+      this.createEndings(gusetsEndings),
     ];
 
-    if (this.counterValues[2] !== 0) outputText.push(createEndings(babiesEndings));
+    if (this.counterValues[2] !== 0) outputText.push(this.createEndings(babiesEndings));
 
     return (this.counterValues.reduce((acc, curr) => acc + curr) === 0)
       ? 'Сколько гостей'
@@ -148,12 +131,29 @@ class Dropdown {
       others: 'ванн',
     };
     const outputText = [
-      createEndings(bedroomsEndings),
-      createEndings(bedsEndings),
-      createEndings(bathsEndings),
+      this.createEndings(bedroomsEndings),
+      this.createEndings(bedsEndings),
+      this.createEndings(bathsEndings),
     ];
 
     return outputText.join(', ');
+  };
+
+  createEndings = (endings) => {
+    const {
+      ones, twoToFour, others, value,
+    } = endings;
+    const endsWithTwoToFour = ((value % 10 === 2)
+      || (value % 10 === 3)
+      || (value % 10 === 4))
+      && (value !== 12)
+      && (value !== 13)
+      && (value !== 14);
+    const endsWithOne = (value % 10 === 1) && (value !== 11);
+
+    if (endsWithOne) return (`${value} ${ones}`);
+    if (endsWithTwoToFour) return (`${value} ${twoToFour}`);
+    return (`${value} ${others}`);
   };
 }
 
