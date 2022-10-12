@@ -3,7 +3,7 @@
 
 .menu
   &__nav
-    +media-breakpoint-down($tablet-portrait-down)
+    +media-breakpoint-down($desktop-small-down)
       display: none
   &__nav-hamburger
     display: block
@@ -20,11 +20,7 @@
     column-gap: 21px
     padding: 0
     +media-breakpoint-down($desktop-small-down)
-      grid-template-columns: repeat(3, max-content)
-      row-gap: 2px
-      justify-items: start
-      li:nth-child(5)
-        grid-column: 2 / 4
+      display: none
     li
       position: relative
       display: inline-flex
