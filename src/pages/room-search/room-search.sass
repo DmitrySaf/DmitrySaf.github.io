@@ -27,34 +27,41 @@
     justify-content: center
   &__filters
     +media-breakpoint-down($tablet-portrait-down)
+      display: none
       position: absolute
       top: 0
       left: 0
-      height: 0
+      height: 100vh
       overflow: hidden
       z-index: 100
-      width: 50vw
+      width: 100%
       transition: .5s all
-      background: #fff
       box-shadow: 0 3px 5px $dark-shade-50
-    +media-breakpoint-down($phone-normal-down)
-      width: 100vw
   &__filters_shown
+    display: block
+  &__filters_shown > .room-search__filters-content
+    position: absolute
+    top: 0
+    left: 0
+    grid-template-columns: minmax(200px, 266px)
+    justify-content: center
+    width: 50%
     padding: 15px
-    height: auto
-    overflow: auto
+    z-index: 1000
+    overflow-y: scroll
     +media-breakpoint-down($phone-normal-down)
       padding: 10px
       padding: 20px
       box-shadow: 0 0 10px 3px $dark-shade-75
   &__filters-content
     display: grid
+    height: 100%
     grid-template-rows: repeat(7, max-content)
-    grid-template-columns: 100%
+    grid-template-columns: max-content
     row-gap: 20px
-    max-width: 266px
-    margin: 0 auto
+    width: max-content
     justify-items: center
+    background: #fff
     & > .logo
       display: none
       +media-breakpoint-down($tablet-portrait-down)
@@ -76,8 +83,18 @@
       font-size: 14px
       color: $primary-color
   &__filters-text
-      margin: 0
-      color: $primary-color
+    margin: 0
+    color: $primary-color
+  &__filters-overflow
+    display: none
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: $dark-shade-25
+  &__filters_shown > .room-search__filters-overflow
+    display: block
   &__header
     font-family: $font-bold
     font-size: $font-size-header-large

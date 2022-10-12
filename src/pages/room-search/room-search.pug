@@ -15,6 +15,7 @@ block content
           h3.room-search__filters-text Фильтры
           span.material-icons-outlined filter_alt
         .room-search__filters.js-room-search__filters
+          .room-search__filters-overflow
           .room-search__filters-content
             +logo
             .room-search__arrow.js-room-search__arrow
@@ -22,7 +23,7 @@ block content
             +dropdown({type: 'guests', size: 'm', label: 'гости'})
             .room-search__range
               +range-slider({label: 'диапазон цены'})
-              .room-search__range-description Стоимость за сутки пребывания в номер-l
+              .room-search__range-description Стоимость за сутки пребывания в номере
             each checkbox in checkboxes
               .room-search__checkbox
                 h3.room-search__checkbox-header #{checkbox.header}
@@ -31,7 +32,7 @@ block content
                     +list-checkbox(list)
             +dropdown({type: 'rooms', size: 'm', label: 'удобства номера'})
             +dropdown-checkbox({items: additionalComfort, label: 'дополнительные удобства'})
-            .room-search__button
+            .room-search__button.js-room-search__button
               +button-default({size: 'm', text:'применить'})
         .room-search__content
           h1.room-search__header Номера, которые мы для вас подобрали

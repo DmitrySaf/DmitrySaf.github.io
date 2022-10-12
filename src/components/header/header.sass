@@ -52,7 +52,7 @@
     display: none
     +media-breakpoint-down($desktop-small-down)
       display: block
-  &__hamburger-lines
+  &__hamburger-trigger
     position: relative
     height: 100%
     display: grid
@@ -63,24 +63,21 @@
       width: 100%
       background: $gradient-primary
       transition: .3s all
-  &__hamburger-trigger
-    all: unset
-    appearance: none
-    &:checked
-      & ~ label > span
-        position: absolute
-        top: 50%
-        &:nth-child(1)
-          transform: rotate(45deg)
-        &:nth-child(2)
-          transform: rotate(45deg)
-        &:nth-child(3)
-          transform: rotate(-45deg)
-      & ~ div
-        width: 50vw
-        box-shadow: 0 0 5px 3px $dark-shade-75
-        +media-breakpoint-down($phone-normal-down)
-          width: 100vw
+  &__hamburger-trigger_active
+    & span
+      position: absolute
+      top: 50%
+      &:nth-child(1)
+        transform: rotate(45deg)
+      &:nth-child(2)
+        transform: rotate(45deg)
+      &:nth-child(3)
+        transform: rotate(-45deg)
+    & ~ div
+      width: 50vw
+      box-shadow: 0 0 5px 3px $dark-shade-75
+      +media-breakpoint-down($phone-normal-down)
+        width: 100vw
   &__hamburger-content
     transition: .3s all
     position: absolute
