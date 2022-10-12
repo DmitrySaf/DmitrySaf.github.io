@@ -30,16 +30,16 @@
   +media-breakpoint-down($phone-normal-down)
     padding: 25px 15px
 
-@mixin card-footer()
-  &-container
-    display: flex
-    justify-content: space-between
-    align-items: center
-    margin-top: 30px
-  &-text
-    font-size: 14px
-    line-height: 18px
-    color: $dark-shade-100
+@mixin card-footer-container()
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-top: 30px
+
+@mixin card-footer-text()
+  font-size: 14px
+  line-height: 18px
+  color: $dark-shade-100
 
 @mixin input($width: 320px)
   width: 100%
