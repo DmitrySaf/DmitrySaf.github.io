@@ -1,17 +1,6 @@
-mixin button-radio(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      id,
-      label
-    } = options
-
-  .button-radio
+mixin button-radio({ label, name = "gender" } = {})
+  label.button-radio
     input.button-radio__button(
       type="radio"
-      name="gender"
-      id=id)
-    label.button-radio__label(
-      for=id)= label
+      name=name)
+    span= label
