@@ -1,9 +1,4 @@
-mixin range-slider(options)
-  if !options
-    - const options = {}
-
-  - const { label } = options
-
+mixin range-slider({ label } = {})
   .range-slider__container
     .range-slider__wrapper
       h3.range-slider__header= label

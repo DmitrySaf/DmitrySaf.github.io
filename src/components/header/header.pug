@@ -1,13 +1,4 @@
-mixin header(options)
-  if !options
-    - var options = {}
-
-  -
-    const {
-      username,
-      logged
-    } = options
-
+mixin header({ username, logged } = {})
   header.header
     .header__container
       .header__wrapper

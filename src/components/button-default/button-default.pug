@@ -1,20 +1,4 @@
-mixin button-default(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      size,
-      hasBorder,
-      isDisabled,
-      blockName,
-      buttonType,
-      href,
-      text,
-      isHeader,
-      isLogin
-    } = options
-
+mixin button-default({size, hasBorder, isDisabled, blockName, buttonType, href, text, isHeader, isLogin } = {})
   -
     const classes =
       [size && `button_size_${size} `]

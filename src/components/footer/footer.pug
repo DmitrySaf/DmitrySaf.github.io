@@ -1,9 +1,5 @@
-mixin footer(options)
-  if !options
-    - const options = {}
-
-  -
-    const footerColumns = require('../../components/footer/data/columns-list.json')
+mixin footer
+  - const footerColumns = require('../../components/footer/data/columns-list.json')
 
   footer.footer
     .footer__container

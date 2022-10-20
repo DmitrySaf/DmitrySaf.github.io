@@ -1,13 +1,4 @@
-mixin color(options)
-  if (!options)
-    - const options = {}
-
-  -
-    const {
-      color,
-      opacity
-    } = options
-
+mixin color({ color, opacity } = {})
   .color
     .color__box(class=(color === 'dark-shade') ? `color_${color}-${opacity}` : `color_${color}`)
     .color__text

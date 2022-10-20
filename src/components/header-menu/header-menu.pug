@@ -1,10 +1,5 @@
-mixin header-menu(options)
-  if !options
-    - var options = {}
-
-  -
-    const { isHamburger } = options
-    const links = require('../../components/header-menu/data/links-list.json')
+mixin header-menu({ isHamburger } = {})
+  - const links = require('../../components/header-menu/data/links-list.json')
 
   nav.menu__nav(
     class = isHamburger && 'menu__nav-hamburger')

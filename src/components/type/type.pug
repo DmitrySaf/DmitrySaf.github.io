@@ -1,13 +1,4 @@
-mixin type(options)
-  if (!options)
-    - const options = {}
-
-  -
-    const {
-      tag,
-      text
-    } = options
-
+mixin type({ tag, text } = {})
   .type
     .type__tag(class=`type__tag_name_${tag}`)= tag
     .type__text(class=`type__text_name_${tag}`)= text

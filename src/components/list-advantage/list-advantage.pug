@@ -1,14 +1,4 @@
-mixin list-advantage(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      header,
-      description,
-      imgName
-    } = options
-
+mixin list-advantage({ header, description, imgName } = {})
   li.list-advantage
     .list-advantage__img
       img(src=require(`../../components/list-advantage/img/${imgName}.svg`) alt=imgName)

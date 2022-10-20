@@ -1,14 +1,4 @@
-mixin card-book(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      roomNumber,
-      roomStatus,
-      roomPrice
-    } = options
-
+mixin card-book({ roomNumber, roomPrice, roomStatus } = {})
   -
     const priceSources = [
       {

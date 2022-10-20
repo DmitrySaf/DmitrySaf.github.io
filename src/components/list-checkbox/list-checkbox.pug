@@ -1,15 +1,4 @@
-mixin list-checkbox(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      id,
-      isRich,
-      label,
-      description
-    } = options
-
+mixin list-checkbox({ id, isRich, label, description } = {})
   li.list-checkbox
     input.list-checkbox__button(
       type="checkbox"

@@ -1,9 +1,4 @@
-mixin list-bullet(options)
-  if !options
-    - const options = {}
-
-  - const { text } = options
-
+mixin list-bullet({ text } = {})
   li.list-bullet
     .list-bullet__mark
     .list-bullet__text= text

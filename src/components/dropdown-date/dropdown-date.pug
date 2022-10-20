@@ -1,14 +1,4 @@
-mixin dropdown-date(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      size,
-      masked,
-      label
-    } = options
-
+mixin dropdown-date({ size, masked, label } = {})
   .dropdown-date(
     class = size ? `dropdown-date_size_${size} ` : 'dropdown-date_size_s')
     h3.dropdown-date__label= label

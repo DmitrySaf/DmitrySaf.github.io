@@ -1,16 +1,4 @@
-mixin card-preview(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      roomNumber,
-      roomPrice,
-      isLux,
-      roomComments,
-      rating
-    } = options
-
+mixin card-preview({ roomNumber, roomPrice, isLux, roomComments, rating } = {})
   -
     const images = 4
     let imageIndex = 1

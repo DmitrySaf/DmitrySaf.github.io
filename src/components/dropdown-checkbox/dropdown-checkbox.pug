@@ -1,13 +1,4 @@
-mixin dropdown-checkbox(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      label,
-      items
-    } = options
-
+mixin dropdown-checkbox({ label, items } = {})
   .dropdown-checkbox.dropdown_size_m.dropdown_no-border
     h3.dropdown-checkbox__label= label
     .dropdown-checkbox__arrow.dropdown__arrow.js-dropdown-checkbox__arrow

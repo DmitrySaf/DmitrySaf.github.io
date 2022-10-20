@@ -1,14 +1,4 @@
-mixin dropdown(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      label,
-      size,
-      type
-    } = options
-
+mixin dropdown({ label, size, type } = {})
   -
     const guestsOptions = [
       'взрослые',

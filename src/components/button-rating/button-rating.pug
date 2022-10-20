@@ -1,13 +1,5 @@
-mixin button-rating(options)
-  if !options
-    - const options = {}
-
+mixin button-rating({ roomNumber, rating, starsNumber } = {})
   -
-    const {
-      roomNumber,
-      rating
-    } = options
-    let { starsNumber } = options
     let n = 1
 
   if !starsNumber

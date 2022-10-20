@@ -1,15 +1,4 @@
-mixin button-toggle(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      id,
-      label
-    } = options
-
-  .button-toggle
-    label.button-toggle__label
-      input.button-toggle__button(
-        type="checkbox")
-      | #{label}
+mixin button-toggle({ label } = {})
+  label.button-toggle
+    input.button-toggle__button(type="checkbox")
+    | #{label}

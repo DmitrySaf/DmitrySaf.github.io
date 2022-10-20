@@ -1,24 +1,8 @@
-mixin input(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      size,
-      masked,
-      blockName,
-      valueType,
-      placeholder,
-      type,
-      label,
-      sub,
-      id
-    } = options;
-
+mixin input({ size, masked, blockName, valueType, placeholder, type, label, sub, } = {})
   -
     const classes =
-    [size && `input_size_${size} ` || 'input_size_l ']
-    + [masked && 'js-input_masked ']
+      [size && `input_size_${size} ` || 'input_size_l ']
+      + [masked && 'js-input_masked ']
 
   .input__container
     if (label)

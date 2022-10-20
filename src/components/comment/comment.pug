@@ -1,15 +1,4 @@
-mixin comment(options)
-  if !options
-    - const options = {}
-
-  -
-    const {
-      imgName,
-      name,
-      online,
-      feedback
-    } = options
-
+mixin comment({ imgName, name, online, feedback } = {})
   .comment
     .comment__img
       img(src=require(`../../components/comment/img/${imgName}.svg`) alt=imgName)
