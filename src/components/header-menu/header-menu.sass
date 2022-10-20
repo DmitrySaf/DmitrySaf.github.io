@@ -1,11 +1,10 @@
 @import '../../assets/sass/variables'
 @import '../../assets/sass/mixins'
 
-.menu
-  &__nav
-    +media-breakpoint-down($desktop-small-down)
-      display: none
-  &__nav-hamburger
+.header-menu
+  +media-breakpoint-down($desktop-small-down)
+    display: none
+  &__hamburger
     display: block
     & > ul
       display: flex
@@ -55,7 +54,7 @@
     left: 0
     z-index: 100
     cursor: pointer
-    &:focus ~ .menu__link-content
+    &:focus ~ .header-menu__link-content
       max-height: 100px
       padding: 10px
   &__link-content

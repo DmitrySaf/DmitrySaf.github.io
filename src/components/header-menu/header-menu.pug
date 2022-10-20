@@ -1,8 +1,8 @@
 mixin header-menu({ isHamburger } = {})
   - const links = require('../../components/header-menu/data/links-list.json')
 
-  nav.menu__nav(class = isHamburger && 'menu__nav-hamburger')
-    ul.menu__list
+  nav.header-menu(class = isHamburger && 'header-menu__hamburger')
+    ul.header-menu__list
       each link in links
         -
           const {
@@ -15,11 +15,11 @@ mixin header-menu({ isHamburger } = {})
 
         li
           if hasDropdown
-            input.menu__link-checkbox(type="checkbox")
-            .menu__link= name
-            .menu__link-dropdown
-            .menu__link-content
+            input.header-menu__link-checkbox(type="checkbox")
+            .header-menu__link= name
+            .header-menu__link-dropdown
+            .header-menu__link-content
               each item in items
-                a.menu__link(href=item.path) #{item.name}
+                a.header-menu__link(href=item.path) #{item.name}
           else
-            a.menu__link(href=path)= name
+            a.header-menu__link(href=path)= name
