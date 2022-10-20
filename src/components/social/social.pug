@@ -17,5 +17,5 @@ mixin social
 
   .social
     each social in socialsList
-      a.social__link(href=social.link target="_blank")
+      a.social__link(href=social.link target="_blank" rel="noopener noreferrer")
         img(src=require(`../../components/social/img/${social.name}.svg`) alt=social.name)
