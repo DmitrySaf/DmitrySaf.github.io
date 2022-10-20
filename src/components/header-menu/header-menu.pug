@@ -1,8 +1,7 @@
 mixin header-menu({ isHamburger } = {})
   - const links = require('../../components/header-menu/data/links-list.json')
 
-  nav.menu__nav(
-    class = isHamburger && 'menu__nav-hamburger')
+  nav.menu__nav(class = isHamburger && 'menu__nav-hamburger')
     ul.menu__list
       each link in links
         -
