@@ -2,9 +2,10 @@
 @import '../../assets/sass/mixins'
     
 .button-toggle
+  cursor: pointer
   display: flex
   align-items: center
-  cursor: pointer
+  gap: 10px
   &__button
     display: block
     appearance: none
@@ -28,9 +29,4 @@
       border-color: $primary-color
       &::before
         transform: translateX(20px) 
-        background: $gradient-primary  
-  &__label
-    cursor: pointer
-    display: flex
-    align-items: center
-    gap: 10px
+        background: $gradient-primary
