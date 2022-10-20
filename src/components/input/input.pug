@@ -1,8 +1,8 @@
-mixin input({ size, masked, blockName, valueType, placeholder, type, label, sub, } = {})
+mixin input({ size, isMasked, blockName, valueType, placeholder, type, label, sub, } = {})
   -
     const classes =
       [size && `input_size_${size} ` || 'input_size_l ']
-      + [masked && 'js-input_masked ']
+      + [isMasked && 'js-input_masked ']
 
   .input__container
     if (label)

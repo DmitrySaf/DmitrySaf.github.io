@@ -1,10 +1,10 @@
-mixin dropdown-date({ size, masked, label } = {})
+mixin dropdown-date({ size, isMasked, label } = {})
   .dropdown-date(
     class = size ? `dropdown-date_size_${size} ` : 'dropdown-date_size_s')
     h3.dropdown-date__label= label
     .dropdown-date__container
       input.dropdown-date__input(
-        class=masked ? 'js-dropdown-date_masked ' : ''
+        class=isMasked ? 'js-dropdown-date_masked ' : ''
         type="text"
         placeholder="ДД.ММ.ГГГГ"
         required=true)

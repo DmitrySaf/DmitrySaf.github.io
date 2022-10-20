@@ -18,10 +18,10 @@ block page
           .form-elements__inputs
             +input({type: 'email', label: 'text field', placeholder: 'Email'})
             +dropdown({type: 'guests', size: 'l', label: 'dropdown'})
-            +input({type: 'text', label: 'masked text field', placeholder: 'ДД.ММ.ГГГГ', masked: true})
+            +input({type: 'text', label: 'masked text field', placeholder: 'ДД.ММ.ГГГГ', isMasked: true})
           .form-elements__date-inputs
-            +dropdown-date({size: 's', label: 'date dropdown', masked: true})
-            +dropdown-date({size: 's', label: 'date dropdown', masked: true})
+            +dropdown-date({size: 's', label: 'date dropdown', isMasked: true})
+            +dropdown-date({size: 's', label: 'date dropdown', isMasked: true})
             +dropdown-date({size: 'm', label: 'filter date dropdown'})
             +input({type: 'email', label: 'subscription text field', sub: true, size: 'm', placeholder: 'Email'})
         .form-elements__elem

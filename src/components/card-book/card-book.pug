@@ -25,8 +25,8 @@ mixin card-book({ roomNumber, roomPrice, roomStatus } = {})
         .card-book__header-price #{roomPrice}₽ <span>в сутки</span>
     form.card-book__content(action = "/mock-address")
       .card-book__input-wrapper
-        +dropdown-date({size: 's', label: 'прибытие', masked: true})
-        +dropdown-date({size: 's', label: 'выезд', masked: true})
+        +dropdown-date({size: 's', label: 'прибытие', isMasked: true})
+        +dropdown-date({size: 's', label: 'выезд', isMasked: true})
       +dropdown({type: 'guests', size: 'l', label: 'гости'})
       .card-book__calc
         each source in priceSources

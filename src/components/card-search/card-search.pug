@@ -3,8 +3,8 @@ mixin card-search
     h1.card-search__header Найдём номера под ваши пожелания
     form.card-search__content(action="./room-search.html")
       .card-search__input-wrapper
-        +dropdown-date({size: 's', label: 'прибытие', masked: true})
-        +dropdown-date({size: 's', label: 'выезд', masked: true})
+        +dropdown-date({size: 's', label: 'прибытие', isMasked: true})
+        +dropdown-date({size: 's', label: 'выезд', isMasked: true})
       +dropdown({type: 'guests', size: 'l', label: 'гости'})
       .card-search__button
         +button-default({buttonType: 'submit', size: 'l', text: 'Подобрать номер'})

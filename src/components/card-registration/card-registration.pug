@@ -9,7 +9,7 @@ mixin card-registration
           +button-radio({id: 'man', label: 'Мужчина'})
           +button-radio({id: 'woman', label: 'Женщина'})
       .card-registration__block
-        +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', masked: true})
+        +input({type: 'text', size: 'l', placeholder: 'ДД.ММ.ГГГГ', label: 'дата рождения', isMasked: true})
       .card-registration__block
         +input({type: 'email', size: 'l', placeholder: 'Email', label: 'данные для входа в сервис'})
         +input({type: 'password', size: 'l', placeholder: 'Пароль'})
