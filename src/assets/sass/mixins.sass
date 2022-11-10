@@ -28,7 +28,7 @@
   border-radius: 4px
   padding: 40px 29px 29px
   +media-breakpoint-down($phone-normal-down)
-    padding: 25px 15px
+    padding: 25px clamp(15px, 7vw, 29px)
 
 @mixin card-footer-container()
   display: flex
