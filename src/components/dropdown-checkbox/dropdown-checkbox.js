@@ -1,13 +1,6 @@
 const $dropdownCheckboxArrow = $('.js-dropdown-checkbox__arrow');
 const $dropdownCheckboxContent = $('.dropdown-checkbox__list');
 
-$dropdownCheckboxArrow.on('click', (e) => {
-  e.stopPropagation();
-
-  document.addEventListener('click', onDropdownClose);
-  onDropdownClose(e);
-});
-
 const onDropdownClose = (e) => {
   const isCLosest = e.target.closest('.dropdown-checkbox__list');
 
@@ -22,3 +15,10 @@ const onDropdownClose = (e) => {
     $dropdownCheckboxArrow.addClass('dropdown-checkbox__arrow_triggered');
   }
 };
+
+$dropdownCheckboxArrow.on('click', (e) => {
+  e.stopPropagation();
+
+  document.addEventListener('click', onDropdownClose);
+  onDropdownClose(e);
+});
